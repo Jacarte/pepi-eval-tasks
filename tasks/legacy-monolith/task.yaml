@@ -1,0 +1,8 @@
+name: legacy-monolith
+kind: needs-subagents
+language: go
+go_version: 1.22.5
+sessions: 1
+session_timeout_minutes: 30
+budget_usd: 2
+deadline_minutes: null
