@@ -1,0 +1,8 @@
+name: kv-database
+kind: long
+language: go
+go_version: 1.22.5
+sessions: 3
+session_timeout_minutes: 30
+budget_usd: 8
+deadline_minutes: null
