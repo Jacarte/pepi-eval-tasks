@@ -35,3 +35,11 @@ task_restore_seed_tests() {
     *) return 1 ;;
   esac
 }
+
+# workspace_special_files <dir>: prints, relative to <dir> and at most 20, every entry that is
+# neither a regular file nor a directory: symlinks, fifos, sockets and devices. A legitimate
+# solution never needs them, and a symlink would let a file slip past every find that selects
+# regular files (the seed-test restore, the cheat scan) while go still compiles it.
+workspace_special_files() {
+  (cd "$1" && find . ! -type d ! -type f -print | sort | head -n 20)
+}

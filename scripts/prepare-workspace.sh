@@ -7,7 +7,9 @@
 #      (edited, deleted-and-recreated and agent-added alike) and copy the seed's *_test.go
 #      files back, so visible tests cannot be removed or weakened to pass a regression milestone;
 #   3. copy hidden/ over the workspace.
-# Exit codes: 0 prepared, 2 bad usage or bad task.yaml.
+# The workspace is rejected (exit 1, "REJECT:" line) when it holds anything but regular files and
+# directories (symlinks, fifos, ...): see workspace_special_files in taskyaml.sh.
+# Exit codes: 0 prepared, 1 workspace rejected, 2 bad usage or bad task.yaml.
 set -euo pipefail
 
 if [ $# -ne 2 ]; then
@@ -21,6 +23,12 @@ WORKDIR=$(cd "$2" && pwd)
 . "$HERE/taskyaml.sh"
 [ -f "$TASK/task.yaml" ] && [ -d "$TASK/hidden" ] || { echo "prepare-workspace: $TASK is not a task dir" >&2; exit 2; }
 
+SPECIAL=$(workspace_special_files "$WORKDIR")
+if [ -n "$SPECIAL" ]; then
+  echo "REJECT: workspace contains symlinks or special files: $(printf '%s' "$SPECIAL" | tr '\n' ' ')"
+  exit 1
+fi
+
 RESTORE=$(task_restore_seed_tests "$TASK/task.yaml") || { echo "prepare-workspace: restore_seed_tests must be true or false" >&2; exit 2; }
 
 while IFS= read -r d; do
@@ -33,11 +41,11 @@ while IFS= read -r d; do
 done < <(task_owned_dirs "$TASK/task.yaml")
 
 if [ "$RESTORE" = true ]; then
-  find "$WORKDIR" -name '*_test.go' -type f -not -path '*/.git/*' -delete
+  find "$WORKDIR" -name '*_test.go' ! -type d -not -path '*/.git/*' -delete
   while IFS= read -r rel; do
     mkdir -p "$WORKDIR/$(dirname "$rel")"
     cp "$TASK/seed/$rel" "$WORKDIR/$rel"
-  done < <(cd "$TASK/seed" && find . -name '*_test.go' -type f | sed 's|^\./||' | sort)
+  done < <(cd "$TASK/seed" && find . -name '*_test.go' ! -type d | sed 's|^\./||' | sort)
 fi
 
 cp -R "$TASK/hidden"/. "$WORKDIR"/

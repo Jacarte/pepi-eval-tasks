@@ -3,8 +3,25 @@
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 T=$(mktemp -d)
-trap 'rm -rf "$T"' EXIT
 FAILS=0
+
+# Real mode: root on Linux with setpriv, as in the grading container. check-milestone.sh then
+# drops privileges for the agent's code and the cases below run against that. Otherwise (macOS,
+# a non-root user) the privilege drop is switched off with CHECK_MILESTONE_ALLOW_ROOT=1, which is
+# only legitimate for this self-test, and the privilege cases are skipped.
+if [ "$(uname)" = Linux ] && [ "$(id -u)" -eq 0 ] && command -v setpriv >/dev/null 2>&1; then
+  PRIVILEGED=1
+  GRADE_GOCACHE=$(mktemp -d)
+  chmod 755 "$GRADE_GOCACHE"
+  export GRADE_GOCACHE
+  unset CHECK_MILESTONE_ALLOW_ROOT
+  echo "selftest mode: privileged (agent code runs as uid 65534)"
+else
+  PRIVILEGED=0
+  export CHECK_MILESTONE_ALLOW_ROOT=1
+  echo "selftest mode: CHECK_MILESTONE_ALLOW_ROOT=1 (no privilege drop; privilege cases skipped)"
+fi
+trap 'rm -rf "$T" "${GRADE_GOCACHE:-}"' EXIT
 
 # mk <name> <milestone-yaml-body> : creates task + reference with 2 good milestones' files
 mk() {
@@ -427,5 +444,121 @@ agent_ws flagabsent
 rm "$T/flagabsent/work/visible_test.go"
 prepare flagabsent
 check "restore_seed_tests absent defaults to false" 0 flagabsent m3 "PASS: m3"
+
+# ---- symlinks and special files in the workspace ----
+# The attack: a symlinked zz_test.go whose target is a text file holding a TestMain that fakes
+# passing output. Every find that selects regular files misses it (the seed-test restore, the
+# cheat scan) while go compiles it. check-milestone.sh and prepare-workspace.sh must reject it.
+mk_restore symlinkmain true
+agent_ws symlinkmain
+mkdir -p "$T/symlinkmain/work/notes"
+cat > "$T/symlinkmain/work/notes/x.txt" <<'GO'
+package demo
+
+import (
+	"fmt"
+	"os"
+	"testing"
+)
+
+func TestMain(m *testing.M) {
+	fmt.Println("--- PASS: TestM1 (0.00s)")
+	fmt.Println("PASS")
+	os.Exit(0)
+}
+GO
+ln -s notes/x.txt "$T/symlinkmain/work/zz_test.go"
+rc=0
+"$HERE/prepare-workspace.sh" "$T/symlinkmain/task" "$T/symlinkmain/work" > "$T/symlinkmain/prep.out" 2>&1 || rc=$?
+if [ "$rc" -eq 1 ] && grep -q "workspace contains symlinks or special files: ./zz_test.go" "$T/symlinkmain/prep.out"; then echo "ok   prepare-workspace rejects a symlinked test file (exit 1)"; else echo "FAIL prepare-workspace symlink: got $rc"; cat "$T/symlinkmain/prep.out"; FAILS=$((FAILS + 1)); fi
+# a workspace that skipped prepare-workspace.sh is rejected by check-milestone.sh as well
+cp -R "$T/symlinkmain/task/hidden"/. "$T/symlinkmain/work"/
+check "check-milestone rejects the symlinked TestMain file" 1 symlinkmain m1 "REJECT: workspace contains symlinks or special files: ./zz_test.go"
+
+mk_restore symlinkdangling true
+agent_ws symlinkdangling
+ln -s /nonexistent/target "$T/symlinkdangling/work/dangling_test.go"
+cp -R "$T/symlinkdangling/task/hidden"/. "$T/symlinkdangling/work"/
+check "dangling symlink is rejected" 1 symlinkdangling m1 "workspace contains symlinks or special files"
+
+mk_restore symlinkdir true
+agent_ws symlinkdir
+mkdir -p "$T/symlinkdir/real"
+ln -s ../real "$T/symlinkdir/work/linkdir"
+cp -R "$T/symlinkdir/task/hidden"/. "$T/symlinkdir/work"/
+check "symlinked directory is rejected" 1 symlinkdir m1 "workspace contains symlinks or special files: ./linkdir"
+
+if command -v mkfifo >/dev/null 2>&1; then
+  mk_restore fifofile true
+  agent_ws fifofile
+  mkfifo "$T/fifofile/work/pipe_test.go"
+  cp -R "$T/fifofile/task/hidden"/. "$T/fifofile/work"/
+  check "fifo named like a test file is rejected (it would hang the scan)" 1 fifofile m1 "workspace contains symlinks or special files: ./pipe_test.go"
+fi
+
+# ---- the privilege drop ----
+mk_restore noprivs true
+agent_ws noprivs
+cp -R "$T/noprivs/task/hidden"/. "$T/noprivs/work"/
+# the unprivileged user must be able to reach the task, so it lives outside the 0700 $T
+NP=$(mktemp -d)
+chmod 755 "$NP"
+cp -R "$T/noprivs/task" "$T/noprivs/work" "$NP"/
+chmod -R a+rX "$NP"
+rc=0
+if [ "$PRIVILEGED" -eq 1 ]; then
+  setpriv --reuid=65534 --regid=65534 --clear-groups env -u CHECK_MILESTONE_ALLOW_ROOT "$HERE/check-milestone.sh" "$NP/task" "$NP/work" m1 > "$T/noprivs/out" 2>&1 || rc=$?
+else
+  env -u CHECK_MILESTONE_ALLOW_ROOT "$HERE/check-milestone.sh" "$NP/task" "$NP/work" m1 > "$T/noprivs/out" 2>&1 || rc=$?
+fi
+rm -rf "$NP"
+if [ "$rc" -eq 2 ] && grep -q "refusing to run agent code\|must run as root" "$T/noprivs/out"; then echo "ok   without root and setpriv the grader fails closed (exit 2)"; else echo "FAIL fail-closed: got $rc"; cat "$T/noprivs/out"; FAILS=$((FAILS + 1)); fi
+
+# The attack: an init() in the agent's package overwrites the checker's files (found by glob in
+# the temp dir) and exits 0. The workspace is the seed, so every milestone really fails: only a
+# tampered verdict could turn it into a pass. scancheat does not flag it (no os.Args or flag use).
+mk tamper "$GOOD"
+ws_seed() { mkdir -p "$T/$1/work"; cp -R "$T/$1/task/seed"/. "$T/$1/work"/; cp -R "$T/$1/task/hidden"/. "$T/$1/work"/; }
+ws_seed tamper
+cat > "$T/tamper/work/tamper.go" <<'GO'
+package demo
+
+import (
+	"os"
+	"path/filepath"
+)
+
+func init() {
+	fakeEvents := "{\"Action\":\"pass\",\"Package\":\"demo\",\"Test\":\"TestM1\"}\n{\"Action\":\"pass\",\"Package\":\"demo\",\"Test\":\"TestM2\"}\n"
+	for _, dir := range []string{"/tmp", os.TempDir(), "/var/tmp", "/dev/shm"} {
+		for _, p := range glob(dir + "/tmp.*/checkjson") {
+			_ = os.WriteFile(p, []byte("#!/bin/sh\nexit 0\n"), 0o755)
+		}
+		for _, p := range glob(dir + "/tmp.*/events") {
+			_ = os.WriteFile(p, []byte(fakeEvents), 0o644)
+		}
+		for _, p := range glob(dir + "/tmp.*/expected") {
+			_ = os.WriteFile(p, nil, 0o644)
+		}
+	}
+	os.Exit(0)
+}
+
+func glob(pattern string) []string {
+	m, _ := filepath.Glob(pattern)
+	return m
+}
+GO
+check "init() overwriting the checker, events and expected files does not change the verdict" 1 tamper m1 "REJECT"
+if [ "$PRIVILEGED" -eq 1 ]; then
+  if grep -q "the result checker was modified" "$T/tamper/check.out"; then echo "FAIL tamper reached the checker binary despite the privilege drop"; FAILS=$((FAILS + 1)); else echo "ok   the privilege drop kept the checker out of reach (rejected by the real result)"; fi
+  # Control: with the drop switched off the same attack does reach the checker, and only the
+  # hash comparison stops it. This shows the attack above is real.
+  rc=0
+  CHECK_MILESTONE_ALLOW_ROOT=1 "$HERE/check-milestone.sh" "$T/tamper/task" "$T/tamper/work" m1 > "$T/tamper/control.out" 2>&1 || rc=$?
+  if [ "$rc" -eq 1 ] && grep -q "the result checker was modified" "$T/tamper/control.out"; then echo "ok   control: without the privilege drop the attack modifies the checker (caught by its hash)"; else echo "FAIL control: got $rc"; cat "$T/tamper/control.out"; FAILS=$((FAILS + 1)); fi
+else
+  echo "skip privilege drop proof (needs root + setpriv); the hash check caught the tamper: $(grep -c 'the result checker was modified' "$T/tamper/check.out") match"
+fi
 
 if [ "$FAILS" -eq 0 ]; then echo "selftest passed"; else echo "selftest: $FAILS failure(s)"; exit 1; fi
