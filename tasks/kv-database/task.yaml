@@ -6,3 +6,5 @@ sessions: 3
 session_timeout_minutes: 30
 budget_usd: 8
 deadline_minutes: null
+scoring: prefix            # milestones passed from the start, in order
+owned_dirs: [acceptance]   # deleted from the workspace before hidden/ is overlaid

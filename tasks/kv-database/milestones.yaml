@@ -1,19 +1,19 @@
 milestones:
   - id: m1-storage
     title: In-memory ordered key-value store
-    command: go test ./... -run '^TestM1'
+    command: go test ./acceptance/ -run '^TestM1'
   - id: m2-query
     title: Text query layer
-    command: go test ./... -run '^TestM2'
+    command: go test ./acceptance/ -run '^TestM2'
   - id: m3-transactions
     title: Transactions with conflict detection
-    command: go test ./... -run '^TestM3'
+    command: go test ./acceptance/ -run '^TestM3'
   - id: m4-durability
     title: WAL durability, recovery and compaction
-    command: go test ./... -run '^TestM4'
+    command: go test ./acceptance/ -run '^TestM4'
   - id: m5-server
     title: TCP line-protocol server
-    command: go test ./... -run '^TestM5'
+    command: go test ./acceptance/ -run '^TestM5'
   - id: m6-cli
     title: Command-line tool
     command: go test ./... -run '^TestM6'

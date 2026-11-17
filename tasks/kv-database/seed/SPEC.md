@@ -28,9 +28,12 @@ Work proceeds in six milestones, in order. Each one builds on the previous ones.
 Acceptance tests for milestone *N* are named `TestM<N>...` and live in the
 package directory `acceptance/`. That directory is reserved: do not create it
 or put files in it. Put your own tests next to the code they test and do not
-start their names with `TestM1`...`TestM6`. The acceptance tests are run with
-`go test ./... -run '^TestM<N>'` from the module root, so the whole module must
-build.
+start their names with `TestM1`...`TestM6`. Before grading, anything you put
+under `acceptance/` is deleted. Milestones M1 to M5 are checked with
+`go test ./acceptance/ -run '^TestM<N>'` from the module root, so only the
+packages the acceptance tests import need to build for them. M6 is checked with
+`go test ./... -run '^TestM6'`; its test builds `cmd/kvdb` itself, so the whole
+module must build for it.
 
 ---
 
@@ -462,3 +465,9 @@ Exit codes:
 | 2 | usage error: no or unknown subcommand, unknown flag, wrong number of positional arguments, missing `--dir`, invalid `--sync` value |
 | 3 | I/O error: cannot connect, connection lost, unparseable response, cannot open the store, cannot listen |
 | 4 | the server answered with an `(error) ...` response (printed to stderr) |
+
+The client never validates the contents of its arguments: it sends whatever it
+is given, and only the server decides whether a command is valid. In
+particular `kvdb set --addr ADDR "" v` sends an empty key, the server answers
+`(error) ERR empty key`, and the client prints that error to stderr and exits
+4 (not 2). Exit code 2 is only for the usage errors listed in the table.
