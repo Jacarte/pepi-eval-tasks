@@ -43,3 +43,11 @@ task_restore_seed_tests() {
 workspace_special_files() {
   (cd "$1" && find . ! -type d ! -type f -print | sort | head -n 20)
 }
+
+# workspace_control_names <dir>: prints, shell-quoted on one line and at most 20, every file or
+# directory name under <dir> that contains a control character (a newline, for one). Such a name
+# splits into two lines in every list the scripts build (the cheat scan reads one name per line),
+# so a file named "a<newline>main_test.go" would never be scanned. Nothing legitimate needs them.
+workspace_control_names() {
+  (cd "$1" && find . -name '*[[:cntrl:]]*' -exec bash -c 'printf "%q\n" "$@"' _ {} + | head -n 20 | tr '\n' ' ')
+}

@@ -13,15 +13,16 @@
 #      the seed) carries a known exit-code trick, found with scancheat (go/parser): TestMain
 #      in a directory with seed or hidden tests; os.Args assigned or flag.Set/flag.Parse
 #      called in an init() body or package var initializer; string literals that are
-#      go test flags ("-test.run=...");
+#      go test flags ("-test.run=..."); os.Exit, syscall.Exit, log.Fatal*, runtime.Goexit
+#      and raw syscalls in init() or a package var initializer (syscall.Exit anywhere outside
+#      package main); string literals that carry "/proc/", "--- PASS" or "\"Action\"";
 #   4. runs the command with `go test -json -count=1` and requires rc 0, a pass
 #      event for every expected test and no skip/fail event for them.
-# A milestone with no TestM<N> tests (for example a "full suite" milestone) only
-# needs rc 0 and at least one passing test.
 #
 # The workspace must hold only regular files and directories: a symlink (or fifo, socket,
 # device) is rejected, because it would slip past every check that selects regular files
-# while go still compiles it.
+# while go still compiles it. So is a file or directory name with a control character (a
+# newline splits it into two lines in every list below, and the cheat scan would miss it).
 #
 # The agent's code runs as an unprivileged user (setpriv, uid/gid 65534, no groups) on a copy
 # of the workspace, with its own HOME, GOCACHE, GOPATH and TMPDIR. The checker's files
@@ -33,6 +34,8 @@
 # can tamper with the checker.
 # GRADE_GOCACHE=<dir> (optional) is a Go build cache shared between runs, handed to the
 # unprivileged user; the grading container pre-warms it.
+# A milestone with no TestM<N> tests and no -run filter (a full-suite milestone) expects every func
+# Test* of the seed and of hidden/ to pass, not only "one passing test".
 # Exit codes: 0 milestone passed, 1 milestone failed or rejected, 2 bad usage or harness error.
 set -euo pipefail
 # shellcheck source=taskyaml.sh
@@ -81,7 +84,7 @@ else
     echo "check-milestone: must run as root to drop privileges for the agent's code (CHECK_MILESTONE_ALLOW_ROOT=1 is for local self-tests only)" >&2
     exit 2
   fi
-  DROP=(setpriv --reuid=65534 --regid=65534 --clear-groups)
+  DROP=(setpriv --no-new-privs --reuid=65534 --regid=65534 --clear-groups)
   if ! "${DROP[@]}" true 2>/dev/null; then
     echo "check-milestone: cannot run commands as uid 65534 with setpriv" >&2
     exit 2
@@ -92,7 +95,28 @@ fi
 SPECIAL=$(workspace_special_files "$WORKDIR")
 [ -z "$SPECIAL" ] || reject "workspace contains symlinks or special files: $(printf '%s' "$SPECIAL" | tr '\n' ' ')"
 
-# ---- expected tests, from the hidden sources only ----
+CONTROL=$(workspace_control_names "$WORKDIR")
+[ -z "$CONTROL" ] || reject "workspace contains file names with control characters: $CONTROL"
+
+# ---- expected tests ----
+# list_tests <root> [skip-root]: "<dir>\t<TestName>" for every top-level func Test* (not TestMain)
+# in the *_test.go files under <root>, <dir> relative to <root>. Files that also exist under
+# skip-root are left out: hidden/ replaces them in the workspace.
+list_tests() {
+  local root=$1 skip=${2:-} f rel dir
+  while IFS= read -r f; do
+    rel=${f#"$root"/}
+    if [ -n "$skip" ] && [ -f "$skip/$rel" ]; then continue; fi
+    dir=$(dirname "$rel")
+    awk -v dir="$dir" '
+      /^func Test[A-Z0-9_][A-Za-z0-9_]*\(/ || /^func Test\(/ {
+        name = substr($0, 6); sub(/\(.*$/, "", name)
+        if (name != "TestMain") print dir "\t" name
+      }' "$f"
+  done < <(find "$root" -name '*_test.go' ! -type d -not -path '*/testdata/*' | sort)
+}
+
+# Milestone N expects the hidden TestM<N>... functions.
 : > "$TMP/expected"
 while IFS= read -r f; do
   rel=${f#"$HIDDEN"/}
@@ -104,6 +128,15 @@ while IFS= read -r f; do
       if (digits == n) print dir "\t" name
     }' "$f" >> "$TMP/expected"
 done < <(find "$HIDDEN" -name '*_test.go' ! -type d | sort)
+# A command with a -run filter selects its tests itself.
+HASRUN=0
+if [[ "$CMD" =~ (^|[[:space:]])--?(test\.)?run([=[:space:]]|$) ]]; then HASRUN=1; fi
+# A milestone with no TestM<N> tests and no -run (a full-suite milestone) expects every test of
+# the seed and of hidden/: a package that exits early, or whose tests were deleted, is then
+# missing pass events instead of silently counting as "ok".
+if [ ! -s "$TMP/expected" ] && [ "$HASRUN" -eq 0 ]; then
+  { list_tests "$HIDDEN"; if [ -d "$TASK/seed" ]; then list_tests "$TASK/seed" "$HIDDEN"; fi; } > "$TMP/expected"
+fi
 sort -u "$TMP/expected" -o "$TMP/expected"
 
 # ---- restore_seed_tests: the seed's visible tests must be intact, nothing else visible may test ----
@@ -142,6 +175,8 @@ while IFS=$'\t' read -r rel kind detail; do
       grep -qxF "$(dirname "$rel")" "$TMP/testdirs" && reject "$rel defines TestMain in a package directory with seed or hidden tests" ;;
     init-args) reject "$rel has init() touching os.Args or flags ($detail)" ;;
     test-flag-literal) reject "$rel mentions go test flags ($detail)" ;;
+    exit) reject "$rel can end or hijack the test process ($detail)" ;;
+    forge-literal) reject "$rel contains a marker of forged test output ($detail)" ;;
   esac
 done < "$TMP/findings"
 
@@ -161,7 +196,11 @@ RUN_ENV=(env GOTOOLCHAIN=local)
 if [ "${#DROP[@]}" -gt 0 ]; then
   GOCACHE_DIR=${GRADE_GOCACHE:-$AGENT/gocache}
   mkdir -p "$GOCACHE_DIR"
-  chown -R 65534:65534 "$AGENT/work" "$AGENT/home" "$AGENT/gopath" "$AGENT/tmp" "$AGENT/gotmp"
+  # Only the scratch dirs belong to the unprivileged user. The workspace copy (and so the hidden
+  # tests) stays root-owned and is not writable by it: Go writes nothing in the module directory,
+  # and agent code cannot rewrite another package's tests while they run.
+  chown -R 65534:65534 "$AGENT/home" "$AGENT/gopath" "$AGENT/tmp" "$AGENT/gotmp"
+  chmod -R a+rX,go-w "$AGENT/work"
   # A shared cache is chowned once, not on every run.
   if [ "$(stat -c %u "$GOCACHE_DIR" 2>/dev/null || true)" != 65534 ]; then chown -R 65534:65534 "$GOCACHE_DIR"; fi
   RUN_ENV+=(HOME="$AGENT/home" GOPATH="$AGENT/gopath" GOCACHE="$GOCACHE_DIR" GOTMPDIR="$AGENT/gotmp" TMPDIR="$AGENT/tmp")
@@ -180,7 +219,9 @@ if [ "$RC" -ne 0 ]; then
   reject "$MID: command exited $RC"
 fi
 if [ -s "$TMP/expected" ]; then
-  "$TMP/checkjson" -expected "$TMP/expected" < "$TMP/events" || reject "$MID: expected tests not all passing"
+  CHECKFLAGS=(-expected "$TMP/expected")
+  [ "$HASRUN" -eq 1 ] || CHECKFLAGS+=(-strict-packages)
+  "$TMP/checkjson" "${CHECKFLAGS[@]}" < "$TMP/events" || reject "$MID: expected tests not all passing"
 else
   "$TMP/checkjson" < "$TMP/events" || reject "$MID: no tests passed"
 fi

@@ -8,7 +8,8 @@
 #      files back, so visible tests cannot be removed or weakened to pass a regression milestone;
 #   3. copy hidden/ over the workspace.
 # The workspace is rejected (exit 1, "REJECT:" line) when it holds anything but regular files and
-# directories (symlinks, fifos, ...): see workspace_special_files in taskyaml.sh.
+# directories (symlinks, fifos, ...) or any name with a control character such as a newline:
+# see workspace_special_files and workspace_control_names in taskyaml.sh.
 # Exit codes: 0 prepared, 1 workspace rejected, 2 bad usage or bad task.yaml.
 set -euo pipefail
 
@@ -26,6 +27,12 @@ WORKDIR=$(cd "$2" && pwd)
 SPECIAL=$(workspace_special_files "$WORKDIR")
 if [ -n "$SPECIAL" ]; then
   echo "REJECT: workspace contains symlinks or special files: $(printf '%s' "$SPECIAL" | tr '\n' ' ')"
+  exit 1
+fi
+
+CONTROL=$(workspace_control_names "$WORKDIR")
+if [ -n "$CONTROL" ]; then
+  echo "REJECT: workspace contains file names with control characters: $CONTROL"
   exit 1
 fi
 

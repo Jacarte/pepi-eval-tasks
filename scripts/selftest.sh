@@ -437,13 +437,13 @@ mk_restore flagfalse false
 agent_ws flagfalse
 rm "$T/flagfalse/work/visible_test.go"
 prepare flagfalse
-check "restore_seed_tests: false keeps today's behavior (deleted test goes unnoticed)" 0 flagfalse m3 "PASS: m3"
+check "restore_seed_tests: false, a deleted seed test is still noticed by the full-suite milestone" 1 flagfalse m3 "TestVisible: no pass event"
 
 mk_restore flagabsent none
 agent_ws flagabsent
 rm "$T/flagabsent/work/visible_test.go"
 prepare flagabsent
-check "restore_seed_tests absent defaults to false" 0 flagabsent m3 "PASS: m3"
+check "restore_seed_tests absent defaults to false, full-suite milestone still expects the seed's tests" 1 flagabsent m3 "TestVisible: no pass event"
 
 # ---- symlinks and special files in the workspace ----
 # The attack: a symlinked zz_test.go whose target is a text file holding a TestMain that fakes
@@ -496,6 +496,196 @@ if command -v mkfifo >/dev/null 2>&1; then
   check "fifo named like a test file is rejected (it would hang the scan)" 1 fifofile m1 "workspace contains symlinks or special files: ./pipe_test.go"
 fi
 
+
+# ---- file names with control characters ----
+# The agent-file list is one name per line: "zz<newline>main_test.go" would read as two names that
+# do not exist, and the cheat scan would never look at the TestMain inside.
+mk_restore newlinename true
+agent_ws newlinename
+NLNAME=$(printf 'zz\nmain_test.go')
+cat > "$T/newlinename/work/$NLNAME" <<'GO'
+package demo
+
+import (
+	"os"
+	"testing"
+)
+
+func TestMain(m *testing.M) { os.Exit(0) }
+GO
+rc=0
+"$HERE/prepare-workspace.sh" "$T/newlinename/task" "$T/newlinename/work" > "$T/newlinename/prep.out" 2>&1 || rc=$?
+if [ "$rc" -eq 1 ] && grep -q "REJECT: workspace contains file names with control characters" "$T/newlinename/prep.out"; then echo "ok   prepare-workspace rejects a newline-named file (exit 1)"; else echo "FAIL prepare newline name: got $rc"; cat "$T/newlinename/prep.out"; FAILS=$((FAILS + 1)); fi
+cp -R "$T/newlinename/task/hidden"/. "$T/newlinename/work"/
+check "check-milestone rejects the newline-named TestMain file" 1 newlinename m3 "REJECT: workspace contains file names with control characters"
+
+# scancheat never skips a listed file it cannot open
+(cd "$HERE/scancheat" && go build -o "$T/scancheat" main.go)
+rc=0
+printf 'does/not/exist.go\n' | "$T/scancheat" -root "$T" > "$T/scancheat.out" 2>&1 || rc=$?
+if [ "$rc" -eq 2 ]; then echo "ok   scancheat exits 2 for a listed file it cannot open"; else echo "FAIL scancheat missing file: got $rc"; cat "$T/scancheat.out"; FAILS=$((FAILS + 1)); fi
+
+# ---- processes that end early, forged output, hidden-test tampering ----
+# trick3 <case> <label> <file> <expected-substring>: like trick, on the restore task, milestone m3 (go test ./...)
+trick3() {
+  mk_restore "$1" true
+  agent_ws "$1"
+  cat > "$T/$1/work/$3"
+  cp -R "$T/$1/task/hidden"/. "$T/$1/work"/
+  check "$2" 1 "$1" m3 "$4"
+}
+trick3 initexit "os.Exit(0) in init() at the full-suite milestone" exit.go "can end or hijack the test process" <<'GO'
+package demo
+
+import "os"
+
+func init() { os.Exit(0) }
+GO
+trick3 initexitref "os.Exit taken as a value in a package var initializer" exit.go "can end or hijack the test process" <<'GO'
+package demo
+
+import "os"
+
+var quit = os.Exit
+
+func init() { quit(0) }
+GO
+trick3 initlogfatal "log.Fatal reached from init() through a helper" exit.go "can end or hijack the test process" <<'GO'
+package demo
+
+import "log"
+
+func bail() { log.Fatal("done") }
+
+func init() { bail() }
+GO
+trick3 syscallexit "syscall.Exit in a library function a hidden test calls, printing a fake PASS" exit.go "can end or hijack the test process" <<'GO'
+package demo
+
+import (
+	"fmt"
+	"syscall"
+)
+
+func Fake() {
+	fmt.Println("---", "PASS: TestM1 (0.00s)")
+	syscall.Exit(0)
+}
+GO
+trick3 procfd "string literal naming /proc/ (raw JSON written to the parent's output fd)" exit.go "marker of forged test output" <<'GO'
+package demo
+
+import "os"
+
+func init() {
+	f, err := os.OpenFile("/proc/"+"self/stat", os.O_WRONLY, 0)
+	if err == nil {
+		f.Close()
+	}
+}
+GO
+trick3 passlit "string literal with --- PASS" exit.go "marker of forged test output" <<'GO'
+package demo
+
+var fake = "--- PASS: TestM1 (0.00s)"
+GO
+trick3 actionlit "string literal with a go test -json Action key" exit.go "marker of forged test output" <<'GO'
+package demo
+
+var fake = `{"Action":"pass","Package":"demo","Test":"TestM1"}`
+GO
+
+# An exit hidden in another directory is not reached by the scan; the full-suite milestone then
+# misses the pass events of the seed's tests in the package that exited.
+mk_audit crossexit
+cat >> "$T/crossexit/task/milestones.yaml" <<'Y'
+  - id: m3
+    title: Full suite
+    command: go test ./...
+Y
+mkdir -p "$T/crossexit/work/helper" "$T/crossexit/work/audit"
+ws crossexit
+cp -R "$T/crossexit/task/seed/audit"/. "$T/crossexit/work/audit"/
+cat > "$T/crossexit/work/helper/helper.go" <<'GO'
+package helper
+
+import "os"
+
+func Quit() { os.Exit(0) }
+GO
+cat > "$T/crossexit/work/audit/early.go" <<'GO'
+package audit
+
+import "demo/helper"
+
+func init() { helper.Quit() }
+GO
+check "exit hidden in another package is caught by the expected seed tests" 1 crossexit m3 "TestName: no pass event\|expected tests not all passing"
+
+# Benign: an exit in package main's main(), log.Fatal there, and a struct tag with "Action"
+mk_audit benignmain
+cat >> "$T/benignmain/task/milestones.yaml" <<'Y'
+  - id: m3
+    title: Full suite
+    command: go test ./...
+Y
+ws benignmain
+mkdir -p "$T/benignmain/work/audit" "$T/benignmain/work/cmd"
+cp -R "$T/benignmain/task/seed/audit"/. "$T/benignmain/work/audit"/
+cat > "$T/benignmain/work/cmd/main.go" <<'GO'
+package main
+
+import (
+	"log"
+	"os"
+	"syscall"
+)
+
+type Event struct {
+	Action string `json:"Action"`
+}
+
+func main() {
+	if len(os.Args) > 5 {
+		log.Fatal("too many arguments")
+	}
+	if len(os.Args) > 9 {
+		syscall.Exit(3)
+	}
+	os.Exit(0)
+}
+GO
+check "os.Exit, log.Fatal and syscall.Exit in package main's main() are accepted" 0 benignmain m3 "PASS: m3"
+
+# checkjson on canned streams
+(cd "$HERE/checkjson" && go build -o "$T/checkjson" main.go)
+printf 'demo\tTestA\n' > "$T/expected-a"
+cj() { # cj <label> <want-exit> <flags...> ; stream on stdin
+  local label=$1 want=$2 rc=0
+  shift 2
+  "$T/checkjson" "$@" > "$T/cj.out" 2>&1 || rc=$?
+  if [ "$rc" -eq "$want" ]; then echo "ok   checkjson: $label (exit $rc)"; else echo "FAIL checkjson: $label: want $want got $rc"; cat "$T/cj.out"; FAILS=$((FAILS + 1)); fi
+}
+cj "run then pass is accepted" 0 -expected "$T/expected-a" -strict-packages <<'JSON'
+{"Action":"run","Package":"m/demo","Test":"TestA"}
+{"Action":"pass","Package":"m/demo","Test":"TestA"}
+{"Action":"pass","Package":"m/demo"}
+JSON
+cj "a pass with no run event before it is rejected" 1 -expected "$T/expected-a" <<'JSON'
+{"Action":"pass","Package":"m/demo","Test":"TestA"}
+{"Action":"pass","Package":"m/demo"}
+JSON
+cj "a pass before the run event is rejected" 1 -expected "$T/expected-a" <<'JSON'
+{"Action":"pass","Package":"m/demo","Test":"TestA"}
+{"Action":"run","Package":"m/demo","Test":"TestA"}
+JSON
+cj "package pass with no test event is rejected under -strict-packages" 1 -expected "$T/expected-a" -strict-packages <<'JSON'
+{"Action":"pass","Package":"m/demo"}
+JSON
+cj "without -strict-packages a bare package pass still lacks the expected test" 1 -expected "$T/expected-a" <<'JSON'
+{"Action":"pass","Package":"m/demo"}
+JSON
+
 # ---- the privilege drop ----
 mk_restore noprivs true
 agent_ws noprivs
@@ -520,16 +710,28 @@ if [ "$rc" -eq 2 ] && grep -q "refusing to run agent code\|must run as root" "$T
 mk tamper "$GOOD"
 ws_seed() { mkdir -p "$T/$1/work"; cp -R "$T/$1/task/seed"/. "$T/$1/work"/; cp -R "$T/$1/task/hidden"/. "$T/$1/work"/; }
 ws_seed tamper
+# The exit is taken in another package, and the literals are split, so the static scan lets this
+# through: what stops it is the privilege drop (and, without it, the checker's hash).
+mkdir -p "$T/tamper/work/quit"
+cat > "$T/tamper/work/quit/quit.go" <<'GO'
+package quit
+
+import "os"
+
+func Now() { os.Exit(0) }
+GO
 cat > "$T/tamper/work/tamper.go" <<'GO'
 package demo
 
 import (
 	"os"
 	"path/filepath"
+
+	"demo/quit"
 )
 
 func init() {
-	fakeEvents := "{\"Action\":\"pass\",\"Package\":\"demo\",\"Test\":\"TestM1\"}\n{\"Action\":\"pass\",\"Package\":\"demo\",\"Test\":\"TestM2\"}\n"
+	fakeEvents := "{\"Act" + "ion\":\"pass\",\"Package\":\"demo\",\"Test\":\"TestM1\"}\n{\"Act" + "ion\":\"pass\",\"Package\":\"demo\",\"Test\":\"TestM2\"}\n"
 	for _, dir := range []string{"/tmp", os.TempDir(), "/var/tmp", "/dev/shm"} {
 		for _, p := range glob(dir + "/tmp.*/checkjson") {
 			_ = os.WriteFile(p, []byte("#!/bin/sh\nexit 0\n"), 0o755)
@@ -541,7 +743,7 @@ func init() {
 			_ = os.WriteFile(p, nil, 0o644)
 		}
 	}
-	os.Exit(0)
+	quit.Now()
 }
 
 func glob(pattern string) []string {
@@ -559,6 +761,55 @@ if [ "$PRIVILEGED" -eq 1 ]; then
   if [ "$rc" -eq 1 ] && grep -q "the result checker was modified" "$T/tamper/control.out"; then echo "ok   control: without the privilege drop the attack modifies the checker (caught by its hash)"; else echo "FAIL control: got $rc"; cat "$T/tamper/control.out"; FAILS=$((FAILS + 1)); fi
 else
   echo "skip privilege drop proof (needs root + setpriv); the hash check caught the tamper: $(grep -c 'the result checker was modified' "$T/tamper/check.out") match"
+fi
+
+# An agent package rewrites another package's hidden test while it is being built or run. The
+# workspace copy is read-only for the unprivileged user, so the write fails and TestM1 stays red.
+if [ "$PRIVILEGED" -eq 1 ]; then
+  mk rewrite "$GOOD"
+  rm "$T/rewrite/task/hidden/demo_test.go"
+  mkdir -p "$T/rewrite/task/hidden/z"
+  cat > "$T/rewrite/task/hidden/z/z_test.go" <<'GO'
+package z
+
+import (
+	"testing"
+
+	"demo"
+)
+
+func TestM1(t *testing.T) { if demo.One() != 1 { t.Fatal("one") } }
+GO
+  printf 'package z\n' > "$T/rewrite/task/seed/z.go"
+  mkdir -p "$T/rewrite/task/seed/z" "$T/rewrite/work/a" "$T/rewrite/work/z"
+  mv "$T/rewrite/task/seed/z.go" "$T/rewrite/task/seed/z/z.go"
+  cp -R "$T/rewrite/task/seed"/. "$T/rewrite/work"/
+  cp -R "$T/rewrite/task/hidden"/. "$T/rewrite/work"/
+  cat > "$T/rewrite/work/a/a.go" <<'GO'
+package a
+
+import "os"
+
+func init() {
+	// the working directory of this package's test binary is its own directory
+	_ = os.WriteFile("../z/z_test.go", []byte("package z\n\nimport \"testing\"\n\nfunc TestM1(t *testing.T) {}\n"), 0o644)
+}
+GO
+  cat > "$T/rewrite/work/a/a_test.go" <<'GO'
+package a
+
+import "testing"
+
+func TestA(t *testing.T) {}
+GO
+  printf 'milestones:\n  - id: m1\n    title: One\n    command: go test ./a/ ./z/\n' > "$T/rewrite/task/milestones.yaml"
+  rc=0
+  GOFLAGS=-p=1 "$HERE/check-milestone.sh" "$T/rewrite/task" "$T/rewrite/work" m1 > "$T/rewrite/check.out" 2>&1 || rc=$?
+  if [ "$rc" -eq 1 ] && grep -q "TestM1" "$T/rewrite/check.out" && ! grep -q "^PASS: m1" "$T/rewrite/check.out"; then echo "ok   a package rewriting another package's hidden test cannot change the verdict (exit 1)"; else echo "FAIL hidden test rewrite: got $rc"; cat "$T/rewrite/check.out"; FAILS=$((FAILS + 1)); fi
+  # Control: the same attack with the privilege drop off rewrites the test and passes.
+  rc=0
+  GOFLAGS=-p=1 CHECK_MILESTONE_ALLOW_ROOT=1 "$HERE/check-milestone.sh" "$T/rewrite/task" "$T/rewrite/work" m1 > "$T/rewrite/control.out" 2>&1 || rc=$?
+  if [ "$rc" -eq 0 ] && grep -q "^PASS: m1" "$T/rewrite/control.out"; then echo "ok   control: without the drop the same attack rewrites the hidden test and passes"; else echo "FAIL control hidden test rewrite: got $rc"; cat "$T/rewrite/control.out"; FAILS=$((FAILS + 1)); fi
 fi
 
 if [ "$FAILS" -eq 0 ]; then echo "selftest passed"; else echo "selftest: $FAILS failure(s)"; exit 1; fi

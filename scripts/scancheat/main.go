@@ -11,8 +11,17 @@
 //	                 they call) assigns os.Args, copies into it, or calls flag.Set/flag.Parse
 //	                 (including through flag.CommandLine or flag.Lookup(...).Value)
 //	test-flag-literal a string literal that is a real go test flag, such as "-test.run=^$"
+//	exit             an init() body or a package var initializer (and same-directory functions
+//	                 they call) refers to os.Exit, syscall.Exit, unix.Exit, log.Fatal*,
+//	                 runtime.Goexit or syscall.(Raw)Syscall(6); or syscall.Exit/unix.Exit is
+//	                 used anywhere outside package main. A package that exits 0 before the
+//	                 tests run reports "ok" without running them; syscall.Exit also skips Go's
+//	                 guard against os.Exit(0) inside a test.
+//	forge-literal    a string literal containing "/proc/", "--- PASS" or "\"Action\"": the
+//	                 markers of code that writes fake test output or fake go test -json events
 //
 // Files that do not parse are skipped: they cannot compile, so `go test` fails on them anyway.
+// A listed file that cannot be read is an error, never skipped: it could hide a finding.
 // Exit status: 0 (findings or not), 2 usage or I/O error.
 package main
 
@@ -31,13 +40,44 @@ import (
 	"strings"
 )
 
+// forgeMarkers are substrings of string literals that only code faking test output needs: the
+// proc path that reaches the parent's output file, the pass line of go test -v, and the key of
+// a go test -json event.
+var forgeMarkers = []string{"/proc/", "--- PASS", `"Action"`}
+
 var testFlagLiteral = regexp.MustCompile(`(^|\s)--?test\.[a-z]`)
 
 type source struct {
-	rel  string
-	file *ast.File
-	os   string // local name of the "os" import, "" if absent
-	flag string // local name of the "flag" import, "" if absent
+	rel     string
+	file    *ast.File
+	os      string // local name of the "os" import, "" if absent
+	flag    string // local name of the "flag" import, "" if absent
+	syscall string // local name of the "syscall" import
+	unix    string // local name of "golang.org/x/sys/unix"
+	log     string // local name of the "log" import
+	runtime string // local name of the "runtime" import
+}
+
+// exitCalls lists, per package, the selectors that end or hijack the process.
+func (s *source) exitCall(sel *ast.SelectorExpr) string {
+	id, ok := sel.X.(*ast.Ident)
+	if !ok {
+		return ""
+	}
+	name := sel.Sel.Name
+	switch {
+	case s.os != "" && id.Name == s.os && name == "Exit":
+		return "os.Exit"
+	case s.syscall != "" && id.Name == s.syscall && (name == "Exit" || name == "RawSyscall" || name == "RawSyscall6" || name == "Syscall" || name == "Syscall6"):
+		return "syscall." + name
+	case s.unix != "" && id.Name == s.unix && name == "Exit":
+		return "unix.Exit"
+	case s.log != "" && id.Name == s.log && strings.HasPrefix(name, "Fatal"):
+		return "log." + name
+	case s.runtime != "" && id.Name == s.runtime && name == "Goexit":
+		return "runtime.Goexit"
+	}
+	return ""
 }
 
 type function struct {
@@ -122,11 +162,18 @@ func main() {
 		if rel == "" {
 			continue
 		}
-		f, err := parser.ParseFile(fset, filepath.Join(*root, rel), nil, 0)
+		src, err := os.ReadFile(filepath.Join(*root, rel))
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "scancheat:", err)
+			os.Exit(2)
+		}
+		f, err := parser.ParseFile(fset, filepath.Join(*root, rel), src, 0)
 		if err != nil {
 			continue
 		}
-		s := &source{rel: rel, file: f, os: importName(f, "os"), flag: importName(f, "flag")}
+		s := &source{rel: rel, file: f, os: importName(f, "os"), flag: importName(f, "flag"),
+			syscall: importName(f, "syscall"), unix: importName(f, "golang.org/x/sys/unix"),
+			log: importName(f, "log"), runtime: importName(f, "runtime")}
 		sources = append(sources, s)
 		dir := path.Dir(rel)
 		if funcs[dir] == nil {
@@ -170,13 +217,41 @@ func main() {
 				}
 			}
 		}
+		// Struct tags such as `json:"Action"` are not output: leave them out of the literal checks.
+		tags := map[*ast.BasicLit]bool{}
 		ast.Inspect(s.file, func(n ast.Node) bool {
-			lit, ok := n.(*ast.BasicLit)
-			if !ok || lit.Kind != token.STRING {
-				return true
+			if field, ok := n.(*ast.Field); ok && field.Tag != nil {
+				tags[field.Tag] = true
 			}
-			if v, err := strconv.Unquote(lit.Value); err == nil && testFlagLiteral.MatchString(v) {
-				report(s.rel, "test-flag-literal", "line %d: string literal %s is a go test flag", fset.Position(lit.Pos()).Line, lit.Value)
+			return true
+		})
+		ast.Inspect(s.file, func(n ast.Node) bool {
+			switch x := n.(type) {
+			case *ast.BasicLit:
+				if x.Kind != token.STRING {
+					return true
+				}
+				v, err := strconv.Unquote(x.Value)
+				if err != nil {
+					return true
+				}
+				if testFlagLiteral.MatchString(v) {
+					report(s.rel, "test-flag-literal", "line %d: string literal %s is a go test flag", fset.Position(x.Pos()).Line, x.Value)
+				}
+				for _, marker := range forgeMarkers {
+					if !tags[x] && strings.Contains(v, marker) {
+						report(s.rel, "forge-literal", "line %d: string literal contains %q", fset.Position(x.Pos()).Line, marker)
+						break
+					}
+				}
+			case *ast.SelectorExpr:
+				// syscall.Exit and unix.Exit skip the guard against os.Exit(0) inside a test and
+				// have no use in a library: only package main may call them.
+				if s.file.Name.Name != "main" {
+					if call := s.exitCall(x); call == "syscall.Exit" || call == "unix.Exit" {
+						report(s.rel, "exit", "line %d: %s outside package main", fset.Position(x.Pos()).Line, call)
+					}
+				}
 			}
 			return true
 		})
@@ -195,6 +270,10 @@ func scanArgs(s *source, dir string, node ast.Node, funcs map[string]map[string]
 				} else if s.flag != "" && chainRoot(lhs) == s.flag {
 					report(s.rel, "init-args", "line %d: assigns through the flag package at init time", fset.Position(x.Pos()).Line)
 				}
+			}
+		case *ast.SelectorExpr:
+			if call := s.exitCall(x); call != "" {
+				report(s.rel, "exit", "line %d: %s at init time", fset.Position(x.Pos()).Line, call)
 			}
 		case *ast.CallExpr:
 			switch fun := x.Fun.(type) {
