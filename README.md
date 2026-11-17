@@ -57,3 +57,7 @@ The score is the number of milestones that pass, in order.
 - The seed must not mention this repo or its URL.
 - Reference solutions are not stored here (they would give the answer away). They live outside the public repo and are only used to check that every milestone fails on the seed and passes on the reference.
 - Go only, one pinned version per task.
+
+## Verify a task
+
+`scripts/verify-task.sh tasks/<name> <reference-dir>` checks that a task is well-formed, that every milestone fails on the seed and that every milestone passes with the reference solution. See `scripts/README.md`.
