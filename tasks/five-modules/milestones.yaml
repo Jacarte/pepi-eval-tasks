@@ -1,0 +1,16 @@
+milestones:
+  - id: m1-semver
+    title: Semantic versions, precedence, increments and ranges
+    command: go test ./semver/... -run '^TestM1'
+  - id: m2-glob
+    title: gitignore-style matcher with negation and directory rules
+    command: go test ./glob/... -run '^TestM2'
+  - id: m3-csvparse
+    title: Streaming RFC 4180 CSV reader and writer
+    command: go test ./csvparse/... -run '^TestM3'
+  - id: m4-inireader
+    title: INI/TOML-lite parser with typed getters and line-numbered errors
+    command: go test ./inireader/... -run '^TestM4'
+  - id: m5-lrucache
+    title: Generic LRU cache with TTL, weights, callbacks and stats
+    command: go test ./lrucache/... -run '^TestM5'
