@@ -6,7 +6,10 @@ import (
 	"testing"
 	"time"
 
+	"shopcore/audit"
 	"shopcore/clock"
+	"shopcore/ctxkeys"
+	"shopcore/errs"
 	"shopcore/ids"
 )
 
@@ -77,5 +80,32 @@ func TestCancel(t *testing.T) {
 	}
 	if _, err := svc.Cancel(ctx, "ord-404"); !errors.Is(err, ErrNotFound) {
 		t.Fatalf("missing order err = %v", err)
+	}
+}
+
+func TestCancelIsAudited(t *testing.T) {
+	rec := audit.NewMemory(nil)
+	svc := NewService(Config{Repo: NewMemoryRepo(), Audit: rec, IDs: ids.NewSequence()})
+	o, err := svc.Place(context.Background(), PlaceRequest{CustomerID: "cus-9", Region: "DE", Lines: []Line{{SKU: "A", Qty: 3, UnitPrice: 100}}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	rec.Reset()
+	ctx := ctxkeys.WithRequestID(context.Background(), "req-cancel")
+	if _, err := svc.Cancel(ctx, o.ID); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := svc.Cancel(ctx, o.ID); errs.Op(err) != "orders.cancel" {
+		t.Fatalf("second cancel op = %q", errs.Op(err))
+	}
+	evs := rec.Named("order.cancelled")
+	if len(evs) != 1 || evs[0].Subject != o.ID || evs[0].RequestID != "req-cancel" || evs[0].Attrs["customer_id"] != "cus-9" {
+		t.Fatalf("events = %v", rec.Events())
+	}
+	if err := svc.MarkFulfilled(ctx, o.ID); err != nil {
+		t.Fatal(err)
+	}
+	if evs := rec.Named("order.fulfilled"); len(evs) != 1 || evs[0].Attrs["customer_id"] != "cus-9" || evs[0].Attrs["items"] != "3" {
+		t.Fatalf("events = %v", rec.Events())
 	}
 }

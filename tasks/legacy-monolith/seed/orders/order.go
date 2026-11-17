@@ -1,5 +1,5 @@
 // Package orders owns the order aggregate: placing, cancelling and fulfilling
-// orders. Pricing and tax are delegated to their packages.
+// orders. Prices come from the pricing package and tax from the tax package.
 package orders
 
 import (

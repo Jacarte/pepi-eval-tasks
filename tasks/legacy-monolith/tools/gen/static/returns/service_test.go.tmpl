@@ -19,9 +19,7 @@ func TestAuthorizeReject(t *testing.T) {
 		t.Fatal(err)
 	}
 	b, _ := svc.Request(ctx, "ord-1", "SKU-2", 2, "changed mind")
-	if len(rec.Events()) != 0 {
-		t.Fatal("requests should not be audited")
-	}
+	rec.Reset()
 	if _, err := svc.Authorize(ctx, a.ID, "jo"); err != nil {
 		t.Fatal(err)
 	}

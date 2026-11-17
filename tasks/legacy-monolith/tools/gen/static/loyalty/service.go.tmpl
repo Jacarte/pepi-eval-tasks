@@ -5,6 +5,7 @@ import (
 
 	"shopcore/audit"
 	"shopcore/clock"
+	"shopcore/errs"
 )
 
 // Service runs the points ledger for loyalty accounts.
@@ -34,19 +35,23 @@ func (s *Service) Open(ctx context.Context, customerID string) (*Account, error)
 
 // Accrue adds points, e.g. after an order is fulfilled.
 func (s *Service) Accrue(ctx context.Context, accountID string, points int64) (*Account, error) {
+	const op = "loyalty.accrue"
 	if points <= 0 {
-		return nil, ErrInvalidPoints
+		return nil, errs.Wrap(op, ErrInvalidPoints)
 	}
 	a, err := s.repo.Load(ctx, accountID)
 	if err != nil {
-		return nil, err
+		return nil, errs.Wrap(op, err)
 	}
 	a.Balance += points
 	a.Lifetime += points
 	a.TierName = tierFor(a.Lifetime)
 	a.UpdatedAt = s.clock.Now()
 	if err := s.repo.Store(ctx, a); err != nil {
-		return nil, err
+		return nil, errs.Wrap(op, err)
+	}
+	if err := s.audit.Record(ctx, s.event(ctx, evAccountAccrued, a, points)); err != nil {
+		return nil, errs.Wrap(op, err)
 	}
 	return a, nil
 }

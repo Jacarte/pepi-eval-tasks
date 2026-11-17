@@ -114,21 +114,6 @@ func (s *Service) Close(ctx context.Context, id string) (*Customer, error) {
 	return c, nil
 }
 
-// AddAddress stores an address. Addresses are not audited (PII minimisation).
-func (s *Service) AddAddress(ctx context.Context, a *Address) error {
-	const op = "customers.addaddress"
-	if _, err := s.store.Get(ctx, a.CustomerID); err != nil {
-		return errs.Wrap(op, err)
-	}
-	if a.ID == "" {
-		a.ID = s.ids.Next("adr")
-	}
-	if a.Status == AddressStatusUnknown {
-		a.Status = AddressStatusActive
-	}
-	return errs.Wrap(op, s.addresses.Put(ctx, a))
-}
-
 func firstNonBlank(vals ...string) string {
 	for _, v := range vals {
 		if strings.TrimSpace(v) != "" {

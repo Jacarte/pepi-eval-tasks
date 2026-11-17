@@ -34,3 +34,25 @@ func TestPublishRetireSearch(t *testing.T) {
 		t.Fatalf("events = %v", evs)
 	}
 }
+
+func TestListingEventsCarrySKU(t *testing.T) {
+	ctx := ctxkeys.WithRequestID(context.Background(), "req-sku")
+	store := NewMemoryProductListingStore()
+	rec := audit.NewMemory(nil)
+	svc := NewService(store, rec, nil)
+	_ = store.Put(ctx, &ProductListing{ID: "pl-7", SKU: "SKU-77", Title: "Mug", Price: 900, Status: ProductListingStatusDraft})
+	if _, err := svc.Publish(ctx, "pl-7"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := svc.Retire(ctx, "pl-7"); err != nil {
+		t.Fatal(err)
+	}
+	for _, ev := range rec.Events() {
+		if ev.Subject != "pl-7" || ev.Attrs["sku"] != "SKU-77" {
+			t.Errorf("event = %v: listing events carry the sku", ev)
+		}
+	}
+	if _, err := svc.Reprice(ctx, "pl-7", 100); !errors.Is(err, ErrRetired) {
+		t.Fatalf("reprice retired: %v", err)
+	}
+}

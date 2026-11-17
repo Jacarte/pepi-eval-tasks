@@ -1,19 +1,40 @@
 milestones:
   - id: m1-orders-place
     title: orders.Place records an audit event following the codebase conventions
-    command: go test ./orders/... -run '^TestM1'
+    command: go test ./orders/... -run '^TestM1[A-Z]'
   - id: m2-payments-capture
     title: payments.Capture records an audit event following the codebase conventions
-    command: go test ./payments/... -run '^TestM2'
+    command: go test ./payments/... -run '^TestM2[A-Z]'
   - id: m3-refunds-issue
     title: refunds.Issue records an audit event following the codebase conventions
-    command: go test ./refunds/... -run '^TestM3'
+    command: go test ./refunds/... -run '^TestM3[A-Z]'
   - id: m4-inventory-reserve
     title: inventory.Reserve records an audit event following the codebase conventions
-    command: go test ./inventory/... -run '^TestM4'
+    command: go test ./inventory/... -run '^TestM4[A-Z]'
   - id: m5-loyalty-redeem
     title: loyalty.Redeem records an audit event following the codebase conventions
-    command: go test ./loyalty/... -run '^TestM5'
-  - id: m6-full-suite
+    command: go test ./loyalty/... -run '^TestM5[A-Z]'
+  - id: m6-returns-request
+    title: returns.Request records an audit event following the codebase conventions
+    command: go test ./returns/... -run '^TestM6[A-Z]'
+  - id: m7-warehouse-plantransfer
+    title: warehouse.PlanTransfer records an audit event following the codebase conventions
+    command: go test ./warehouse/... -run '^TestM7[A-Z]'
+  - id: m8-customers-addaddress
+    title: customers.AddAddress records an audit event following the codebase conventions
+    command: go test ./customers/... -run '^TestM8[A-Z]'
+  - id: m9-suppliers-cancel
+    title: suppliers.Cancel records an audit event following the codebase conventions
+    command: go test ./suppliers/... -run '^TestM9[A-Z]'
+  - id: m10-coupons-expire
+    title: coupons.Expire records an audit event following the codebase conventions
+    command: go test ./coupons/... -run '^TestM10[A-Z]'
+  - id: m11-ledger-amend
+    title: ledger.Amend records an audit event following the codebase conventions
+    command: go test ./ledger/... -run '^TestM11[A-Z]'
+  - id: m12-catalog-reprice
+    title: catalog.Reprice records an audit event following the codebase conventions
+    command: go test ./catalog/... -run '^TestM12[A-Z]'
+  - id: m13-full-suite
     title: Full suite (visible and hidden tests) passes
     command: go test ./...

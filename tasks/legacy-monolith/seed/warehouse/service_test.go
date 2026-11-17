@@ -12,7 +12,7 @@ import (
 )
 
 func TestAllocateAndBlock(t *testing.T) {
-	ctx := ctxkeys.WithRequestID(context.Background(), "req-wh")
+	ctx := ctxkeys.WithTraceID(ctxkeys.WithRequestID(context.Background(), "req-wh"), "trace-wh")
 	bins := NewMemoryBinSlotStore()
 	rec := audit.NewMemory(nil)
 	svc := NewService(bins, NewMemoryTransferStore(), rec, nil, ids.NewSequence())
@@ -32,7 +32,7 @@ func TestAllocateAndBlock(t *testing.T) {
 		t.Fatal(err)
 	}
 	evs := rec.Events()
-	if len(evs) != 2 || evs[0].Name != "bin_slot.allocated" || evs[1].Name != "bin_slot.blocked" || evs[1].Subject != "A-01-2" {
+	if len(evs) != 2 || evs[0].Name != "warehouse.allocate" || evs[1].Name != "warehouse.block" || evs[1].Subject != "A-01-2" || evs[0].RequestID != "trace-wh" {
 		t.Fatalf("events = %v", evs)
 	}
 }

@@ -6,7 +6,10 @@ import (
 	"testing"
 	"time"
 
+	"shopcore/audit"
 	"shopcore/clock"
+	"shopcore/ctxkeys"
+	"shopcore/errs"
 	"shopcore/ids"
 )
 
@@ -50,5 +53,30 @@ func TestCaptureRejects(t *testing.T) {
 	}
 	if _, err := svc.Capture(ctx, p.ID, 10); !errors.Is(err, ErrInvalidState) {
 		t.Fatalf("capture after void err = %v", err)
+	}
+}
+
+func TestAuthorizeAndVoidAreAudited(t *testing.T) {
+	ctx := ctxkeys.WithRequestID(context.Background(), "req-pay")
+	rec := audit.NewMemory(nil)
+	svc := NewService(NewMemoryRepo(), rec, nil).WithIDs(ids.NewSequence())
+	p, err := svc.Authorize(ctx, "ord-7", 900, "adyen")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := svc.Void(ctx, p.ID); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := svc.Void(ctx, p.ID); !errors.Is(err, ErrInvalidState) || errs.Op(err) != "payments.void" {
+		t.Fatalf("second void err = %v", err)
+	}
+	evs := rec.Events()
+	if len(evs) != 2 || evs[0].Name != "payment.authorized" || evs[1].Name != "payment.voided" {
+		t.Fatalf("events = %v", evs)
+	}
+	for _, ev := range evs {
+		if ev.Subject != p.ID || ev.RequestID != "req-pay" || ev.Attrs["order_id"] != "ord-7" || ev.Attrs["processor"] != "adyen" {
+			t.Errorf("event = %v", ev)
+		}
 	}
 }

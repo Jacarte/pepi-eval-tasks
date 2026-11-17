@@ -35,8 +35,8 @@ func NewService(suppliers SupplierStore, pos PurchaseOrderStore, rec audit.Recor
 	return &Service{suppliers: suppliers, pos: pos, audit: audit.OrDiscard(rec), clock: clock.OrSystem(clk), ApprovalLimit: 5_000_000}
 }
 
-func requestID(ctx context.Context) string {
-	id, _ := ctx.Value(ctxkeys.RequestID).(string)
+func correlationID(ctx context.Context) string {
+	id, _ := ctx.Value(ctxkeys.TraceID).(string)
 	return id
 }
 
@@ -55,8 +55,8 @@ func (s *Service) Onboard(ctx context.Context, id string) (*Supplier, error) {
 		return nil, errs.Wrap("suppliers.onboard", err)
 	}
 	err = s.audit.Record(ctx, audit.Event{
-		Name:      "supplier.onboarded",
-		RequestID: requestID(ctx),
+		Name:      "suppliers.onboard",
+		RequestID: correlationID(ctx),
 		Subject:   sup.ID,
 		Attrs:     map[string]string{"country": sup.Country},
 	})
@@ -81,8 +81,8 @@ func (s *Service) Suspend(ctx context.Context, id, reason string) (*Supplier, er
 		return nil, errs.Wrap("suppliers.suspend", err)
 	}
 	err = s.audit.Record(ctx, audit.Event{
-		Name:      "supplier.suspended",
-		RequestID: requestID(ctx),
+		Name:      "suppliers.suspend",
+		RequestID: correlationID(ctx),
 		Subject:   sup.ID,
 		Attrs:     map[string]string{"reason": reason},
 	})
@@ -117,8 +117,8 @@ func (s *Service) Approve(ctx context.Context, poID string) (*PurchaseOrder, err
 		return nil, errs.Wrap("suppliers.approve", err)
 	}
 	err = s.audit.Record(ctx, audit.Event{
-		Name:      "purchase_order.approved",
-		RequestID: requestID(ctx),
+		Name:      "suppliers.approve",
+		RequestID: correlationID(ctx),
 		Subject:   po.ID,
 		Attrs:     map[string]string{"supplier_id": po.SupplierID, "total": po.Total.String()},
 	})
@@ -143,8 +143,8 @@ func (s *Service) Receive(ctx context.Context, poID string) (*PurchaseOrder, err
 		return nil, errs.Wrap("suppliers.receive", err)
 	}
 	err = s.audit.Record(ctx, audit.Event{
-		Name:      "purchase_order.received",
-		RequestID: requestID(ctx),
+		Name:      "suppliers.receive",
+		RequestID: correlationID(ctx),
 		Subject:   po.ID,
 	})
 	if err != nil {
