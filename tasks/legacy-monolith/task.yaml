@@ -7,3 +7,4 @@ session_timeout_minutes: 30
 budget_usd: 2
 deadline_minutes: null
 scoring: count
+restore_seed_tests: true
