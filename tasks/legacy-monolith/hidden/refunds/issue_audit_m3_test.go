@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"hash/fnv"
+	"reflect"
 	"strconv"
 	"strings"
 	"sync"
@@ -109,12 +110,15 @@ func m3Setup() *m3Env {
 
 // m3Ctx builds a request context like httpapi does, with ids unique to the
 // test and call so they cannot be hard-coded. The trace id always differs.
-func m3Ctx(t *testing.T, n int) context.Context {
+// It also returns the request id, so tests compare events against this value
+// and never read it back through ctxkeys.
+func m3Ctx(t *testing.T, n int) (context.Context, string) {
 	h := fnv.New32a()
 	h.Write([]byte(t.Name()))
-	ctx := ctxkeys.WithRequestID(context.Background(), fmt.Sprintf("req-%08x-%d", h.Sum32(), n))
+	reqID := fmt.Sprintf("req-%08x-%d", h.Sum32(), n)
+	ctx := ctxkeys.WithRequestID(context.Background(), reqID)
 	ctx = ctxkeys.WithTraceID(ctx, fmt.Sprintf("trace-%08x-%d", h.Sum32()^0xabcdef, n))
-	return ctxkeys.WithActor(ctx, "u-m3")
+	return ctxkeys.WithActor(ctx, "u-m3"), reqID
 }
 
 // m3Prepare stores the fixtures call n needs directly in the base store, so
@@ -151,7 +155,7 @@ type m3Bad struct {
 	label string
 	err   error
 	cause error // nil: only the op is checked
-	exact bool
+	exact bool  // false: op prefix and cause text only, other context allowed
 }
 
 // m3Invalid runs calls that must fail before anything is written.
@@ -168,23 +172,73 @@ func m3Invalid(env *m3Env, ctx context.Context) []m3Bad {
 	}
 }
 
+// m3Chain lists err and every error it wraps, outermost first and depth
+// first like errors.Is. It follows *errs.Error through its Err field and other
+// errors through their Unwrap methods, so no method or helper of package errs
+// takes part in the checks.
+func m3Chain(err error) []error {
+	var chain []error
+	var walk func(error)
+	walk = func(err error) {
+		if err == nil || len(chain) >= 100 {
+			return
+		}
+		chain = append(chain, err)
+		switch e := err.(type) {
+		case *errs.Error:
+			walk(e.Err)
+		case interface{ Unwrap() []error }:
+			for _, inner := range e.Unwrap() {
+				walk(inner)
+			}
+		default:
+			walk(errors.Unwrap(err))
+		}
+	}
+	walk(err)
+	return chain
+}
+
+// m3Message renders err as "op: cause" from the *errs.Error fields.
+func m3Message(err error) string {
+	if e, ok := err.(*errs.Error); ok {
+		if e.Err == nil {
+			return e.Op
+		}
+		return e.Op + ": " + m3Message(e.Err)
+	}
+	return err.Error()
+}
+
 func m3CheckWrapped(t *testing.T, label string, err, cause error, exact bool) {
 	t.Helper()
 	if err == nil {
 		t.Fatalf("%s: expected an error", label)
 	}
-	if cause != nil && !errors.Is(err, cause) {
-		t.Fatalf("%s: error %q does not wrap %q", label, err, cause)
+	chain := m3Chain(err)
+	if cause != nil {
+		found := false
+		for _, e := range chain {
+			found = found || reflect.TypeOf(cause).Comparable() && e == cause
+		}
+		if !found {
+			t.Fatalf("%s: error %q does not wrap %q", label, err, cause)
+		}
 	}
-	var e *errs.Error
-	if !errors.As(err, &e) {
+	var ops []string
+	for _, e := range chain {
+		if w, ok := e.(*errs.Error); ok {
+			ops = append(ops, w.Op)
+		}
+	}
+	if len(ops) == 0 {
 		t.Fatalf("%s: error %q is not annotated with errs.Wrap", label, err)
 	}
-	if e.Op != m3Op {
-		t.Errorf("%s: op = %q, want %q", label, e.Op, m3Op)
+	if ops[0] != m3Op {
+		t.Errorf("%s: op = %q, want %q", label, ops[0], m3Op)
 	}
 	n := 0
-	for _, op := range errs.Ops(err) {
+	for _, op := range ops {
 		if op == m3Op {
 			n++
 		}
@@ -195,7 +249,7 @@ func m3CheckWrapped(t *testing.T, label string, err, cause error, exact bool) {
 	if cause == nil {
 		return
 	}
-	msg := err.Error()
+	msg := m3Message(err)
 	if exact {
 		if want := m3Op + ": " + cause.Error(); msg != want {
 			t.Errorf("%s: err.Error() = %q, want %q", label, msg, want)
@@ -210,7 +264,8 @@ func m3CheckWrapped(t *testing.T, label string, err, cause error, exact bool) {
 func TestM3IssueEventName(t *testing.T) {
 	env := m3Setup()
 	for n := 1; n <= 2; n++ {
-		m3Succeed(t, env, m3Ctx(t, n), n)
+		ctx, _ := m3Ctx(t, n)
+		m3Succeed(t, env, ctx, n)
 	}
 	evs := env.rec.all()
 	if len(evs) != 2 {
@@ -230,20 +285,21 @@ func TestM3IssueEventName(t *testing.T) {
 // actor, constant), wrong subject.
 func TestM3IssueRequestIDAndSubject(t *testing.T) {
 	env := m3Setup()
-	ctxs := []context.Context{m3Ctx(t, 1), m3Ctx(t, 2)}
-	var subjects []string
-	for i, ctx := range ctxs {
-		res := m3Succeed(t, env, ctx, i+1)
-		s, _ := m3Expect(res, i+1)
+	var reqIDs, subjects []string
+	for n := 1; n <= 2; n++ {
+		ctx, reqID := m3Ctx(t, n)
+		res := m3Succeed(t, env, ctx, n)
+		s, _ := m3Expect(res, n)
+		reqIDs = append(reqIDs, reqID)
 		subjects = append(subjects, s)
 	}
 	evs := env.rec.all()
 	if len(evs) != 2 {
 		t.Fatalf("want 2 audit events, got %d: %+v", len(evs), evs)
 	}
-	for i, ctx := range ctxs {
-		if want := ctxkeys.RequestIDFrom(ctx); evs[i].RequestID != want {
-			t.Errorf("event %d RequestID = %q, want %q (from ctxkeys.RequestID)", i, evs[i].RequestID, want)
+	for i, want := range reqIDs {
+		if evs[i].RequestID != want {
+			t.Errorf("event %d RequestID = %q, want %q (the request id the context carries)", i, evs[i].RequestID, want)
 		}
 		if evs[i].Subject != subjects[i] {
 			t.Errorf("event %d Subject = %q, want %q", i, evs[i].Subject, subjects[i])
@@ -254,7 +310,8 @@ func TestM3IssueRequestIDAndSubject(t *testing.T) {
 // Catches: attributes this package's events always carry missing or wrong.
 func TestM3IssueAttrs(t *testing.T) {
 	env := m3Setup()
-	res := m3Succeed(t, env, m3Ctx(t, 1), 3)
+	ctx, _ := m3Ctx(t, 1)
+	res := m3Succeed(t, env, ctx, 3)
 	_, want := m3Expect(res, 3)
 	evs := env.rec.all()
 	if len(evs) != 1 {
@@ -271,7 +328,8 @@ func TestM3IssueAttrs(t *testing.T) {
 // (after Issue returns), or recording more than once.
 func TestM3IssueRecordsAfterWrite(t *testing.T) {
 	env := m3Setup()
-	m3Succeed(t, env, m3Ctx(t, 1), 1)
+	ctx, _ := m3Ctx(t, 1)
+	m3Succeed(t, env, ctx, 1)
 	steps := env.j.snapshot()
 	if len(steps) != 2 || steps[0] != "write" || steps[1] != "record" {
 		t.Fatalf("calls during Issue = %v, want [write record]: the event must be recorded after the write and before Issue returns", steps)
@@ -281,7 +339,7 @@ func TestM3IssueRecordsAfterWrite(t *testing.T) {
 // Catches: audit events emitted on validation or repository failures.
 func TestM3IssueNoAuditOnFailure(t *testing.T) {
 	env := m3Setup()
-	ctx := m3Ctx(t, 1)
+	ctx, _ := m3Ctx(t, 1)
 	for _, b := range m3Invalid(env, ctx) {
 		if b.err == nil {
 			t.Fatalf("%s: accepted", b.label)
@@ -303,10 +361,12 @@ func TestM3IssueNoAuditOnFailure(t *testing.T) {
 }
 
 // Catches: errors not wrapped with errs.Wrap("refunds.issue", err), wrong op
-// spelling, extra prefixes, double wrapping, swallowed audit errors.
+// spelling, extra prefixes, double wrapping, swallowed audit errors. A
+// repository failure may carry extra context below the op (as in
+// errs.Wrap(op, fmt.Errorf("save: %w", err))); its cause is checked by identity.
 func TestM3IssueErrorWrapping(t *testing.T) {
 	env := m3Setup()
-	ctx := m3Ctx(t, 1)
+	ctx, _ := m3Ctx(t, 1)
 	for _, b := range m3Invalid(env, ctx) {
 		m3CheckWrapped(t, b.label, b.err, b.cause, b.exact)
 	}
@@ -315,7 +375,7 @@ func TestM3IssueErrorWrapping(t *testing.T) {
 	writeErr := errors.New("m3: write timeout")
 	env.repo.failErr = writeErr
 	_, err := m3Invoke(env, ctx, 1)
-	m3CheckWrapped(t, "repository failure", err, writeErr, true)
+	m3CheckWrapped(t, "repository failure", err, writeErr, false)
 	env.repo.failErr = nil
 
 	recErr := errors.New("m3: audit sink unavailable")

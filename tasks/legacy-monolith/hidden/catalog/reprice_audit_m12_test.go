@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"hash/fnv"
+	"reflect"
 	"strconv"
 	"strings"
 	"sync"
@@ -109,12 +110,15 @@ func m12Setup() *m12Env {
 
 // m12Ctx builds a request context like httpapi does, with ids unique to the
 // test and call so they cannot be hard-coded. The trace id always differs.
-func m12Ctx(t *testing.T, n int) context.Context {
+// It also returns the request id, so tests compare events against this value
+// and never read it back through ctxkeys.
+func m12Ctx(t *testing.T, n int) (context.Context, string) {
 	h := fnv.New32a()
 	h.Write([]byte(t.Name()))
-	ctx := ctxkeys.WithRequestID(context.Background(), fmt.Sprintf("req-%08x-%d", h.Sum32(), n))
+	reqID := fmt.Sprintf("req-%08x-%d", h.Sum32(), n)
+	ctx := ctxkeys.WithRequestID(context.Background(), reqID)
 	ctx = ctxkeys.WithTraceID(ctx, fmt.Sprintf("trace-%08x-%d", h.Sum32()^0xabcdef, n))
-	return ctxkeys.WithActor(ctx, "u-m12")
+	return ctxkeys.WithActor(ctx, "u-m12"), reqID
 }
 
 // m12Prepare stores the fixtures call n needs directly in the base store, so
@@ -151,7 +155,7 @@ type m12Bad struct {
 	label string
 	err   error
 	cause error // nil: only the op is checked
-	exact bool
+	exact bool  // false: op prefix and cause text only, other context allowed
 }
 
 // m12Invalid runs calls that must fail before anything is written.
@@ -168,23 +172,73 @@ func m12Invalid(env *m12Env, ctx context.Context) []m12Bad {
 	}
 }
 
+// m12Chain lists err and every error it wraps, outermost first and depth
+// first like errors.Is. It follows *errs.Error through its Err field and other
+// errors through their Unwrap methods, so no method or helper of package errs
+// takes part in the checks.
+func m12Chain(err error) []error {
+	var chain []error
+	var walk func(error)
+	walk = func(err error) {
+		if err == nil || len(chain) >= 100 {
+			return
+		}
+		chain = append(chain, err)
+		switch e := err.(type) {
+		case *errs.Error:
+			walk(e.Err)
+		case interface{ Unwrap() []error }:
+			for _, inner := range e.Unwrap() {
+				walk(inner)
+			}
+		default:
+			walk(errors.Unwrap(err))
+		}
+	}
+	walk(err)
+	return chain
+}
+
+// m12Message renders err as "op: cause" from the *errs.Error fields.
+func m12Message(err error) string {
+	if e, ok := err.(*errs.Error); ok {
+		if e.Err == nil {
+			return e.Op
+		}
+		return e.Op + ": " + m12Message(e.Err)
+	}
+	return err.Error()
+}
+
 func m12CheckWrapped(t *testing.T, label string, err, cause error, exact bool) {
 	t.Helper()
 	if err == nil {
 		t.Fatalf("%s: expected an error", label)
 	}
-	if cause != nil && !errors.Is(err, cause) {
-		t.Fatalf("%s: error %q does not wrap %q", label, err, cause)
+	chain := m12Chain(err)
+	if cause != nil {
+		found := false
+		for _, e := range chain {
+			found = found || reflect.TypeOf(cause).Comparable() && e == cause
+		}
+		if !found {
+			t.Fatalf("%s: error %q does not wrap %q", label, err, cause)
+		}
 	}
-	var e *errs.Error
-	if !errors.As(err, &e) {
+	var ops []string
+	for _, e := range chain {
+		if w, ok := e.(*errs.Error); ok {
+			ops = append(ops, w.Op)
+		}
+	}
+	if len(ops) == 0 {
 		t.Fatalf("%s: error %q is not annotated with errs.Wrap", label, err)
 	}
-	if e.Op != m12Op {
-		t.Errorf("%s: op = %q, want %q", label, e.Op, m12Op)
+	if ops[0] != m12Op {
+		t.Errorf("%s: op = %q, want %q", label, ops[0], m12Op)
 	}
 	n := 0
-	for _, op := range errs.Ops(err) {
+	for _, op := range ops {
 		if op == m12Op {
 			n++
 		}
@@ -195,7 +249,7 @@ func m12CheckWrapped(t *testing.T, label string, err, cause error, exact bool) {
 	if cause == nil {
 		return
 	}
-	msg := err.Error()
+	msg := m12Message(err)
 	if exact {
 		if want := m12Op + ": " + cause.Error(); msg != want {
 			t.Errorf("%s: err.Error() = %q, want %q", label, msg, want)
@@ -210,7 +264,8 @@ func m12CheckWrapped(t *testing.T, label string, err, cause error, exact bool) {
 func TestM12RepriceEventName(t *testing.T) {
 	env := m12Setup()
 	for n := 1; n <= 2; n++ {
-		m12Succeed(t, env, m12Ctx(t, n), n)
+		ctx, _ := m12Ctx(t, n)
+		m12Succeed(t, env, ctx, n)
 	}
 	evs := env.rec.all()
 	if len(evs) != 2 {
@@ -230,20 +285,21 @@ func TestM12RepriceEventName(t *testing.T) {
 // actor, constant), wrong subject.
 func TestM12RepriceRequestIDAndSubject(t *testing.T) {
 	env := m12Setup()
-	ctxs := []context.Context{m12Ctx(t, 1), m12Ctx(t, 2)}
-	var subjects []string
-	for i, ctx := range ctxs {
-		res := m12Succeed(t, env, ctx, i+1)
-		s, _ := m12Expect(res, i+1)
+	var reqIDs, subjects []string
+	for n := 1; n <= 2; n++ {
+		ctx, reqID := m12Ctx(t, n)
+		res := m12Succeed(t, env, ctx, n)
+		s, _ := m12Expect(res, n)
+		reqIDs = append(reqIDs, reqID)
 		subjects = append(subjects, s)
 	}
 	evs := env.rec.all()
 	if len(evs) != 2 {
 		t.Fatalf("want 2 audit events, got %d: %+v", len(evs), evs)
 	}
-	for i, ctx := range ctxs {
-		if want := ctxkeys.RequestIDFrom(ctx); evs[i].RequestID != want {
-			t.Errorf("event %d RequestID = %q, want %q (from ctxkeys.RequestID)", i, evs[i].RequestID, want)
+	for i, want := range reqIDs {
+		if evs[i].RequestID != want {
+			t.Errorf("event %d RequestID = %q, want %q (the request id the context carries)", i, evs[i].RequestID, want)
 		}
 		if evs[i].Subject != subjects[i] {
 			t.Errorf("event %d Subject = %q, want %q", i, evs[i].Subject, subjects[i])
@@ -254,7 +310,8 @@ func TestM12RepriceRequestIDAndSubject(t *testing.T) {
 // Catches: attributes this package's events always carry missing or wrong.
 func TestM12RepriceAttrs(t *testing.T) {
 	env := m12Setup()
-	res := m12Succeed(t, env, m12Ctx(t, 1), 3)
+	ctx, _ := m12Ctx(t, 1)
+	res := m12Succeed(t, env, ctx, 3)
 	_, want := m12Expect(res, 3)
 	evs := env.rec.all()
 	if len(evs) != 1 {
@@ -271,7 +328,8 @@ func TestM12RepriceAttrs(t *testing.T) {
 // (after Reprice returns), or recording more than once.
 func TestM12RepriceRecordsAfterWrite(t *testing.T) {
 	env := m12Setup()
-	m12Succeed(t, env, m12Ctx(t, 1), 1)
+	ctx, _ := m12Ctx(t, 1)
+	m12Succeed(t, env, ctx, 1)
 	steps := env.j.snapshot()
 	if len(steps) != 2 || steps[0] != "write" || steps[1] != "record" {
 		t.Fatalf("calls during Reprice = %v, want [write record]: the event must be recorded after the write and before Reprice returns", steps)
@@ -281,7 +339,7 @@ func TestM12RepriceRecordsAfterWrite(t *testing.T) {
 // Catches: audit events emitted on validation or repository failures.
 func TestM12RepriceNoAuditOnFailure(t *testing.T) {
 	env := m12Setup()
-	ctx := m12Ctx(t, 1)
+	ctx, _ := m12Ctx(t, 1)
 	for _, b := range m12Invalid(env, ctx) {
 		if b.err == nil {
 			t.Fatalf("%s: accepted", b.label)
@@ -303,10 +361,12 @@ func TestM12RepriceNoAuditOnFailure(t *testing.T) {
 }
 
 // Catches: errors not wrapped with errs.Wrap("catalog.reprice", err), wrong op
-// spelling, extra prefixes, double wrapping, swallowed audit errors.
+// spelling, extra prefixes, double wrapping, swallowed audit errors. A
+// repository failure may carry extra context below the op (as in
+// errs.Wrap(op, fmt.Errorf("save: %w", err))); its cause is checked by identity.
 func TestM12RepriceErrorWrapping(t *testing.T) {
 	env := m12Setup()
-	ctx := m12Ctx(t, 1)
+	ctx, _ := m12Ctx(t, 1)
 	for _, b := range m12Invalid(env, ctx) {
 		m12CheckWrapped(t, b.label, b.err, b.cause, b.exact)
 	}
@@ -315,7 +375,7 @@ func TestM12RepriceErrorWrapping(t *testing.T) {
 	writeErr := errors.New("m12: write timeout")
 	env.repo.failErr = writeErr
 	_, err := m12Invoke(env, ctx, 1)
-	m12CheckWrapped(t, "repository failure", err, writeErr, true)
+	m12CheckWrapped(t, "repository failure", err, writeErr, false)
 	env.repo.failErr = nil
 
 	recErr := errors.New("m12: audit sink unavailable")
