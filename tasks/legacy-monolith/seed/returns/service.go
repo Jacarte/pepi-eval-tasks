@@ -28,21 +28,6 @@ func NewService(store ReturnRequestStore, rec audit.Recorder, clk clock.Clock, g
 	return &Service{store: store, audit: audit.OrDiscard(rec), clock: clock.OrSystem(clk), ids: ids.OrRandom(gen)}
 }
 
-// Request opens a return. Requests come straight from the customer and are
-// only audited once support acts on them.
-func (s *Service) Request(ctx context.Context, orderID, sku string, qty int, reason string) (*ReturnRequest, error) {
-	const op = "returns.request"
-	if qty <= 0 {
-		return nil, errs.Wrap(op, ErrBadQuantity)
-	}
-	now := s.clock.Now()
-	rr := &ReturnRequest{ID: s.ids.Next("rma"), OrderID: orderID, SKU: sku, Qty: qty, Reason: reason, Status: ReturnRequestStatusRequested, CreatedAt: now, UpdatedAt: now}
-	if err := s.store.Save(ctx, rr); err != nil {
-		return nil, errs.Wrap(op, err)
-	}
-	return rr, nil
-}
-
 // Authorize approves a return so the customer can ship it back.
 func (s *Service) Authorize(ctx context.Context, id, inspector string) (*ReturnRequest, error) {
 	const op = "returns.authorize"

@@ -11,7 +11,7 @@ import (
 )
 
 func TestOnboardApproveReceive(t *testing.T) {
-	ctx := ctxkeys.WithRequestID(context.Background(), "req-sup")
+	ctx := ctxkeys.WithTraceID(ctxkeys.WithRequestID(context.Background(), "req-sup"), "trace-sup")
 	sups, pos := NewMemorySupplierStore(), NewMemoryPurchaseOrderStore()
 	rec := audit.NewMemory(nil)
 	svc := NewService(sups, pos, rec, nil)
@@ -31,12 +31,12 @@ func TestOnboardApproveReceive(t *testing.T) {
 		t.Fatal(err)
 	}
 	evs := rec.Events()
-	names := []string{"supplier.onboarded", "purchase_order.approved", "purchase_order.received"}
+	names := []string{"suppliers.onboard", "suppliers.approve", "suppliers.receive"}
 	if len(evs) != 3 {
 		t.Fatalf("events = %v", evs)
 	}
 	for i, n := range names {
-		if evs[i].Name != n || evs[i].RequestID != "req-sup" {
+		if evs[i].Name != n || evs[i].RequestID != "trace-sup" {
 			t.Errorf("event %d = %+v", i, evs[i])
 		}
 	}

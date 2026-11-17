@@ -5,6 +5,9 @@ import (
 	"errors"
 	"testing"
 
+	"shopcore/audit"
+	"shopcore/ctxkeys"
+	"shopcore/errs"
 	"shopcore/ids"
 )
 
@@ -45,5 +48,26 @@ func TestIssueValidation(t *testing.T) {
 		if _, err := svc.Issue(ctx, tc.req); !errors.Is(err, tc.want) {
 			t.Errorf("Issue(%+v) err = %v, want %v", tc.req, err, tc.want)
 		}
+	}
+}
+
+func TestSettleIsAudited(t *testing.T) {
+	rec := audit.NewMemory(nil)
+	repo := NewMemoryRepo()
+	svc := New(Deps{Repo: repo, Audit: rec, IDs: ids.NewSequence()})
+	ctx := ctxkeys.WithRequestID(context.Background(), "req-settle")
+	_ = repo.Insert(ctx, &Refund{ID: "rfd-9", PaymentID: "pay-3", OrderID: "ord-3", Amount: 700, Reason: ReasonGoodwill, Status: StatusIssued})
+	if _, err := svc.Settle(ctx, "rfd-9"); err != nil {
+		t.Fatal(err)
+	}
+	evs := rec.Events()
+	if len(evs) != 1 || evs[0].Name != "refund.settled" || evs[0].Subject != "rfd-9" || evs[0].RequestID != "req-settle" {
+		t.Fatalf("events = %v", evs)
+	}
+	if evs[0].Attrs["payment_id"] != "pay-3" || evs[0].Attrs["reason"] != "goodwill" {
+		t.Fatalf("attrs = %v", evs[0].Attrs)
+	}
+	if _, err := svc.Settle(ctx, "rfd-9"); errs.Op(err) != "refunds.settle" {
+		t.Fatalf("op = %q", errs.Op(err))
 	}
 }

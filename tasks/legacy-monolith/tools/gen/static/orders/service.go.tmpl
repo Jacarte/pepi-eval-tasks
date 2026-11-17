@@ -2,9 +2,11 @@ package orders
 
 import (
 	"context"
+	"strconv"
 
 	"shopcore/audit"
 	"shopcore/clock"
+	"shopcore/errs"
 	"shopcore/ids"
 )
 
@@ -45,17 +47,21 @@ func (s *Service) ForCustomer(ctx context.Context, customerID string) ([]*Order,
 
 // Cancel cancels a placed order.
 func (s *Service) Cancel(ctx context.Context, id string) (*Order, error) {
+	const op = "orders.cancel"
 	o, err := s.repo.Get(ctx, id)
 	if err != nil {
-		return nil, err
+		return nil, errs.Wrap(op, err)
 	}
 	if o.Status != StatusPlaced {
-		return nil, ErrNotCancellable
+		return nil, errs.Wrap(op, ErrNotCancellable)
 	}
 	o.Status = StatusCancelled
 	o.UpdatedAt = s.clock.Now()
 	if err := s.repo.Save(ctx, o); err != nil {
-		return nil, err
+		return nil, errs.Wrap(op, err)
+	}
+	if err := s.emit(ctx, evOrderCancelled, o, nil); err != nil {
+		return nil, errs.Wrap(op, err)
 	}
 	return o, nil
 }
@@ -63,11 +69,15 @@ func (s *Service) Cancel(ctx context.Context, id string) (*Order, error) {
 // MarkFulfilled is called by the warehouse integration once every line has
 // shipped.
 func (s *Service) MarkFulfilled(ctx context.Context, id string) error {
+	const op = "orders.markfulfilled"
 	o, err := s.repo.Get(ctx, id)
 	if err != nil {
-		return err
+		return errs.Wrap(op, err)
 	}
 	o.Status = StatusFulfilled
 	o.UpdatedAt = s.clock.Now()
-	return s.repo.Save(ctx, o)
+	if err := s.repo.Save(ctx, o); err != nil {
+		return errs.Wrap(op, err)
+	}
+	return errs.Wrap(op, s.emit(ctx, evOrderFulfilled, o, map[string]string{"items": strconv.Itoa(o.ItemCount())}))
 }

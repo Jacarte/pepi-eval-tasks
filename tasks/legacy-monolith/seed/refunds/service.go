@@ -5,6 +5,7 @@ import (
 
 	"shopcore/audit"
 	"shopcore/clock"
+	"shopcore/errs"
 	"shopcore/ids"
 	"shopcore/money"
 )
@@ -41,17 +42,21 @@ func New(d Deps) *Service {
 
 // Settle marks a refund as paid out by the processor.
 func (s *Service) Settle(ctx context.Context, id string) (*Refund, error) {
+	const op = "refunds.settle"
 	r, err := s.repo.Get(ctx, id)
 	if err != nil {
-		return nil, err
+		return nil, errs.Wrap(op, err)
 	}
 	if r.Status != StatusIssued {
-		return nil, ErrNotIssued
+		return nil, errs.Wrap(op, ErrNotIssued)
 	}
 	r.Status = StatusSettled
 	r.SettledAt = s.clock.Now()
 	if err := s.repo.Update(ctx, r); err != nil {
-		return nil, err
+		return nil, errs.Wrap(op, err)
+	}
+	if err := s.record(ctx, evRefundSettled, r); err != nil {
+		return nil, errs.Wrap(op, err)
 	}
 	return r, nil
 }

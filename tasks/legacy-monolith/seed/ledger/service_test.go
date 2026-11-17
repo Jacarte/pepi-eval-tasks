@@ -40,3 +40,25 @@ func TestPostReverse(t *testing.T) {
 		t.Fatalf("events = %v", evs)
 	}
 }
+
+func TestEntryEventsCarryAccount(t *testing.T) {
+	ctx := ctxkeys.WithRequestID(context.Background(), "req-acc")
+	entries, accounts := NewMemoryJournalEntryStore(), NewMemoryAccountStore()
+	rec := audit.NewMemory(nil)
+	svc := NewService(entries, accounts, rec, nil)
+	_ = accounts.Put(ctx, &Account{ID: "2000", Code: "2000", Name: "Payables", Kind: "liability", Status: AccountStatusOpen})
+	_ = entries.Put(ctx, &JournalEntry{ID: "je-9", Account: "2000", Debit: 40, Status: JournalEntryStatusDraft})
+	if _, err := svc.Amend(ctx, "je-9", "  "); !errors.Is(err, ErrEmptyMemo) {
+		t.Fatalf("blank memo: %v", err)
+	}
+	if _, err := svc.Post(ctx, "je-9"); err != nil {
+		t.Fatal(err)
+	}
+	evs := rec.Events()
+	if len(evs) != 1 || evs[0].Subject != "je-9" || evs[0].Attrs["account"] != "2000" {
+		t.Fatalf("events = %v: entry events carry the account code", evs)
+	}
+	if _, err := svc.Amend(ctx, "je-9", "late memo"); !errors.Is(err, ErrNotDraft) {
+		t.Fatalf("amend posted: %v", err)
+	}
+}

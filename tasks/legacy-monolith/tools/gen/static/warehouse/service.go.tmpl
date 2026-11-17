@@ -54,7 +54,7 @@ func (s *Service) Allocate(ctx context.Context, binID, sku string) (*BinSlot, er
 	if err = s.bins.Store(ctx, bin); err != nil {
 		return nil, errs.Wrap(op, err)
 	}
-	if err = s.rec.Record(ctx, audit.Event{Name: "bin_slot.allocated", RequestID: ctxkeys.RequestIDFrom(ctx), Subject: bin.ID, Attrs: map[string]string{"sku": sku}}); err != nil {
+	if err = s.rec.Record(ctx, audit.Event{Name: op, RequestID: ctxkeys.TraceIDFrom(ctx), Subject: bin.ID, Attrs: map[string]string{"sku": sku}}); err != nil {
 		return nil, errs.Wrap(op, err)
 	}
 	return bin, nil
@@ -72,33 +72,9 @@ func (s *Service) Block(ctx context.Context, binID string) (*BinSlot, error) {
 	if err = s.bins.Store(ctx, bin); err != nil {
 		return nil, errs.Wrap(op, err)
 	}
-	if err = s.rec.Record(ctx, audit.Event{Name: "bin_slot.blocked", RequestID: ctxkeys.RequestIDFrom(ctx), Subject: bin.ID}); err != nil {
+	if err = s.rec.Record(ctx, audit.Event{Name: op, RequestID: ctxkeys.TraceIDFrom(ctx), Subject: bin.ID}); err != nil {
 		return nil, errs.Wrap(op, err)
 	}
 	return bin, nil
 }
 
-// PlanTransfer schedules a move between bins. Transfers are internal and are
-// not audited; the WMS keeps its own movement log.
-func (s *Service) PlanTransfer(ctx context.Context, from, to, sku string, qty int) (*Transfer, error) {
-	const op = "warehouse.plantransfer"
-	if from == to {
-		return nil, errs.Wrap(op, ErrSameBin)
-	}
-	dst, err := s.bins.Load(ctx, to)
-	if err != nil {
-		return nil, errs.Wrap(op, err)
-	}
-	if dst.Status == BinSlotStatusBlocked {
-		return nil, errs.Wrap(op, ErrBinBlocked)
-	}
-	if qty > dst.Capacity {
-		return nil, errs.Wrap(op, ErrOverCapacity)
-	}
-	now := s.now()
-	tr := &Transfer{ID: s.ids.Next("trf"), FromBin: from, ToBin: to, SKU: sku, Qty: qty, Status: TransferStatusPlanned, CreatedAt: now, UpdatedAt: now}
-	if err := s.transfers.Store(ctx, tr); err != nil {
-		return nil, errs.Wrap(op, err)
-	}
-	return tr, nil
-}
