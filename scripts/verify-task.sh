@@ -29,6 +29,8 @@ if not isinstance(t, dict) or not isinstance(m, dict):
 for k, v in t.items():
     if isinstance(v, list):
         v = ",".join(str(x) for x in v)
+    elif isinstance(v, bool):
+        v = "true" if v else "false"
     print("T\t%s\t%s" % (k, "null" if v is None else v))
 ms = m.get("milestones")
 if not isinstance(ms, list):
@@ -89,7 +91,7 @@ tget() { printf '%s\n' "$PARSED" | awk -F'\t' -v k="$1" '$1=="T" && $2==k {print
 # ---- task.yaml fields ----
 NAME=$(tget name); KIND=$(tget kind); LANG_=$(tget language); GOV=$(tget go_version)
 SESS=$(tget sessions); STO=$(tget session_timeout_minutes); BUD=$(tget budget_usd); DL=$(tget deadline_minutes)
-SCORING=$(tget scoring); OWNED_RAW=$(tget owned_dirs)
+SCORING=$(tget scoring); OWNED_RAW=$(tget owned_dirs); RESTORE=$(tget restore_seed_tests)
 [ -n "$NAME" ] || fail "task.yaml: name missing"
 case "$KIND" in long|needs-subagents|parallel) ;; *) fail "task.yaml: kind must be long|needs-subagents|parallel (got '$KIND')" ;; esac
 [ "$LANG_" = go ] || fail "task.yaml: language must be go (got '$LANG_')"
@@ -98,6 +100,7 @@ case "$KIND" in long|needs-subagents|parallel) ;; *) fail "task.yaml: kind must 
 [[ "$STO" =~ ^[0-9]+$ ]] && [ "$STO" -ge 1 ] || fail "task.yaml: session_timeout_minutes must be a positive integer (got '$STO')"
 [[ "$BUD" =~ ^[0-9]+(\.[0-9]+)?$ ]] || fail "task.yaml: budget_usd must be a number (got '$BUD')"
 case "$SCORING" in prefix|count) ;; *) fail "task.yaml: scoring must be prefix|count (got '$SCORING')" ;; esac
+case "$RESTORE" in ""|true|false) ;; *) fail "task.yaml: restore_seed_tests must be true|false (got '$RESTORE')" ;; esac
 # owned_dirs: optional flow list ("[a, b]" from the line parser, "a,b" from PyYAML)
 OWNED=()
 OWNED_LIST=${OWNED_RAW#\[}; OWNED_LIST=${OWNED_LIST%\]}
@@ -164,12 +167,9 @@ HAVE_GO=$(go env GOVERSION | sed 's/^go//')
 export GOTOOLCHAIN=local
 overlay() { cp -R "$1"/. "$2"/; }
 
-# prepare <dir>: deletes owned_dirs, then overlays hidden/ (what the grading harness does)
-overlay_hidden() {
-  local d
-  for d in ${OWNED[@]+"${OWNED[@]}"}; do rm -rf "${1:?}/$d"; done
-  overlay "$TASK/hidden" "$1"
-}
+# prepare <dir>: owned_dirs deleted, seed tests restored if restore_seed_tests, hidden/ overlaid
+# (what the grading harness does)
+overlay_hidden() { "$HERE/prepare-workspace.sh" "$TASK" "$1"; }
 
 mkdir "$WORK/seed" "$WORK/ref"
 cp -R "$SEED"/. "$WORK/seed"/

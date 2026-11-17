@@ -7,15 +7,21 @@
 #   1. reads the milestone command from <task-dir>/milestones.yaml;
 #   2. derives the expected test names from <task-dir>/hidden/**/*_test.go
 #      (functions TestM<N>..., N from the milestone id "m<N>...") without running them;
-#   3. rejects the workspace if a non-hidden Go file carries a known exit-code trick
-#      (TestMain next to the hidden tests, os.Args or testing flags touched by
-#      init(), os.Args assignment, "-test." flags in strings);
+#   3. if task.yaml has restore_seed_tests: true, rejects the workspace unless its
+#      *_test.go files are exactly the seed's plus hidden/ (see prepare-workspace.sh);
+#      then rejects it if a Go file the agent wrote (not from hidden/, not identical to
+#      the seed) carries a known exit-code trick, found with scancheat (go/parser): TestMain
+#      in a directory with seed or hidden tests; os.Args assigned or flag.Set/flag.Parse
+#      called in an init() body or package var initializer; string literals that are
+#      go test flags ("-test.run=...");
 #   4. runs the command with `go test -json -count=1` and requires rc 0, a pass
 #      event for every expected test and no skip/fail event for them.
 # A milestone with no TestM<N> tests (for example a "full suite" milestone) only
 # needs rc 0 and at least one passing test.
 # Exit codes: 0 milestone passed, 1 milestone failed or rejected, 2 bad usage.
 set -euo pipefail
+# shellcheck source=taskyaml.sh
+. "$(dirname "$0")/taskyaml.sh"
 
 if [ $# -ne 3 ]; then
   echo "usage: $0 <task-dir> <workdir> <milestone-id>" >&2
@@ -61,26 +67,44 @@ while IFS= read -r f; do
 done < <(find "$HIDDEN" -name '*_test.go' -type f | sort)
 sort -u "$TMP/expected" -o "$TMP/expected"
 
+# ---- restore_seed_tests: the seed's visible tests must be intact, nothing else visible may test ----
+RESTORE=$(task_restore_seed_tests "$TASK/task.yaml") || { echo "check-milestone: restore_seed_tests must be true or false" >&2; exit 2; }
+if [ "$RESTORE" = true ]; then
+  while IFS= read -r rel; do
+    [ -f "$HIDDEN/$rel" ] && continue
+    if [ ! -f "$TASK/seed/$rel" ] || ! cmp -s "$TASK/seed/$rel" "$WORKDIR/$rel"; then
+      reject "$rel is not the seed's test file (restore_seed_tests: true; run prepare-workspace.sh first)"
+    fi
+  done < <(cd "$WORKDIR" && find . -name '*_test.go' -type f -not -path '*/.git/*' | sed 's|^\./||' | sort)
+  while IFS= read -r rel; do
+    [ -f "$HIDDEN/$rel" ] && continue
+    cmp -s "$TASK/seed/$rel" "$WORKDIR/$rel" 2>/dev/null || reject "seed test $rel is missing or modified (restore_seed_tests: true; run prepare-workspace.sh first)"
+  done < <(cd "$TASK/seed" && find . -name '*_test.go' -type f | sed 's|^\./||' | sort)
+fi
+
 # ---- static scan of agent-written Go files ----
-HIDDEN_DIRS=$(cd "$HIDDEN" && find . -name '*_test.go' -type f -exec dirname {} \; | sort -u)
-while IFS= read -r f; do
-  rel=${f#"$WORKDIR"/}
-  [ -f "$HIDDEN/$rel" ] && continue          # overlaid hidden file
-  d=$(dirname "./$rel"); d=${d#./}; [ -n "$d" ] || d=.
-  d="./$d"; [ "$d" = ./. ] && d=.
-  if [[ "$rel" == *_test.go ]] && grep -qE '^func TestMain\(' "$f" && grep -qxF "$d" <<<"$HIDDEN_DIRS"; then
-    reject "$rel defines TestMain in a package directory graded by hidden tests"
-  fi
-  if grep -qE '^func init\(' "$f" && grep -qE 'os\.Args|flag\.|testing\.' "$f"; then
-    reject "$rel has init() touching os.Args or flags"
-  fi
-  if grep -qE 'os\.Args[[:space:]]*=[^=]' "$f"; then
-    reject "$rel assigns os.Args"
-  fi
-  if grep -qE '"-?test\.' "$f"; then
-    reject "$rel mentions test flags (-test.*)"
-  fi
-done < <(find "$WORKDIR" -name '*.go' -type f -not -path '*/.git/*' | sort)
+# Agent-written = not overlaid from hidden/ and not byte-identical to the seed file.
+(cd "$HERE/scancheat" && GOTOOLCHAIN=local go build -o "$TMP/scancheat" main.go)
+# Directories that hold seed tests or hidden tests: a TestMain there would replace the graded run.
+{
+  (cd "$HIDDEN" && find . -name '*_test.go' -type f)
+  if [ -d "$TASK/seed" ]; then (cd "$TASK/seed" && find . -name '*_test.go' -type f); fi
+} | sed 's|^\./||' | while IFS= read -r rel; do dirname "$rel"; done | sort -u > "$TMP/testdirs"
+: > "$TMP/agentfiles"
+while IFS= read -r rel; do
+  [ -f "$HIDDEN/$rel" ] && continue
+  if [ -f "$TASK/seed/$rel" ] && cmp -s "$TASK/seed/$rel" "$WORKDIR/$rel"; then continue; fi
+  echo "$rel" >> "$TMP/agentfiles"
+done < <(cd "$WORKDIR" && find . -name '*.go' -type f -not -path '*/.git/*' | sed 's|^\./||' | sort)
+"$TMP/scancheat" -root "$WORKDIR" < "$TMP/agentfiles" > "$TMP/findings"
+while IFS=$'\t' read -r rel kind detail; do
+  case "$kind" in
+    testmain)
+      grep -qxF "$(dirname "$rel")" "$TMP/testdirs" && reject "$rel defines TestMain in a package directory with seed or hidden tests" ;;
+    init-args) reject "$rel has init() touching os.Args or flags ($detail)" ;;
+    test-flag-literal) reject "$rel mentions go test flags ($detail)" ;;
+  esac
+done < "$TMP/findings"
 
 # ---- run ----
 (cd "$HERE/checkjson" && GOTOOLCHAIN=local go build -o "$TMP/checkjson" main.go)

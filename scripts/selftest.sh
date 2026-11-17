@@ -204,4 +204,228 @@ mk goodcheck "$GOOD"
 ws goodcheck
 check "check-milestone accepts a clean workspace" 0 goodcheck m1 "PASS: m1 (1 expected tests)"
 
+# ---- TestMain in any package with seed or hidden tests, not only the one hidden tests target ----
+# mk_audit <case>: the seed also has a package audit/ with its own visible passing test
+mk_audit() {
+  mk "$1" "$GOOD"
+  mkdir -p "$T/$1/task/seed/audit"
+  printf 'package audit\n\nfunc Name() string { return "audit" }\n' > "$T/$1/task/seed/audit/audit.go"
+  cat > "$T/$1/task/seed/audit/audit_test.go" <<'GO'
+package audit
+
+import "testing"
+
+func TestName(t *testing.T) { if Name() != "audit" { t.Fatal("name") } }
+GO
+}
+mk_audit auditmain
+mkdir -p "$T/auditmain/ref/audit"
+cat > "$T/auditmain/ref/audit/zz_test.go" <<'GO'
+package audit
+
+import (
+	"os"
+	"testing"
+)
+
+func TestMain(m *testing.M) { os.Exit(0) }
+GO
+expect "TestMain os.Exit(0) in a package with seed tests (not hidden target)" 1 auditmain "audit/zz_test.go defines TestMain"
+
+mk_audit auditmainedit
+mkdir -p "$T/auditmainedit/ref/audit"
+cat > "$T/auditmainedit/ref/audit/audit_test.go" <<'GO'
+package audit
+
+import (
+	"os"
+	"testing"
+)
+
+func TestMain(m *testing.M) { os.Exit(0) }
+func TestName(t *testing.T) {}
+GO
+expect "TestMain added to an edited seed test file" 1 auditmainedit "audit/audit_test.go defines TestMain"
+
+# ---- benign code must not be rejected ----
+mk_audit benign
+cat > "$T/benign/ref/events.go" <<'GO'
+package demo
+
+import "os"
+
+// Event names are "<noun>.<verb>" strings.
+const Recorded = "test.recorded"
+
+var Files = []string{"report-test.json", "run-test.log"}
+
+func init() { _ = len(os.Args) }
+GO
+cat > "$T/benign/ref/events_test.go" <<'GO'
+package demo
+
+import "testing"
+
+var table map[string]int
+
+func init() {
+	table = map[string]int{"test.recorded": 1, "test.run": 2}
+}
+
+func TestRecorded(t *testing.T) {
+	if table[Recorded] != 1 {
+		t.Fatal("recorded")
+	}
+}
+GO
+cat > "$T/benign/ref/cli_test.go" <<'GO'
+package demo
+
+import (
+	"os"
+	"testing"
+)
+
+func TestArgsInTest(t *testing.T) {
+	old := os.Args
+	os.Args = []string{"cmd", "-v"}
+	defer func() { os.Args = old }()
+}
+GO
+expect "benign event-name literal, init() in test file, os.Args in a test are accepted" 0 benign
+
+# ---- exit-code tricks stay rejected: check-milestone on workspaces with one agent file each ----
+trick() { # trick <case> <label> <file> <expected-substring> : file body on stdin
+  mk "$1" "$GOOD"
+  ws "$1"
+  cat > "$T/$1/work/$3"
+  check "$2" 1 "$1" m1 "$4"
+}
+trick tflagset "flag.Set(test.run) in init()" hack.go "touching os.Args or flags" <<'GO'
+package demo
+
+import "flag"
+
+func init() { _ = flag.Set("test.run", "^$") }
+GO
+trick tflagparse "flag.Parse in a var initializer" hack.go "touching os.Args or flags" <<'GO'
+package demo
+
+import "flag"
+
+var _ = func() int { flag.Parse(); return 0 }()
+GO
+trick tflaglookup "flag.Lookup(...).Value.Set in init()" hack.go "touching os.Args or flags" <<'GO'
+package demo
+
+import f "flag"
+
+func init() { f.Lookup("test.run").Value.Set("^$") }
+GO
+trick targsvar "os.Args assigned in a var initializer" hack.go "touching os.Args or flags" <<'GO'
+package demo
+
+import "os"
+
+var _ = func() bool { os.Args = append(os.Args, "-x"); return true }()
+GO
+trick targshelper "os.Args assigned by a helper that init() calls" hack.go "touching os.Args or flags" <<'GO'
+package demo
+
+import "os"
+
+func quiet() { os.Args[1] = "-skip" }
+
+func init() { quiet() }
+GO
+trick tliteral "go test flag string literal" hack.go "mentions go test flags" <<'GO'
+package demo
+
+var args = []string{"-test.run=^$"}
+GO
+trick ttestmain "TestMain in the package hidden tests target" hack_test.go "defines TestMain" <<'GO'
+package demo
+
+import (
+	"os"
+	"testing"
+)
+
+func TestMain(m *testing.M) { os.Exit(0) }
+GO
+
+# ---- restore_seed_tests ----
+# mk_restore <case> <flag>: the seed has a visible test TestVisible that the reference satisfies;
+# m1 is a hidden test, m3 is a full-suite regression milestone (no TestM3 tests).
+mk_restore() {
+  mk "$1" "$GOOD  - id: m3
+    title: No regressions
+    command: go test ./...
+"
+  local d=$T/$1/task
+  cat > "$d/hidden/demo_test.go" <<'GO'
+package demo
+
+import "testing"
+
+func TestM1(t *testing.T) { if One() != 1 { t.Fatal("one") } }
+func TestM2(t *testing.T) { if One() != 1 { t.Fatal("one") } }
+func TestAlways(t *testing.T) {}
+GO
+  cat > "$d/seed/visible_test.go" <<'GO'
+package demo
+
+import "testing"
+
+func TestVisible(t *testing.T) { if Two() != 2 { t.Fatal("two") } }
+GO
+  [ "$2" = none ] || echo "restore_seed_tests: $2" >> "$d/task.yaml"
+}
+# agent_ws <case>: seed + reference, regressed so that TestVisible fails (Two() returns 0)
+agent_ws() {
+  mkdir -p "$T/$1/work"
+  cp -R "$T/$1/task/seed"/. "$T/$1/work"/
+  cp -R "$T/$1/ref"/. "$T/$1/work"/
+  printf 'package demo\n\nfunc One() int { return 1 }\n\nfunc Two() int { return 0 }\n' > "$T/$1/work/demo.go"
+}
+prepare() { "$HERE/prepare-workspace.sh" "$T/$1/task" "$T/$1/work"; }
+
+mk_restore restoretrue true
+expect "restore_seed_tests: true task verifies (reference passes, seed fails)" 0 restoretrue
+mk_restore restorebad maybe
+expect "invalid restore_seed_tests value" 1 restorebad "restore_seed_tests must be"
+
+mk_restore delvisible true
+agent_ws delvisible
+rm "$T/delvisible/work/visible_test.go"
+prepare delvisible
+check "deleting the failing visible test cannot pass the regression milestone" 1 delvisible m3 "FAIL: TestVisible\|command exited"
+if [ -f "$T/delvisible/work/visible_test.go" ]; then echo "ok   deleted visible test was restored"; else echo "FAIL deleted visible test was not restored"; FAILS=$((FAILS + 1)); fi
+
+mk_restore editvisible true
+agent_ws editvisible
+printf 'package demo\n\nimport "testing"\n\nfunc TestVisible(t *testing.T) {}\n' > "$T/editvisible/work/visible_test.go"
+printf 'package demo\n\nimport "testing"\n\nfunc TestExtra(t *testing.T) { t.Skip("x") }\n' > "$T/editvisible/work/extra_test.go"
+prepare editvisible
+check "weakening the visible test cannot pass the regression milestone" 1 editvisible m3 "command exited"
+if [ ! -f "$T/editvisible/work/extra_test.go" ]; then echo "ok   agent-added test file was deleted"; else echo "FAIL agent-added test file survived"; FAILS=$((FAILS + 1)); fi
+
+mk_restore unprepared true
+agent_ws unprepared
+rm "$T/unprepared/work/visible_test.go"
+cp -R "$T/unprepared/task/hidden"/. "$T/unprepared/work"/
+check "unprepared workspace is rejected when restore_seed_tests is true" 1 unprepared m3 "seed test visible_test.go is missing or modified"
+
+mk_restore flagfalse false
+agent_ws flagfalse
+rm "$T/flagfalse/work/visible_test.go"
+prepare flagfalse
+check "restore_seed_tests: false keeps today's behavior (deleted test goes unnoticed)" 0 flagfalse m3 "PASS: m3"
+
+mk_restore flagabsent none
+agent_ws flagabsent
+rm "$T/flagabsent/work/visible_test.go"
+prepare flagabsent
+check "restore_seed_tests absent defaults to false" 0 flagabsent m3 "PASS: m3"
+
 if [ "$FAILS" -eq 0 ]; then echo "selftest passed"; else echo "selftest: $FAILS failure(s)"; exit 1; fi
