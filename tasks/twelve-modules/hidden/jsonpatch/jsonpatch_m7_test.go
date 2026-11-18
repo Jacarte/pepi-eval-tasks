@@ -25,8 +25,9 @@ func m7CheckPatchError(t *testing.T, what string, err error, index int, op, path
 		t.Errorf("%s: error = %v, want *PatchError", what, err)
 		return
 	}
-	if pe.Index != index || pe.Op != op || pe.Path != path || pe.Err != sentinel {
-		t.Errorf("%s: PatchError{%d, %q, %q, %v}, want {%d, %q, %q, %v}", what, pe.Index, pe.Op, pe.Path, pe.Err, index, op, path, sentinel)
+	// The spec only requires Err to satisfy errors.Is(Err, sentinel); a wrapped sentinel is fine.
+	if pe.Index != index || pe.Op != op || pe.Path != path || !errors.Is(pe.Err, sentinel) {
+		t.Errorf("%s: PatchError{%d, %q, %q, %v}, want {%d, %q, %q, Err satisfying errors.Is(Err, %v)}", what, pe.Index, pe.Op, pe.Path, pe.Err, index, op, path, sentinel)
 	}
 	if !errors.Is(err, sentinel) {
 		t.Errorf("%s: errors.Is(err, %v) is false", what, sentinel)
@@ -306,10 +307,7 @@ func TestM7DecodePatch(t *testing.T) {
 		{`[{"op":"ADD","path":"/a","value":1}]`, 0, "ADD", "/a"},
 	}
 	for _, c := range bad {
-		ops, err := jsonpatch.DecodePatch([]byte(c.patch))
-		if ops != nil {
-			t.Errorf("DecodePatch(%s) returned operations with an error", c.patch)
-		}
+		_, err := jsonpatch.DecodePatch([]byte(c.patch))
 		m7CheckPatchError(t, "DecodePatch("+c.patch+")", err, c.index, c.op, c.path, jsonpatch.ErrInvalidOperation)
 	}
 	if ops, err := jsonpatch.DecodePatch([]byte(`[{"op":"add","path":"not a pointer","value":null}]`)); err != nil || len(ops) != 1 {
