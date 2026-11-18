@@ -4,7 +4,8 @@ import (
 	"errors"
 	"go/parser"
 	"go/token"
-	"os"
+	"io/fs"
+	"path/filepath"
 	"reflect"
 	"strconv"
 	"strings"
@@ -311,26 +312,40 @@ func TestM6LongInputs(t *testing.T) {
 	}
 }
 
-// The package must not use the standard regexp package.
+// No Go file under regexlite/ may import regexp, regexp/syntax or another
+// package of this module.
 func TestM6NoRegexpImport(t *testing.T) {
-	entries, err := os.ReadDir(".")
+	fset := token.NewFileSet()
+	files := 0
+	err := filepath.WalkDir(".", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() || !strings.HasSuffix(path, ".go") {
+			return nil
+		}
+		files++
+		f, err := parser.ParseFile(fset, path, nil, parser.ImportsOnly)
+		if err != nil {
+			t.Errorf("parse %s: %v", path, err)
+			return nil
+		}
+		for _, imp := range f.Imports {
+			p, _ := strconv.Unquote(imp.Path.Value)
+			switch {
+			case p == "regexp" || strings.HasPrefix(p, "regexp/"):
+				t.Errorf("%s imports %s", path, p)
+			case (p == "twelvemods" || strings.HasPrefix(p, "twelvemods/")) &&
+				p != "twelvemods/regexlite" && !strings.HasPrefix(p, "twelvemods/regexlite/"):
+				t.Errorf("%s imports another package of the module: %s", path, p)
+			}
+		}
+		return nil
+	})
 	if err != nil {
 		t.Fatal(err)
 	}
-	fset := token.NewFileSet()
-	for _, e := range entries {
-		name := e.Name()
-		if !strings.HasSuffix(name, ".go") || strings.HasSuffix(name, "_test.go") {
-			continue
-		}
-		f, err := parser.ParseFile(fset, name, nil, parser.ImportsOnly)
-		if err != nil {
-			t.Fatalf("parse %s: %v", name, err)
-		}
-		for _, imp := range f.Imports {
-			if p, _ := strconv.Unquote(imp.Path.Value); p == "regexp" || strings.HasPrefix(p, "regexp/") {
-				t.Errorf("%s imports %s", name, p)
-			}
-		}
+	if files == 0 {
+		t.Fatal("no Go files found under regexlite/")
 	}
 }

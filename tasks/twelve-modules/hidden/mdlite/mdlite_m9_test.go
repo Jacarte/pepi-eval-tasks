@@ -65,6 +65,7 @@ func TestM9FencedCode(t *testing.T) {
 		{"```\ncode <b>\n  x\n```", "<pre><code>code &lt;b&gt;\n  x\n</code></pre>\n"},
 		{"```go extra\nfunc() {}\n```", "<pre><code class=\"language-go\">func() {}\n</code></pre>\n"},
 		{"```   rust   \nx\n```", "<pre><code class=\"language-rust\">x\n</code></pre>\n"},
+		{"```go\tx y\ncode\n```", "<pre><code class=\"language-go\tx\">code\n</code></pre>\n"},
 		{"```\n```", "<pre><code></code></pre>\n"},
 		{"```\na\n\nb", "<pre><code>a\n\nb\n</code></pre>\n"},
 		{"````\n```\n````", "<pre><code>```\n</code></pre>\n"},

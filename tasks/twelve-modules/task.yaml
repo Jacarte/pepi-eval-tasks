@@ -4,6 +4,7 @@ language: go
 go_version: 1.22.5
 sessions: 1
 session_timeout_minutes: 30
-budget_usd: 4
+budget_usd: 8
 deadline_minutes: 12
 scoring: count             # milestones passed, in any order
+restore_seed_tests: true  # the seed has no tests: grading removes every agent-written *_test.go

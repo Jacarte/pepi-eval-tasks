@@ -622,8 +622,9 @@ func (re *Regexp) FindAllString(s string, n int) []string
 func (re *Regexp) ReplaceAllString(src, repl string) string
 ```
 
-A backtracking regular expression engine for the subset below. The package
-`regexp` must not be used. Patterns and subjects are UTF-8; matching works on
+A backtracking regular expression engine for the subset below. No Go file
+under `regexlite/` (including subdirectories and test files) may import
+`regexp`, `regexp/syntax` or another package of this module. Patterns and subjects are UTF-8; matching works on
 runes, positions and indices are byte offsets.
 
 ### Syntax
@@ -876,7 +877,8 @@ Other members are ignored. Pointers are not checked by `DecodePatch` (only by
 `errors.Is(err, ErrInvalidDocument)`; it is not a `*PatchError`), decodes the
 patch with `DecodePatch` (its error returned unchanged), applies it with
 `Apply` (its error returned unchanged) and returns `json.Marshal` of the
-result (compact, object keys sorted).
+result (compact, object keys sorted). On any error `ApplyJSON` returns nil
+bytes and the error.
 
 ---
 
@@ -1013,7 +1015,8 @@ classified by the first rule that applies:
 1. **Blank**: ends the current paragraph or list; otherwise ignored.
 2. **Fence opening**: starts at column 0 with three or more backticks
    (`` ` ``). The rest of the line after the backticks, trimmed of spaces, is
-   the *info*; the language is its first space-separated word (if any).
+   the *info*; the language is the info up to its first space (U+0020), or
+   the whole info if it has none (tabs are ordinary characters here too).
 3. **ATX heading**: starts at column 0 with 1 to 6 `#` followed by a space or
    the end of the line. Text = the rest of the line, trimmed of spaces.
    Trailing `#` characters are kept as text. (`#foo` and `####### x` are not
@@ -1025,7 +1028,9 @@ classified by the first rule that applies:
    marker, then one space, then the item text, which trimmed of spaces must
    be non-empty. Markers: `-`, `*` or `+` (unordered), or 1 to 9 decimal
    digits followed by `.` (ordered). (`-`, `- ` + spaces only, `1.x`, `-x`,
-   `1)` are not item lines.)
+   `1)` are not item lines.) The item's text is the rest of the line after
+   the marker's space, trimmed of leading and trailing spaces; that trimmed
+   text is what is rendered.
 7. Otherwise a **paragraph line**.
 
 Rendering:
@@ -1389,7 +1394,10 @@ extra empty line; line numbers start at 1):
    delete and `C2` lines of context + insert have been read (a marker directly
    after the last body line still belongs to the hunk).
 4. After a hunk, the next line must be another hunk header or the end of the
-   patch.
+   patch. A line starting with `\` in that position (directly after a
+   complete hunk whose last body line already has its marker, or after a hunk
+   with no body lines) is reported as `unexpected line in hunk`; any other
+   line there is `expected hunk header`.
 
 A hunk with `C1 > 0` applies at line `S1` of the original: its context and
 delete lines must equal the original lines `S1`, `S1+1`, ... exactly (no
@@ -1406,10 +1414,10 @@ with the original, hunk by hunk in patch order, reporting the first mismatch:
 
 | Msg | Case | `Line` |
 |---|---|---|
-| `expected hunk header` | a line where a hunk header must be (after the skipped header lines or after a complete hunk) that is not `@@ -` … | that line |
+| `expected hunk header` | a line where a hunk header must be (after the skipped header lines or after a complete hunk) that is not `@@ -` … and, after a complete hunk, does not start with `\` | that line |
 | `invalid hunk header` | a line starting with `@@ -` that does not have the form above, or has `C1 > 0` with `S1 == 0` | that line |
 | `hunk out of order` | `S1` violates the order rule above, or `S1 + C1 - 1` (or `S1` when `C1 == 0`) is beyond the end of the original | the header line |
-| `unexpected line in hunk` | a body line that does not start with `" "`, `"-"`, `"+"` or `\`, a marker not directly after a body line, or a body line that would exceed `C1` or `C2` | that line |
+| `unexpected line in hunk` | a body line that does not start with `" "`, `"-"`, `"+"` or `\`, a marker not directly after a body line (including a line starting with `\` after a complete hunk, see rule 4), or a body line that would exceed `C1` or `C2` | that line |
 | `unexpected end of patch` | the patch ends before a hunk's counts are reached | the number of patch lines + 1 |
 | `does not match original line N` | a context or delete line differing from original line `N` | that body line |
 
