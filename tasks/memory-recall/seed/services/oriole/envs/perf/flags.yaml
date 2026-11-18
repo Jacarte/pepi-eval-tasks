@@ -1,7 +1,8 @@
-# email-sender perf feature flags
-service: email-sender
+# perf feature flags
 environment: perf
 flags:
   new_retry_policy: false
-  async_writes: true
+  strict_validation: false
   batch_compaction: true
+  shadow_reads: true
+  fast_path: false

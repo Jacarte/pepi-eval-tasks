@@ -1,6 +1,5 @@
-# import-worker production-eu autoscaling
-service: import-worker
+# production-eu autoscaling
 environment: production-eu
-min_replicas: 3
-max_replicas: 5
-target_cpu_percent: 60
+min_replicas: 1
+max_replicas: 9
+target_cpu_percent: 50

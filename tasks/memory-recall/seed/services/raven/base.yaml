@@ -1,9 +1,10 @@
-# notifications-api defaults
+# raven deployment
 service: notifications-api
 codename: raven
+role: primary
+status: active
 team: platform
 owner: team-platform@example.com
-status: active
 runtime: go1.21
 replicas: 1
 log_level: info

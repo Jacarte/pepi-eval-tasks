@@ -1,6 +1,5 @@
-# notifications-api production feature flags
-service: notifications-api
+# production feature flags
 environment: production
 flags:
-  async_writes: false
-  fast_path: true
+  strict_validation: true
+  fast_path: false

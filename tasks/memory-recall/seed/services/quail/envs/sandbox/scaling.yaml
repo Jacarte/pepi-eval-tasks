@@ -1,6 +1,5 @@
-# import-worker sandbox autoscaling
-service: import-worker
+# sandbox autoscaling
 environment: sandbox
 min_replicas: 1
-max_replicas: 2
-target_cpu_percent: 80
+max_replicas: 3
+target_cpu_percent: 70

@@ -1,8 +1,6 @@
-# pricing-worker staging feature flags
-service: pricing-worker
+# staging feature flags
 environment: staging
 flags:
-  strict_validation: false
-  batch_compaction: true
-  shadow_reads: true
+  strict_validation: true
+  batch_compaction: false
   fast_path: false

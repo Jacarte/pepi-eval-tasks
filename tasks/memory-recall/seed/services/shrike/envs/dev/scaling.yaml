@@ -1,6 +1,5 @@
-# audit-api development autoscaling
-service: audit-api
+# development autoscaling
 environment: development
-min_replicas: 1
-max_replicas: 4
+min_replicas: 2
+max_replicas: 3
 target_cpu_percent: 75

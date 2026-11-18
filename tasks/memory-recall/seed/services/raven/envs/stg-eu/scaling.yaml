@@ -1,6 +1,5 @@
-# notifications-api staging-eu autoscaling
-service: notifications-api
+# staging-eu autoscaling
 environment: staging-eu
 min_replicas: 3
-max_replicas: 4
-target_cpu_percent: 50
+max_replicas: 5
+target_cpu_percent: 55

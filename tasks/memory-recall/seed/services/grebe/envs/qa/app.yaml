@@ -1,12 +1,10 @@
-# fraud-scorer qa settings; keys missing here come from ../../base.yaml
-service: fraud-scorer
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 5
+replicas: 4
 log_level: info
 storage:
-  bucket: acme-qa-fraud-scorer
-  retention_days: 120
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
-  - media-api
+  - checkout-worker

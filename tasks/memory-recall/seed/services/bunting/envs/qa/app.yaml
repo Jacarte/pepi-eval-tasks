@@ -1,12 +1,10 @@
-# media-transcoder qa settings; keys missing here come from ../../base.yaml
-service: media-transcoder
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 2
-log_level: info
+replicas: 3
+log_level: warn
 storage:
-  bucket: acme-qa-media-transcoder
-  retention_days: 14
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 3000
 upstreams:
-  - checkout-api
+  - payouts-worker

@@ -1,8 +1,8 @@
-# billing-scheduler staging-eu feature flags
-service: billing-scheduler
+# staging-eu feature flags
 environment: staging-eu
 flags:
   new_retry_policy: true
+  async_writes: false
   strict_validation: true
-  shadow_reads: false
+  batch_compaction: true
   fast_path: true

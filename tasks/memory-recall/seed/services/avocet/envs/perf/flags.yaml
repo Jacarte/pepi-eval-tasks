@@ -1,7 +1,6 @@
-# thumbnails-worker perf feature flags
-service: thumbnails-worker
+# perf feature flags
 environment: perf
 flags:
-  async_writes: true
+  new_retry_policy: false
   strict_validation: false
   fast_path: true

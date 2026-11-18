@@ -1,7 +1,6 @@
-# payouts-worker sandbox resources
-service: payouts-worker
+# sandbox resources
 environment: sandbox
-cpu_request: 300m
-cpu_limit: 1200m
+cpu_request: 200m
+cpu_limit: 600m
 mem_request_mb: 384
 mem_limit_mb: 768

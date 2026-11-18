@@ -1,11 +1,8 @@
-# notifications-api sandbox settings; keys missing here come from ../../base.yaml
-service: notifications-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 2
-log_level: debug
-storage:
-  bucket: acme-sandbox-notifications-api
+replicas: 4
+log_level: info
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
-  - webhooks-worker
+  - billing-scheduler

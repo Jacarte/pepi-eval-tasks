@@ -1,17 +1,15 @@
-# pricing-worker sandbox settings; keys missing here come from ../../base.yaml
-service: pricing-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 2
+replicas: 6
 log_level: debug
 queue:
-  name: pricing-worker-sandbox
-  batch_size: 200
-  visibility_timeout_s: 30
+  name: rook-sandbox
+  batch_size: 150
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-sandbox-pricing-worker
-  retention_days: 60
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - auth-worker
-  - risk-api
+  - audit-worker
+  - pricing-api

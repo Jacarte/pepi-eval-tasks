@@ -1,0 +1,5 @@
+# legacy storage profile
+class: warm
+retention_days: 365
+versioning: true
+encryption: aes256

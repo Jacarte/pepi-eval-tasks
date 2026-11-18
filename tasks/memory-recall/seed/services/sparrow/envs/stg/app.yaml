@@ -1,12 +1,10 @@
-# inventory-sync staging settings; keys missing here come from ../../base.yaml
-service: inventory-sync
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: info
+replicas: 4
+log_level: warn
 storage:
-  bucket: acme-staging-inventory-sync
-  retention_days: 45
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2500
 upstreams:
-  - metrics-collector
+  - webhooks-worker

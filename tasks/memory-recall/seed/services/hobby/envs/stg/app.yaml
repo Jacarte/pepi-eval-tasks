@@ -1,15 +1,14 @@
-# payouts-worker staging settings; keys missing here come from ../../base.yaml
-service: payouts-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
 replicas: 3
-log_level: debug
+log_level: warn
 queue:
-  name: payouts-worker-staging
-  batch_size: 150
-  visibility_timeout_s: 30
+  name: hobby-staging
+  batch_size: 100
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-staging-payouts-worker
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3000
 upstreams:
-  - billing-legacy
+  - catalog-indexer

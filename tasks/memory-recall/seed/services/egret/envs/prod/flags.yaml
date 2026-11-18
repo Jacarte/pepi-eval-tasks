@@ -1,7 +1,3 @@
-# catalog-api production feature flags
-service: catalog-api
+# production feature flags
 environment: production
 flags:
-  new_retry_policy: true
-  async_writes: false
-  strict_validation: true

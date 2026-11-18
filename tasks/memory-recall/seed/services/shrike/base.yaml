@@ -1,9 +1,10 @@
-# audit-api defaults
+# shrike deployment
 service: audit-api
 codename: shrike
+role: primary
+status: active
 team: fulfilment
 owner: team-fulfilment@example.com
-status: active
 runtime: go1.20
 replicas: 1
 log_level: info

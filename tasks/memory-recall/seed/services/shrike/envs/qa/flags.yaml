@@ -1,7 +1,6 @@
-# audit-api qa feature flags
-service: audit-api
+# qa feature flags
 environment: qa
 flags:
-  strict_validation: true
+  new_retry_policy: false
+  async_writes: true
   batch_compaction: false
-  fast_path: true

@@ -1,7 +1,6 @@
-# checkout-worker perf resources
-service: checkout-worker
+# perf resources
 environment: perf
-cpu_request: 300m
-cpu_limit: 1200m
+cpu_request: 200m
+cpu_limit: 600m
 mem_request_mb: 640
 mem_limit_mb: 1280

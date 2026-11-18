@@ -1,8 +1,4 @@
-# inventory-api development feature flags
-service: inventory-api
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: true
-  async_writes: false
-  strict_validation: false
-  batch_compaction: true
+  async_writes: true

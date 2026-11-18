@@ -1,5 +1,5 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# production-eu feature flags
 environment: production-eu
 flags:
   batch_compaction: false
+  shadow_reads: true

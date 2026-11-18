@@ -1,13 +1,10 @@
-# risk-api development settings; keys missing here come from ../../base.yaml
-service: risk-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 3
 log_level: info
 storage:
-  bucket: acme-development-risk-api
-  retention_days: 120
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - reports-api
-  - pricing-worker
+  - users-api

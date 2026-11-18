@@ -1,6 +1,5 @@
-# reports-worker sandbox autoscaling
-service: reports-worker
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 2
-max_replicas: 12
+min_replicas: 3
+max_replicas: 6
 target_cpu_percent: 50

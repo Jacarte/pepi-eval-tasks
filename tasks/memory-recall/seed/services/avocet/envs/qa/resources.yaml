@@ -1,7 +1,6 @@
-# thumbnails-worker qa resources
-service: thumbnails-worker
+# qa resources
 environment: qa
-cpu_request: 400m
-cpu_limit: 800m
-mem_request_mb: 128
-mem_limit_mb: 256
+cpu_request: 200m
+cpu_limit: 400m
+mem_request_mb: 512
+mem_limit_mb: 1024

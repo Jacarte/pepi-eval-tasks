@@ -1,16 +1,14 @@
-# thumbnails-worker development settings; keys missing here come from ../../base.yaml
-service: thumbnails-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 5
-log_level: warn
+replicas: 4
+log_level: debug
 queue:
-  name: thumbnails-worker-development
+  name: avocet-development
   batch_size: 50
   visibility_timeout_s: 120
 storage:
-  bucket: acme-development-thumbnails-worker
-  retention_days: 7
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 500
 upstreams:
-  - reports-api
+  - email-sender

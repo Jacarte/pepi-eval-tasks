@@ -1,15 +1,13 @@
-# audit-api perf alerts
-service: audit-api
+# perf alerts
 environment: perf
-log_retention_days: 45
-metrics_retention_days: 21
-notify: team-fulfilment
+log_retention_days: 60
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 1400
     for: 10m
     severity: ticket

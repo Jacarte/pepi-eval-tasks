@@ -1,6 +1,5 @@
-# billing-api sandbox autoscaling
-service: billing-api
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 2
-max_replicas: 7
+min_replicas: 1
+max_replicas: 2
 target_cpu_percent: 60

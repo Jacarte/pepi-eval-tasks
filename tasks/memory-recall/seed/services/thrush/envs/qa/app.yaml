@@ -1,17 +1,13 @@
-# checkout-worker qa settings; keys missing here come from ../../base.yaml
-service: checkout-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 2
+replicas: 6
 log_level: warn
 queue:
-  name: checkout-worker-qa
-  batch_size: 100
-  visibility_timeout_s: 30
-storage:
-  bucket: acme-qa-checkout-worker
-  retention_days: 30
+  name: thrush-qa
+  batch_size: 200
+  visibility_timeout_s: 60
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
-  - webhooks-worker
-  - cart-api
+  - ledger-api
+  - billing-scheduler

@@ -1,16 +1,14 @@
-# sms-sender qa settings; keys missing here come from ../../base.yaml
-service: sms-sender
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 6
+replicas: 4
 log_level: debug
 queue:
-  name: sms-sender-qa
-  batch_size: 400
-  visibility_timeout_s: 30
+  name: nuthatch-qa
+  batch_size: 250
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-qa-sms-sender
-  retention_days: 7
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - import-worker
+  - billing-worker

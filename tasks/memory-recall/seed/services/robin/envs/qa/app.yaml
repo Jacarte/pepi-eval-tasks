@@ -1,13 +1,10 @@
-# cart-api qa settings; keys missing here come from ../../base.yaml
-service: cart-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 4
-log_level: info
+replicas: 5
+log_level: warn
 storage:
-  bucket: acme-qa-cart-api
-  retention_days: 7
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2000
 upstreams:
-  - inventory-sync
-  - billing-scheduler
+  - ledger-worker

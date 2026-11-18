@@ -1,8 +1,9 @@
-# profiles-api development feature flags
-service: profiles-api
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: true
+  new_retry_policy: false
   async_writes: false
-  strict_validation: false
+  strict_validation: true
   batch_compaction: false
+  shadow_reads: true
+  fast_path: false

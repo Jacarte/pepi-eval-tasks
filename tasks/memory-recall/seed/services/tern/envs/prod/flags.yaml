@@ -1,6 +1,5 @@
-# invoice-worker production feature flags
-service: invoice-worker
+# production feature flags
 environment: production
 flags:
-  async_writes: false
-  strict_validation: false
+  new_retry_policy: false
+  shadow_reads: false

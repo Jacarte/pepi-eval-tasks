@@ -1,15 +1,13 @@
-# search-indexer qa alerts
-service: search-indexer
+# qa alerts
 environment: qa
-log_retention_days: 45
-metrics_retention_days: 60
-notify: team-data
+log_retention_days: 60
+metrics_retention_days: 365
 alerts:
   - name: error-rate
-    threshold: 0.08
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 400
+    threshold_ms: 1300
     for: 10m
     severity: ticket

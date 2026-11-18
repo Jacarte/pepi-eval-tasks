@@ -1,6 +1,4 @@
-# search-api production feature flags
-service: search-api
+# production feature flags
 environment: production
 flags:
-  async_writes: true
-  shadow_reads: false
+  new_retry_policy: true

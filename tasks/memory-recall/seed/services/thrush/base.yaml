@@ -1,9 +1,10 @@
-# checkout-worker defaults
+# thrush deployment
 service: checkout-worker
 codename: thrush
+role: primary
+status: active
 team: fulfilment
 owner: team-fulfilment@example.com
-status: active
 runtime: go1.21
 replicas: 3
 log_level: info

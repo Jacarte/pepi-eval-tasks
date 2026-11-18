@@ -1,12 +1,8 @@
-# orders-api development settings; keys missing here come from ../../base.yaml
-service: orders-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 6
+replicas: 2
 log_level: info
-storage:
-  bucket: acme-development-orders-api
-  retention_days: 45
 http:
   timeout_ms: 500
 upstreams:
-  - payouts-api
+  - cart-api

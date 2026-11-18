@@ -1,12 +1,10 @@
-# pricing-api staging-eu alerts
-service: pricing-api
+# staging-eu alerts
 environment: staging-eu
-log_retention_days: 21
-metrics_retention_days: 90
-notify: team-commerce
+log_retention_days: 7
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99

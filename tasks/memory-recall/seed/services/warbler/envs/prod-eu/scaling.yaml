@@ -1,6 +1,5 @@
-# orders-worker production-eu autoscaling
-service: orders-worker
+# production-eu autoscaling
 environment: production-eu
 min_replicas: 1
 max_replicas: 7
-target_cpu_percent: 60
+target_cpu_percent: 80

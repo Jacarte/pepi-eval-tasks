@@ -1,9 +1,10 @@
-# search-api defaults
+# lark deployment
 service: search-api
 codename: lark
+role: primary
+status: active
 team: growth
 owner: team-growth@example.com
-status: active
 runtime: go1.22
 replicas: 3
 log_level: info

@@ -1,8 +1,5 @@
-# media-api staging-eu feature flags
-service: media-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  async_writes: true
-  strict_validation: true
-  batch_compaction: false
-  fast_path: false
+  new_retry_policy: true
+  strict_validation: false

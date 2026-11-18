@@ -1,5 +1,6 @@
-# billing-legacy staging-eu feature flags
-service: billing-legacy
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  shadow_reads: false
+  new_retry_policy: false
+  async_writes: true
+  batch_compaction: true

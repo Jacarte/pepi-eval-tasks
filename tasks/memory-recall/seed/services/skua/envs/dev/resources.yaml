@@ -1,7 +1,6 @@
-# gateway development resources
-service: gateway
+# development resources
 environment: development
 cpu_request: 300m
 cpu_limit: 900m
-mem_request_mb: 896
-mem_limit_mb: 1792
+mem_request_mb: 1024
+mem_limit_mb: 2048

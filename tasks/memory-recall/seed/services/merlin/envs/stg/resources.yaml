@@ -1,7 +1,6 @@
-# reports-api staging resources
-service: reports-api
+# staging resources
 environment: staging
-cpu_request: 200m
-cpu_limit: 600m
-mem_request_mb: 896
-mem_limit_mb: 1792
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 512
+mem_limit_mb: 1024

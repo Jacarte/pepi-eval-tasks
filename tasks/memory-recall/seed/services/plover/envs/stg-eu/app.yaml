@@ -1,13 +1,11 @@
-# billing-scheduler staging-eu settings; keys missing here come from ../../base.yaml
-service: billing-scheduler
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
 replicas: 4
-log_level: warn
+log_level: info
 storage:
-  bucket: acme-staging-eu-billing-scheduler
-  retention_days: 30
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3500
 upstreams:
   - billing-worker
-  - billing-worker
+  - notifications-worker

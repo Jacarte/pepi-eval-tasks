@@ -1,7 +1,6 @@
-# ledger-api qa resources
-service: ledger-api
+# qa resources
 environment: qa
-cpu_request: 400m
-cpu_limit: 800m
-mem_request_mb: 512
-mem_limit_mb: 1024
+cpu_request: 100m
+cpu_limit: 200m
+mem_request_mb: 896
+mem_limit_mb: 1792

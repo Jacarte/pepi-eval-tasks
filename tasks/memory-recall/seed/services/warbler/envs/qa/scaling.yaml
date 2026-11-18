@@ -1,6 +1,5 @@
-# orders-worker qa autoscaling
-service: orders-worker
+# qa autoscaling
 environment: qa
-min_replicas: 3
-max_replicas: 9
-target_cpu_percent: 80
+min_replicas: 1
+max_replicas: 10
+target_cpu_percent: 75

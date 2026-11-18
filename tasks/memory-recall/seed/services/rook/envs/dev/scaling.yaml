@@ -1,6 +1,5 @@
-# pricing-worker development autoscaling
-service: pricing-worker
+# development autoscaling
 environment: development
-min_replicas: 3
-max_replicas: 13
-target_cpu_percent: 50
+min_replicas: 1
+max_replicas: 3
+target_cpu_percent: 60

@@ -1,15 +1,13 @@
-# sms-sender staging-eu alerts
-service: sms-sender
+# staging-eu alerts
 environment: staging-eu
-log_retention_days: 14
-metrics_retention_days: 60
-notify: team-identity
+log_retention_days: 365
+metrics_retention_days: 7
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 1700
     for: 10m
     severity: ticket

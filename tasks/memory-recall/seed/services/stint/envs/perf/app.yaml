@@ -1,12 +1,8 @@
-# admin-api perf settings; keys missing here come from ../../base.yaml
-service: admin-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
+replicas: 4
 log_level: info
-storage:
-  bucket: acme-perf-admin-api
-  retention_days: 14
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
-  - fraud-scorer
+  - billing-api

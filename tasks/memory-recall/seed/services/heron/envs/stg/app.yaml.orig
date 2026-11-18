@@ -1,16 +1,15 @@
-# billing-worker staging settings; keys missing here come from ../../base.yaml
-service: billing-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 2
-log_level: info
+replicas: 6
+log_level: debug
 queue:
-  name: billing-worker-staging
-  batch_size: 50
-  visibility_timeout_s: 60
+  name: heron-staging
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-staging-billing-worker
-  retention_days: 40
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - email-sender
+  - pricing-api
+  - auth-api

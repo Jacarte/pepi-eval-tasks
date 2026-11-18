@@ -1,6 +1,4 @@
-# catalog-indexer sandbox feature flags
-service: catalog-indexer
+# sandbox feature flags
 environment: sandbox
 flags:
-  new_retry_policy: false
-  strict_validation: false
+  shadow_reads: false

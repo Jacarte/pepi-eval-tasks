@@ -1,7 +1,5 @@
-# export-worker production-eu feature flags
-service: export-worker
+# production-eu feature flags
 environment: production-eu
 flags:
-  async_writes: false
-  shadow_reads: false
-  fast_path: false
+  new_retry_policy: true
+  strict_validation: true

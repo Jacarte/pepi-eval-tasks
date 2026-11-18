@@ -1,15 +1,13 @@
-# risk-api production-eu alerts
-service: risk-api
+# production-eu alerts
 environment: production-eu
-log_retention_days: 7
-metrics_retention_days: 45
-notify: team-fulfilment
+log_retention_days: 30
+metrics_retention_days: 21
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 1200
     for: 10m
     severity: ticket

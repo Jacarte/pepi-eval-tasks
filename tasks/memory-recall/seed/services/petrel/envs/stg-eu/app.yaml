@@ -1,17 +1,12 @@
-# notifications-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: notifications-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
 replicas: 3
-log_level: warn
+log_level: debug
 queue:
-  name: notifications-worker-staging-eu
-  batch_size: 200
-  visibility_timeout_s: 90
-storage:
-  bucket: acme-staging-eu-notifications-worker
-  retention_days: 365
+  name: petrel-staging-eu
+  batch_size: 150
+  visibility_timeout_s: 60
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - payouts-worker
-  - inventory-sync
+  - users-api

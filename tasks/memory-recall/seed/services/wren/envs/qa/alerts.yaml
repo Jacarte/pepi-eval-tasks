@@ -1,15 +1,13 @@
-# billing-api qa alerts
-service: billing-api
+# qa alerts
 environment: qa
-log_retention_days: 365
-metrics_retention_days: 21
-notify: team-payments
+log_retention_days: 7
+metrics_retention_days: 45
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 1500
     for: 10m
     severity: ticket

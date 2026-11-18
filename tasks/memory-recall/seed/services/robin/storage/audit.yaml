@@ -1,0 +1,5 @@
+# audit storage profile
+class: hot
+retention_days: 21
+versioning: false
+encryption: aes256

@@ -1,6 +1,5 @@
-# audit-worker production-eu autoscaling
-service: audit-worker
+# production-eu autoscaling
 environment: production-eu
 min_replicas: 2
-max_replicas: 8
-target_cpu_percent: 65
+max_replicas: 11
+target_cpu_percent: 70

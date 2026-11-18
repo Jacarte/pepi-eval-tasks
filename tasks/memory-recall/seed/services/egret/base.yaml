@@ -1,9 +1,10 @@
-# catalog-api defaults
+# egret deployment
 service: catalog-api
 codename: egret
+role: primary
+status: active
 team: fulfilment
 owner: team-fulfilment@example.com
-status: active
 runtime: go1.22
 replicas: 3
 log_level: info

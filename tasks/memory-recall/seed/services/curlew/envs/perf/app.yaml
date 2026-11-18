@@ -1,12 +1,8 @@
-# profiles-api perf settings; keys missing here come from ../../base.yaml
-service: profiles-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 4
-log_level: info
-storage:
-  bucket: acme-perf-profiles-api
-  retention_days: 365
+replicas: 3
+log_level: warn
 http:
   timeout_ms: 2500
 upstreams:
-  - webhooks-worker
+  - inventory-sync

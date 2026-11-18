@@ -1,15 +1,13 @@
-# media-api production alerts
-service: media-api
+# production alerts
 environment: production
-log_retention_days: 7
-metrics_retention_days: 30
-notify: team-data
+log_retention_days: 30
+metrics_retention_days: 180
 alerts:
   - name: error-rate
     threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 600
     for: 10m
     severity: ticket

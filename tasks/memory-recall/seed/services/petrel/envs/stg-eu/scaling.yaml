@@ -1,6 +1,5 @@
-# notifications-worker staging-eu autoscaling
-service: notifications-worker
+# staging-eu autoscaling
 environment: staging-eu
 min_replicas: 1
-max_replicas: 2
-target_cpu_percent: 70
+max_replicas: 3
+target_cpu_percent: 55

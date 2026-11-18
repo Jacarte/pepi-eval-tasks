@@ -1,13 +1,9 @@
-# cart-api perf settings; keys missing here come from ../../base.yaml
-service: cart-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 3
-log_level: info
+replicas: 2
+log_level: debug
 storage:
-  bucket: acme-perf-cart-api
-  retention_days: 14
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - checkout-api
-  - sms-sender

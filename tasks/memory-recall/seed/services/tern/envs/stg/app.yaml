@@ -1,17 +1,16 @@
-# invoice-worker staging settings; keys missing here come from ../../base.yaml
-service: invoice-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
+replicas: 6
 log_level: info
 queue:
-  name: invoice-worker-staging
-  batch_size: 400
-  visibility_timeout_s: 90
+  name: tern-staging
+  batch_size: 250
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-staging-invoice-worker
-  retention_days: 90
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 1500
 upstreams:
   - billing-worker
-  - catalog-api
+  - export-worker
+  - thumbnails-worker

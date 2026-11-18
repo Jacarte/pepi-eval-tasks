@@ -1,6 +1,5 @@
-# billing-scheduler qa autoscaling
-service: billing-scheduler
+# qa autoscaling
 environment: qa
 min_replicas: 3
-max_replicas: 10
-target_cpu_percent: 70
+max_replicas: 13
+target_cpu_percent: 55

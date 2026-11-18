@@ -1,6 +1,5 @@
-# catalog-api production-eu autoscaling
-service: catalog-api
+# production-eu autoscaling
 environment: production-eu
-min_replicas: 2
-max_replicas: 8
-target_cpu_percent: 50
+min_replicas: 3
+max_replicas: 4
+target_cpu_percent: 55

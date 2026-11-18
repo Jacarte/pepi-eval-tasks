@@ -1,15 +1,13 @@
-# payouts-worker development alerts
-service: payouts-worker
+# development alerts
 environment: development
-log_retention_days: 45
-metrics_retention_days: 45
-notify: team-identity
+log_retention_days: 30
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 900
+    threshold_ms: 800
     for: 10m
     severity: ticket

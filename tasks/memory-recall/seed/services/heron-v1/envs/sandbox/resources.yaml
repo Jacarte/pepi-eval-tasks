@@ -1,7 +1,6 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# sandbox resources
 environment: sandbox
 cpu_request: 400m
-cpu_limit: 800m
-mem_request_mb: 1024
-mem_limit_mb: 2048
+cpu_limit: 1600m
+mem_request_mb: 256
+mem_limit_mb: 512

@@ -1,8 +1,6 @@
-# pricing-api qa feature flags
-service: pricing-api
+# qa feature flags
 environment: qa
 flags:
-  async_writes: false
+  new_retry_policy: true
   strict_validation: true
-  batch_compaction: false
-  shadow_reads: false
+  fast_path: false

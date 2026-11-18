@@ -1,7 +1,5 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# development feature flags
 environment: development
 flags:
-  async_writes: true
   strict_validation: false
-  shadow_reads: true
+  batch_compaction: false

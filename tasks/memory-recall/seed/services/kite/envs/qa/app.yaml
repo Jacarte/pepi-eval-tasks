@@ -1,12 +1,10 @@
-# ledger-api qa settings; keys missing here come from ../../base.yaml
-service: ledger-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 1
-log_level: debug
+replicas: 5
+log_level: info
 storage:
-  bucket: acme-qa-ledger-api
-  retention_days: 180
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - pricing-api
+  - checkout-worker

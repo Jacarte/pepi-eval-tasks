@@ -1,16 +1,14 @@
-# auth-worker production settings; keys missing here come from ../../base.yaml
-service: auth-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
-log_level: debug
+replicas: 3
+log_level: info
 queue:
-  name: auth-worker-production
-  batch_size: 100
+  name: falcon-production
+  batch_size: 150
   visibility_timeout_s: 30
 storage:
-  bucket: acme-production-auth-worker
-  retention_days: 120
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1000
 upstreams:
-  - inventory-sync
+  - webhooks-api

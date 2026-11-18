@@ -1,12 +1,12 @@
-# billing-scheduler production settings; keys missing here come from ../../base.yaml
-service: billing-scheduler
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 2
-log_level: warn
+replicas: 1
+log_level: debug
 storage:
-  bucket: acme-production-billing-scheduler
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
   - billing-worker
-  - export-worker
+  - webhooks-worker
+  - catalog-indexer

@@ -1,6 +1,6 @@
 {
   "memories": [
-    {"text": "The billing worker (codename heron) keeps its staging configuration in services/heron/envs/stg/app.yaml; services/heron-v1 is the decommissioned old copy."},
+    {"text": "The billing worker's staging storage settings, retention included, come from services/heron/storage/compliance.yaml, the profile that services/heron/envs/stg/app.yaml includes."},
     {"text": "Feature flags for every service are set per environment in envs/<env>/flags.yaml, not in base.yaml."}
   ]
 }

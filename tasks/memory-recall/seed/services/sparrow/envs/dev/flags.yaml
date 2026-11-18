@@ -1,9 +1,7 @@
-# inventory-sync development feature flags
-service: inventory-sync
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: false
+  new_retry_policy: true
   async_writes: false
-  strict_validation: true
-  batch_compaction: true
-  shadow_reads: false
+  shadow_reads: true
+  fast_path: false

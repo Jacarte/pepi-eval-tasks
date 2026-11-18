@@ -1,10 +1,6 @@
-# invoice-worker staging feature flags
-service: invoice-worker
+# staging feature flags
 environment: staging
 flags:
-  new_retry_policy: true
-  async_writes: true
-  strict_validation: false
-  batch_compaction: true
-  shadow_reads: true
+  new_retry_policy: false
+  batch_compaction: false
   fast_path: true

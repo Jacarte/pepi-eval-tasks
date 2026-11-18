@@ -1,15 +1,13 @@
-# thumbnails-worker staging alerts
-service: thumbnails-worker
+# staging alerts
 environment: staging
-log_retention_days: 180
-metrics_retention_days: 14
-notify: team-commerce
+log_retention_days: 14
+metrics_retention_days: 60
 alerts:
   - name: error-rate
-    threshold: 0.07
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 400
+    threshold_ms: 1600
     for: 10m
     severity: ticket

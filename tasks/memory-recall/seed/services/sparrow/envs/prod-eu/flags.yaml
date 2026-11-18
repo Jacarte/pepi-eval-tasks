@@ -1,5 +1,4 @@
-# inventory-sync production-eu feature flags
-service: inventory-sync
+# production-eu feature flags
 environment: production-eu
 flags:
-  fast_path: true
+  batch_compaction: false

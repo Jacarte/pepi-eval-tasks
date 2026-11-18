@@ -1,9 +1,8 @@
-# cart-api staging-eu feature flags
-service: cart-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
   new_retry_policy: true
   async_writes: false
-  strict_validation: false
-  batch_compaction: true
-  shadow_reads: true
+  strict_validation: true
+  shadow_reads: false
+  fast_path: true

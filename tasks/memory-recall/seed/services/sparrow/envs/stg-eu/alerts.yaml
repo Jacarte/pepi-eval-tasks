@@ -1,15 +1,13 @@
-# inventory-sync staging-eu alerts
-service: inventory-sync
+# staging-eu alerts
 environment: staging-eu
-log_retention_days: 120
-metrics_retention_days: 45
-notify: team-identity
+log_retention_days: 60
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.02
+    threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 1000
     for: 10m
     severity: ticket

@@ -1,7 +1,7 @@
-# search-api development feature flags
-service: search-api
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: false
-  strict_validation: false
+  new_retry_policy: true
+  async_writes: true
+  shadow_reads: false
   fast_path: true

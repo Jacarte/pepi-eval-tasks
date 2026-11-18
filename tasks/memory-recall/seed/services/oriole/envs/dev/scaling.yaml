@@ -1,6 +1,5 @@
-# email-sender development autoscaling
-service: email-sender
+# development autoscaling
 environment: development
-min_replicas: 3
-max_replicas: 9
-target_cpu_percent: 50
+min_replicas: 2
+max_replicas: 7
+target_cpu_percent: 55

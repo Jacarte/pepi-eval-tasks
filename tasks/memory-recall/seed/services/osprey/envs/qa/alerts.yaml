@@ -1,15 +1,13 @@
-# billing-legacy qa alerts
-service: billing-legacy
+# qa alerts
 environment: qa
-log_retention_days: 365
-metrics_retention_days: 45
-notify: team-payments
+log_retention_days: 60
+metrics_retention_days: 365
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 300
     for: 10m
     severity: ticket

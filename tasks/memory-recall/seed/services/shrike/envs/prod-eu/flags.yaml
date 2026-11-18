@@ -1,8 +1,6 @@
-# audit-api production-eu feature flags
-service: audit-api
+# production-eu feature flags
 environment: production-eu
 flags:
-  new_retry_policy: true
+  new_retry_policy: false
   strict_validation: false
-  batch_compaction: false
-  fast_path: true
+  batch_compaction: true

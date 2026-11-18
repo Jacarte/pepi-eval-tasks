@@ -1,16 +1,14 @@
-# thumbnails-worker production settings; keys missing here come from ../../base.yaml
-service: thumbnails-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 2
-log_level: warn
+replicas: 5
+log_level: info
 queue:
-  name: thumbnails-worker-production
-  batch_size: 300
-  visibility_timeout_s: 30
+  name: avocet-production
+  batch_size: 250
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-production-thumbnails-worker
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 1500
 upstreams:
-  - pricing-worker
-  - ledger-worker
+  - auth-api

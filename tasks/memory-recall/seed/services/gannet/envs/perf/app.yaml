@@ -1,13 +1,8 @@
-# risk-api perf settings; keys missing here come from ../../base.yaml
-service: risk-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
 replicas: 5
-log_level: warn
-storage:
-  bucket: acme-perf-risk-api
-  retention_days: 30
+log_level: debug
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - reports-api
-  - reports-worker
+  - payouts-worker

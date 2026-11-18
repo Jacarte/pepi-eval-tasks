@@ -1,8 +1,7 @@
-# search-indexer staging feature flags
-service: search-indexer
+# staging feature flags
 environment: staging
 flags:
-  new_retry_policy: false
-  batch_compaction: false
-  shadow_reads: false
-  fast_path: false
+  strict_validation: true
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: true

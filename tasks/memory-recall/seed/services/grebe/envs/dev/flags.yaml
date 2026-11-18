@@ -1,7 +1,5 @@
-# fraud-scorer development feature flags
-service: fraud-scorer
+# development feature flags
 environment: development
 flags:
-  strict_validation: true
   batch_compaction: false
-  fast_path: true
+  shadow_reads: false

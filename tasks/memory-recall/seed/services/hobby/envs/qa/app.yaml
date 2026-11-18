@@ -1,15 +1,15 @@
-# payouts-worker qa settings; keys missing here come from ../../base.yaml
-service: payouts-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 5
+replicas: 6
 log_level: debug
 queue:
-  name: payouts-worker-qa
+  name: hobby-qa
   batch_size: 150
-  visibility_timeout_s: 60
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-qa-payouts-worker
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1000
 upstreams:
-  - sms-sender
+  - invoice-worker
+  - audit-worker

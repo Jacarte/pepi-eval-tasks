@@ -1,15 +1,13 @@
-# inventory-sync development alerts
-service: inventory-sync
+# development alerts
 environment: development
-log_retention_days: 30
-metrics_retention_days: 180
-notify: team-identity
+log_retention_days: 14
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.09
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 400
+    threshold_ms: 900
     for: 10m
     severity: ticket

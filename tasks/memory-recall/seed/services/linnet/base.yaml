@@ -1,9 +1,10 @@
-# reports-worker defaults
+# linnet deployment
 service: reports-worker
 codename: linnet
+role: primary
+status: active
 team: fulfilment
 owner: team-fulfilment@example.com
-status: active
 runtime: go1.22
 replicas: 2
 log_level: info

@@ -1,10 +1,5 @@
-# pricing-worker perf feature flags
-service: pricing-worker
+# perf feature flags
 environment: perf
 flags:
-  new_retry_policy: false
-  async_writes: false
-  strict_validation: true
-  batch_compaction: true
-  shadow_reads: true
-  fast_path: true
+  async_writes: true
+  fast_path: false

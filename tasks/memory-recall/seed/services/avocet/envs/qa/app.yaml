@@ -1,16 +1,12 @@
-# thumbnails-worker qa settings; keys missing here come from ../../base.yaml
-service: thumbnails-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 1
+replicas: 2
 log_level: debug
 queue:
-  name: thumbnails-worker-qa
+  name: avocet-qa
   batch_size: 200
-  visibility_timeout_s: 30
-storage:
-  bucket: acme-qa-thumbnails-worker
+  visibility_timeout_s: 120
 http:
   timeout_ms: 2000
 upstreams:
-  - users-api
-  - webhooks-worker
+  - billing-legacy

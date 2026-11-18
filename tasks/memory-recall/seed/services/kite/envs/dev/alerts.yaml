@@ -1,15 +1,13 @@
-# ledger-api development alerts
-service: ledger-api
+# development alerts
 environment: development
-log_retention_days: 60
-metrics_retention_days: 7
-notify: team-platform
+log_retention_days: 7
+metrics_retention_days: 120
 alerts:
   - name: error-rate
     threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 800
+    threshold_ms: 1900
     for: 10m
     severity: ticket

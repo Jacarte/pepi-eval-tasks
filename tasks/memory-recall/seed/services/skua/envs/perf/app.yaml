@@ -1,13 +1,11 @@
-# gateway perf settings; keys missing here come from ../../base.yaml
-service: gateway
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: warn
+replicas: 3
+log_level: debug
 storage:
-  bucket: acme-perf-gateway
-  retention_days: 21
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3500
 upstreams:
-  - audit-worker
-  - catalog-api
+  - catalog-indexer
+  - email-sender

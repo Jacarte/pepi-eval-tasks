@@ -1,5 +1,0 @@
-# metrics-collector staging feature flags
-service: metrics-collector
-environment: staging
-flags:
-  fast_path: true

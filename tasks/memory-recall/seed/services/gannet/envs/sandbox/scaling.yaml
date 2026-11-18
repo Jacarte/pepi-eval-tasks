@@ -1,6 +1,5 @@
-# risk-api sandbox autoscaling
-service: risk-api
+# sandbox autoscaling
 environment: sandbox
 min_replicas: 3
-max_replicas: 10
-target_cpu_percent: 75
+max_replicas: 5
+target_cpu_percent: 80

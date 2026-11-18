@@ -1,5 +1,6 @@
-# cart-api staging feature flags
-service: cart-api
+# staging feature flags
 environment: staging
 flags:
-  strict_validation: false
+  new_retry_policy: true
+  strict_validation: true
+  fast_path: false

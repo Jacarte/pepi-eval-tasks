@@ -1,0 +1,5 @@
+# short-lived storage profile
+class: warm
+retention_days: 30
+versioning: false
+encryption: kms

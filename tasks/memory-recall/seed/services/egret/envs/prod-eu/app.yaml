@@ -1,12 +1,11 @@
-# catalog-api production-eu settings; keys missing here come from ../../base.yaml
-service: catalog-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 1
-log_level: warn
+replicas: 3
+log_level: info
 storage:
-  bucket: acme-production-eu-catalog-api
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2500
 upstreams:
-  - users-api
-  - admin-api
+  - media-transcoder
+  - export-worker

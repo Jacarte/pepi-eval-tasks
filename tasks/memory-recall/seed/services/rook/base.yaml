@@ -1,9 +1,10 @@
-# pricing-worker defaults
+# rook deployment
 service: pricing-worker
 codename: rook
+role: primary
+status: active
 team: fulfilment
 owner: team-fulfilment@example.com
-status: active
 runtime: go1.21
 replicas: 2
 log_level: info

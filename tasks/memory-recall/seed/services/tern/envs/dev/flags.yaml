@@ -1,7 +1,7 @@
-# invoice-worker development feature flags
-service: invoice-worker
+# development feature flags
 environment: development
 flags:
-  batch_compaction: true
+  new_retry_policy: true
+  async_writes: false
+  strict_validation: true
   shadow_reads: true
-  fast_path: false

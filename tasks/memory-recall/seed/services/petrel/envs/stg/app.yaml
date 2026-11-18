@@ -1,15 +1,15 @@
-# notifications-worker staging settings; keys missing here come from ../../base.yaml
-service: notifications-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
-log_level: warn
+replicas: 2
+log_level: info
 queue:
-  name: notifications-worker-staging
-  batch_size: 350
-  visibility_timeout_s: 120
+  name: petrel-staging
+  batch_size: 250
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-staging-notifications-worker
+  include: ../../storage/archive.yaml
 http:
   timeout_ms: 3500
 upstreams:
-  - checkout-worker
+  - audit-api
+  - audit-api

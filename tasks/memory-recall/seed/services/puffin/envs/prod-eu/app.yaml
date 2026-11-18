@@ -1,16 +1,14 @@
-# export-worker production-eu settings; keys missing here come from ../../base.yaml
-service: export-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
 replicas: 1
-log_level: warn
+log_level: debug
 queue:
-  name: export-worker-production-eu
-  batch_size: 350
-  visibility_timeout_s: 60
+  name: puffin-production-eu
+  batch_size: 50
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-production-eu-export-worker
-  retention_days: 180
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2000
 upstreams:
-  - billing-worker
+  - invoice-worker

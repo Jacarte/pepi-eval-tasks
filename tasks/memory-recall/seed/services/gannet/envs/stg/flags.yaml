@@ -1,6 +1,6 @@
-# risk-api staging feature flags
-service: risk-api
+# staging feature flags
 environment: staging
 flags:
+  async_writes: true
+  strict_validation: true
   shadow_reads: true
-  fast_path: true

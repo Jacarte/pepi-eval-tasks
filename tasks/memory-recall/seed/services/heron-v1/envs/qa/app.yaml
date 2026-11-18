@@ -1,16 +1,14 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
 replicas: 3
-log_level: info
+log_level: warn
 queue:
-  name: billing-worker-qa
+  name: heron-v1-qa
   batch_size: 50
   visibility_timeout_s: 120
 storage:
-  bucket: acme-qa-billing-worker
-  retention_days: 7
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 500
 upstreams:
-  - billing-api
+  - search-api

@@ -1,6 +1,5 @@
-# audit-worker production feature flags
-service: audit-worker
+# production feature flags
 environment: production
 flags:
-  new_retry_policy: false
-  shadow_reads: true
+  strict_validation: true
+  batch_compaction: false

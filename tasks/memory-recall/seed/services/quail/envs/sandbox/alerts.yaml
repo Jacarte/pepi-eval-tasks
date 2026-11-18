@@ -1,15 +1,13 @@
-# import-worker sandbox alerts
-service: import-worker
+# sandbox alerts
 environment: sandbox
-log_retention_days: 30
-metrics_retention_days: 7
-notify: team-data
+log_retention_days: 365
+metrics_retention_days: 120
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1700
+    threshold_ms: 2000
     for: 10m
     severity: ticket

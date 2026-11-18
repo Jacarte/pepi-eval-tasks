@@ -1,8 +1,6 @@
-# inventory-sync production feature flags
-service: inventory-sync
+# production feature flags
 environment: production
 flags:
-  async_writes: false
-  strict_validation: false
+  new_retry_policy: true
+  strict_validation: true
   shadow_reads: true
-  fast_path: false

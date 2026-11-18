@@ -1,17 +1,14 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 1
 log_level: warn
 queue:
-  name: billing-worker-development
+  name: heron-v1-development
   batch_size: 300
-  visibility_timeout_s: 120
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-development-billing-worker
-  retention_days: 21
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1500
 upstreams:
-  - catalog-api
-  - notifications-api
+  - audit-worker

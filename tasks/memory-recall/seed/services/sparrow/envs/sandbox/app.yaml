@@ -1,13 +1,10 @@
-# inventory-sync sandbox settings; keys missing here come from ../../base.yaml
-service: inventory-sync
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
 replicas: 2
-log_level: debug
+log_level: warn
 storage:
-  bucket: acme-sandbox-inventory-sync
-  retention_days: 365
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2000
 upstreams:
-  - payouts-worker
-  - metrics-collector
+  - payouts-api

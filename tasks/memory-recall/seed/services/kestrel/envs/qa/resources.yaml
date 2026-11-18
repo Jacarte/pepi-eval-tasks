@@ -1,7 +1,6 @@
-# auth-api qa resources
-service: auth-api
+# qa resources
 environment: qa
-cpu_request: 100m
-cpu_limit: 200m
-mem_request_mb: 128
-mem_limit_mb: 256
+cpu_request: 400m
+cpu_limit: 800m
+mem_request_mb: 256
+mem_limit_mb: 512

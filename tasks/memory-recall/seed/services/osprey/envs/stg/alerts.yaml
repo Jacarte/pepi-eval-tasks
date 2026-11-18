@@ -1,15 +1,13 @@
-# billing-legacy staging alerts
-service: billing-legacy
+# staging alerts
 environment: staging
 log_retention_days: 90
-metrics_retention_days: 365
-notify: team-payments
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 900
     for: 10m
     severity: ticket

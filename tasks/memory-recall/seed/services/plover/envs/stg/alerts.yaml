@@ -1,15 +1,13 @@
-# billing-scheduler staging alerts
-service: billing-scheduler
+# staging alerts
 environment: staging
-log_retention_days: 60
+log_retention_days: 14
 metrics_retention_days: 7
-notify: team-payments
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 2000
     for: 10m
     severity: ticket

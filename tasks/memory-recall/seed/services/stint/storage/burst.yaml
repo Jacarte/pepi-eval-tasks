@@ -1,0 +1,5 @@
+# burst storage profile
+class: warm
+retention_days: 90
+versioning: false
+encryption: aes256

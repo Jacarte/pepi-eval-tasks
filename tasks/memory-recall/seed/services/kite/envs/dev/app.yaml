@@ -1,12 +1,8 @@
-# ledger-api development settings; keys missing here come from ../../base.yaml
-service: ledger-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 2
+replicas: 5
 log_level: debug
-storage:
-  bucket: acme-development-ledger-api
 http:
-  timeout_ms: 1000
+  timeout_ms: 1500
 upstreams:
-  - notifications-api
-  - notifications-api
+  - auth-worker

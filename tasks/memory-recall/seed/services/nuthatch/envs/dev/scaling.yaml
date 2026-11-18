@@ -1,6 +1,5 @@
-# sms-sender development autoscaling
-service: sms-sender
+# development autoscaling
 environment: development
 min_replicas: 3
-max_replicas: 7
-target_cpu_percent: 70
+max_replicas: 12
+target_cpu_percent: 65

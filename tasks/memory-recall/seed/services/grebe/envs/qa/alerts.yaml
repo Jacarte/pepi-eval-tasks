@@ -1,15 +1,13 @@
-# fraud-scorer qa alerts
-service: fraud-scorer
+# qa alerts
 environment: qa
-log_retention_days: 21
-metrics_retention_days: 30
-notify: team-commerce
+log_retention_days: 45
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 1300
     for: 10m
     severity: ticket

@@ -1,6 +1,7 @@
-# search-api perf feature flags
-service: search-api
+# perf feature flags
 environment: perf
 flags:
-  new_retry_policy: true
   strict_validation: true
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: false

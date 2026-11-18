@@ -1,17 +1,14 @@
-# notifications-worker production-eu settings; keys missing here come from ../../base.yaml
-service: notifications-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 3
+replicas: 2
 log_level: info
 queue:
-  name: notifications-worker-production-eu
-  batch_size: 250
-  visibility_timeout_s: 30
+  name: petrel-production-eu
+  batch_size: 50
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-production-eu-notifications-worker
-  retention_days: 120
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 500
 upstreams:
-  - email-sender
-  - scheduler
+  - reports-api

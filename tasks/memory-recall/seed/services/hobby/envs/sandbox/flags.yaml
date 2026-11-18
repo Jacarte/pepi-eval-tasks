@@ -1,6 +1,7 @@
-# payouts-worker sandbox feature flags
-service: payouts-worker
+# sandbox feature flags
 environment: sandbox
 flags:
-  strict_validation: true
-  shadow_reads: true
+  new_retry_policy: true
+  async_writes: false
+  batch_compaction: true
+  fast_path: true

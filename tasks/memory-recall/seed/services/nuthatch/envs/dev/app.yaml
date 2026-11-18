@@ -1,17 +1,14 @@
-# sms-sender development settings; keys missing here come from ../../base.yaml
-service: sms-sender
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 2
-log_level: warn
+replicas: 5
+log_level: info
 queue:
-  name: sms-sender-development
+  name: nuthatch-development
   batch_size: 250
-  visibility_timeout_s: 30
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-development-sms-sender
-  retention_days: 90
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2000
 upstreams:
-  - notifications-worker
-  - media-transcoder
+  - billing-scheduler

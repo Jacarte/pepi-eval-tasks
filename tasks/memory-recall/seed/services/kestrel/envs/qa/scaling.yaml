@@ -1,6 +1,5 @@
-# auth-api qa autoscaling
-service: auth-api
+# qa autoscaling
 environment: qa
-min_replicas: 2
-max_replicas: 5
-target_cpu_percent: 80
+min_replicas: 1
+max_replicas: 11
+target_cpu_percent: 65

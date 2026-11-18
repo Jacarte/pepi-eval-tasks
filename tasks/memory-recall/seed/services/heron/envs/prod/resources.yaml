@@ -1,7 +1,6 @@
-# billing-worker production resources
-service: billing-worker
+# production resources
 environment: production
-cpu_request: 100m
-cpu_limit: 400m
-mem_request_mb: 512
-mem_limit_mb: 1024
+cpu_request: 400m
+cpu_limit: 800m
+mem_request_mb: 768
+mem_limit_mb: 1536

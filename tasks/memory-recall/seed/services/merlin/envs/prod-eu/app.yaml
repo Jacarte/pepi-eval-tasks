@@ -1,12 +1,11 @@
-# reports-api production-eu settings; keys missing here come from ../../base.yaml
-service: reports-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 3
+replicas: 2
 log_level: info
 storage:
-  bucket: acme-production-eu-reports-api
-  retention_days: 60
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2000
 upstreams:
-  - scheduler
+  - cart-api
+  - catalog-indexer

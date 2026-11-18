@@ -1,12 +1,10 @@
-# webhooks-api sandbox settings; keys missing here come from ../../base.yaml
-service: webhooks-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
 replicas: 1
 log_level: debug
 storage:
-  bucket: acme-sandbox-webhooks-api
-  retention_days: 45
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - thumbnails-worker
+  - billing-api

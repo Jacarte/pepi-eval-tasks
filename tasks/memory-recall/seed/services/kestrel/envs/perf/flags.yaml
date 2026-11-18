@@ -1,8 +1,6 @@
-# auth-api perf feature flags
-service: auth-api
+# perf feature flags
 environment: perf
 flags:
-  new_retry_policy: false
-  async_writes: false
-  batch_compaction: false
-  fast_path: true
+  batch_compaction: true
+  shadow_reads: false
+  fast_path: false

@@ -1,6 +1,5 @@
-# inventory-sync qa autoscaling
-service: inventory-sync
+# qa autoscaling
 environment: qa
 min_replicas: 3
-max_replicas: 10
+max_replicas: 7
 target_cpu_percent: 50

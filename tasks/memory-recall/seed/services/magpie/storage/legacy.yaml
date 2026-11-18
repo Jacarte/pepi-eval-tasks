@@ -1,0 +1,5 @@
+# legacy storage profile
+class: hot
+retention_days: 7
+versioning: true
+encryption: kms

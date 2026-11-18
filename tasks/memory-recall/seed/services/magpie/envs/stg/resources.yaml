@@ -1,7 +1,6 @@
-# search-indexer staging resources
-service: search-indexer
+# staging resources
 environment: staging
-cpu_request: 100m
-cpu_limit: 300m
-mem_request_mb: 896
-mem_limit_mb: 1792
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 384
+mem_limit_mb: 768

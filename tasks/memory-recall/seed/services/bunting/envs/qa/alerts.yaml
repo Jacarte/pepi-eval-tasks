@@ -1,15 +1,13 @@
-# media-transcoder qa alerts
-service: media-transcoder
+# qa alerts
 environment: qa
-log_retention_days: 90
-metrics_retention_days: 14
-notify: team-identity
+log_retention_days: 30
+metrics_retention_days: 120
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1000
+    threshold_ms: 1500
     for: 10m
     severity: ticket

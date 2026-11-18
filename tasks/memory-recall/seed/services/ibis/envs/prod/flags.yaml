@@ -1,8 +1,6 @@
-# payouts-api production feature flags
-service: payouts-api
+# production feature flags
 environment: production
 flags:
-  async_writes: true
+  new_retry_policy: true
+  async_writes: false
   strict_validation: true
-  shadow_reads: false
-  fast_path: false

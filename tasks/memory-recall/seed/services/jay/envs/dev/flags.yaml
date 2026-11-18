@@ -1,6 +1,6 @@
-# ledger-worker development feature flags
-service: ledger-worker
+# development feature flags
 environment: development
 flags:
-  batch_compaction: false
+  new_retry_policy: false
+  strict_validation: true
   fast_path: true

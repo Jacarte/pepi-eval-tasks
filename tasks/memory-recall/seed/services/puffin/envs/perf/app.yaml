@@ -1,17 +1,14 @@
-# export-worker perf settings; keys missing here come from ../../base.yaml
-service: export-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 1
+replicas: 4
 log_level: debug
 queue:
-  name: export-worker-perf
-  batch_size: 100
+  name: puffin-perf
+  batch_size: 50
   visibility_timeout_s: 30
 storage:
-  bucket: acme-perf-export-worker
-  retention_days: 365
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3000
 upstreams:
-  - audit-worker
-  - catalog-indexer
+  - notifications-worker

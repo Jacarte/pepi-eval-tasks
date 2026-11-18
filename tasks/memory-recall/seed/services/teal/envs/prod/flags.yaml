@@ -1,7 +1,0 @@
-# scheduler production feature flags
-service: scheduler
-environment: production
-flags:
-  new_retry_policy: false
-  strict_validation: false
-  batch_compaction: true

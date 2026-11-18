@@ -1,7 +1,6 @@
-# checkout-worker development resources
-service: checkout-worker
+# development resources
 environment: development
 cpu_request: 500m
-cpu_limit: 1000m
+cpu_limit: 2000m
 mem_request_mb: 128
 mem_limit_mb: 256

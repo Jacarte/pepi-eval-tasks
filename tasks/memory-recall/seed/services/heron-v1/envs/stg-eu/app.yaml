@@ -1,16 +1,15 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 6
+replicas: 3
 log_level: warn
 queue:
-  name: billing-worker-staging-eu
+  name: heron-v1-staging-eu
   batch_size: 350
-  visibility_timeout_s: 30
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-staging-eu-billing-worker
-  retention_days: 21
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 4000
 upstreams:
-  - inventory-sync
+  - audit-worker
+  - pricing-api

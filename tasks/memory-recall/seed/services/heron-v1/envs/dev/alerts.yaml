@@ -1,12 +1,10 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# development alerts
 environment: development
 log_retention_days: 7
 metrics_retention_days: 60
-notify: team-payments
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99

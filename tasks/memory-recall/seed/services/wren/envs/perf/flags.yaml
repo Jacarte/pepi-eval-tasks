@@ -1,7 +1,5 @@
-# billing-api perf feature flags
-service: billing-api
+# perf feature flags
 environment: perf
 flags:
   new_retry_policy: false
-  async_writes: true
-  fast_path: false
+  shadow_reads: true

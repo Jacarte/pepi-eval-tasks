@@ -1,7 +1,6 @@
-# users-api development feature flags
-service: users-api
+# development feature flags
 environment: development
 flags:
-  async_writes: true
-  shadow_reads: false
-  fast_path: true
+  async_writes: false
+  strict_validation: false
+  batch_compaction: true

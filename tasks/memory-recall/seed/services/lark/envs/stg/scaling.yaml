@@ -1,6 +1,5 @@
-# search-api staging autoscaling
-service: search-api
+# staging autoscaling
 environment: staging
-min_replicas: 1
+min_replicas: 2
 max_replicas: 7
-target_cpu_percent: 65
+target_cpu_percent: 75

@@ -1,12 +1,11 @@
-# ledger-api production-eu settings; keys missing here come from ../../base.yaml
-service: ledger-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
 replicas: 2
 log_level: debug
 storage:
-  bucket: acme-production-eu-ledger-api
-  retention_days: 30
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2000
 upstreams:
-  - catalog-indexer
+  - webhooks-worker
+  - billing-legacy

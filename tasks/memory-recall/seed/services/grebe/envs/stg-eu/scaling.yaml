@@ -1,6 +1,5 @@
-# fraud-scorer staging-eu autoscaling
-service: fraud-scorer
+# staging-eu autoscaling
 environment: staging-eu
 min_replicas: 3
-max_replicas: 5
-target_cpu_percent: 75
+max_replicas: 11
+target_cpu_percent: 80

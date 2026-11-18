@@ -1,7 +1,6 @@
-# inventory-api development resources
-service: inventory-api
+# development resources
 environment: development
-cpu_request: 200m
-cpu_limit: 600m
-mem_request_mb: 256
-mem_limit_mb: 512
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 128
+mem_limit_mb: 256

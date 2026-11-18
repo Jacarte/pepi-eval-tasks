@@ -1,15 +1,14 @@
-# audit-worker development settings; keys missing here come from ../../base.yaml
-service: audit-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
+replicas: 1
 log_level: debug
 queue:
-  name: audit-worker-development
-  batch_size: 100
-  visibility_timeout_s: 30
+  name: pipit-development
+  batch_size: 150
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-development-audit-worker
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - billing-legacy
+  - billing-api

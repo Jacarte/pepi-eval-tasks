@@ -1,12 +1,9 @@
-# search-api production settings; keys missing here come from ../../base.yaml
-service: search-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 3
+replicas: 6
 log_level: debug
-storage:
-  bucket: acme-production-search-api
-  retention_days: 180
 http:
-  timeout_ms: 500
+  timeout_ms: 3000
 upstreams:
-  - export-worker
+  - reports-worker
+  - catalog-indexer

@@ -1,17 +1,15 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
+replicas: 6
 log_level: info
 queue:
-  name: billing-worker-perf
-  batch_size: 250
-  visibility_timeout_s: 60
+  name: heron-v1-perf
+  batch_size: 150
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-perf-billing-worker
-  retention_days: 45
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - thumbnails-worker
-  - audit-worker
+  - notifications-api
+  - webhooks-worker

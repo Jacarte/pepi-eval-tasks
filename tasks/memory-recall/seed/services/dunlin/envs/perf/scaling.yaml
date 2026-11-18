@@ -1,6 +1,5 @@
-# users-api perf autoscaling
-service: users-api
+# perf autoscaling
 environment: perf
-min_replicas: 2
+min_replicas: 3
 max_replicas: 5
-target_cpu_percent: 75
+target_cpu_percent: 80

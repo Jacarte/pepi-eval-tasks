@@ -1,6 +1,5 @@
-# gateway sandbox autoscaling
-service: gateway
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 1
-max_replicas: 9
-target_cpu_percent: 70
+min_replicas: 2
+max_replicas: 4
+target_cpu_percent: 50

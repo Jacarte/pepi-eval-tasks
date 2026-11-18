@@ -1,7 +1,6 @@
-# audit-api qa resources
-service: audit-api
+# qa resources
 environment: qa
-cpu_request: 300m
-cpu_limit: 900m
-mem_request_mb: 384
-mem_limit_mb: 768
+cpu_request: 200m
+cpu_limit: 800m
+mem_request_mb: 896
+mem_limit_mb: 1792

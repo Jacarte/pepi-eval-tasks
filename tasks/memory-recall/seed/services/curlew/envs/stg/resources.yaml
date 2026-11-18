@@ -1,7 +1,6 @@
-# profiles-api staging resources
-service: profiles-api
+# staging resources
 environment: staging
-cpu_request: 100m
-cpu_limit: 200m
-mem_request_mb: 384
-mem_limit_mb: 768
+cpu_request: 400m
+cpu_limit: 1200m
+mem_request_mb: 640
+mem_limit_mb: 1280

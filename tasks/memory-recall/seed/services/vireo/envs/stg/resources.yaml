@@ -1,5 +1,4 @@
-# orders-api staging resources
-service: orders-api
+# staging resources
 environment: staging
 cpu_request: 400m
 cpu_limit: 1200m

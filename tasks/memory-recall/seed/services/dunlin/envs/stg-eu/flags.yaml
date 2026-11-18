@@ -1,8 +1,7 @@
-# users-api staging-eu feature flags
-service: users-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  new_retry_policy: true
-  strict_validation: true
+  new_retry_policy: false
   batch_compaction: true
-  shadow_reads: true
+  shadow_reads: false
+  fast_path: true

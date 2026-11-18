@@ -1,16 +1,15 @@
-# thumbnails-worker perf settings; keys missing here come from ../../base.yaml
-service: thumbnails-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: info
+replicas: 1
+log_level: warn
 queue:
-  name: thumbnails-worker-perf
-  batch_size: 100
-  visibility_timeout_s: 30
+  name: avocet-perf
+  batch_size: 400
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-perf-thumbnails-worker
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 1500
 upstreams:
-  - invoice-worker
-  - pricing-worker
+  - payouts-api
+  - risk-api

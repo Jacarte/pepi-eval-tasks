@@ -1,15 +1,13 @@
-# auth-worker development alerts
-service: auth-worker
+# development alerts
 environment: development
-log_retention_days: 45
-metrics_retention_days: 60
-notify: team-commerce
+log_retention_days: 90
+metrics_retention_days: 45
 alerts:
   - name: error-rate
     threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1700
+    threshold_ms: 600
     for: 10m
     severity: ticket

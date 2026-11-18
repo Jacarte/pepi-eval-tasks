@@ -1,15 +1,13 @@
-# audit-api qa alerts
-service: audit-api
+# qa alerts
 environment: qa
-log_retention_days: 45
+log_retention_days: 7
 metrics_retention_days: 45
-notify: team-fulfilment
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1400
+    threshold_ms: 1000
     for: 10m
     severity: ticket

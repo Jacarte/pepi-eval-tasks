@@ -1,15 +1,13 @@
-# thumbnails-worker sandbox alerts
-service: thumbnails-worker
+# sandbox alerts
 environment: sandbox
-log_retention_days: 45
-metrics_retention_days: 7
-notify: team-commerce
+log_retention_days: 7
+metrics_retention_days: 60
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 600
+    threshold_ms: 1600
     for: 10m
     severity: ticket

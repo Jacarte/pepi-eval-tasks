@@ -1,6 +1,6 @@
-# risk-api development feature flags
-service: risk-api
+# development feature flags
 environment: development
 flags:
-  batch_compaction: true
-  shadow_reads: true
+  async_writes: true
+  batch_compaction: false
+  fast_path: false

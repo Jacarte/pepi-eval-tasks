@@ -1,15 +1,14 @@
-# orders-worker production settings; keys missing here come from ../../base.yaml
-service: orders-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 2
-log_level: debug
+replicas: 1
+log_level: warn
 queue:
-  name: orders-worker-production
-  batch_size: 250
-  visibility_timeout_s: 60
+  name: warbler-production
+  batch_size: 400
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-production-orders-worker
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1000
 upstreams:
-  - inventory-sync
+  - profiles-api

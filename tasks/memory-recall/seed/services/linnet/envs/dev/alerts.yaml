@@ -1,15 +1,13 @@
-# reports-worker development alerts
-service: reports-worker
+# development alerts
 environment: development
-log_retention_days: 365
+log_retention_days: 45
 metrics_retention_days: 365
-notify: team-fulfilment
 alerts:
   - name: error-rate
-    threshold: 0.02
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1200
+    threshold_ms: 500
     for: 10m
     severity: ticket

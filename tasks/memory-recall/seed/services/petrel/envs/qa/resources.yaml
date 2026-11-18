@@ -1,7 +1,6 @@
-# notifications-worker qa resources
-service: notifications-worker
+# qa resources
 environment: qa
-cpu_request: 500m
-cpu_limit: 1500m
-mem_request_mb: 512
-mem_limit_mb: 1024
+cpu_request: 300m
+cpu_limit: 1200m
+mem_request_mb: 128
+mem_limit_mb: 256

@@ -1,15 +1,14 @@
-# webhooks-worker qa settings; keys missing here come from ../../base.yaml
-service: webhooks-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 4
+replicas: 5
 log_level: warn
 queue:
-  name: webhooks-worker-qa
-  batch_size: 250
-  visibility_timeout_s: 60
+  name: sandpiper-qa
+  batch_size: 50
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-qa-webhooks-worker
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3500
 upstreams:
-  - auth-api
+  - ledger-worker

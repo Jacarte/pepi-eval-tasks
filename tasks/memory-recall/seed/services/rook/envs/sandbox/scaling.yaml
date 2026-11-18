@@ -1,6 +1,5 @@
-# pricing-worker sandbox autoscaling
-service: pricing-worker
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 1
-max_replicas: 8
-target_cpu_percent: 75
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 60

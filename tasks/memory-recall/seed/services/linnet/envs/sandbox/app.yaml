@@ -1,17 +1,15 @@
-# reports-worker sandbox settings; keys missing here come from ../../base.yaml
-service: reports-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 4
-log_level: info
+replicas: 3
+log_level: warn
 queue:
-  name: reports-worker-sandbox
-  batch_size: 300
-  visibility_timeout_s: 120
+  name: linnet-sandbox
+  batch_size: 250
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-sandbox-reports-worker
-  retention_days: 14
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - invoice-worker
-  - fraud-scorer
+  - admin-api
+  - inventory-sync

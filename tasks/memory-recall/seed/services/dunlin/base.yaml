@@ -1,9 +1,10 @@
-# users-api defaults
+# dunlin deployment
 service: users-api
 codename: dunlin
+role: primary
+status: active
 team: platform
 owner: team-platform@example.com
-status: active
 runtime: go1.22
 replicas: 3
 log_level: info

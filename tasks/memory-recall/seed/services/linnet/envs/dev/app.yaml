@@ -1,17 +1,15 @@
-# reports-worker development settings; keys missing here come from ../../base.yaml
-service: reports-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
-log_level: debug
+replicas: 3
+log_level: info
 queue:
-  name: reports-worker-development
-  batch_size: 250
-  visibility_timeout_s: 30
+  name: linnet-development
+  batch_size: 300
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-development-reports-worker
-  retention_days: 60
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 4000
 upstreams:
-  - search-indexer
-  - sms-sender
+  - ledger-worker
+  - ledger-api

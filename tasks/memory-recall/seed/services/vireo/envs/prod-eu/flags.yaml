@@ -1,7 +1,6 @@
-# orders-api production-eu feature flags
-service: orders-api
+# production-eu feature flags
 environment: production-eu
 flags:
-  batch_compaction: false
+  new_retry_policy: false
+  strict_validation: false
   shadow_reads: false
-  fast_path: false

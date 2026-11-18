@@ -1,15 +1,13 @@
-# inventory-api staging alerts
-service: inventory-api
+# staging alerts
 environment: staging
-log_retention_days: 60
-metrics_retention_days: 45
-notify: team-data
+log_retention_days: 45
+metrics_retention_days: 90
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 300
+    threshold_ms: 2100
     for: 10m
     severity: ticket

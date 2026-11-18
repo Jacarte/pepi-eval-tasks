@@ -1,12 +1,10 @@
-# search-api staging-eu settings; keys missing here come from ../../base.yaml
-service: search-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 5
-log_level: debug
+replicas: 2
+log_level: info
 storage:
-  bucket: acme-staging-eu-search-api
-  retention_days: 21
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1500
 upstreams:
-  - ledger-api
+  - invoice-worker

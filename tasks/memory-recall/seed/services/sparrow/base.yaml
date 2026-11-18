@@ -1,9 +1,10 @@
-# inventory-sync defaults
+# sparrow deployment
 service: inventory-sync
 codename: sparrow
+role: primary
+status: active
 team: identity
 owner: team-identity@example.com
-status: active
 runtime: go1.22
 replicas: 2
 log_level: info

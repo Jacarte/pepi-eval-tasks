@@ -1,6 +1,7 @@
-# media-api production feature flags
-service: media-api
+# production feature flags
 environment: production
 flags:
-  async_writes: false
+  new_retry_policy: false
+  async_writes: true
+  shadow_reads: true
   fast_path: false

@@ -1,6 +1,7 @@
-# pricing-api staging feature flags
-service: pricing-api
+# staging feature flags
 environment: staging
 flags:
+  new_retry_policy: true
   strict_validation: false
-  shadow_reads: true
+  shadow_reads: false
+  fast_path: true

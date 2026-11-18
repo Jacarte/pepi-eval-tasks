@@ -1,12 +1,8 @@
-# search-api qa settings; keys missing here come from ../../base.yaml
-service: search-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 2
+replicas: 3
 log_level: warn
-storage:
-  bucket: acme-qa-search-api
-  retention_days: 30
 http:
   timeout_ms: 1000
 upstreams:
-  - webhooks-worker
+  - users-api

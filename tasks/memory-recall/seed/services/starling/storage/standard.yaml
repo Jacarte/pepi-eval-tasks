@@ -1,0 +1,5 @@
+# standard storage profile
+class: cold
+retention_days: 7
+versioning: false
+encryption: kms

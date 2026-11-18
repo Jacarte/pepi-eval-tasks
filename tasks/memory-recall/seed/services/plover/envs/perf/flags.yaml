@@ -1,7 +1,7 @@
-# billing-scheduler perf feature flags
-service: billing-scheduler
+# perf feature flags
 environment: perf
 flags:
-  new_retry_policy: true
-  async_writes: false
-  strict_validation: true
+  strict_validation: false
+  batch_compaction: false
+  shadow_reads: true
+  fast_path: true

@@ -1,15 +1,13 @@
-# gateway staging alerts
-service: gateway
+# staging alerts
 environment: staging
-log_retention_days: 7
-metrics_retention_days: 60
-notify: team-fulfilment
+log_retention_days: 90
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2100
+    threshold_ms: 1900
     for: 10m
     severity: ticket

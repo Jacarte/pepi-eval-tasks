@@ -1,15 +1,13 @@
-# ledger-worker qa alerts
-service: ledger-worker
+# qa alerts
 environment: qa
-log_retention_days: 21
-metrics_retention_days: 7
-notify: team-growth
+log_retention_days: 14
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.02
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 400
     for: 10m
     severity: ticket

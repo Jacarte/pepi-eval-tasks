@@ -1,5 +1,4 @@
-# orders-worker staging-eu feature flags
-service: orders-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  shadow_reads: true
+  async_writes: true

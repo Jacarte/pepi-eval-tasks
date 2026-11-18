@@ -1,6 +1,5 @@
-# checkout-api qa autoscaling
-service: checkout-api
+# qa autoscaling
 environment: qa
 min_replicas: 2
 max_replicas: 8
-target_cpu_percent: 55
+target_cpu_percent: 70

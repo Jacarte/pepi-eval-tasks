@@ -1,11 +1,11 @@
-# admin-api production settings; keys missing here come from ../../base.yaml
-service: admin-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 3
-log_level: warn
+replicas: 1
+log_level: info
 storage:
-  bucket: acme-production-admin-api
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 1500
 upstreams:
-  - reports-worker
+  - export-worker
+  - auth-worker

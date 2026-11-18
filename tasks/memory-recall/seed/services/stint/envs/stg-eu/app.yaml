@@ -1,11 +1,10 @@
-# admin-api staging-eu settings; keys missing here come from ../../base.yaml
-service: admin-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
 replicas: 2
 log_level: debug
 storage:
-  bucket: acme-staging-eu-admin-api
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 500
 upstreams:
-  - catalog-api
+  - cart-api

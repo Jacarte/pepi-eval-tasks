@@ -1,12 +1,8 @@
-# fraud-scorer staging-eu settings; keys missing here come from ../../base.yaml
-service: fraud-scorer
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 3
-log_level: debug
-storage:
-  bucket: acme-staging-eu-fraud-scorer
-  retention_days: 365
+replicas: 2
+log_level: warn
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - import-worker
+  - checkout-worker

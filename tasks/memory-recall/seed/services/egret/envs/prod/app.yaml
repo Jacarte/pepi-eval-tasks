@@ -1,11 +1,10 @@
-# catalog-api production settings; keys missing here come from ../../base.yaml
-service: catalog-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
 replicas: 4
-log_level: debug
+log_level: info
 storage:
-  bucket: acme-production-catalog-api
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - billing-worker
+  - ledger-api

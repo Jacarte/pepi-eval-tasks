@@ -1,15 +1,13 @@
-# export-worker sandbox alerts
-service: export-worker
+# sandbox alerts
 environment: sandbox
-log_retention_days: 21
-metrics_retention_days: 45
-notify: team-growth
+log_retention_days: 60
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2100
+    threshold_ms: 900
     for: 10m
     severity: ticket

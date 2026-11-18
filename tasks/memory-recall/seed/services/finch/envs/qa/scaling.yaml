@@ -1,6 +1,5 @@
-# catalog-indexer qa autoscaling
-service: catalog-indexer
+# qa autoscaling
 environment: qa
 min_replicas: 3
-max_replicas: 5
-target_cpu_percent: 65
+max_replicas: 10
+target_cpu_percent: 50

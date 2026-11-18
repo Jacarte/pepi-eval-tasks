@@ -1,17 +1,16 @@
-# invoice-worker production-eu settings; keys missing here come from ../../base.yaml
-service: invoice-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 5
-log_level: debug
+replicas: 1
+log_level: warn
 queue:
-  name: invoice-worker-production-eu
-  batch_size: 50
-  visibility_timeout_s: 30
+  name: tern-production-eu
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-production-eu-invoice-worker
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1000
 upstreams:
   - billing-worker
   - checkout-api
-  - risk-api
+  - orders-api

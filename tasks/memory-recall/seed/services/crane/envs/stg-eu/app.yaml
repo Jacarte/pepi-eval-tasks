@@ -1,13 +1,10 @@
-# media-api staging-eu settings; keys missing here come from ../../base.yaml
-service: media-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 1
-log_level: info
+replicas: 4
+log_level: debug
 storage:
-  bucket: acme-staging-eu-media-api
-  retention_days: 60
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1000
 upstreams:
-  - ledger-api
-  - inventory-api
+  - pricing-api

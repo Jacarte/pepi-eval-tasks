@@ -1,13 +1,10 @@
-# users-api development settings; keys missing here come from ../../base.yaml
-service: users-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 5
-log_level: info
+replicas: 2
+log_level: debug
 storage:
-  bucket: acme-development-users-api
-  retention_days: 120
+  include: ../../storage/archive.yaml
 http:
   timeout_ms: 2000
 upstreams:
-  - notifications-worker
-  - profiles-api
+  - import-worker

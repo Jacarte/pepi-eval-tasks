@@ -1,6 +1,5 @@
-# thumbnails-worker development autoscaling
-service: thumbnails-worker
+# development autoscaling
 environment: development
 min_replicas: 2
-max_replicas: 9
-target_cpu_percent: 75
+max_replicas: 11
+target_cpu_percent: 65

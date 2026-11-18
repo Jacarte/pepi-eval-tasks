@@ -1,6 +1,5 @@
-# gateway qa autoscaling
-service: gateway
+# qa autoscaling
 environment: qa
-min_replicas: 1
-max_replicas: 10
-target_cpu_percent: 65
+min_replicas: 2
+max_replicas: 4
+target_cpu_percent: 70

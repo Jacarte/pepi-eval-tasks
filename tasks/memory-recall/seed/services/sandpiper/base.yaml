@@ -1,9 +1,10 @@
-# webhooks-worker defaults
+# sandpiper deployment
 service: webhooks-worker
 codename: sandpiper
+role: primary
+status: active
 team: commerce
 owner: team-commerce@example.com
-status: active
 runtime: go1.22
 replicas: 3
 log_level: info

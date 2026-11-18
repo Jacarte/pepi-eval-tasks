@@ -1,12 +1,8 @@
-# auth-api qa settings; keys missing here come from ../../base.yaml
-service: auth-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 1
-log_level: info
-storage:
-  bucket: acme-qa-auth-api
-  retention_days: 60
+replicas: 3
+log_level: warn
 http:
-  timeout_ms: 1500
+  timeout_ms: 500
 upstreams:
-  - profiles-api
+  - gateway

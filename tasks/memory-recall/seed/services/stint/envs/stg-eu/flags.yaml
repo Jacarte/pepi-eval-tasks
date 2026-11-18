@@ -1,8 +1,6 @@
-# admin-api staging-eu feature flags
-service: admin-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
   async_writes: false
-  batch_compaction: true
-  shadow_reads: true
-  fast_path: false
+  strict_validation: false
+  fast_path: true

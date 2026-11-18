@@ -1,7 +1,6 @@
-# catalog-api perf resources
-service: catalog-api
+# perf resources
 environment: perf
-cpu_request: 300m
-cpu_limit: 600m
-mem_request_mb: 128
-mem_limit_mb: 256
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 384
+mem_limit_mb: 768

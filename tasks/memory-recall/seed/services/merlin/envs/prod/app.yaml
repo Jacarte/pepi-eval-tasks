@@ -1,12 +1,10 @@
-# reports-api production settings; keys missing here come from ../../base.yaml
-service: reports-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
-log_level: warn
+replicas: 6
+log_level: debug
 storage:
-  bucket: acme-production-reports-api
-  retention_days: 7
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - reports-worker
+  - risk-api

@@ -1,12 +1,9 @@
-# fraud-scorer staging settings; keys missing here come from ../../base.yaml
-service: fraud-scorer
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
-log_level: debug
-storage:
-  bucket: acme-staging-fraud-scorer
+replicas: 3
+log_level: warn
 http:
   timeout_ms: 1000
 upstreams:
-  - metrics-collector
-  - audit-api
+  - ledger-api
+  - notifications-worker

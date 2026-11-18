@@ -1,16 +1,14 @@
-# pricing-worker production settings; keys missing here come from ../../base.yaml
-service: pricing-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 4
+replicas: 6
 log_level: info
 queue:
-  name: pricing-worker-production
-  batch_size: 100
+  name: rook-production
+  batch_size: 150
   visibility_timeout_s: 60
 storage:
-  bucket: acme-production-pricing-worker
-  retention_days: 120
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - catalog-indexer
+  - billing-worker

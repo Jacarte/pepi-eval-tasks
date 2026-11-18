@@ -1,9 +1,10 @@
-# billing-legacy defaults
+# osprey deployment
 service: billing-legacy
 codename: osprey
+role: primary
+status: active
 team: payments
 owner: team-payments@example.com
-status: active
 runtime: go1.22
 replicas: 3
 log_level: info

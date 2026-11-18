@@ -1,15 +1,13 @@
-# export-worker development alerts
-service: export-worker
+# development alerts
 environment: development
-log_retention_days: 30
+log_retention_days: 120
 metrics_retention_days: 45
-notify: team-growth
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.09
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 800
+    threshold_ms: 400
     for: 10m
     severity: ticket

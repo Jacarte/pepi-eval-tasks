@@ -1,5 +1,6 @@
-# inventory-sync qa feature flags
-service: inventory-sync
+# qa feature flags
 environment: qa
 flags:
-  strict_validation: false
+  new_retry_policy: true
+  async_writes: true
+  shadow_reads: true

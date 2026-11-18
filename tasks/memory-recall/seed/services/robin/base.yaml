@@ -1,9 +1,10 @@
-# cart-api defaults
+# robin deployment
 service: cart-api
 codename: robin
+role: primary
+status: active
 team: identity
 owner: team-identity@example.com
-status: active
 runtime: go1.22
 replicas: 3
 log_level: info

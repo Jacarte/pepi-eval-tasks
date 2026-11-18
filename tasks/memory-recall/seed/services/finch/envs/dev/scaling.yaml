@@ -1,6 +1,5 @@
-# catalog-indexer development autoscaling
-service: catalog-indexer
+# development autoscaling
 environment: development
 min_replicas: 1
-max_replicas: 4
-target_cpu_percent: 55
+max_replicas: 10
+target_cpu_percent: 70

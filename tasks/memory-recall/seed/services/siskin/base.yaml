@@ -1,9 +1,10 @@
-# pricing-api defaults
+# siskin deployment
 service: pricing-api
 codename: siskin
+role: primary
+status: active
 team: commerce
 owner: team-commerce@example.com
-status: active
 runtime: go1.20
 replicas: 2
 log_level: info

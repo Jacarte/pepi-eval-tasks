@@ -1,12 +1,11 @@
-# gateway production settings; keys missing here come from ../../base.yaml
-service: gateway
+# production settings; keys missing here come from ../../base.yaml
 environment: production
 replicas: 5
 log_level: warn
 storage:
-  bucket: acme-production-gateway
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
   - webhooks-api
-  - checkout-worker
+  - sms-sender

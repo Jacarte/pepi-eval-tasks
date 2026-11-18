@@ -1,6 +1,5 @@
-# catalog-api perf feature flags
-service: catalog-api
+# perf feature flags
 environment: perf
 flags:
-  strict_validation: true
-  shadow_reads: true
+  async_writes: false
+  batch_compaction: false

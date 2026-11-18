@@ -1,9 +1,10 @@
-# billing-scheduler defaults
+# plover deployment
 service: billing-scheduler
 codename: plover
+role: primary
+status: active
 team: payments
 owner: team-payments@example.com
-status: active
 runtime: go1.20
 replicas: 2
 log_level: info

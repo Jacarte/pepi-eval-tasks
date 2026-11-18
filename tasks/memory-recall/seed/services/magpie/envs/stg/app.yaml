@@ -1,12 +1,10 @@
-# search-indexer staging settings; keys missing here come from ../../base.yaml
-service: search-indexer
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 6
-log_level: warn
+replicas: 1
+log_level: debug
 storage:
-  bucket: acme-staging-search-indexer
-  retention_days: 45
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - metrics-collector
+  - notifications-api

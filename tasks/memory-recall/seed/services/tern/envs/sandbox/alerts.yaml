@@ -1,15 +1,13 @@
-# invoice-worker sandbox alerts
-service: invoice-worker
+# sandbox alerts
 environment: sandbox
-log_retention_days: 14
-metrics_retention_days: 180
-notify: team-payments
+log_retention_days: 30
+metrics_retention_days: 21
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 600
+    threshold_ms: 1300
     for: 10m
     severity: ticket

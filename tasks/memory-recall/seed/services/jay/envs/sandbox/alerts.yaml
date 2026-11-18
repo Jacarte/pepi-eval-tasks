@@ -1,15 +1,13 @@
-# ledger-worker sandbox alerts
-service: ledger-worker
+# sandbox alerts
 environment: sandbox
-log_retention_days: 180
-metrics_retention_days: 45
-notify: team-growth
+log_retention_days: 21
+metrics_retention_days: 7
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1500
+    threshold_ms: 1400
     for: 10m
     severity: ticket

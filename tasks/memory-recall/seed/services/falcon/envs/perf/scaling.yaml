@@ -1,6 +1,5 @@
-# auth-worker perf autoscaling
-service: auth-worker
+# perf autoscaling
 environment: perf
-min_replicas: 1
-max_replicas: 11
-target_cpu_percent: 70
+min_replicas: 2
+max_replicas: 8
+target_cpu_percent: 60

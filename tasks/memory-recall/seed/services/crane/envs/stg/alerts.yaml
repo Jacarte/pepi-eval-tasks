@@ -1,15 +1,13 @@
-# media-api staging alerts
-service: media-api
+# staging alerts
 environment: staging
-log_retention_days: 21
-metrics_retention_days: 14
-notify: team-data
+log_retention_days: 30
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 700
+    threshold_ms: 600
     for: 10m
     severity: ticket

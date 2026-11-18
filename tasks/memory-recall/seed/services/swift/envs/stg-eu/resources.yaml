@@ -1,5 +1,4 @@
-# checkout-api staging-eu resources
-service: checkout-api
+# staging-eu resources
 environment: staging-eu
 cpu_request: 300m
 cpu_limit: 600m

@@ -1,5 +1,4 @@
-# admin-api production resources
-service: admin-api
+# production resources
 environment: production
 cpu_request: 100m
 cpu_limit: 400m

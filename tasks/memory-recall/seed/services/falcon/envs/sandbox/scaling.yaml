@@ -1,6 +1,5 @@
-# auth-worker sandbox autoscaling
-service: auth-worker
+# sandbox autoscaling
 environment: sandbox
 min_replicas: 2
-max_replicas: 11
-target_cpu_percent: 65
+max_replicas: 12
+target_cpu_percent: 70

@@ -1,6 +1,5 @@
-# webhooks-worker production autoscaling
-service: webhooks-worker
+# production autoscaling
 environment: production
 min_replicas: 1
-max_replicas: 4
-target_cpu_percent: 70
+max_replicas: 9
+target_cpu_percent: 50

@@ -1,9 +1,7 @@
-# audit-api sandbox feature flags
-service: audit-api
+# sandbox feature flags
 environment: sandbox
 flags:
   async_writes: false
   strict_validation: false
-  batch_compaction: false
-  shadow_reads: true
+  shadow_reads: false
   fast_path: false

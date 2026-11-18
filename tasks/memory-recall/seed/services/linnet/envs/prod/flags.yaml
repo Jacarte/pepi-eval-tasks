@@ -1,7 +1,5 @@
-# reports-worker production feature flags
-service: reports-worker
+# production feature flags
 environment: production
 flags:
   async_writes: false
-  strict_validation: true
-  batch_compaction: false
+  fast_path: false

@@ -1,15 +1,13 @@
-# catalog-api perf alerts
-service: catalog-api
+# perf alerts
 environment: perf
-log_retention_days: 21
-metrics_retention_days: 60
-notify: team-fulfilment
+log_retention_days: 60
+metrics_retention_days: 90
 alerts:
   - name: error-rate
-    threshold: 0.08
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1200
+    threshold_ms: 1000
     for: 10m
     severity: ticket

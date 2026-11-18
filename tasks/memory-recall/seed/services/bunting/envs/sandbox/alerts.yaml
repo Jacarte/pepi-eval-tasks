@@ -1,15 +1,13 @@
-# media-transcoder sandbox alerts
-service: media-transcoder
+# sandbox alerts
 environment: sandbox
-log_retention_days: 180
-metrics_retention_days: 365
-notify: team-identity
+log_retention_days: 45
+metrics_retention_days: 60
 alerts:
   - name: error-rate
-    threshold: 0.07
+    threshold: 0.02
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1300
+    threshold_ms: 1100
     for: 10m
     severity: ticket

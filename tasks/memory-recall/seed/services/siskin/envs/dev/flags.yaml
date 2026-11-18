@@ -1,5 +1,6 @@
-# pricing-api development feature flags
-service: pricing-api
+# development feature flags
 environment: development
 flags:
-  async_writes: false
+  new_retry_policy: false
+  async_writes: true
+  fast_path: true

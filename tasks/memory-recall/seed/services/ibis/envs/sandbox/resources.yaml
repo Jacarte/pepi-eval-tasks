@@ -1,7 +1,6 @@
-# payouts-api sandbox resources
-service: payouts-api
+# sandbox resources
 environment: sandbox
-cpu_request: 200m
-cpu_limit: 800m
-mem_request_mb: 256
-mem_limit_mb: 512
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 896
+mem_limit_mb: 1792

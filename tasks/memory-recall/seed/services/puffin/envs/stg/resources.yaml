@@ -1,7 +1,6 @@
-# export-worker staging resources
-service: export-worker
+# staging resources
 environment: staging
-cpu_request: 400m
-cpu_limit: 800m
-mem_request_mb: 896
-mem_limit_mb: 1792
+cpu_request: 200m
+cpu_limit: 400m
+mem_request_mb: 768
+mem_limit_mb: 1536

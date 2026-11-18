@@ -1,10 +1,11 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+# heron-v1 deployment
 service: billing-worker
 codename: heron-v1
-team: payments
-owner: team-payments@example.com
+role: primary
 status: decommissioned
 replaced_by: heron
+team: payments
+owner: team-payments@example.com
 runtime: go1.22
 replicas: 3
 log_level: info

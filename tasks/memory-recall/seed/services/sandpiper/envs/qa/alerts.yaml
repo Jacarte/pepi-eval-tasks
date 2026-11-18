@@ -1,15 +1,13 @@
-# webhooks-worker qa alerts
-service: webhooks-worker
+# qa alerts
 environment: qa
-log_retention_days: 180
-metrics_retention_days: 30
-notify: team-commerce
+log_retention_days: 14
+metrics_retention_days: 45
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2100
+    threshold_ms: 1700
     for: 10m
     severity: ticket

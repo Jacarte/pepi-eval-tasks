@@ -1,9 +1,7 @@
-# search-indexer sandbox alerts
-service: search-indexer
+# sandbox alerts
 environment: sandbox
-log_retention_days: 90
-metrics_retention_days: 14
-notify: team-data
+log_retention_days: 60
+metrics_retention_days: 45
 alerts:
   - name: error-rate
     threshold: 0.05

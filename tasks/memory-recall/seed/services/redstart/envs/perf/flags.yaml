@@ -1,6 +1,6 @@
-# webhooks-api perf feature flags
-service: webhooks-api
+# perf feature flags
 environment: perf
 flags:
   async_writes: true
-  strict_validation: true
+  strict_validation: false
+  batch_compaction: false

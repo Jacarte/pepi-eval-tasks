@@ -1,17 +1,14 @@
-# checkout-worker perf settings; keys missing here come from ../../base.yaml
-service: checkout-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 1
-log_level: warn
+replicas: 6
+log_level: debug
 queue:
-  name: checkout-worker-perf
+  name: thrush-perf
   batch_size: 350
   visibility_timeout_s: 120
 storage:
-  bucket: acme-perf-checkout-worker
-  retention_days: 90
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 2500
 upstreams:
-  - payouts-api
-  - risk-api
+  - notifications-api

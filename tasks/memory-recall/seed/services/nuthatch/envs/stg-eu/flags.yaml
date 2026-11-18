@@ -1,5 +1,4 @@
-# sms-sender staging-eu feature flags
-service: sms-sender
+# staging-eu feature flags
 environment: staging-eu
 flags:
   async_writes: false

@@ -1,16 +1,15 @@
-# sms-sender perf settings; keys missing here come from ../../base.yaml
-service: sms-sender
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
-log_level: debug
+replicas: 5
+log_level: info
 queue:
-  name: sms-sender-perf
-  batch_size: 400
-  visibility_timeout_s: 60
+  name: nuthatch-perf
+  batch_size: 100
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-perf-sms-sender
-  retention_days: 21
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 4000
 upstreams:
-  - profiles-api
+  - auth-worker
+  - media-api

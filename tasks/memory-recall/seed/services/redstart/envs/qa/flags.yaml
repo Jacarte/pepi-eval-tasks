@@ -1,7 +1,7 @@
-# webhooks-api qa feature flags
-service: webhooks-api
+# qa feature flags
 environment: qa
 flags:
   async_writes: true
-  strict_validation: true
+  strict_validation: false
+  shadow_reads: true
   fast_path: false

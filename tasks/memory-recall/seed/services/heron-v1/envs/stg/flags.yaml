@@ -1,6 +1,5 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# staging feature flags
 environment: staging
 flags:
-  strict_validation: true
-  fast_path: true
+  new_retry_policy: true
+  batch_compaction: true

@@ -1,16 +1,12 @@
-# webhooks-worker production settings; keys missing here come from ../../base.yaml
-service: webhooks-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
+replicas: 6
 log_level: info
 queue:
-  name: webhooks-worker-production
+  name: sandpiper-production
   batch_size: 350
   visibility_timeout_s: 120
-storage:
-  bucket: acme-production-webhooks-worker
-  retention_days: 21
 http:
-  timeout_ms: 500
+  timeout_ms: 4000
 upstreams:
-  - notifications-api
+  - fraud-scorer

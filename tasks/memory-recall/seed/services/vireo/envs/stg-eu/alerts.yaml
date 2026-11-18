@@ -1,15 +1,13 @@
-# orders-api staging-eu alerts
-service: orders-api
+# staging-eu alerts
 environment: staging-eu
-log_retention_days: 14
-metrics_retention_days: 90
-notify: team-platform
+log_retention_days: 21
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.02
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 300
+    threshold_ms: 1400
     for: 10m
     severity: ticket

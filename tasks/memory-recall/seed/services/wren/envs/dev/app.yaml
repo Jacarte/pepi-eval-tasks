@@ -1,13 +1,12 @@
-# billing-api development settings; keys missing here come from ../../base.yaml
-service: billing-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 3
-log_level: warn
+log_level: debug
 storage:
-  bucket: acme-development-billing-api
-  retention_days: 30
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
   - billing-worker
-  - media-api
+  - invoice-worker
+  - thumbnails-worker

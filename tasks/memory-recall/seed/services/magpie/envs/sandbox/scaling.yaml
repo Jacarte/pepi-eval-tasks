@@ -1,6 +1,5 @@
-# search-indexer sandbox autoscaling
-service: search-indexer
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 3
-max_replicas: 13
-target_cpu_percent: 60
+min_replicas: 1
+max_replicas: 4
+target_cpu_percent: 50

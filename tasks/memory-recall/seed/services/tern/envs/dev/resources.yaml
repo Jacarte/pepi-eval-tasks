@@ -1,7 +1,6 @@
-# invoice-worker development resources
-service: invoice-worker
+# development resources
 environment: development
-cpu_request: 400m
-cpu_limit: 800m
-mem_request_mb: 512
-mem_limit_mb: 1024
+cpu_request: 500m
+cpu_limit: 1500m
+mem_request_mb: 384
+mem_limit_mb: 768

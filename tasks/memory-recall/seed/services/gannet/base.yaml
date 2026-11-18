@@ -1,9 +1,10 @@
-# risk-api defaults
+# gannet deployment
 service: risk-api
 codename: gannet
+role: primary
+status: active
 team: fulfilment
 owner: team-fulfilment@example.com
-status: active
 runtime: go1.20
 replicas: 3
 log_level: info

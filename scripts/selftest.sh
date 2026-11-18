@@ -134,6 +134,27 @@ mk_memory fixtureinseed '{"memories": [{"text": "One and Two live in demo.go."}]
 cp "$T/fixtureinseed/task/memory/fixture.json" "$T/fixtureinseed/task/seed/notes.json"
 expect "seed holding a copy of the fixture" 1 fixtureinseed "contains memories"
 
+mk_memory fixtureinprompt '{"memories": [{"text": "One and Two live in demo.go."}]}'
+echo 'One and Two live in demo.go.' >> "$T/fixtureinprompt/task/prompts/01.md"
+expect "prompt holding a fixture text" 1 fixtureinprompt "contains memories"
+
+mk_memory fixturekey '{"memories": [{"text": "x", "infer": true}]}'
+expect "fixture with an unknown key" 1 fixturekey "unknown field"
+
+mk_memory fixturemany "{\"memories\": [$(printf '{"text": "m%d"},' $(seq 20)){\"text\": \"m21\"}]}"
+expect "fixture with more than 20 memories" 1 fixturemany "1..20 entries (got 21)"
+
+mk_memory fixturetrailing '{"memories": [{"text": "x"}]}]'
+expect "fixture with trailing data" 1 fixturetrailing "trailing data"
+
+mk_memory nofixture '{}'
+rm -r "$T/nofixture/task/memory"
+expect "kind memory without a fixture" 1 nofixture "fixture.json missing"
+
+mk memdir "$GOOD"
+mkdir "$T/memdir/task/memory"
+expect "memory/ dir without fixture.json" 1 memdir "fixture.json missing"
+
 # owned_dirs: hidden/acc owns acc/. The reference leaves a broken file there, which must be deleted.
 mk_owned() {
   mk "$1" "  - id: m1

@@ -1,12 +1,10 @@
-# payouts-api staging settings; keys missing here come from ../../base.yaml
-service: payouts-api
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
 replicas: 4
-log_level: warn
+log_level: debug
 storage:
-  bucket: acme-staging-payouts-api
-  retention_days: 14
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 1000
 upstreams:
-  - audit-api
+  - inventory-sync

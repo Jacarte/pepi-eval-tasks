@@ -1,15 +1,13 @@
-# sms-sender development alerts
-service: sms-sender
+# development alerts
 environment: development
-log_retention_days: 21
-metrics_retention_days: 90
-notify: team-identity
+log_retention_days: 180
+metrics_retention_days: 21
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 900
+    threshold_ms: 1800
     for: 10m
     severity: ticket

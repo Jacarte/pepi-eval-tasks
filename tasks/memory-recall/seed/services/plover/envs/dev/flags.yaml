@@ -1,9 +1,7 @@
-# billing-scheduler development feature flags
-service: billing-scheduler
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: true
   async_writes: true
   strict_validation: false
-  shadow_reads: false
-  fast_path: false
+  batch_compaction: false
+  fast_path: true

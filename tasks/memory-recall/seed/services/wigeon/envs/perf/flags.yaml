@@ -1,7 +1,0 @@
-# metrics-collector perf feature flags
-service: metrics-collector
-environment: perf
-flags:
-  async_writes: false
-  strict_validation: false
-  batch_compaction: true

@@ -1,10 +1,8 @@
-# payouts-api staging-eu feature flags
-service: payouts-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
   new_retry_policy: false
-  async_writes: false
-  strict_validation: true
+  async_writes: true
+  strict_validation: false
   batch_compaction: true
-  shadow_reads: true
   fast_path: true

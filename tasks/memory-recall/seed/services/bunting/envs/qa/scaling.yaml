@@ -1,6 +1,5 @@
-# media-transcoder qa autoscaling
-service: media-transcoder
+# qa autoscaling
 environment: qa
 min_replicas: 2
-max_replicas: 11
-target_cpu_percent: 75
+max_replicas: 4
+target_cpu_percent: 70

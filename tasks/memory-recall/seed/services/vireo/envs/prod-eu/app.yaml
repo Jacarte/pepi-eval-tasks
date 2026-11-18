@@ -1,12 +1,11 @@
-# orders-api production-eu settings; keys missing here come from ../../base.yaml
-service: orders-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
 replicas: 6
-log_level: info
+log_level: debug
 storage:
-  bucket: acme-production-eu-orders-api
-  retention_days: 180
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1000
 upstreams:
-  - audit-worker
+  - notifications-api
+  - notifications-api

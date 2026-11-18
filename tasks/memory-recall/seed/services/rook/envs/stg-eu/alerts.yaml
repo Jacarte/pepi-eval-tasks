@@ -1,15 +1,13 @@
-# pricing-worker staging-eu alerts
-service: pricing-worker
+# staging-eu alerts
 environment: staging-eu
-log_retention_days: 120
-metrics_retention_days: 365
-notify: team-fulfilment
+log_retention_days: 60
+metrics_retention_days: 21
 alerts:
   - name: error-rate
-    threshold: 0.08
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1800
+    threshold_ms: 1200
     for: 10m
     severity: ticket

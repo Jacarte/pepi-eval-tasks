@@ -1,15 +1,15 @@
-# import-worker sandbox settings; keys missing here come from ../../base.yaml
-service: import-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 2
-log_level: debug
+replicas: 3
+log_level: warn
 queue:
-  name: import-worker-sandbox
-  batch_size: 400
-  visibility_timeout_s: 60
+  name: quail-sandbox
+  batch_size: 300
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-sandbox-import-worker
-  retention_days: 120
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2500
 upstreams:
+  - gateway
+  - billing-worker

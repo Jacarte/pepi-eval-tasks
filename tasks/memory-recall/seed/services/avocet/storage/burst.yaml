@@ -1,0 +1,5 @@
+# burst storage profile
+class: cold
+retention_days: 14
+versioning: true
+encryption: kms

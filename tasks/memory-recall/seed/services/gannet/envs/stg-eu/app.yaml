@@ -1,12 +1,8 @@
-# risk-api staging-eu settings; keys missing here come from ../../base.yaml
-service: risk-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 1
-log_level: warn
-storage:
-  bucket: acme-staging-eu-risk-api
-  retention_days: 180
+replicas: 6
+log_level: debug
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - search-api
+  - webhooks-worker

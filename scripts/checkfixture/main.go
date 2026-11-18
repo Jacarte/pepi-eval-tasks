@@ -9,6 +9,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -48,7 +49,7 @@ func check(path string, dirs []string) []string {
 	if err := dec.Decode(&f); err != nil {
 		return []string{"fixture.json: " + err.Error()}
 	}
-	if dec.More() {
+	if err := dec.Decode(&struct{}{}); err != io.EOF {
 		return []string{"fixture.json: trailing data after the object"}
 	}
 	var problems []string

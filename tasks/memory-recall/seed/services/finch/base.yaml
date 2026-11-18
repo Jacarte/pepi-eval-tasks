@@ -1,9 +1,10 @@
-# catalog-indexer defaults
+# finch deployment
 service: catalog-indexer
 codename: finch
+role: primary
+status: active
 team: platform
 owner: team-platform@example.com
-status: active
 runtime: go1.20
 replicas: 2
 log_level: info

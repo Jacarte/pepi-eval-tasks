@@ -1,7 +1,6 @@
-# email-sender sandbox resources
-service: email-sender
+# sandbox resources
 environment: sandbox
 cpu_request: 500m
-cpu_limit: 1000m
-mem_request_mb: 768
-mem_limit_mb: 1536
+cpu_limit: 1500m
+mem_request_mb: 128
+mem_limit_mb: 256

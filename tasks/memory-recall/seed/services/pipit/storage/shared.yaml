@@ -1,0 +1,5 @@
+# shared storage profile
+class: hot
+retention_days: 60
+versioning: false
+encryption: aes256

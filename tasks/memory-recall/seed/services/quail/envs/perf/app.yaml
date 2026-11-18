@@ -1,16 +1,14 @@
-# import-worker perf settings; keys missing here come from ../../base.yaml
-service: import-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 2
+replicas: 3
 log_level: debug
 queue:
-  name: import-worker-perf
-  batch_size: 300
-  visibility_timeout_s: 30
+  name: quail-perf
+  batch_size: 150
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-perf-import-worker
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3000
 upstreams:
-  - payouts-api
-  - search-indexer
+  - media-transcoder

@@ -1,9 +1,10 @@
-# orders-api defaults
+# vireo deployment
 service: orders-api
 codename: vireo
+role: primary
+status: active
 team: platform
 owner: team-platform@example.com
-status: active
 runtime: go1.22
 replicas: 2
 log_level: info

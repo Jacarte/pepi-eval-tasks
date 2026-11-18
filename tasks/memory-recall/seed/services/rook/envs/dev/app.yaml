@@ -1,16 +1,14 @@
-# pricing-worker development settings; keys missing here come from ../../base.yaml
-service: pricing-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 2
-log_level: warn
+replicas: 3
+log_level: debug
 queue:
-  name: pricing-worker-development
-  batch_size: 100
+  name: rook-development
+  batch_size: 50
   visibility_timeout_s: 30
 storage:
-  bucket: acme-development-pricing-worker
-  retention_days: 180
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3000
 upstreams:
-  - catalog-indexer
+  - thumbnails-worker

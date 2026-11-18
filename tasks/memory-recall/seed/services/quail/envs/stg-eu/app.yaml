@@ -1,15 +1,13 @@
-# import-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: import-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 6
-log_level: debug
+replicas: 2
+log_level: info
 queue:
-  name: import-worker-staging-eu
+  name: quail-staging-eu
   batch_size: 350
-  visibility_timeout_s: 60
-storage:
-  bucket: acme-staging-eu-import-worker
+  visibility_timeout_s: 120
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - fraud-scorer
+  - orders-api
+  - media-api

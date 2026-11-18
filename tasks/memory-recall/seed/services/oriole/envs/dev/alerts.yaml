@@ -1,15 +1,13 @@
-# email-sender development alerts
-service: email-sender
+# development alerts
 environment: development
-log_retention_days: 180
-metrics_retention_days: 7
-notify: team-data
+log_retention_days: 21
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 900
+    threshold_ms: 1500
     for: 10m
     severity: ticket

@@ -1,8 +1,5 @@
-# gateway production feature flags
-service: gateway
+# production feature flags
 environment: production
 flags:
   async_writes: true
-  strict_validation: false
-  batch_compaction: false
-  shadow_reads: true
+  shadow_reads: false

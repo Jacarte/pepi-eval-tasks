@@ -1,15 +1,13 @@
-# invoice-worker staging alerts
-service: invoice-worker
+# staging alerts
 environment: staging
-log_retention_days: 60
+log_retention_days: 90
 metrics_retention_days: 90
-notify: team-payments
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 1700
     for: 10m
     severity: ticket

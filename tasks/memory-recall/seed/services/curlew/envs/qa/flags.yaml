@@ -1,7 +1,8 @@
-# profiles-api qa feature flags
-service: profiles-api
+# qa feature flags
 environment: qa
 flags:
-  strict_validation: true
+  async_writes: false
+  strict_validation: false
   batch_compaction: true
+  shadow_reads: true
   fast_path: true

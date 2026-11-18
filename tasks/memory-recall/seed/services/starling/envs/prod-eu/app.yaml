@@ -1,13 +1,8 @@
-# inventory-api production-eu settings; keys missing here come from ../../base.yaml
-service: inventory-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 4
+replicas: 1
 log_level: debug
-storage:
-  bucket: acme-production-eu-inventory-api
-  retention_days: 21
 http:
-  timeout_ms: 500
+  timeout_ms: 1500
 upstreams:
-  - billing-legacy
-  - scheduler
+  - media-api

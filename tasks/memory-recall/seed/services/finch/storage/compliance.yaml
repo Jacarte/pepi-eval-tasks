@@ -1,0 +1,5 @@
+# compliance storage profile
+class: hot
+retention_days: 60
+versioning: true
+encryption: kms

@@ -1,12 +1,11 @@
-# catalog-api staging-eu settings; keys missing here come from ../../base.yaml
-service: catalog-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
 replicas: 4
-log_level: info
+log_level: debug
 storage:
-  bucket: acme-staging-eu-catalog-api
-  retention_days: 90
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
+  - fraud-scorer
   - billing-api

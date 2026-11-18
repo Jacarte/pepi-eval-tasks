@@ -1,17 +1,14 @@
-# export-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: export-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 4
-log_level: debug
+replicas: 3
+log_level: info
 queue:
-  name: export-worker-staging-eu
+  name: puffin-staging-eu
   batch_size: 400
-  visibility_timeout_s: 90
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-staging-eu-export-worker
-  retention_days: 7
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - import-worker
-  - search-api
+  - reports-worker

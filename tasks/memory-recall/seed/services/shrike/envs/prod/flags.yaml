@@ -1,6 +1,5 @@
-# audit-api production feature flags
-service: audit-api
+# production feature flags
 environment: production
 flags:
-  batch_compaction: false
-  shadow_reads: false
+  new_retry_policy: false
+  strict_validation: true

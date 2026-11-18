@@ -1,6 +1,5 @@
-# payouts-worker staging-eu autoscaling
-service: payouts-worker
+# staging-eu autoscaling
 environment: staging-eu
-min_replicas: 3
-max_replicas: 4
-target_cpu_percent: 60
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 50

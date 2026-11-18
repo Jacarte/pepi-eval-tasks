@@ -1,5 +1,4 @@
-# audit-api development feature flags
-service: audit-api
+# development feature flags
 environment: development
 flags:
-  fast_path: true
+  async_writes: true

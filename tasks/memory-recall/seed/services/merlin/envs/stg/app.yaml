@@ -1,12 +1,8 @@
-# reports-api staging settings; keys missing here come from ../../base.yaml
-service: reports-api
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
 replicas: 4
-log_level: debug
-storage:
-  bucket: acme-staging-reports-api
-  retention_days: 60
+log_level: warn
 http:
-  timeout_ms: 3000
+  timeout_ms: 500
 upstreams:
-  - ledger-api
+  - auth-api

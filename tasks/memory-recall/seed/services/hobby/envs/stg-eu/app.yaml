@@ -1,16 +1,15 @@
-# payouts-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: payouts-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 5
-log_level: info
+replicas: 2
+log_level: debug
 queue:
-  name: payouts-worker-staging-eu
-  batch_size: 200
-  visibility_timeout_s: 120
+  name: hobby-staging-eu
+  batch_size: 350
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-staging-eu-payouts-worker
-  retention_days: 7
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - reports-worker
+  - ledger-worker
+  - auth-worker

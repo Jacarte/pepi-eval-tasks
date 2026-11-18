@@ -1,6 +1,0 @@
-# metrics-collector perf autoscaling
-service: metrics-collector
-environment: perf
-min_replicas: 1
-max_replicas: 8
-target_cpu_percent: 55

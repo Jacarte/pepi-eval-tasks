@@ -1,6 +1,5 @@
-# audit-worker sandbox feature flags
-service: audit-worker
+# sandbox feature flags
 environment: sandbox
 flags:
-  batch_compaction: true
-  fast_path: true
+  new_retry_policy: false
+  fast_path: false

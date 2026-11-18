@@ -1,12 +1,10 @@
-# webhooks-api development settings; keys missing here come from ../../base.yaml
-service: webhooks-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
-log_level: debug
+replicas: 6
+log_level: warn
 storage:
-  bucket: acme-development-webhooks-api
-  retention_days: 14
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
-  - inventory-sync
+  - billing-worker

@@ -1,6 +1,5 @@
-# risk-api staging autoscaling
-service: risk-api
+# staging autoscaling
 environment: staging
-min_replicas: 2
-max_replicas: 3
-target_cpu_percent: 65
+min_replicas: 1
+max_replicas: 10
+target_cpu_percent: 55

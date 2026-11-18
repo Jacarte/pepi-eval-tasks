@@ -1,6 +1,5 @@
-# inventory-sync production-eu autoscaling
-service: inventory-sync
+# production-eu autoscaling
 environment: production-eu
-min_replicas: 3
-max_replicas: 6
-target_cpu_percent: 70
+min_replicas: 2
+max_replicas: 4
+target_cpu_percent: 80

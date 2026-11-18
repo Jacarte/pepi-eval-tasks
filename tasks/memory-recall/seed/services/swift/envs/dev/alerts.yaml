@@ -1,15 +1,13 @@
-# checkout-api development alerts
-service: checkout-api
+# development alerts
 environment: development
-log_retention_days: 60
-metrics_retention_days: 180
-notify: team-commerce
+log_retention_days: 365
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1400
+    threshold_ms: 1600
     for: 10m
     severity: ticket

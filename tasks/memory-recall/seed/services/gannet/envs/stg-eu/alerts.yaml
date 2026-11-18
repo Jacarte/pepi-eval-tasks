@@ -1,15 +1,13 @@
-# risk-api staging-eu alerts
-service: risk-api
+# staging-eu alerts
 environment: staging-eu
-log_retention_days: 180
-metrics_retention_days: 30
-notify: team-fulfilment
+log_retention_days: 45
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2100
+    threshold_ms: 300
     for: 10m
     severity: ticket

@@ -1,7 +1,6 @@
-# cart-api qa resources
-service: cart-api
+# qa resources
 environment: qa
 cpu_request: 400m
-cpu_limit: 1200m
+cpu_limit: 1600m
 mem_request_mb: 1024
 mem_limit_mb: 2048

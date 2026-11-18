@@ -1,6 +1,7 @@
-# reports-worker perf feature flags
-service: reports-worker
+# perf feature flags
 environment: perf
 flags:
+  async_writes: true
+  strict_validation: true
   shadow_reads: true
-  fast_path: false
+  fast_path: true

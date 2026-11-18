@@ -1,0 +1,14 @@
+# production settings; keys missing here come from ../../base.yaml
+environment: production
+replicas: 4
+log_level: debug
+queue:
+  name: heron-canary-production
+  batch_size: 150
+  visibility_timeout_s: 90
+storage:
+  include: ../../storage/short-lived.yaml
+http:
+  timeout_ms: 4000
+upstreams:
+  - reports-worker

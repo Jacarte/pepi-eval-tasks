@@ -1,7 +1,6 @@
-# risk-api staging-eu feature flags
-service: risk-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
   async_writes: true
-  strict_validation: true
-  fast_path: false
+  batch_compaction: false
+  fast_path: true

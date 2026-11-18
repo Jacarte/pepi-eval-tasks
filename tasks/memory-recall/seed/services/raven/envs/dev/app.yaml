@@ -1,12 +1,10 @@
-# notifications-api development settings; keys missing here come from ../../base.yaml
-service: notifications-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
+replicas: 4
 log_level: info
 storage:
-  bucket: acme-development-notifications-api
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 2000
 upstreams:
-  - scheduler
-  - sms-sender
+  - search-indexer

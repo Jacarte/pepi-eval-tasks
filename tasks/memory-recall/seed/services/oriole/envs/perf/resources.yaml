@@ -1,7 +1,6 @@
-# email-sender perf resources
-service: email-sender
+# perf resources
 environment: perf
-cpu_request: 500m
-cpu_limit: 1500m
-mem_request_mb: 768
-mem_limit_mb: 1536
+cpu_request: 100m
+cpu_limit: 200m
+mem_request_mb: 128
+mem_limit_mb: 256

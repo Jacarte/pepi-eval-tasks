@@ -1,9 +1,10 @@
-# media-transcoder defaults
+# bunting deployment
 service: media-transcoder
 codename: bunting
+role: primary
+status: active
 team: identity
 owner: team-identity@example.com
-status: active
 runtime: go1.20
 replicas: 3
 log_level: info

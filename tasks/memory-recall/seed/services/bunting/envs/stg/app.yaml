@@ -1,12 +1,9 @@
-# media-transcoder staging settings; keys missing here come from ../../base.yaml
-service: media-transcoder
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: debug
-storage:
-  bucket: acme-staging-media-transcoder
-  retention_days: 365
+replicas: 6
+log_level: warn
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
-  - users-api
+  - risk-api
+  - export-worker

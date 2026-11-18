@@ -1,6 +1,5 @@
-# audit-api qa autoscaling
-service: audit-api
+# qa autoscaling
 environment: qa
-min_replicas: 1
+min_replicas: 3
 max_replicas: 4
-target_cpu_percent: 75
+target_cpu_percent: 50

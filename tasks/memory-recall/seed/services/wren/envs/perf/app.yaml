@@ -1,13 +1,11 @@
-# billing-api perf settings; keys missing here come from ../../base.yaml
-service: billing-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
 replicas: 1
-log_level: warn
+log_level: info
 storage:
-  bucket: acme-perf-billing-api
-  retention_days: 45
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
   - billing-worker
-  - risk-api
+  - profiles-api

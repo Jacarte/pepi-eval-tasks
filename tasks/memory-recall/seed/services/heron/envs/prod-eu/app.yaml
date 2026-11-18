@@ -1,15 +1,14 @@
-# billing-worker production-eu settings; keys missing here come from ../../base.yaml
-service: billing-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 5
-log_level: debug
+replicas: 4
+log_level: warn
 queue:
-  name: billing-worker-production-eu
-  batch_size: 50
-  visibility_timeout_s: 90
+  name: heron-production-eu
+  batch_size: 250
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-production-eu-billing-worker
-  retention_days: 90
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3000
 upstreams:
+  - pricing-worker

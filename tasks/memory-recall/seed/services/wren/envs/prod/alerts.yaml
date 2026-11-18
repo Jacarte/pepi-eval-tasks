@@ -1,15 +1,13 @@
-# billing-api production alerts
-service: billing-api
+# production alerts
 environment: production
-log_retention_days: 60
-metrics_retention_days: 120
-notify: team-payments
+log_retention_days: 120
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 2100
     for: 10m
     severity: ticket

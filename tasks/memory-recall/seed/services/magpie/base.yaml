@@ -1,9 +1,10 @@
-# search-indexer defaults
+# magpie deployment
 service: search-indexer
 codename: magpie
+role: primary
+status: active
 team: data
 owner: team-data@example.com
-status: active
 runtime: go1.20
 replicas: 3
 log_level: info

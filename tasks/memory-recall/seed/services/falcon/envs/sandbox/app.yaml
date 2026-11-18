@@ -1,16 +1,13 @@
-# auth-worker sandbox settings; keys missing here come from ../../base.yaml
-service: auth-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 6
-log_level: info
+replicas: 3
+log_level: warn
 queue:
-  name: auth-worker-sandbox
-  batch_size: 350
-  visibility_timeout_s: 30
-storage:
-  bucket: acme-sandbox-auth-worker
+  name: falcon-sandbox
+  batch_size: 150
+  visibility_timeout_s: 60
 http:
-  timeout_ms: 4000
+  timeout_ms: 1000
 upstreams:
   - ledger-worker
-  - media-api
+  - export-worker

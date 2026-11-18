@@ -1,12 +1,11 @@
-# search-indexer sandbox settings; keys missing here come from ../../base.yaml
-service: search-indexer
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 2
+replicas: 5
 log_level: debug
 storage:
-  bucket: acme-sandbox-search-indexer
-  retention_days: 60
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 500
 upstreams:
-  - inventory-api
+  - profiles-api
+  - email-sender

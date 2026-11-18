@@ -1,7 +1,6 @@
-# pricing-worker development feature flags
-service: pricing-worker
+# development feature flags
 environment: development
 flags:
+  async_writes: false
   strict_validation: true
-  shadow_reads: false
-  fast_path: true
+  shadow_reads: true

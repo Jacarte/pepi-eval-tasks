@@ -1,15 +1,13 @@
-# billing-api perf alerts
-service: billing-api
+# perf alerts
 environment: perf
-log_retention_days: 30
-metrics_retention_days: 30
-notify: team-payments
+log_retention_days: 60
+metrics_retention_days: 7
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 300
+    threshold_ms: 1900
     for: 10m
     severity: ticket

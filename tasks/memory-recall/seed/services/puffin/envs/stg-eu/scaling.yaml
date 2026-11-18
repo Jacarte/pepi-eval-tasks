@@ -1,6 +1,5 @@
-# export-worker staging-eu autoscaling
-service: export-worker
+# staging-eu autoscaling
 environment: staging-eu
-min_replicas: 1
+min_replicas: 2
 max_replicas: 5
-target_cpu_percent: 70
+target_cpu_percent: 60

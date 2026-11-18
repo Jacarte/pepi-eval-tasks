@@ -1,6 +1,7 @@
-# catalog-api development feature flags
-service: catalog-api
+# development feature flags
 environment: development
 flags:
-  batch_compaction: true
-  fast_path: false
+  new_retry_policy: true
+  async_writes: false
+  batch_compaction: false
+  shadow_reads: true

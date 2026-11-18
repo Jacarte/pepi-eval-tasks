@@ -1,6 +1,7 @@
-# reports-api sandbox feature flags
-service: reports-api
+# sandbox feature flags
 environment: sandbox
 flags:
-  async_writes: true
-  fast_path: false
+  new_retry_policy: true
+  async_writes: false
+  batch_compaction: false
+  fast_path: true

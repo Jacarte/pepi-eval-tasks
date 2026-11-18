@@ -1,5 +1,5 @@
-# checkout-api qa feature flags
-service: checkout-api
+# qa feature flags
 environment: qa
 flags:
-  batch_compaction: true
+  async_writes: true
+  shadow_reads: true

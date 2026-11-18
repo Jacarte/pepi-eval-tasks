@@ -1,17 +1,15 @@
-# billing-worker qa settings; keys missing here come from ../../base.yaml
-service: billing-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 6
-log_level: warn
+replicas: 2
+log_level: debug
 queue:
-  name: billing-worker-qa
-  batch_size: 300
-  visibility_timeout_s: 120
+  name: heron-qa
+  batch_size: 100
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-qa-billing-worker
-  retention_days: 14
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3500
 upstreams:
-  - reports-api
-  - invoice-worker
+  - billing-scheduler
+  - pricing-worker

@@ -1,0 +1,5 @@
+# standard-eu storage profile
+class: hot
+retention_days: 365
+versioning: false
+encryption: kms

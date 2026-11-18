@@ -1,15 +1,13 @@
-# search-api qa alerts
-service: search-api
+# qa alerts
 environment: qa
 log_retention_days: 45
-metrics_retention_days: 365
-notify: team-growth
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.02
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1300
+    threshold_ms: 700
     for: 10m
     severity: ticket

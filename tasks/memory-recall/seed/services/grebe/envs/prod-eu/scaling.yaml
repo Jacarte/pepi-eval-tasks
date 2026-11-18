@@ -1,6 +1,5 @@
-# fraud-scorer production-eu autoscaling
-service: fraud-scorer
+# production-eu autoscaling
 environment: production-eu
-min_replicas: 3
-max_replicas: 10
-target_cpu_percent: 70
+min_replicas: 1
+max_replicas: 7
+target_cpu_percent: 65

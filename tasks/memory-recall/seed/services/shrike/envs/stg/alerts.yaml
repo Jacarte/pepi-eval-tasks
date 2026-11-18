@@ -1,15 +1,13 @@
-# audit-api staging alerts
-service: audit-api
+# staging alerts
 environment: staging
-log_retention_days: 21
-metrics_retention_days: 30
-notify: team-fulfilment
+log_retention_days: 180
+metrics_retention_days: 365
 alerts:
   - name: error-rate
     threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 800
     for: 10m
     severity: ticket

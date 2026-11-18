@@ -1,15 +1,15 @@
-# audit-worker perf settings; keys missing here come from ../../base.yaml
-service: audit-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
+replicas: 6
 log_level: debug
 queue:
-  name: audit-worker-perf
+  name: pipit-perf
   batch_size: 350
-  visibility_timeout_s: 120
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-perf-audit-worker
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - pricing-worker
+  - notifications-api
+  - gateway

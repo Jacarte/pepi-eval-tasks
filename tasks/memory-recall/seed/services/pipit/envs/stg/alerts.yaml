@@ -1,15 +1,13 @@
-# audit-worker staging alerts
-service: audit-worker
+# staging alerts
 environment: staging
-log_retention_days: 60
-metrics_retention_days: 90
-notify: team-platform
+log_retention_days: 30
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.02
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 600
+    threshold_ms: 1500
     for: 10m
     severity: ticket

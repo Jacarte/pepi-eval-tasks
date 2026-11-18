@@ -1,15 +1,13 @@
-# ledger-api staging-eu alerts
-service: ledger-api
+# staging-eu alerts
 environment: staging-eu
-log_retention_days: 21
-metrics_retention_days: 21
-notify: team-platform
+log_retention_days: 365
+metrics_retention_days: 120
 alerts:
   - name: error-rate
-    threshold: 0.07
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1500
+    threshold_ms: 400
     for: 10m
     severity: ticket

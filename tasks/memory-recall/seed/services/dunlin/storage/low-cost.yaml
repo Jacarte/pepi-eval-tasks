@@ -1,0 +1,5 @@
+# low-cost storage profile
+class: hot
+retention_days: 30
+versioning: false
+encryption: aes256

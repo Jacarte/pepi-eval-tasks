@@ -1,7 +1,5 @@
-# sms-sender development feature flags
-service: sms-sender
+# development feature flags
 environment: development
 flags:
-  strict_validation: true
-  shadow_reads: false
-  fast_path: false
+  batch_compaction: true
+  shadow_reads: true

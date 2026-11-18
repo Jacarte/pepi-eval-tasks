@@ -1,6 +1,5 @@
-# inventory-api staging-eu autoscaling
-service: inventory-api
+# staging-eu autoscaling
 environment: staging-eu
-min_replicas: 1
-max_replicas: 10
-target_cpu_percent: 80
+min_replicas: 3
+max_replicas: 7
+target_cpu_percent: 75

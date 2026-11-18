@@ -1,5 +1,7 @@
-# orders-api staging-eu feature flags
-service: orders-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  shadow_reads: true
+  async_writes: true
+  batch_compaction: true
+  shadow_reads: false
+  fast_path: true

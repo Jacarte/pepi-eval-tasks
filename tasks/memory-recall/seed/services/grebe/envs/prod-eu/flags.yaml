@@ -1,6 +1,6 @@
-# fraud-scorer production-eu feature flags
-service: fraud-scorer
+# production-eu feature flags
 environment: production-eu
 flags:
-  async_writes: true
-  shadow_reads: true
+  new_retry_policy: false
+  strict_validation: false
+  fast_path: true

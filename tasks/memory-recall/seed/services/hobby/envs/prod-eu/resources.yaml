@@ -1,7 +1,6 @@
-# payouts-worker production-eu resources
-service: payouts-worker
+# production-eu resources
 environment: production-eu
-cpu_request: 200m
+cpu_request: 400m
 cpu_limit: 800m
-mem_request_mb: 1024
-mem_limit_mb: 2048
+mem_request_mb: 512
+mem_limit_mb: 1024

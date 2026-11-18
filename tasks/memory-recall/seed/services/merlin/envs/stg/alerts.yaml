@@ -1,15 +1,13 @@
-# reports-api staging alerts
-service: reports-api
+# staging alerts
 environment: staging
-log_retention_days: 21
-metrics_retention_days: 7
-notify: team-commerce
+log_retention_days: 14
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1000
+    threshold_ms: 1400
     for: 10m
     severity: ticket

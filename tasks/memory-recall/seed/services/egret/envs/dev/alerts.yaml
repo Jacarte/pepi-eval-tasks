@@ -1,15 +1,13 @@
-# catalog-api development alerts
-service: catalog-api
+# development alerts
 environment: development
-log_retention_days: 120
-metrics_retention_days: 180
-notify: team-fulfilment
+log_retention_days: 365
+metrics_retention_days: 60
 alerts:
   - name: error-rate
     threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 900
+    threshold_ms: 1900
     for: 10m
     severity: ticket

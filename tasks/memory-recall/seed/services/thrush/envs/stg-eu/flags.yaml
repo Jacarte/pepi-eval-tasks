@@ -1,7 +1,6 @@
-# checkout-worker staging-eu feature flags
-service: checkout-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  new_retry_policy: true
-  strict_validation: true
-  batch_compaction: true
+  new_retry_policy: false
+  strict_validation: false
+  shadow_reads: false

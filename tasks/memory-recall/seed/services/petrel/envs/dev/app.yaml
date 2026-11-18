@@ -1,16 +1,14 @@
-# notifications-worker development settings; keys missing here come from ../../base.yaml
-service: notifications-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 4
+replicas: 5
 log_level: info
 queue:
-  name: notifications-worker-development
-  batch_size: 100
-  visibility_timeout_s: 90
+  name: petrel-development
+  batch_size: 400
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-development-notifications-worker
+  include: ../../storage/archive.yaml
 http:
   timeout_ms: 3500
 upstreams:
-  - pricing-api
-  - checkout-worker
+  - fraud-scorer

@@ -1,7 +1,7 @@
-# risk-api qa feature flags
-service: risk-api
+# qa feature flags
 environment: qa
 flags:
   new_retry_policy: true
   strict_validation: false
-  shadow_reads: false
+  shadow_reads: true
+  fast_path: false

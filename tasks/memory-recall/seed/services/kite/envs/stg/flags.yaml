@@ -1,8 +1,6 @@
-# ledger-api staging feature flags
-service: ledger-api
+# staging feature flags
 environment: staging
 flags:
-  new_retry_policy: true
-  batch_compaction: true
-  shadow_reads: true
-  fast_path: true
+  new_retry_policy: false
+  async_writes: false
+  fast_path: false

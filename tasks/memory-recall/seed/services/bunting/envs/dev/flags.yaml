@@ -1,7 +1,5 @@
-# media-transcoder development feature flags
-service: media-transcoder
+# development feature flags
 environment: development
 flags:
-  async_writes: false
-  strict_validation: false
-  batch_compaction: false
+  async_writes: true
+  fast_path: false

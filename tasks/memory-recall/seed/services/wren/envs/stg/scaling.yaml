@@ -1,6 +1,5 @@
-# billing-api staging autoscaling
-service: billing-api
+# staging autoscaling
 environment: staging
 min_replicas: 1
-max_replicas: 6
+max_replicas: 8
 target_cpu_percent: 50

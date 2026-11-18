@@ -1,13 +1,10 @@
-# billing-api sandbox settings; keys missing here come from ../../base.yaml
-service: billing-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
 replicas: 5
-log_level: debug
+log_level: info
 storage:
-  bucket: acme-sandbox-billing-api
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 4000
 upstreams:
   - billing-worker
-  - inventory-sync
-  - search-indexer

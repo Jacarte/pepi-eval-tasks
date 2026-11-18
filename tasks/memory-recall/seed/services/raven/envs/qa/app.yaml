@@ -1,11 +1,11 @@
-# notifications-api qa settings; keys missing here come from ../../base.yaml
-service: notifications-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 4
-log_level: warn
+replicas: 3
+log_level: info
 storage:
-  bucket: acme-qa-notifications-api
-  retention_days: 180
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 4000
 upstreams:
+  - reports-worker
+  - checkout-api

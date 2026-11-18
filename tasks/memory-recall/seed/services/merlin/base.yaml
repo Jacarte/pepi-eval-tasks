@@ -1,9 +1,10 @@
-# reports-api defaults
+# merlin deployment
 service: reports-api
 codename: merlin
+role: primary
+status: active
 team: commerce
 owner: team-commerce@example.com
-status: active
 runtime: go1.20
 replicas: 1
 log_level: info

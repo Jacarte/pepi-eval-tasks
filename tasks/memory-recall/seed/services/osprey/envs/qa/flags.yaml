@@ -1,5 +1,7 @@
-# billing-legacy qa feature flags
-service: billing-legacy
+# qa feature flags
 environment: qa
 flags:
+  new_retry_policy: true
+  async_writes: false
   batch_compaction: false
+  shadow_reads: false

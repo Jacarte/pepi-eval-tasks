@@ -1,6 +1,5 @@
-# catalog-indexer staging-eu autoscaling
-service: catalog-indexer
+# staging-eu autoscaling
 environment: staging-eu
-min_replicas: 2
-max_replicas: 12
-target_cpu_percent: 60
+min_replicas: 3
+max_replicas: 13
+target_cpu_percent: 75

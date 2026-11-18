@@ -1,0 +1,15 @@
+# production-eu settings; keys missing here come from ../../base.yaml
+environment: production-eu
+replicas: 4
+log_level: info
+queue:
+  name: heron-canary-production-eu
+  batch_size: 200
+  visibility_timeout_s: 120
+storage:
+  include: ../../storage/legacy.yaml
+http:
+  timeout_ms: 1000
+upstreams:
+  - auth-worker
+  - email-sender

@@ -1,6 +1,5 @@
-# billing-legacy staging-eu autoscaling
-service: billing-legacy
+# staging-eu autoscaling
 environment: staging-eu
-min_replicas: 2
-max_replicas: 5
-target_cpu_percent: 55
+min_replicas: 1
+max_replicas: 8
+target_cpu_percent: 70

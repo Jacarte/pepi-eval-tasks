@@ -1,13 +1,10 @@
-# gateway sandbox settings; keys missing here come from ../../base.yaml
-service: gateway
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
-log_level: warn
+replicas: 5
+log_level: info
 storage:
-  bucket: acme-sandbox-gateway
-  retention_days: 7
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 1000
 upstreams:
-  - checkout-worker
-  - checkout-api
+  - audit-worker

@@ -1,6 +1,5 @@
-# ledger-worker qa feature flags
-service: ledger-worker
+# qa feature flags
 environment: qa
 flags:
-  new_retry_policy: true
-  strict_validation: false
+  async_writes: false
+  batch_compaction: false

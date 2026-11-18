@@ -1,5 +1,6 @@
-# users-api production feature flags
-service: users-api
+# production feature flags
 environment: production
 flags:
+  async_writes: true
   strict_validation: true
+  fast_path: false

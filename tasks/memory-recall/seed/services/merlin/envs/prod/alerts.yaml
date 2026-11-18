@@ -1,15 +1,13 @@
-# reports-api production alerts
-service: reports-api
+# production alerts
 environment: production
-log_retention_days: 21
+log_retention_days: 45
 metrics_retention_days: 180
-notify: team-commerce
 alerts:
   - name: error-rate
-    threshold: 0.07
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 1300
     for: 10m
     severity: ticket

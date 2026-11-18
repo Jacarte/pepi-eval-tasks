@@ -1,15 +1,15 @@
-# orders-worker perf settings; keys missing here come from ../../base.yaml
-service: orders-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 2
-log_level: debug
+replicas: 3
+log_level: info
 queue:
-  name: orders-worker-perf
-  batch_size: 350
+  name: warbler-perf
+  batch_size: 100
   visibility_timeout_s: 120
 storage:
-  bucket: acme-perf-orders-worker
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2500
 upstreams:
-  - scheduler
+  - webhooks-worker
+  - auth-api

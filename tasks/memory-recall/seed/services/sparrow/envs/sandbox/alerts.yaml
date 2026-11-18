@@ -1,15 +1,13 @@
-# inventory-sync sandbox alerts
-service: inventory-sync
+# sandbox alerts
 environment: sandbox
-log_retention_days: 7
-metrics_retention_days: 45
-notify: team-identity
+log_retention_days: 90
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1400
+    threshold_ms: 1000
     for: 10m
     severity: ticket

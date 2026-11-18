@@ -1,7 +1,5 @@
-# payouts-worker perf feature flags
-service: payouts-worker
+# perf feature flags
 environment: perf
 flags:
-  async_writes: false
-  batch_compaction: true
+  strict_validation: false
   shadow_reads: false

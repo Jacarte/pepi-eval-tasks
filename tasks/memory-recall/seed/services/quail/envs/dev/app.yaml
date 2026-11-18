@@ -1,16 +1,14 @@
-# import-worker development settings; keys missing here come from ../../base.yaml
-service: import-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 4
-log_level: warn
+replicas: 6
+log_level: info
 queue:
-  name: import-worker-development
-  batch_size: 300
-  visibility_timeout_s: 60
+  name: quail-development
+  batch_size: 150
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-development-import-worker
+  include: ../../storage/low-cost.yaml
 http:
   timeout_ms: 3000
 upstreams:
-  - media-transcoder
-  - gateway
+  - billing-api

@@ -1,13 +1,11 @@
-# gateway staging-eu settings; keys missing here come from ../../base.yaml
-service: gateway
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 3
-log_level: debug
+replicas: 6
+log_level: warn
 storage:
-  bucket: acme-staging-eu-gateway
-  retention_days: 60
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3000
 upstreams:
-  - billing-scheduler
-  - import-worker
+  - users-api
+  - auth-worker

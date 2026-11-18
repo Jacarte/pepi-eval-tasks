@@ -1,15 +1,13 @@
-# webhooks-api staging alerts
-service: webhooks-api
+# staging alerts
 environment: staging
 log_retention_days: 180
-metrics_retention_days: 90
-notify: team-identity
+metrics_retention_days: 120
 alerts:
   - name: error-rate
     threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 400
+    threshold_ms: 600
     for: 10m
     severity: ticket

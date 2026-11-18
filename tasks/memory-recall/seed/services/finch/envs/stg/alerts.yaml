@@ -1,15 +1,13 @@
-# catalog-indexer staging alerts
-service: catalog-indexer
+# staging alerts
 environment: staging
 log_retention_days: 180
 metrics_retention_days: 180
-notify: team-platform
 alerts:
   - name: error-rate
-    threshold: 0.02
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 600
+    threshold_ms: 1400
     for: 10m
     severity: ticket

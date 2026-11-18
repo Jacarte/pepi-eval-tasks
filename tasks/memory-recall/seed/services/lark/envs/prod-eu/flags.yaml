@@ -1,4 +1,5 @@
-# search-api production-eu feature flags
-service: search-api
+# production-eu feature flags
 environment: production-eu
 flags:
+  async_writes: false
+  shadow_reads: false

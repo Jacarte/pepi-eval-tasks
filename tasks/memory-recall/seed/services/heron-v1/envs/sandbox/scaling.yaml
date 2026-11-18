@@ -1,6 +1,5 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 3
-max_replicas: 4
-target_cpu_percent: 55
+min_replicas: 2
+max_replicas: 12
+target_cpu_percent: 60

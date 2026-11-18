@@ -1,12 +1,11 @@
-# webhooks-api production settings; keys missing here come from ../../base.yaml
-service: webhooks-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
-log_level: warn
+replicas: 2
+log_level: info
 storage:
-  bucket: acme-production-webhooks-api
-  retention_days: 90
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 2500
 upstreams:
-  - admin-api
+  - ledger-api
+  - reports-api

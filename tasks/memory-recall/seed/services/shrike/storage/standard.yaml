@@ -1,0 +1,5 @@
+# standard storage profile
+class: warm
+retention_days: 45
+versioning: true
+encryption: kms

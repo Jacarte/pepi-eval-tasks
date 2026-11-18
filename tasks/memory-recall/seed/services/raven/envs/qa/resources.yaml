@@ -1,7 +1,6 @@
-# notifications-api qa resources
-service: notifications-api
+# qa resources
 environment: qa
-cpu_request: 400m
+cpu_request: 200m
 cpu_limit: 800m
-mem_request_mb: 1024
-mem_limit_mb: 2048
+mem_request_mb: 896
+mem_limit_mb: 1792

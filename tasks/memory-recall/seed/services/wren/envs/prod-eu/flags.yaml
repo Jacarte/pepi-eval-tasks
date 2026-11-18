@@ -1,6 +1,7 @@
-# billing-api production-eu feature flags
-service: billing-api
+# production-eu feature flags
 environment: production-eu
 flags:
-  strict_validation: true
+  new_retry_policy: true
+  batch_compaction: true
   shadow_reads: true
+  fast_path: true

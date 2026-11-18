@@ -1,6 +1,5 @@
-# inventory-sync sandbox feature flags
-service: inventory-sync
+# sandbox feature flags
 environment: sandbox
 flags:
   new_retry_policy: false
-  shadow_reads: false
+  strict_validation: false

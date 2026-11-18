@@ -1,6 +1,5 @@
-# checkout-worker perf autoscaling
-service: checkout-worker
+# perf autoscaling
 environment: perf
 min_replicas: 3
 max_replicas: 11
-target_cpu_percent: 75
+target_cpu_percent: 65

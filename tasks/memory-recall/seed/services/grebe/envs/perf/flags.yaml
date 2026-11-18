@@ -1,6 +1,5 @@
-# fraud-scorer perf feature flags
-service: fraud-scorer
+# perf feature flags
 environment: perf
 flags:
-  batch_compaction: true
+  strict_validation: true
   fast_path: false

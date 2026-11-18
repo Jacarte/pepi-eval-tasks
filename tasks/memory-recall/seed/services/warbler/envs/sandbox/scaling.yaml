@@ -1,6 +1,5 @@
-# orders-worker sandbox autoscaling
-service: orders-worker
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 1
-max_replicas: 2
-target_cpu_percent: 60
+min_replicas: 3
+max_replicas: 9
+target_cpu_percent: 75

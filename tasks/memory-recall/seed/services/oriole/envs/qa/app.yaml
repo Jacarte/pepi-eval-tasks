@@ -1,16 +1,15 @@
-# email-sender qa settings; keys missing here come from ../../base.yaml
-service: email-sender
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 1
-log_level: info
+replicas: 6
+log_level: warn
 queue:
-  name: email-sender-qa
-  batch_size: 250
-  visibility_timeout_s: 90
+  name: oriole-qa
+  batch_size: 200
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-qa-email-sender
-  retention_days: 30
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 2500
 upstreams:
-  - billing-worker
+  - auth-worker
+  - media-api

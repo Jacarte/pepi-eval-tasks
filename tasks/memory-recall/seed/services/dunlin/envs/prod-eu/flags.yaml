@@ -1,6 +1,5 @@
-# users-api production-eu feature flags
-service: users-api
+# production-eu feature flags
 environment: production-eu
 flags:
-  new_retry_policy: true
-  strict_validation: false
+  strict_validation: true
+  shadow_reads: true

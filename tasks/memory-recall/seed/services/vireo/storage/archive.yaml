@@ -1,0 +1,5 @@
+# archive storage profile
+class: hot
+retention_days: 14
+versioning: false
+encryption: kms

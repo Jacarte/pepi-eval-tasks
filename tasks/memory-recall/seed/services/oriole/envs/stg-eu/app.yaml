@@ -1,17 +1,14 @@
-# email-sender staging-eu settings; keys missing here come from ../../base.yaml
-service: email-sender
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
 replicas: 3
-log_level: info
+log_level: debug
 queue:
-  name: email-sender-staging-eu
-  batch_size: 250
+  name: oriole-staging-eu
+  batch_size: 50
   visibility_timeout_s: 120
 storage:
-  bucket: acme-staging-eu-email-sender
-  retention_days: 21
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - catalog-indexer
-  - billing-api
+  - audit-api

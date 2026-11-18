@@ -1,15 +1,13 @@
-# reports-worker sandbox alerts
-service: reports-worker
+# sandbox alerts
 environment: sandbox
-log_retention_days: 21
-metrics_retention_days: 45
-notify: team-fulfilment
+log_retention_days: 60
+metrics_retention_days: 21
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 200
+    threshold_ms: 2000
     for: 10m
     severity: ticket

@@ -1,15 +1,13 @@
-# catalog-api sandbox alerts
-service: catalog-api
+# sandbox alerts
 environment: sandbox
-log_retention_days: 30
-metrics_retention_days: 60
-notify: team-fulfilment
+log_retention_days: 90
+metrics_retention_days: 90
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1500
+    threshold_ms: 1300
     for: 10m
     severity: ticket

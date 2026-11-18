@@ -1,17 +1,12 @@
-# thumbnails-worker staging settings; keys missing here come from ../../base.yaml
-service: thumbnails-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
 replicas: 1
-log_level: info
+log_level: warn
 queue:
-  name: thumbnails-worker-staging
-  batch_size: 150
-  visibility_timeout_s: 90
-storage:
-  bucket: acme-staging-thumbnails-worker
-  retention_days: 60
+  name: avocet-staging
+  batch_size: 200
+  visibility_timeout_s: 120
 http:
-  timeout_ms: 1500
+  timeout_ms: 3500
 upstreams:
-  - auth-worker
-  - admin-api
+  - users-api

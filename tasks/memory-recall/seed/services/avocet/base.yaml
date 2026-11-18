@@ -1,9 +1,10 @@
-# thumbnails-worker defaults
+# avocet deployment
 service: thumbnails-worker
 codename: avocet
+role: primary
+status: active
 team: commerce
 owner: team-commerce@example.com
-status: active
 runtime: go1.22
 replicas: 2
 log_level: info

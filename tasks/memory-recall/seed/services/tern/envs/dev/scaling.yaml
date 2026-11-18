@@ -1,6 +1,5 @@
-# invoice-worker development autoscaling
-service: invoice-worker
+# development autoscaling
 environment: development
 min_replicas: 3
-max_replicas: 5
+max_replicas: 4
 target_cpu_percent: 50

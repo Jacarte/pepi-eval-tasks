@@ -1,7 +1,5 @@
-# notifications-api production-eu feature flags
-service: notifications-api
+# production-eu feature flags
 environment: production-eu
 flags:
-  async_writes: true
-  batch_compaction: true
-  shadow_reads: false
+  new_retry_policy: false
+  fast_path: false

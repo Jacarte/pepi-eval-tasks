@@ -1,9 +1,10 @@
-# fraud-scorer defaults
+# grebe deployment
 service: fraud-scorer
 codename: grebe
+role: primary
+status: active
 team: commerce
 owner: team-commerce@example.com
-status: active
 runtime: go1.22
 replicas: 1
 log_level: info

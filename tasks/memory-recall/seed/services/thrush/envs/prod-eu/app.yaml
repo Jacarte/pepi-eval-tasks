@@ -1,17 +1,15 @@
-# checkout-worker production-eu settings; keys missing here come from ../../base.yaml
-service: checkout-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 4
-log_level: debug
+replicas: 1
+log_level: warn
 queue:
-  name: checkout-worker-production-eu
-  batch_size: 300
-  visibility_timeout_s: 60
+  name: thrush-production-eu
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-production-eu-checkout-worker
-  retention_days: 365
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 2000
 upstreams:
-  - billing-legacy
-  - thumbnails-worker
+  - media-api
+  - sms-sender

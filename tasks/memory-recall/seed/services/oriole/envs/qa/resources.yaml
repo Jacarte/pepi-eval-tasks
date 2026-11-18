@@ -1,7 +1,6 @@
-# email-sender qa resources
-service: email-sender
+# qa resources
 environment: qa
-cpu_request: 200m
-cpu_limit: 400m
-mem_request_mb: 128
-mem_limit_mb: 256
+cpu_request: 300m
+cpu_limit: 900m
+mem_request_mb: 768
+mem_limit_mb: 1536

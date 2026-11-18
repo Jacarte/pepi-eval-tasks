@@ -1,13 +1,11 @@
-# profiles-api development settings; keys missing here come from ../../base.yaml
-service: profiles-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 3
-log_level: warn
+log_level: debug
 storage:
-  bucket: acme-development-profiles-api
-  retention_days: 60
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3000
 upstreams:
-  - email-sender
-  - notifications-worker
+  - inventory-sync
+  - thumbnails-worker

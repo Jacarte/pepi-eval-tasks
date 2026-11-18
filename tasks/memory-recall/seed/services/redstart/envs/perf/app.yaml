@@ -1,13 +1,10 @@
-# webhooks-api perf settings; keys missing here come from ../../base.yaml
-service: webhooks-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 3
+replicas: 1
 log_level: info
 storage:
-  bucket: acme-perf-webhooks-api
-  retention_days: 7
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3500
 upstreams:
-  - cart-api
-  - audit-worker
+  - import-worker

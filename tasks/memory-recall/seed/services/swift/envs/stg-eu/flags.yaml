@@ -1,7 +1,7 @@
-# checkout-api staging-eu feature flags
-service: checkout-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  async_writes: true
+  async_writes: false
+  strict_validation: false
+  batch_compaction: false
   shadow_reads: false
-  fast_path: false

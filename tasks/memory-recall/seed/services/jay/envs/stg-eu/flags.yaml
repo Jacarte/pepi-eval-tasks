@@ -1,8 +1,5 @@
-# ledger-worker staging-eu feature flags
-service: ledger-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  new_retry_policy: false
-  async_writes: true
   strict_validation: false
-  shadow_reads: true
+  batch_compaction: false

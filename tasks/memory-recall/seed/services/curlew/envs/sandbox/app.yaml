@@ -1,12 +1,10 @@
-# profiles-api sandbox settings; keys missing here come from ../../base.yaml
-service: profiles-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
 replicas: 1
-log_level: debug
+log_level: info
 storage:
-  bucket: acme-sandbox-profiles-api
-  retention_days: 21
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - catalog-api
+  - cart-api

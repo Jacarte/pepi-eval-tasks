@@ -1,16 +1,15 @@
-# payouts-worker development settings; keys missing here come from ../../base.yaml
-service: payouts-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
-log_level: info
+replicas: 6
+log_level: warn
 queue:
-  name: payouts-worker-development
-  batch_size: 300
-  visibility_timeout_s: 120
+  name: hobby-development
+  batch_size: 50
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-development-payouts-worker
-  retention_days: 14
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2000
 upstreams:
-  - cart-api
+  - catalog-indexer
+  - pricing-api

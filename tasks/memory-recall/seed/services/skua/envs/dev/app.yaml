@@ -1,13 +1,8 @@
-# gateway development settings; keys missing here come from ../../base.yaml
-service: gateway
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 6
+replicas: 3
 log_level: debug
-storage:
-  bucket: acme-development-gateway
-  retention_days: 365
 http:
   timeout_ms: 500
 upstreams:
-  - webhooks-worker
-  - orders-worker
+  - auth-api

@@ -1,6 +1,5 @@
-# media-transcoder staging-eu autoscaling
-service: media-transcoder
+# staging-eu autoscaling
 environment: staging-eu
 min_replicas: 2
-max_replicas: 10
-target_cpu_percent: 80
+max_replicas: 4
+target_cpu_percent: 65

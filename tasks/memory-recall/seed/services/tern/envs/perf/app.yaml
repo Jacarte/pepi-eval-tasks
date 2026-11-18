@@ -1,17 +1,15 @@
-# invoice-worker perf settings; keys missing here come from ../../base.yaml
-service: invoice-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 4
-log_level: debug
+replicas: 5
+log_level: info
 queue:
-  name: invoice-worker-perf
-  batch_size: 100
-  visibility_timeout_s: 30
+  name: tern-perf
+  batch_size: 150
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-perf-invoice-worker
-  retention_days: 30
+  include: ../../storage/standard-eu.yaml
 http:
   timeout_ms: 500
 upstreams:
   - billing-worker
-  - export-worker
+  - ledger-api

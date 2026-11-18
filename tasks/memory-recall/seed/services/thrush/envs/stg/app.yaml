@@ -1,17 +1,14 @@
-# checkout-worker staging settings; keys missing here come from ../../base.yaml
-service: checkout-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 5
+replicas: 1
 log_level: info
 queue:
-  name: checkout-worker-staging
+  name: thrush-staging
   batch_size: 100
   visibility_timeout_s: 30
 storage:
-  bucket: acme-staging-checkout-worker
-  retention_days: 45
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2500
 upstreams:
-  - profiles-api
-  - sms-sender
+  - import-worker

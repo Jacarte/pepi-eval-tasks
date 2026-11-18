@@ -1,7 +1,6 @@
-# ledger-api production-eu resources
-service: ledger-api
+# production-eu resources
 environment: production-eu
-cpu_request: 200m
-cpu_limit: 800m
+cpu_request: 500m
+cpu_limit: 2000m
 mem_request_mb: 640
 mem_limit_mb: 1280

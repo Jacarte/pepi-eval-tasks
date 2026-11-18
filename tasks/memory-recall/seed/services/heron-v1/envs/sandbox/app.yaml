@@ -1,17 +1,15 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 2
-log_level: debug
+replicas: 3
+log_level: warn
 queue:
-  name: billing-worker-sandbox
-  batch_size: 300
+  name: heron-v1-sandbox
+  batch_size: 50
   visibility_timeout_s: 120
 storage:
-  bucket: acme-sandbox-billing-worker
-  retention_days: 21
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - admin-api
-  - inventory-api
+  - checkout-worker
+  - payouts-api

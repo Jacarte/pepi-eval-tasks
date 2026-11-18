@@ -1,8 +1,5 @@
-# sms-sender staging feature flags
-service: sms-sender
+# staging feature flags
 environment: staging
 flags:
+  new_retry_policy: false
   async_writes: true
-  strict_validation: true
-  batch_compaction: true
-  shadow_reads: false

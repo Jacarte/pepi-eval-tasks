@@ -1,14 +1,12 @@
-# billing-api staging-eu settings; keys missing here come from ../../base.yaml
-service: billing-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 1
-log_level: warn
+replicas: 2
+log_level: info
 storage:
-  bucket: acme-staging-eu-billing-api
-  retention_days: 45
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
   - billing-worker
-  - pricing-api
-  - billing-worker
+  - orders-worker
+  - invoice-worker

@@ -1,12 +1,9 @@
-# orders-api production settings; keys missing here come from ../../base.yaml
-service: orders-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 2
-log_level: debug
-storage:
-  bucket: acme-production-orders-api
+replicas: 1
+log_level: info
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - notifications-api
-  - pricing-api
+  - inventory-sync
+  - auth-worker

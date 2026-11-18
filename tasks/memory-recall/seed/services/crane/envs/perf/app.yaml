@@ -1,11 +1,11 @@
-# media-api perf settings; keys missing here come from ../../base.yaml
-service: media-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 2
-log_level: warn
+replicas: 1
+log_level: debug
 storage:
-  bucket: acme-perf-media-api
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2500
 upstreams:
-  - cart-api
+  - search-api
+  - reports-api

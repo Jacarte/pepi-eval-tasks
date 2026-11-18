@@ -1,17 +1,12 @@
-# notifications-worker perf settings; keys missing here come from ../../base.yaml
-service: notifications-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
 replicas: 6
 log_level: debug
 queue:
-  name: notifications-worker-perf
-  batch_size: 150
-  visibility_timeout_s: 30
-storage:
-  bucket: acme-perf-notifications-worker
-  retention_days: 120
+  name: petrel-perf
+  batch_size: 300
+  visibility_timeout_s: 90
 http:
-  timeout_ms: 2500
+  timeout_ms: 3000
 upstreams:
-  - inventory-api
-  - webhooks-api
+  - reports-worker

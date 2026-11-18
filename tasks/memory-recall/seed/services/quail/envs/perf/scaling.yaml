@@ -1,6 +1,5 @@
-# import-worker perf autoscaling
-service: import-worker
+# perf autoscaling
 environment: perf
-min_replicas: 1
-max_replicas: 8
-target_cpu_percent: 50
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 75

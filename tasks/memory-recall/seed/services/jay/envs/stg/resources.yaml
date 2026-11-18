@@ -1,7 +1,6 @@
-# ledger-worker staging resources
-service: ledger-worker
+# staging resources
 environment: staging
-cpu_request: 500m
-cpu_limit: 1500m
-mem_request_mb: 384
-mem_limit_mb: 768
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 512
+mem_limit_mb: 1024

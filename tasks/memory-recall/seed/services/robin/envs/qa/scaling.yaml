@@ -1,6 +1,5 @@
-# cart-api qa autoscaling
-service: cart-api
+# qa autoscaling
 environment: qa
-min_replicas: 2
-max_replicas: 9
-target_cpu_percent: 80
+min_replicas: 3
+max_replicas: 7
+target_cpu_percent: 70

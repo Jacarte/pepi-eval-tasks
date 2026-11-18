@@ -1,9 +1,4 @@
-# auth-api development feature flags
-service: auth-api
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: true
-  async_writes: true
-  strict_validation: true
   shadow_reads: true
-  fast_path: false

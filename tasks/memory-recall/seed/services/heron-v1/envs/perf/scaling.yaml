@@ -1,6 +1,5 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# perf autoscaling
 environment: perf
 min_replicas: 1
 max_replicas: 3
-target_cpu_percent: 70
+target_cpu_percent: 75

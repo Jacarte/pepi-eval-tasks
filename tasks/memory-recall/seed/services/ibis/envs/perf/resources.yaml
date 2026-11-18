@@ -1,7 +1,6 @@
-# payouts-api perf resources
-service: payouts-api
+# perf resources
 environment: perf
-cpu_request: 100m
-cpu_limit: 400m
-mem_request_mb: 896
-mem_limit_mb: 1792
+cpu_request: 200m
+cpu_limit: 800m
+mem_request_mb: 128
+mem_limit_mb: 256

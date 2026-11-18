@@ -1,7 +1,0 @@
-# scheduler staging-eu resources
-service: scheduler
-environment: staging-eu
-cpu_request: 100m
-cpu_limit: 400m
-mem_request_mb: 768
-mem_limit_mb: 1536

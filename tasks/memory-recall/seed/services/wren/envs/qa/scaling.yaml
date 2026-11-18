@@ -1,6 +1,5 @@
-# billing-api qa autoscaling
-service: billing-api
+# qa autoscaling
 environment: qa
-min_replicas: 2
-max_replicas: 5
-target_cpu_percent: 50
+min_replicas: 3
+max_replicas: 13
+target_cpu_percent: 55

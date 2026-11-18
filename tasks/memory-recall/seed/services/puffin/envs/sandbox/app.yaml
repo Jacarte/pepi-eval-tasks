@@ -1,16 +1,13 @@
-# export-worker sandbox settings; keys missing here come from ../../base.yaml
-service: export-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
+replicas: 2
 log_level: debug
 queue:
-  name: export-worker-sandbox
-  batch_size: 400
+  name: puffin-sandbox
+  batch_size: 300
   visibility_timeout_s: 30
-storage:
-  bucket: acme-sandbox-export-worker
-  retention_days: 60
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
-  - auth-api
+  - inventory-sync
+  - fraud-scorer

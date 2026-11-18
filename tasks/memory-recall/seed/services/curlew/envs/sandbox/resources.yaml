@@ -1,7 +1,6 @@
-# profiles-api sandbox resources
-service: profiles-api
+# sandbox resources
 environment: sandbox
-cpu_request: 200m
-cpu_limit: 600m
-mem_request_mb: 640
-mem_limit_mb: 1280
+cpu_request: 400m
+cpu_limit: 800m
+mem_request_mb: 768
+mem_limit_mb: 1536

@@ -1,6 +1,5 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# production autoscaling
 environment: production
 min_replicas: 1
 max_replicas: 3
-target_cpu_percent: 50
+target_cpu_percent: 55

@@ -1,6 +1,6 @@
-# profiles-api perf feature flags
-service: profiles-api
+# perf feature flags
 environment: perf
 flags:
-  async_writes: true
-  batch_compaction: false
+  batch_compaction: true
+  shadow_reads: false
+  fast_path: true

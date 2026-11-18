@@ -1,16 +1,15 @@
-# auth-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: auth-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 2
-log_level: info
+replicas: 4
+log_level: warn
 queue:
-  name: auth-worker-staging-eu
-  batch_size: 300
-  visibility_timeout_s: 120
+  name: falcon-staging-eu
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-staging-eu-auth-worker
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 3500
 upstreams:
-  - checkout-api
-  - billing-api
+  - webhooks-api
+  - fraud-scorer

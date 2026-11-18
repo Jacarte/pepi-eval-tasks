@@ -1,16 +1,15 @@
-# thumbnails-worker sandbox settings; keys missing here come from ../../base.yaml
-service: thumbnails-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 1
-log_level: debug
+replicas: 6
+log_level: info
 queue:
-  name: thumbnails-worker-sandbox
-  batch_size: 250
+  name: avocet-sandbox
+  batch_size: 350
   visibility_timeout_s: 90
 storage:
-  bucket: acme-sandbox-thumbnails-worker
-  retention_days: 14
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
-  - orders-api
+  - payouts-worker
+  - reports-api

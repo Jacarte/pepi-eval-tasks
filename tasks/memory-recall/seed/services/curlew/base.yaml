@@ -1,9 +1,10 @@
-# profiles-api defaults
+# curlew deployment
 service: profiles-api
 codename: curlew
+role: primary
+status: active
 team: growth
 owner: team-growth@example.com
-status: active
 runtime: go1.21
 replicas: 1
 log_level: info

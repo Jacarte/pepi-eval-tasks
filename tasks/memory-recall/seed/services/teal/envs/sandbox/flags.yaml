@@ -1,6 +1,0 @@
-# scheduler sandbox feature flags
-service: scheduler
-environment: sandbox
-flags:
-  async_writes: true
-  fast_path: true

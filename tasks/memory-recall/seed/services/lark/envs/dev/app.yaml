@@ -1,12 +1,11 @@
-# search-api development settings; keys missing here come from ../../base.yaml
-service: search-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 5
-log_level: warn
+log_level: debug
 storage:
-  bucket: acme-development-search-api
-  retention_days: 90
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 1500
 upstreams:
-  - payouts-api
+  - reports-api
+  - media-transcoder

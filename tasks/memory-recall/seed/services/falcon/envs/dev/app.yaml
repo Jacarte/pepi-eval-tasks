@@ -1,17 +1,12 @@
-# auth-worker development settings; keys missing here come from ../../base.yaml
-service: auth-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 5
-log_level: info
+replicas: 3
+log_level: warn
 queue:
-  name: auth-worker-development
-  batch_size: 400
-  visibility_timeout_s: 30
-storage:
-  bucket: acme-development-auth-worker
-  retention_days: 21
+  name: falcon-development
+  batch_size: 300
+  visibility_timeout_s: 120
 http:
-  timeout_ms: 4000
+  timeout_ms: 1000
 upstreams:
-  - media-transcoder
-  - users-api
+  - sms-sender

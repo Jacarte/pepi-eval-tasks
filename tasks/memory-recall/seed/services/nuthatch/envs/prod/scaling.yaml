@@ -1,6 +1,5 @@
-# sms-sender production autoscaling
-service: sms-sender
+# production autoscaling
 environment: production
-min_replicas: 2
+min_replicas: 1
 max_replicas: 11
-target_cpu_percent: 50
+target_cpu_percent: 75

@@ -1,16 +1,14 @@
-# pricing-worker qa settings; keys missing here come from ../../base.yaml
-service: pricing-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 6
-log_level: warn
+replicas: 3
+log_level: info
 queue:
-  name: pricing-worker-qa
-  batch_size: 350
-  visibility_timeout_s: 90
+  name: rook-qa
+  batch_size: 250
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-qa-pricing-worker
-  retention_days: 90
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
-  - checkout-worker
+  - sms-sender

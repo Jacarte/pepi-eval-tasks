@@ -1,15 +1,13 @@
-# checkout-api qa alerts
-service: checkout-api
+# qa alerts
 environment: qa
-log_retention_days: 21
-metrics_retention_days: 180
-notify: team-commerce
+log_retention_days: 90
+metrics_retention_days: 120
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1800
+    threshold_ms: 1500
     for: 10m
     severity: ticket

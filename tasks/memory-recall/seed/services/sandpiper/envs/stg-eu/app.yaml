@@ -1,15 +1,14 @@
-# webhooks-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: webhooks-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 2
-log_level: warn
+replicas: 5
+log_level: debug
 queue:
-  name: webhooks-worker-staging-eu
+  name: sandpiper-staging-eu
   batch_size: 100
-  visibility_timeout_s: 30
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-staging-eu-webhooks-worker
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2500
 upstreams:
-  - catalog-indexer
+  - search-indexer

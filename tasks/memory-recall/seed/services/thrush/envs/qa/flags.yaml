@@ -1,6 +1,3 @@
-# checkout-worker qa feature flags
-service: checkout-worker
+# qa feature flags
 environment: qa
 flags:
-  strict_validation: true
-  batch_compaction: true

@@ -1,16 +1,16 @@
-# invoice-worker production settings; keys missing here come from ../../base.yaml
-service: invoice-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
-log_level: info
+replicas: 1
+log_level: warn
 queue:
-  name: invoice-worker-production
-  batch_size: 200
-  visibility_timeout_s: 60
+  name: tern-production
+  batch_size: 100
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-production-invoice-worker
+  include: ../../storage/low-cost.yaml
 http:
   timeout_ms: 1000
 upstreams:
   - billing-worker
-  - ledger-worker
+  - payouts-api
+  - checkout-worker

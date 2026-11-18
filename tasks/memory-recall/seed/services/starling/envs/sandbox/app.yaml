@@ -1,13 +1,10 @@
-# inventory-api sandbox settings; keys missing here come from ../../base.yaml
-service: inventory-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 1
-log_level: warn
+replicas: 3
+log_level: info
 storage:
-  bucket: acme-sandbox-inventory-api
-  retention_days: 45
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 4000
 upstreams:
-  - metrics-collector
-  - billing-worker
+  - catalog-api

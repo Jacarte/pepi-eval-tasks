@@ -1,12 +1,10 @@
-# auth-api production-eu settings; keys missing here come from ../../base.yaml
-service: auth-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 4
-log_level: debug
+replicas: 6
+log_level: info
 storage:
-  bucket: acme-production-eu-auth-api
-  retention_days: 7
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
-  - auth-worker
+  - checkout-worker

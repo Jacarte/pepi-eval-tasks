@@ -1,5 +1,6 @@
-# invoice-worker production-eu feature flags
-service: invoice-worker
+# production-eu feature flags
 environment: production-eu
 flags:
-  new_retry_policy: true
+  async_writes: false
+  batch_compaction: false
+  fast_path: true

@@ -1,12 +1,11 @@
-# search-indexer production-eu settings; keys missing here come from ../../base.yaml
-service: search-indexer
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 6
-log_level: warn
+replicas: 2
+log_level: debug
 storage:
-  bucket: acme-production-eu-search-indexer
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
-  - metrics-collector
+  - import-worker
   - pricing-api

@@ -1,15 +1,13 @@
-# search-indexer production-eu alerts
-service: search-indexer
+# production-eu alerts
 environment: production-eu
-log_retention_days: 180
-metrics_retention_days: 7
-notify: team-data
+log_retention_days: 30
+metrics_retention_days: 21
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.09
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 500
+    threshold_ms: 1800
     for: 10m
     severity: ticket

@@ -1,6 +1,5 @@
-# search-api perf autoscaling
-service: search-api
+# perf autoscaling
 environment: perf
 min_replicas: 2
-max_replicas: 7
-target_cpu_percent: 50
+max_replicas: 11
+target_cpu_percent: 70

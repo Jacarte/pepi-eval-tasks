@@ -1,15 +1,13 @@
-# pricing-api production-eu alerts
-service: pricing-api
+# production-eu alerts
 environment: production-eu
-log_retention_days: 14
+log_retention_days: 7
 metrics_retention_days: 7
-notify: team-commerce
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 600
+    threshold_ms: 800
     for: 10m
     severity: ticket

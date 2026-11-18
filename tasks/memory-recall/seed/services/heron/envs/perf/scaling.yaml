@@ -1,6 +1,5 @@
-# billing-worker perf autoscaling
-service: billing-worker
+# perf autoscaling
 environment: perf
 min_replicas: 2
-max_replicas: 8
-target_cpu_percent: 80
+max_replicas: 12
+target_cpu_percent: 55

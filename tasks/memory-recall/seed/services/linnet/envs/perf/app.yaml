@@ -1,17 +1,15 @@
-# reports-worker perf settings; keys missing here come from ../../base.yaml
-service: reports-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 3
-log_level: info
+replicas: 6
+log_level: debug
 queue:
-  name: reports-worker-perf
-  batch_size: 200
-  visibility_timeout_s: 120
+  name: linnet-perf
+  batch_size: 150
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-perf-reports-worker
-  retention_days: 30
+  include: ../../storage/low-cost.yaml
 http:
   timeout_ms: 3500
 upstreams:
-  - risk-api
-  - search-indexer
+  - reports-api
+  - notifications-api

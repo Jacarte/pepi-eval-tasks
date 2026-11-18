@@ -1,7 +1,5 @@
-# profiles-api staging feature flags
-service: profiles-api
+# staging feature flags
 environment: staging
 flags:
-  strict_validation: false
-  batch_compaction: true
-  fast_path: true
+  async_writes: false
+  shadow_reads: false

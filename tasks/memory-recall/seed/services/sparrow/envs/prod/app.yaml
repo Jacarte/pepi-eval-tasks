@@ -1,11 +1,11 @@
-# inventory-sync production settings; keys missing here come from ../../base.yaml
-service: inventory-sync
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 4
-log_level: info
+replicas: 5
+log_level: debug
 storage:
-  bucket: acme-production-inventory-sync
-  retention_days: 30
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1000
 upstreams:
+  - users-api
+  - pricing-worker

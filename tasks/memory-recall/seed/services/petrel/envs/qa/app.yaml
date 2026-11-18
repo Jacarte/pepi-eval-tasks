@@ -1,15 +1,14 @@
-# notifications-worker qa settings; keys missing here come from ../../base.yaml
-service: notifications-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 5
-log_level: debug
+replicas: 6
+log_level: warn
 queue:
-  name: notifications-worker-qa
-  batch_size: 350
-  visibility_timeout_s: 90
+  name: petrel-qa
+  batch_size: 250
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-qa-notifications-worker
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - billing-api
+  - orders-api

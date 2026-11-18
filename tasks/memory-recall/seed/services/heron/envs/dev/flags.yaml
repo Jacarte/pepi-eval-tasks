@@ -1,8 +1,6 @@
-# billing-worker development feature flags
-service: billing-worker
+# development feature flags
 environment: development
 flags:
   async_writes: false
-  strict_validation: true
-  shadow_reads: false
-  fast_path: true
+  batch_compaction: false
+  shadow_reads: true

@@ -1,6 +1,6 @@
-# search-indexer sandbox feature flags
-service: search-indexer
+# sandbox feature flags
 environment: sandbox
 flags:
-  strict_validation: false
-  fast_path: false
+  new_retry_policy: false
+  async_writes: false
+  strict_validation: true

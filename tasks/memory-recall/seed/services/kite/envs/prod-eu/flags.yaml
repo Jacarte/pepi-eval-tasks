@@ -1,5 +1,8 @@
-# ledger-api production-eu feature flags
-service: ledger-api
+# production-eu feature flags
 environment: production-eu
 flags:
-  async_writes: true
+  new_retry_policy: false
+  async_writes: false
+  strict_validation: true
+  shadow_reads: false
+  fast_path: false

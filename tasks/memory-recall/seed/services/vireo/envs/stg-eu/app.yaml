@@ -1,12 +1,11 @@
-# orders-api staging-eu settings; keys missing here come from ../../base.yaml
-service: orders-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 2
-log_level: info
+replicas: 4
+log_level: debug
 storage:
-  bucket: acme-staging-eu-orders-api
-  retention_days: 60
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 3000
 upstreams:
-  - admin-api
+  - reports-api
+  - audit-worker

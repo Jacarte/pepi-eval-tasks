@@ -1,15 +1,13 @@
-# auth-worker staging alerts
-service: auth-worker
+# staging alerts
 environment: staging
 log_retention_days: 60
 metrics_retention_days: 21
-notify: team-commerce
 alerts:
   - name: error-rate
-    threshold: 0.08
+    threshold: 0.02
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 1900
     for: 10m
     severity: ticket

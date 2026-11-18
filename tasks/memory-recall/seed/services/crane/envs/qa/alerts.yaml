@@ -1,15 +1,13 @@
-# media-api qa alerts
-service: media-api
+# qa alerts
 environment: qa
-log_retention_days: 365
+log_retention_days: 14
 metrics_retention_days: 45
-notify: team-data
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.09
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 600
+    threshold_ms: 700
     for: 10m
     severity: ticket

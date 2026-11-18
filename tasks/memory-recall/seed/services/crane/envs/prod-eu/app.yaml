@@ -1,12 +1,10 @@
-# media-api production-eu settings; keys missing here come from ../../base.yaml
-service: media-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
 replicas: 4
 log_level: info
 storage:
-  bucket: acme-production-eu-media-api
-  retention_days: 180
+  include: ../../storage/shared.yaml
 http:
   timeout_ms: 4000
 upstreams:
-  - inventory-sync
+  - orders-api

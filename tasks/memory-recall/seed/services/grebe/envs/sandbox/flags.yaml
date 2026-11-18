@@ -1,7 +1,6 @@
-# fraud-scorer sandbox feature flags
-service: fraud-scorer
+# sandbox feature flags
 environment: sandbox
 flags:
-  async_writes: true
-  strict_validation: true
-  fast_path: true
+  new_retry_policy: false
+  shadow_reads: false
+  fast_path: false

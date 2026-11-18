@@ -1,16 +1,15 @@
-# checkout-worker production settings; keys missing here come from ../../base.yaml
-service: checkout-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
-log_level: warn
+replicas: 3
+log_level: info
 queue:
-  name: checkout-worker-production
-  batch_size: 100
+  name: thrush-production
+  batch_size: 250
   visibility_timeout_s: 90
 storage:
-  bucket: acme-production-checkout-worker
-  retention_days: 14
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3500
 upstreams:
-  - metrics-collector
+  - checkout-api
+  - webhooks-api

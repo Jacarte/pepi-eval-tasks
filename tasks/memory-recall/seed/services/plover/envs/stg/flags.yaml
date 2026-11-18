@@ -1,6 +1,6 @@
-# billing-scheduler staging feature flags
-service: billing-scheduler
+# staging feature flags
 environment: staging
 flags:
-  new_retry_policy: false
-  fast_path: false
+  async_writes: false
+  strict_validation: true
+  fast_path: true

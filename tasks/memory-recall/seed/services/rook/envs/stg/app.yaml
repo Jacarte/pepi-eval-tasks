@@ -1,16 +1,15 @@
-# pricing-worker staging settings; keys missing here come from ../../base.yaml
-service: pricing-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
-log_level: info
+replicas: 2
+log_level: debug
 queue:
-  name: pricing-worker-staging
-  batch_size: 350
-  visibility_timeout_s: 60
+  name: rook-staging
+  batch_size: 400
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-staging-pricing-worker
-  retention_days: 45
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 3000
 upstreams:
-  - billing-legacy
+  - sms-sender
+  - notifications-api

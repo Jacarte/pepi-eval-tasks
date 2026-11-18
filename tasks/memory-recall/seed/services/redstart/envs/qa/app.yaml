@@ -1,12 +1,8 @@
-# webhooks-api qa settings; keys missing here come from ../../base.yaml
-service: webhooks-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 2
-log_level: info
-storage:
-  bucket: acme-qa-webhooks-api
-  retention_days: 45
+replicas: 6
+log_level: debug
 http:
-  timeout_ms: 1500
+  timeout_ms: 3000
 upstreams:
-  - checkout-worker
+  - notifications-worker

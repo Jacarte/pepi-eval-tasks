@@ -1,6 +1,0 @@
-# metrics-collector qa autoscaling
-service: metrics-collector
-environment: qa
-min_replicas: 2
-max_replicas: 4
-target_cpu_percent: 55

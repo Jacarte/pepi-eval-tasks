@@ -1,14 +1,11 @@
-# billing-api staging settings; keys missing here come from ../../base.yaml
-service: billing-api
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 1
+replicas: 3
 log_level: info
 storage:
-  bucket: acme-staging-billing-api
-  retention_days: 90
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
   - billing-worker
-  - billing-worker
-  - notifications-api
+  - webhooks-worker

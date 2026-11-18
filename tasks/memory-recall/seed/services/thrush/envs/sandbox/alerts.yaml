@@ -1,15 +1,13 @@
-# checkout-worker sandbox alerts
-service: checkout-worker
+# sandbox alerts
 environment: sandbox
-log_retention_days: 14
-metrics_retention_days: 7
-notify: team-fulfilment
+log_retention_days: 21
+metrics_retention_days: 180
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1700
+    threshold_ms: 600
     for: 10m
     severity: ticket

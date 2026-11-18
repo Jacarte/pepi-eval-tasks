@@ -1,16 +1,14 @@
-# billing-worker development settings; keys missing here come from ../../base.yaml
-service: billing-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 4
-log_level: info
+log_level: debug
 queue:
-  name: billing-worker-development
-  batch_size: 200
-  visibility_timeout_s: 90
+  name: heron-development
+  batch_size: 400
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-development-billing-worker
-  retention_days: 7
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3500
 upstreams:
-  - checkout-api
+  - reports-api

@@ -1,7 +1,6 @@
-# notifications-worker perf resources
-service: notifications-worker
+# perf resources
 environment: perf
-cpu_request: 100m
-cpu_limit: 400m
-mem_request_mb: 1024
-mem_limit_mb: 2048
+cpu_request: 200m
+cpu_limit: 600m
+mem_request_mb: 256
+mem_limit_mb: 512

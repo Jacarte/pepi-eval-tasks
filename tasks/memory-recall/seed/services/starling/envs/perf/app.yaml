@@ -1,12 +1,10 @@
-# inventory-api perf settings; keys missing here come from ../../base.yaml
-service: inventory-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
-log_level: warn
+replicas: 4
+log_level: info
 storage:
-  bucket: acme-perf-inventory-api
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 500
 upstreams:
-  - catalog-indexer
-  - cart-api
+  - search-api

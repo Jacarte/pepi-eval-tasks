@@ -1,9 +1,4 @@
-# risk-api production-eu feature flags
-service: risk-api
+# production-eu feature flags
 environment: production-eu
 flags:
-  new_retry_policy: true
-  async_writes: true
-  strict_validation: true
-  batch_compaction: false
-  shadow_reads: false
+  fast_path: true

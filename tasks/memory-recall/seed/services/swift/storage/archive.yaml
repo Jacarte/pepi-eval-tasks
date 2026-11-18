@@ -1,0 +1,5 @@
+# archive storage profile
+class: cold
+retention_days: 60
+versioning: true
+encryption: aes256

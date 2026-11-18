@@ -1,9 +1,10 @@
-# payouts-worker defaults
+# hobby deployment
 service: payouts-worker
 codename: hobby
+role: primary
+status: active
 team: identity
 owner: team-identity@example.com
-status: active
 runtime: go1.21
 replicas: 3
 log_level: info

@@ -1,16 +1,12 @@
-# ledger-worker sandbox settings; keys missing here come from ../../base.yaml
-service: ledger-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
-log_level: warn
+replicas: 4
+log_level: debug
 queue:
-  name: ledger-worker-sandbox
-  batch_size: 300
-  visibility_timeout_s: 60
-storage:
-  bucket: acme-sandbox-ledger-worker
-  retention_days: 120
+  name: jay-sandbox
+  batch_size: 200
+  visibility_timeout_s: 120
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - email-sender
+  - billing-api

@@ -1,6 +1,5 @@
-# email-sender sandbox autoscaling
-service: email-sender
+# sandbox autoscaling
 environment: sandbox
 min_replicas: 1
-max_replicas: 10
-target_cpu_percent: 55
+max_replicas: 4
+target_cpu_percent: 70

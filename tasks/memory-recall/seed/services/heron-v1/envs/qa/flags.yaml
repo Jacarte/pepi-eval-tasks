@@ -1,7 +1,7 @@
-# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
-service: billing-worker
+# qa feature flags
 environment: qa
 flags:
-  new_retry_policy: false
-  strict_validation: true
-  fast_path: false
+  new_retry_policy: true
+  strict_validation: false
+  batch_compaction: true
+  fast_path: true

@@ -1,15 +1,13 @@
-# cart-api sandbox alerts
-service: cart-api
+# sandbox alerts
 environment: sandbox
-log_retention_days: 45
-metrics_retention_days: 365
-notify: team-identity
+log_retention_days: 7
+metrics_retention_days: 14
 alerts:
   - name: error-rate
     threshold: 0.02
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 900
+    threshold_ms: 1300
     for: 10m
     severity: ticket

@@ -1,15 +1,13 @@
-# media-transcoder development alerts
-service: media-transcoder
+# development alerts
 environment: development
-log_retention_days: 30
-metrics_retention_days: 45
-notify: team-identity
+log_retention_days: 21
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1300
+    threshold_ms: 800
     for: 10m
     severity: ticket

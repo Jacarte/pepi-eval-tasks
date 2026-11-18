@@ -1,7 +1,5 @@
-# export-worker sandbox feature flags
-service: export-worker
+# sandbox feature flags
 environment: sandbox
 flags:
-  new_retry_policy: false
-  strict_validation: false
-  fast_path: true
+  strict_validation: true
+  shadow_reads: false

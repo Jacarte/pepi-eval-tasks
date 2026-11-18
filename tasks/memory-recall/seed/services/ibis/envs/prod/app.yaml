@@ -1,10 +1,11 @@
-# payouts-api production settings; keys missing here come from ../../base.yaml
-service: payouts-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 4
-log_level: debug
+replicas: 5
+log_level: warn
 storage:
-  bucket: acme-production-payouts-api
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
+  - ledger-worker
+  - checkout-worker

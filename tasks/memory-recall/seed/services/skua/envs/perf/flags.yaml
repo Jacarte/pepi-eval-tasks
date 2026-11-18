@@ -1,8 +1,4 @@
-# gateway perf feature flags
-service: gateway
+# perf feature flags
 environment: perf
 flags:
-  async_writes: false
-  strict_validation: true
-  batch_compaction: false
-  fast_path: false
+  shadow_reads: true

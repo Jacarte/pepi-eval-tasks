@@ -1,5 +1,5 @@
-# notifications-api development feature flags
-service: notifications-api
+# development feature flags
 environment: development
 flags:
-  shadow_reads: false
+  strict_validation: true
+  shadow_reads: true

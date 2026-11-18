@@ -1,16 +1,14 @@
-# orders-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: orders-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 1
+replicas: 2
 log_level: info
 queue:
-  name: orders-worker-staging-eu
-  batch_size: 300
-  visibility_timeout_s: 30
+  name: warbler-staging-eu
+  batch_size: 100
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-staging-eu-orders-worker
-  retention_days: 30
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 3000
 upstreams:
-  - inventory-api
+  - checkout-worker

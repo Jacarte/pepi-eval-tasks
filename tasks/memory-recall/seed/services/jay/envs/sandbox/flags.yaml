@@ -1,10 +1,4 @@
-# ledger-worker sandbox feature flags
-service: ledger-worker
+# sandbox feature flags
 environment: sandbox
 flags:
-  new_retry_policy: true
-  async_writes: false
   strict_validation: true
-  batch_compaction: false
-  shadow_reads: false
-  fast_path: false

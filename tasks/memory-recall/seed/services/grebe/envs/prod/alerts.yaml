@@ -1,15 +1,13 @@
-# fraud-scorer production alerts
-service: fraud-scorer
+# production alerts
 environment: production
-log_retention_days: 30
-metrics_retention_days: 90
-notify: team-commerce
+log_retention_days: 21
+metrics_retention_days: 45
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.09
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 800
+    threshold_ms: 500
     for: 10m
     severity: ticket

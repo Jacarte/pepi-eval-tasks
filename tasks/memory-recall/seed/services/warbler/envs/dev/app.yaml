@@ -1,16 +1,14 @@
-# orders-worker development settings; keys missing here come from ../../base.yaml
-service: orders-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
-log_level: debug
+replicas: 6
+log_level: warn
 queue:
-  name: orders-worker-development
-  batch_size: 50
+  name: warbler-development
+  batch_size: 300
   visibility_timeout_s: 30
 storage:
-  bucket: acme-development-orders-worker
-  retention_days: 90
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
-  - media-api
+  - checkout-worker

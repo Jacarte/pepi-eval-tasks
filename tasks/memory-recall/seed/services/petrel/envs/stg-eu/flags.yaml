@@ -1,6 +1,5 @@
-# notifications-worker staging-eu feature flags
-service: notifications-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  shadow_reads: false
-  fast_path: true
+  batch_compaction: true
+  shadow_reads: true

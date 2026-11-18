@@ -1,6 +1,4 @@
-# reports-worker staging-eu feature flags
-service: reports-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  batch_compaction: false
-  fast_path: false
+  new_retry_policy: false

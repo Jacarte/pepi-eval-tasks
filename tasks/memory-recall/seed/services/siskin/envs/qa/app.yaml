@@ -1,12 +1,9 @@
-# pricing-api qa settings; keys missing here come from ../../base.yaml
-service: pricing-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 1
+replicas: 2
 log_level: debug
 storage:
-  bucket: acme-qa-pricing-api
-  retention_days: 365
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 3500
 upstreams:
-  - reports-worker

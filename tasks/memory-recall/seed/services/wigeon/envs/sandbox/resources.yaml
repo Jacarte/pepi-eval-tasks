@@ -1,7 +1,0 @@
-# metrics-collector sandbox resources
-service: metrics-collector
-environment: sandbox
-cpu_request: 400m
-cpu_limit: 1200m
-mem_request_mb: 128
-mem_limit_mb: 256

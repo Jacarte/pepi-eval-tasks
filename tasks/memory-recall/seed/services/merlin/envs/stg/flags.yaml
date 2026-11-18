@@ -1,6 +1,7 @@
-# reports-api staging feature flags
-service: reports-api
+# staging feature flags
 environment: staging
 flags:
-  async_writes: false
+  new_retry_policy: false
+  async_writes: true
+  strict_validation: false
   batch_compaction: false

@@ -1,6 +1,5 @@
-# billing-legacy production-eu autoscaling
-service: billing-legacy
+# production-eu autoscaling
 environment: production-eu
 min_replicas: 2
-max_replicas: 8
+max_replicas: 6
 target_cpu_percent: 60

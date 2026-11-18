@@ -1,6 +1,4 @@
-# fraud-scorer staging feature flags
-service: fraud-scorer
+# staging feature flags
 environment: staging
 flags:
-  async_writes: true
-  shadow_reads: true
+  new_retry_policy: false

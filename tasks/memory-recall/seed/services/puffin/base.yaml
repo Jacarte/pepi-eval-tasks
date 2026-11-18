@@ -1,9 +1,10 @@
-# export-worker defaults
+# puffin deployment
 service: export-worker
 codename: puffin
+role: primary
+status: active
 team: growth
 owner: team-growth@example.com
-status: active
 runtime: go1.20
 replicas: 3
 log_level: info

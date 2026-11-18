@@ -1,6 +1,0 @@
-# metrics-collector production feature flags
-service: metrics-collector
-environment: production
-flags:
-  async_writes: false
-  shadow_reads: false

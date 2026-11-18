@@ -1,17 +1,12 @@
-# checkout-worker development settings; keys missing here come from ../../base.yaml
-service: checkout-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 4
-log_level: info
+replicas: 2
+log_level: warn
 queue:
-  name: checkout-worker-development
-  batch_size: 350
-  visibility_timeout_s: 60
-storage:
-  bucket: acme-development-checkout-worker
-  retention_days: 60
+  name: thrush-development
+  batch_size: 300
+  visibility_timeout_s: 120
 http:
-  timeout_ms: 4000
+  timeout_ms: 1500
 upstreams:
-  - invoice-worker
-  - pricing-api
+  - audit-worker

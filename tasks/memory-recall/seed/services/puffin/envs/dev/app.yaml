@@ -1,15 +1,14 @@
-# export-worker development settings; keys missing here come from ../../base.yaml
-service: export-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 4
-log_level: debug
+log_level: info
 queue:
-  name: export-worker-development
-  batch_size: 100
+  name: puffin-development
+  batch_size: 350
   visibility_timeout_s: 90
 storage:
-  bucket: acme-development-export-worker
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3500
 upstreams:
-  - reports-worker
+  - ledger-api

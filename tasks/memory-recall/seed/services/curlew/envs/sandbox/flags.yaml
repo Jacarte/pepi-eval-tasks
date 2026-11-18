@@ -1,9 +1,5 @@
-# profiles-api sandbox feature flags
-service: profiles-api
+# sandbox feature flags
 environment: sandbox
 flags:
   async_writes: false
   strict_validation: true
-  batch_compaction: true
-  shadow_reads: false
-  fast_path: true

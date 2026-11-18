@@ -1,7 +1,7 @@
-# billing-api development feature flags
-service: billing-api
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: true
+  new_retry_policy: false
   strict_validation: false
+  batch_compaction: true
   shadow_reads: true

@@ -1,15 +1,15 @@
-# email-sender production settings; keys missing here come from ../../base.yaml
-service: email-sender
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
+replicas: 1
 log_level: warn
 queue:
-  name: email-sender-production
-  batch_size: 50
+  name: oriole-production
+  batch_size: 200
   visibility_timeout_s: 120
 storage:
-  bucket: acme-production-email-sender
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 1000
 upstreams:
-  - reports-api
+  - thumbnails-worker
+  - orders-worker

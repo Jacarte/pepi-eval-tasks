@@ -1,11 +1,10 @@
-# reports-api sandbox settings; keys missing here come from ../../base.yaml
-service: reports-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 1
-log_level: debug
+replicas: 6
+log_level: info
 storage:
-  bucket: acme-sandbox-reports-api
+  include: ../../storage/shared.yaml
 http:
   timeout_ms: 2500
 upstreams:
-  - gateway
+  - invoice-worker

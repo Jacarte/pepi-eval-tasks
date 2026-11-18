@@ -1,6 +1,5 @@
-# checkout-api staging feature flags
-service: checkout-api
+# staging feature flags
 environment: staging
 flags:
-  new_retry_policy: false
-  shadow_reads: true
+  new_retry_policy: true
+  async_writes: true

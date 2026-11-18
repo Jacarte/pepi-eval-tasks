@@ -1,16 +1,14 @@
-# ledger-worker production settings; keys missing here come from ../../base.yaml
-service: ledger-worker
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 4
-log_level: debug
+replicas: 5
+log_level: warn
 queue:
-  name: ledger-worker-production
-  batch_size: 200
-  visibility_timeout_s: 30
+  name: jay-production
+  batch_size: 150
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-production-ledger-worker
-  retention_days: 30
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 4000
 upstreams:
-  - billing-api
+  - gateway

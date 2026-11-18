@@ -1,11 +1,11 @@
-# billing-legacy production-eu settings; keys missing here come from ../../base.yaml
-service: billing-legacy
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 5
+replicas: 2
 log_level: info
 storage:
-  bucket: acme-production-eu-billing-legacy
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - metrics-collector
+  - reports-api
+  - audit-worker

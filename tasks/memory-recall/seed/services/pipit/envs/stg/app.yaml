@@ -1,17 +1,15 @@
-# audit-worker staging settings; keys missing here come from ../../base.yaml
-service: audit-worker
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: debug
+replicas: 1
+log_level: warn
 queue:
-  name: audit-worker-staging
+  name: pipit-staging
   batch_size: 350
-  visibility_timeout_s: 30
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-staging-audit-worker
-  retention_days: 30
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2500
 upstreams:
-  - billing-scheduler
-  - sms-sender
+  - thumbnails-worker
+  - reports-worker

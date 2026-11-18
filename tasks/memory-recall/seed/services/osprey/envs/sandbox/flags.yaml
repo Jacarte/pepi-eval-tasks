@@ -1,7 +1,6 @@
-# billing-legacy sandbox feature flags
-service: billing-legacy
+# sandbox feature flags
 environment: sandbox
 flags:
-  async_writes: true
-  strict_validation: true
+  strict_validation: false
+  batch_compaction: true
   shadow_reads: false

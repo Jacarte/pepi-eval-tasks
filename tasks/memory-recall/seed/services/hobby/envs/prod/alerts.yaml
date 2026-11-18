@@ -1,12 +1,10 @@
-# payouts-worker production alerts
-service: payouts-worker
+# production alerts
 environment: production
-log_retention_days: 21
-metrics_retention_days: 7
-notify: team-identity
+log_retention_days: 365
+metrics_retention_days: 21
 alerts:
   - name: error-rate
-    threshold: 0.02
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99

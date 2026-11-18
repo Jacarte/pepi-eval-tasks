@@ -1,15 +1,13 @@
-# notifications-worker sandbox settings; keys missing here come from ../../base.yaml
-service: notifications-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 4
-log_level: info
+replicas: 3
+log_level: debug
 queue:
-  name: notifications-worker-sandbox
+  name: petrel-sandbox
   batch_size: 200
-  visibility_timeout_s: 120
-storage:
-  bucket: acme-sandbox-notifications-worker
+  visibility_timeout_s: 90
 http:
-  timeout_ms: 1500
+  timeout_ms: 3500
 upstreams:
-  - media-api
+  - reports-worker
+  - search-api

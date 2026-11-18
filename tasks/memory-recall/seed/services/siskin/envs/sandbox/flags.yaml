@@ -1,8 +1,5 @@
-# pricing-api sandbox feature flags
-service: pricing-api
+# sandbox feature flags
 environment: sandbox
 flags:
-  new_retry_policy: true
-  async_writes: false
-  batch_compaction: true
-  fast_path: true
+  async_writes: true
+  strict_validation: false

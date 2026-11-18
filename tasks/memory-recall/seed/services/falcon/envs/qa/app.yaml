@@ -1,17 +1,13 @@
-# auth-worker qa settings; keys missing here come from ../../base.yaml
-service: auth-worker
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
 replicas: 3
-log_level: warn
+log_level: info
 queue:
-  name: auth-worker-qa
-  batch_size: 250
-  visibility_timeout_s: 60
-storage:
-  bucket: acme-qa-auth-worker
-  retention_days: 180
+  name: falcon-qa
+  batch_size: 300
+  visibility_timeout_s: 30
 http:
-  timeout_ms: 2500
+  timeout_ms: 500
 upstreams:
-  - catalog-indexer
-  - audit-api
+  - notifications-api
+  - search-indexer

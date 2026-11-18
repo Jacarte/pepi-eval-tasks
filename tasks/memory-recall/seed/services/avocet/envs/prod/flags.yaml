@@ -1,7 +1,7 @@
-# thumbnails-worker production feature flags
-service: thumbnails-worker
+# production feature flags
 environment: production
 flags:
   async_writes: true
-  strict_validation: true
-  batch_compaction: false
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: false

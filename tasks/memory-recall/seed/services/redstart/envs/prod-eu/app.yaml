@@ -1,12 +1,10 @@
-# webhooks-api production-eu settings; keys missing here come from ../../base.yaml
-service: webhooks-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 2
+replicas: 3
 log_level: debug
 storage:
-  bucket: acme-production-eu-webhooks-api
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - checkout-worker
-  - scheduler
+  - risk-api

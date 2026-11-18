@@ -1,5 +1,5 @@
-# payouts-worker production-eu feature flags
-service: payouts-worker
+# production-eu feature flags
 environment: production-eu
 flags:
-  shadow_reads: false
+  async_writes: false
+  strict_validation: true

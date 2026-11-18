@@ -1,15 +1,13 @@
-# invoice-worker qa alerts
-service: invoice-worker
+# qa alerts
 environment: qa
-log_retention_days: 7
-metrics_retention_days: 14
-notify: team-payments
+log_retention_days: 180
+metrics_retention_days: 7
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 600
+    threshold_ms: 1600
     for: 10m
     severity: ticket

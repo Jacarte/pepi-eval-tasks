@@ -1,7 +1,6 @@
-# import-worker sandbox resources
-service: import-worker
+# sandbox resources
 environment: sandbox
-cpu_request: 500m
-cpu_limit: 1000m
-mem_request_mb: 768
-mem_limit_mb: 1536
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 256
+mem_limit_mb: 512

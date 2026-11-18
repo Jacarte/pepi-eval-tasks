@@ -1,7 +1,6 @@
-# profiles-api qa resources
-service: profiles-api
+# qa resources
 environment: qa
-cpu_request: 500m
-cpu_limit: 2000m
-mem_request_mb: 384
-mem_limit_mb: 768
+cpu_request: 400m
+cpu_limit: 1200m
+mem_request_mb: 512
+mem_limit_mb: 1024

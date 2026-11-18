@@ -1,15 +1,13 @@
-# checkout-api sandbox alerts
-service: checkout-api
+# sandbox alerts
 environment: sandbox
-log_retention_days: 30
-metrics_retention_days: 180
-notify: team-commerce
+log_retention_days: 365
+metrics_retention_days: 90
 alerts:
   - name: error-rate
-    threshold: 0.08
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1200
+    threshold_ms: 800
     for: 10m
     severity: ticket

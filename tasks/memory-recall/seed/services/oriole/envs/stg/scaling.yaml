@@ -1,6 +1,5 @@
-# email-sender staging autoscaling
-service: email-sender
+# staging autoscaling
 environment: staging
 min_replicas: 1
-max_replicas: 10
-target_cpu_percent: 80
+max_replicas: 11
+target_cpu_percent: 65

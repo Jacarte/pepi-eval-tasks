@@ -1,7 +1,6 @@
-# fraud-scorer qa resources
-service: fraud-scorer
+# qa resources
 environment: qa
-cpu_request: 100m
-cpu_limit: 300m
-mem_request_mb: 640
-mem_limit_mb: 1280
+cpu_request: 300m
+cpu_limit: 1200m
+mem_request_mb: 768
+mem_limit_mb: 1536

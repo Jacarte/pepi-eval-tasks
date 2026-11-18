@@ -1,7 +1,6 @@
-# pricing-worker sandbox resources
-service: pricing-worker
+# sandbox resources
 environment: sandbox
-cpu_request: 400m
-cpu_limit: 1600m
-mem_request_mb: 640
-mem_limit_mb: 1280
+cpu_request: 300m
+cpu_limit: 900m
+mem_request_mb: 256
+mem_limit_mb: 512

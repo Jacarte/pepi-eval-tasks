@@ -1,11 +1,8 @@
-# audit-api production settings; keys missing here come from ../../base.yaml
-service: audit-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
 replicas: 3
-log_level: warn
-storage:
-  bucket: acme-production-audit-api
+log_level: debug
 http:
-  timeout_ms: 4000
+  timeout_ms: 1500
 upstreams:
-  - checkout-api
+  - import-worker

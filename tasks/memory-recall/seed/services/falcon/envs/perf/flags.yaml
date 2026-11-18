@@ -1,7 +1,6 @@
-# auth-worker perf feature flags
-service: auth-worker
+# perf feature flags
 environment: perf
 flags:
   strict_validation: false
-  batch_compaction: true
   shadow_reads: false
+  fast_path: true

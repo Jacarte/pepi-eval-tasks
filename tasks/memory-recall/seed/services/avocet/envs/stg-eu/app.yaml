@@ -1,16 +1,14 @@
-# thumbnails-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: thumbnails-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
 replicas: 5
-log_level: debug
+log_level: warn
 queue:
-  name: thumbnails-worker-staging-eu
-  batch_size: 150
-  visibility_timeout_s: 60
+  name: avocet-staging-eu
+  batch_size: 100
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-staging-eu-thumbnails-worker
-  retention_days: 21
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2500
 upstreams:
   - billing-api

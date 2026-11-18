@@ -1,13 +1,10 @@
-# pricing-api staging-eu settings; keys missing here come from ../../base.yaml
-service: pricing-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 2
-log_level: debug
+replicas: 1
+log_level: warn
 storage:
-  bucket: acme-staging-eu-pricing-api
-  retention_days: 120
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
-  - import-worker
-  - catalog-indexer
+  - users-api

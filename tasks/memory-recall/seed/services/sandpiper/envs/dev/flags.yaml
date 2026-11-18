@@ -1,6 +1,7 @@
-# webhooks-worker development feature flags
-service: webhooks-worker
+# development feature flags
 environment: development
 flags:
-  strict_validation: false
-  fast_path: true
+  new_retry_policy: true
+  async_writes: true
+  batch_compaction: true
+  shadow_reads: true

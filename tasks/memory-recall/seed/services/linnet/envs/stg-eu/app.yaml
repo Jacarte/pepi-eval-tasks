@@ -1,16 +1,12 @@
-# reports-worker staging-eu settings; keys missing here come from ../../base.yaml
-service: reports-worker
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
 replicas: 2
-log_level: debug
+log_level: info
 queue:
-  name: reports-worker-staging-eu
-  batch_size: 100
-  visibility_timeout_s: 60
-storage:
-  bucket: acme-staging-eu-reports-worker
-  retention_days: 60
+  name: linnet-staging-eu
+  batch_size: 300
+  visibility_timeout_s: 30
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - orders-worker
+  - payouts-worker

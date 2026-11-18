@@ -1,0 +1,5 @@
+# standard-eu storage profile
+class: cold
+retention_days: 45
+versioning: false
+encryption: kms

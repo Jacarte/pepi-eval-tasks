@@ -1,15 +1,13 @@
-# profiles-api qa alerts
-service: profiles-api
+# qa alerts
 environment: qa
-log_retention_days: 120
-metrics_retention_days: 7
-notify: team-growth
+log_retention_days: 60
+metrics_retention_days: 90
 alerts:
   - name: error-rate
-    threshold: 0.06
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1300
+    threshold_ms: 300
     for: 10m
     severity: ticket

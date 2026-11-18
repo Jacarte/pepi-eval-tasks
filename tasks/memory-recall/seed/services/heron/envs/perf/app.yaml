@@ -1,17 +1,14 @@
-# billing-worker perf settings; keys missing here come from ../../base.yaml
-service: billing-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
-log_level: info
+replicas: 2
+log_level: warn
 queue:
-  name: billing-worker-perf
-  batch_size: 350
-  visibility_timeout_s: 120
+  name: heron-perf
+  batch_size: 250
+  visibility_timeout_s: 90
 storage:
-  bucket: acme-perf-billing-worker
-  retention_days: 21
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 4000
 upstreams:
-  - webhooks-api
-  - ledger-worker
+  - notifications-api

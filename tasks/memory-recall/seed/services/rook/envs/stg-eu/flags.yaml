@@ -1,6 +1,4 @@
-# pricing-worker staging-eu feature flags
-service: pricing-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  async_writes: false
-  shadow_reads: true
+  new_retry_policy: false

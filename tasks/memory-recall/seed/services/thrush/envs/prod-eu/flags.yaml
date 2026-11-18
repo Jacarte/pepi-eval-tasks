@@ -1,6 +1,5 @@
-# checkout-worker production-eu feature flags
-service: checkout-worker
+# production-eu feature flags
 environment: production-eu
 flags:
-  batch_compaction: true
-  shadow_reads: false
+  async_writes: true
+  batch_compaction: false

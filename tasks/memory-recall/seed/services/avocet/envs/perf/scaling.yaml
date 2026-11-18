@@ -1,6 +1,5 @@
-# thumbnails-worker perf autoscaling
-service: thumbnails-worker
+# perf autoscaling
 environment: perf
-min_replicas: 2
-max_replicas: 6
-target_cpu_percent: 55
+min_replicas: 1
+max_replicas: 9
+target_cpu_percent: 50

@@ -1,8 +1,4 @@
-# billing-api production feature flags
-service: billing-api
+# production feature flags
 environment: production
 flags:
-  new_retry_policy: false
-  async_writes: true
-  batch_compaction: true
-  fast_path: false
+  async_writes: false

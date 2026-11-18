@@ -1,12 +1,9 @@
-# pricing-api sandbox settings; keys missing here come from ../../base.yaml
-service: pricing-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
-log_level: info
-storage:
-  bucket: acme-sandbox-pricing-api
-  retention_days: 45
+replicas: 4
+log_level: warn
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - inventory-api
+  - auth-api
+  - search-api

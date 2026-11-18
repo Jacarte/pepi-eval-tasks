@@ -1,15 +1,13 @@
-# webhooks-api perf alerts
-service: webhooks-api
+# perf alerts
 environment: perf
 log_retention_days: 90
 metrics_retention_days: 90
-notify: team-identity
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1300
+    threshold_ms: 1400
     for: 10m
     severity: ticket

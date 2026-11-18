@@ -1,13 +1,11 @@
-# media-transcoder sandbox settings; keys missing here come from ../../base.yaml
-service: media-transcoder
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
+replicas: 4
 log_level: info
 storage:
-  bucket: acme-sandbox-media-transcoder
-  retention_days: 7
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - checkout-api
-  - orders-worker
+  - auth-worker
+  - auth-worker

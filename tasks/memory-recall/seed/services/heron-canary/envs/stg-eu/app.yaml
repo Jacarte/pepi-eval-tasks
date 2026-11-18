@@ -1,0 +1,14 @@
+# staging-eu settings; keys missing here come from ../../base.yaml
+environment: staging-eu
+replicas: 1
+log_level: debug
+queue:
+  name: heron-canary-staging-eu
+  batch_size: 350
+  visibility_timeout_s: 120
+storage:
+  include: ../../storage/standard.yaml
+http:
+  timeout_ms: 2500
+upstreams:
+  - import-worker

@@ -1,7 +1,6 @@
-# gateway production-eu resources
-service: gateway
+# production-eu resources
 environment: production-eu
-cpu_request: 400m
-cpu_limit: 1200m
+cpu_request: 100m
+cpu_limit: 200m
 mem_request_mb: 768
 mem_limit_mb: 1536

@@ -1,14 +1,8 @@
-# billing-scheduler perf settings; keys missing here come from ../../base.yaml
-service: billing-scheduler
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 3
-log_level: info
-storage:
-  bucket: acme-perf-billing-scheduler
-  retention_days: 120
+replicas: 5
+log_level: warn
 http:
-  timeout_ms: 3000
+  timeout_ms: 2500
 upstreams:
   - billing-worker
-  - search-api
-  - import-worker

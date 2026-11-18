@@ -1,9 +1,10 @@
-# payouts-api defaults
+# ibis deployment
 service: payouts-api
 codename: ibis
+role: primary
+status: active
 team: data
 owner: team-data@example.com
-status: active
 runtime: go1.22
 replicas: 1
 log_level: info

@@ -1,7 +1,6 @@
-# webhooks-worker staging-eu feature flags
-service: webhooks-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  new_retry_policy: false
-  strict_validation: false
-  shadow_reads: true
+  new_retry_policy: true
+  async_writes: false
+  fast_path: true

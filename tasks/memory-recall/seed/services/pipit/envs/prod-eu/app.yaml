@@ -1,16 +1,14 @@
-# audit-worker production-eu settings; keys missing here come from ../../base.yaml
-service: audit-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 6
+replicas: 4
 log_level: warn
 queue:
-  name: audit-worker-production-eu
-  batch_size: 50
-  visibility_timeout_s: 90
+  name: pipit-production-eu
+  batch_size: 200
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-production-eu-audit-worker
-  retention_days: 45
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2500
 upstreams:
-  - export-worker
+  - inventory-api

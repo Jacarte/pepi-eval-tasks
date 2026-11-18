@@ -1,6 +1,5 @@
-# notifications-worker production autoscaling
-service: notifications-worker
+# production autoscaling
 environment: production
-min_replicas: 3
-max_replicas: 5
+min_replicas: 2
+max_replicas: 10
 target_cpu_percent: 75

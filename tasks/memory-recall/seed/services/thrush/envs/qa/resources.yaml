@@ -1,7 +1,6 @@
-# checkout-worker qa resources
-service: checkout-worker
+# qa resources
 environment: qa
-cpu_request: 200m
-cpu_limit: 400m
-mem_request_mb: 384
-mem_limit_mb: 768
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 256
+mem_limit_mb: 512

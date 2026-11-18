@@ -1,6 +1,6 @@
-# orders-worker development feature flags
-service: orders-worker
+# development feature flags
 environment: development
 flags:
-  batch_compaction: true
-  fast_path: false
+  async_writes: true
+  strict_validation: true
+  shadow_reads: true

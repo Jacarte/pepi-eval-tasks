@@ -1,6 +1,8 @@
-# billing-api sandbox feature flags
-service: billing-api
+# sandbox feature flags
 environment: sandbox
 flags:
-  shadow_reads: true
+  new_retry_policy: true
+  async_writes: false
+  batch_compaction: true
+  shadow_reads: false
   fast_path: true

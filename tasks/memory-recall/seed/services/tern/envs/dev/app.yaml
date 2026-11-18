@@ -1,17 +1,16 @@
-# invoice-worker development settings; keys missing here come from ../../base.yaml
-service: invoice-worker
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
-log_level: info
+replicas: 2
+log_level: debug
 queue:
-  name: invoice-worker-development
-  batch_size: 100
-  visibility_timeout_s: 120
+  name: tern-development
+  batch_size: 150
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-development-invoice-worker
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
   - billing-worker
-  - risk-api
-  - ledger-worker
+  - billing-api
+  - inventory-api

@@ -1,13 +1,10 @@
-# orders-api qa settings; keys missing here come from ../../base.yaml
-service: orders-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
 replicas: 4
-log_level: warn
+log_level: debug
 storage:
-  bucket: acme-qa-orders-api
-  retention_days: 7
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3000
 upstreams:
-  - metrics-collector
-  - catalog-indexer
+  - gateway

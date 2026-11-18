@@ -1,8 +1,5 @@
-# billing-scheduler production feature flags
-service: billing-scheduler
+# production feature flags
 environment: production
 flags:
-  new_retry_policy: true
-  async_writes: true
-  batch_compaction: false
-  fast_path: true
+  async_writes: false
+  shadow_reads: false

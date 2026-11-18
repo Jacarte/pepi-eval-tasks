@@ -1,6 +1,5 @@
-# inventory-sync perf autoscaling
-service: inventory-sync
+# perf autoscaling
 environment: perf
-min_replicas: 2
-max_replicas: 6
-target_cpu_percent: 60
+min_replicas: 1
+max_replicas: 7
+target_cpu_percent: 75

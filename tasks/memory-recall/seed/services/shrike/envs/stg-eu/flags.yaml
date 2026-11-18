@@ -1,6 +1,4 @@
-# audit-api staging-eu feature flags
-service: audit-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  strict_validation: false
-  fast_path: true
+  async_writes: false

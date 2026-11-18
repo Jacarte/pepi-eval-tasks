@@ -1,7 +1,7 @@
-# email-sender sandbox feature flags
-service: email-sender
+# sandbox feature flags
 environment: sandbox
 flags:
-  new_retry_policy: true
+  new_retry_policy: false
   async_writes: true
+  batch_compaction: true
   shadow_reads: true

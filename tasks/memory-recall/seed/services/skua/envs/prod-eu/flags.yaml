@@ -1,6 +1,6 @@
-# gateway production-eu feature flags
-service: gateway
+# production-eu feature flags
 environment: production-eu
 flags:
-  shadow_reads: false
-  fast_path: false
+  new_retry_policy: true
+  strict_validation: false
+  fast_path: true

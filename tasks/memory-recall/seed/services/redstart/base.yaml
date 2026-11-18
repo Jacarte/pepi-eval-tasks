@@ -1,9 +1,10 @@
-# webhooks-api defaults
+# redstart deployment
 service: webhooks-api
 codename: redstart
+role: primary
+status: active
 team: identity
 owner: team-identity@example.com
-status: active
 runtime: go1.22
 replicas: 1
 log_level: info

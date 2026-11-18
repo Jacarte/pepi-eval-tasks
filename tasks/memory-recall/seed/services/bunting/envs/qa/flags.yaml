@@ -1,8 +1,5 @@
-# media-transcoder qa feature flags
-service: media-transcoder
+# qa feature flags
 environment: qa
 flags:
-  async_writes: false
-  strict_validation: false
-  batch_compaction: true
+  strict_validation: true
   fast_path: true

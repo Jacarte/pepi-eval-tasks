@@ -1,11 +1,10 @@
-# catalog-api sandbox settings; keys missing here come from ../../base.yaml
-service: catalog-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
-log_level: debug
+replicas: 3
+log_level: warn
 storage:
-  bucket: acme-sandbox-catalog-api
-  retention_days: 21
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1000
 upstreams:
+  - payouts-worker

@@ -1,6 +1,5 @@
-# fraud-scorer development autoscaling
-service: fraud-scorer
+# development autoscaling
 environment: development
-min_replicas: 3
-max_replicas: 8
-target_cpu_percent: 80
+min_replicas: 1
+max_replicas: 6
+target_cpu_percent: 75

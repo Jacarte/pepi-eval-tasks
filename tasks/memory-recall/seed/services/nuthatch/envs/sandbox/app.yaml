@@ -1,16 +1,12 @@
-# sms-sender sandbox settings; keys missing here come from ../../base.yaml
-service: sms-sender
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 4
-log_level: debug
+replicas: 5
+log_level: info
 queue:
-  name: sms-sender-sandbox
-  batch_size: 200
-  visibility_timeout_s: 30
-storage:
-  bucket: acme-sandbox-sms-sender
-  retention_days: 180
+  name: nuthatch-sandbox
+  batch_size: 350
+  visibility_timeout_s: 60
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - import-worker
+  - auth-worker

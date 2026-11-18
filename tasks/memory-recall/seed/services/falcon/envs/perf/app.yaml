@@ -1,16 +1,15 @@
-# auth-worker perf settings; keys missing here come from ../../base.yaml
-service: auth-worker
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 1
-log_level: info
+replicas: 5
+log_level: warn
 queue:
-  name: auth-worker-perf
-  batch_size: 350
-  visibility_timeout_s: 30
+  name: falcon-perf
+  batch_size: 150
+  visibility_timeout_s: 60
 storage:
-  bucket: acme-perf-auth-worker
-  retention_days: 90
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2000
 upstreams:
-  - thumbnails-worker
+  - audit-api
+  - profiles-api

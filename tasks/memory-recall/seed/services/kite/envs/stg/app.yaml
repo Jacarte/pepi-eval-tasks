@@ -1,13 +1,11 @@
-# ledger-api staging settings; keys missing here come from ../../base.yaml
-service: ledger-api
+# staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: info
+replicas: 5
+log_level: debug
 storage:
-  bucket: acme-staging-ledger-api
-  retention_days: 180
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 500
 upstreams:
-  - media-api
-  - pricing-api
+  - import-worker
+  - checkout-worker

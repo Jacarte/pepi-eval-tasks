@@ -1,16 +1,15 @@
-# reports-worker production-eu settings; keys missing here come from ../../base.yaml
-service: reports-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 3
-log_level: warn
+replicas: 5
+log_level: info
 queue:
-  name: reports-worker-production-eu
-  batch_size: 350
-  visibility_timeout_s: 90
+  name: linnet-production-eu
+  batch_size: 400
+  visibility_timeout_s: 30
 storage:
-  bucket: acme-production-eu-reports-worker
-  retention_days: 180
+  include: ../../storage/standard-eu.yaml
 http:
   timeout_ms: 2500
 upstreams:
-  - orders-worker
+  - sms-sender
+  - gateway

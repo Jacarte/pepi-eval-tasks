@@ -1,6 +1,5 @@
-# billing-api staging feature flags
-service: billing-api
+# staging feature flags
 environment: staging
 flags:
-  shadow_reads: false
-  fast_path: true
+  async_writes: false
+  fast_path: false

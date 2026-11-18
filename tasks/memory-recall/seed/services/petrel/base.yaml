@@ -1,9 +1,10 @@
-# notifications-worker defaults
+# petrel deployment
 service: notifications-worker
 codename: petrel
+role: primary
+status: active
 team: growth
 owner: team-growth@example.com
-status: active
 runtime: go1.20
 replicas: 3
 log_level: info

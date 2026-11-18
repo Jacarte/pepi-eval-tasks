@@ -1,11 +1,11 @@
-# fraud-scorer perf settings; keys missing here come from ../../base.yaml
-service: fraud-scorer
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 3
-log_level: info
+replicas: 5
+log_level: warn
 storage:
-  bucket: acme-perf-fraud-scorer
-  retention_days: 7
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
+  - checkout-worker
+  - audit-api

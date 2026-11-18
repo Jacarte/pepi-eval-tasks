@@ -1,16 +1,14 @@
-# pricing-worker production-eu settings; keys missing here come from ../../base.yaml
-service: pricing-worker
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 1
+replicas: 2
 log_level: warn
 queue:
-  name: pricing-worker-production-eu
-  batch_size: 200
+  name: rook-production-eu
+  batch_size: 150
   visibility_timeout_s: 120
 storage:
-  bucket: acme-production-eu-pricing-worker
-  retention_days: 180
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
-  - checkout-api
+  - orders-worker

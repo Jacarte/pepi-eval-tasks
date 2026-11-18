@@ -1,11 +1,10 @@
-# auth-api perf settings; keys missing here come from ../../base.yaml
-service: auth-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
-log_level: info
+replicas: 2
+log_level: debug
 storage:
-  bucket: acme-perf-auth-api
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 4000
 upstreams:
-  - catalog-indexer
+  - ledger-worker

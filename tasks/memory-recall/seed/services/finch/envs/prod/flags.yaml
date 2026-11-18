@@ -1,6 +1,6 @@
-# catalog-indexer production feature flags
-service: catalog-indexer
+# production feature flags
 environment: production
 flags:
-  async_writes: false
-  batch_compaction: false
+  new_retry_policy: true
+  shadow_reads: false
+  fast_path: true

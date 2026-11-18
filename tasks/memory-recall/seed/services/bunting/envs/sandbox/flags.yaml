@@ -1,7 +1,5 @@
-# media-transcoder sandbox feature flags
-service: media-transcoder
+# sandbox feature flags
 environment: sandbox
 flags:
-  new_retry_policy: false
-  strict_validation: false
-  fast_path: true
+  new_retry_policy: true
+  async_writes: false

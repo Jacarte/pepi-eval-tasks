@@ -1,11 +1,11 @@
-# catalog-api perf settings; keys missing here come from ../../base.yaml
-service: catalog-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: info
+replicas: 1
+log_level: warn
 storage:
-  bucket: acme-perf-catalog-api
-  retention_days: 7
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 3500
 upstreams:
+  - audit-worker
+  - import-worker

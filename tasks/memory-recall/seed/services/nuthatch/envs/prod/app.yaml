@@ -1,16 +1,15 @@
-# sms-sender production settings; keys missing here come from ../../base.yaml
-service: sms-sender
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
-log_level: warn
+replicas: 6
+log_level: info
 queue:
-  name: sms-sender-production
-  batch_size: 50
-  visibility_timeout_s: 90
+  name: nuthatch-production
+  batch_size: 400
+  visibility_timeout_s: 120
 storage:
-  bucket: acme-production-sms-sender
-  retention_days: 365
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
-  - search-api
+  - auth-api
+  - media-transcoder

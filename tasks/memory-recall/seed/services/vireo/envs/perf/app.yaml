@@ -1,12 +1,10 @@
-# orders-api perf settings; keys missing here come from ../../base.yaml
-service: orders-api
+# perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 1
-log_level: info
+replicas: 3
+log_level: debug
 storage:
-  bucket: acme-perf-orders-api
-  retention_days: 180
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 4000
 upstreams:
-  - pricing-api
+  - search-indexer

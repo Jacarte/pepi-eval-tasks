@@ -1,9 +1,5 @@
-# pricing-worker qa feature flags
-service: pricing-worker
+# qa feature flags
 environment: qa
 flags:
-  new_retry_policy: true
-  async_writes: false
-  strict_validation: true
   batch_compaction: false
-  shadow_reads: false
+  fast_path: false

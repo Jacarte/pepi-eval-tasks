@@ -1,15 +1,13 @@
-# admin-api production-eu alerts
-service: admin-api
+# production-eu alerts
 environment: production-eu
-log_retention_days: 7
+log_retention_days: 180
 metrics_retention_days: 30
-notify: team-platform
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.09
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 1600
     for: 10m
     severity: ticket

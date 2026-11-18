@@ -1,7 +1,6 @@
-# webhooks-worker staging resources
-service: webhooks-worker
+# staging resources
 environment: staging
-cpu_request: 200m
-cpu_limit: 800m
-mem_request_mb: 640
-mem_limit_mb: 1280
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 128
+mem_limit_mb: 256

@@ -1,8 +1,5 @@
-# webhooks-api production feature flags
-service: webhooks-api
+# production feature flags
 environment: production
 flags:
-  async_writes: true
-  strict_validation: true
-  batch_compaction: false
-  shadow_reads: true
+  new_retry_policy: true
+  async_writes: false

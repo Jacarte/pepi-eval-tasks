@@ -1,12 +1,10 @@
-# checkout-api qa settings; keys missing here come from ../../base.yaml
-service: checkout-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 1
-log_level: warn
+replicas: 5
+log_level: debug
 storage:
-  bucket: acme-qa-checkout-api
-  retention_days: 180
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3000
 upstreams:
-  - sms-sender
+  - email-sender

@@ -1,15 +1,13 @@
-# export-worker perf alerts
-service: export-worker
+# perf alerts
 environment: perf
-log_retention_days: 14
-metrics_retention_days: 7
-notify: team-growth
+log_retention_days: 120
+metrics_retention_days: 90
 alerts:
   - name: error-rate
-    threshold: 0.05
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1300
+    threshold_ms: 800
     for: 10m
     severity: ticket

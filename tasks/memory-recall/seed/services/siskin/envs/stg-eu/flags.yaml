@@ -1,6 +1,6 @@
-# pricing-api staging-eu feature flags
-service: pricing-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  async_writes: false
+  strict_validation: true
   shadow_reads: true
+  fast_path: true

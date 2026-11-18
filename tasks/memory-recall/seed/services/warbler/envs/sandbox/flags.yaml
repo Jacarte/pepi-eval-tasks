@@ -1,8 +1,7 @@
-# orders-worker sandbox feature flags
-service: orders-worker
+# sandbox feature flags
 environment: sandbox
 flags:
-  async_writes: false
-  batch_compaction: true
-  shadow_reads: false
-  fast_path: false
+  new_retry_policy: true
+  async_writes: true
+  strict_validation: false
+  batch_compaction: false

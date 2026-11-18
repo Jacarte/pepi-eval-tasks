@@ -1,6 +1,5 @@
-# payouts-api sandbox autoscaling
-service: payouts-api
+# sandbox autoscaling
 environment: sandbox
 min_replicas: 2
-max_replicas: 4
-target_cpu_percent: 50
+max_replicas: 7
+target_cpu_percent: 55

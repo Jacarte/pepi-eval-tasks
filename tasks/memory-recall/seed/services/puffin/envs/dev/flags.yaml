@@ -1,6 +1,4 @@
-# export-worker development feature flags
-service: export-worker
+# development feature flags
 environment: development
 flags:
-  new_retry_policy: true
-  strict_validation: false
+  batch_compaction: true

@@ -1,6 +1,5 @@
-# payouts-worker production autoscaling
-service: payouts-worker
+# production autoscaling
 environment: production
 min_replicas: 3
-max_replicas: 6
+max_replicas: 10
 target_cpu_percent: 80

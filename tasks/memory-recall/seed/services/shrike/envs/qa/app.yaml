@@ -1,13 +1,10 @@
-# audit-api qa settings; keys missing here come from ../../base.yaml
-service: audit-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 2
-log_level: warn
+replicas: 6
+log_level: info
 storage:
-  bucket: acme-qa-audit-api
-  retention_days: 365
+  include: ../../storage/legacy.yaml
 http:
   timeout_ms: 1000
 upstreams:
-  - sms-sender
-  - users-api
+  - cart-api

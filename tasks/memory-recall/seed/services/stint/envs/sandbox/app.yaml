@@ -1,13 +1,11 @@
-# admin-api sandbox settings; keys missing here come from ../../base.yaml
-service: admin-api
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
-log_level: warn
+replicas: 3
+log_level: debug
 storage:
-  bucket: acme-sandbox-admin-api
-  retention_days: 365
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 500
 upstreams:
-  - metrics-collector
   - ledger-worker
+  - search-api

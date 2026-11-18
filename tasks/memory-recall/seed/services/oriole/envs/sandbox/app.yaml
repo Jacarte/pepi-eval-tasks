@@ -1,16 +1,14 @@
-# email-sender sandbox settings; keys missing here come from ../../base.yaml
-service: email-sender
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
 replicas: 6
 log_level: debug
 queue:
-  name: email-sender-sandbox
-  batch_size: 350
+  name: oriole-sandbox
+  batch_size: 250
   visibility_timeout_s: 30
 storage:
-  bucket: acme-sandbox-email-sender
-  retention_days: 60
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 3500
 upstreams:
-  - cart-api
+  - audit-api

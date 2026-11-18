@@ -1,6 +1,5 @@
-# orders-api staging-eu autoscaling
-service: orders-api
+# staging-eu autoscaling
 environment: staging-eu
-min_replicas: 3
-max_replicas: 4
-target_cpu_percent: 50
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 75

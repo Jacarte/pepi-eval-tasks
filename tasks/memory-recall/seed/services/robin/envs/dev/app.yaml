@@ -1,10 +1,10 @@
-# cart-api development settings; keys missing here come from ../../base.yaml
-service: cart-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 6
-log_level: info
+replicas: 4
+log_level: debug
 storage:
-  bucket: acme-development-cart-api
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
+  - audit-api

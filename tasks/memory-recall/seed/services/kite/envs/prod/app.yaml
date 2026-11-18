@@ -1,12 +1,11 @@
-# ledger-api production settings; keys missing here come from ../../base.yaml
-service: ledger-api
+# production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 6
+replicas: 5
 log_level: info
 storage:
-  bucket: acme-production-ledger-api
-  retention_days: 7
+  include: ../../storage/legacy.yaml
 http:
   timeout_ms: 500
 upstreams:
-  - sms-sender
+  - profiles-api
+  - media-api

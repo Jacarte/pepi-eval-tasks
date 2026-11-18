@@ -1,7 +1,6 @@
-# invoice-worker staging resources
-service: invoice-worker
+# staging resources
 environment: staging
-cpu_request: 500m
-cpu_limit: 1500m
-mem_request_mb: 1024
-mem_limit_mb: 2048
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 384
+mem_limit_mb: 768

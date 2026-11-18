@@ -1,15 +1,13 @@
-# reports-worker staging alerts
-service: reports-worker
+# staging alerts
 environment: staging
-log_retention_days: 7
-metrics_retention_days: 365
-notify: team-fulfilment
+log_retention_days: 60
+metrics_retention_days: 120
 alerts:
   - name: error-rate
     threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2100
+    threshold_ms: 200
     for: 10m
     severity: ticket

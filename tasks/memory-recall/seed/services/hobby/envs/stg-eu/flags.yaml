@@ -1,7 +1,6 @@
-# payouts-worker staging-eu feature flags
-service: payouts-worker
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  new_retry_policy: true
-  async_writes: false
-  strict_validation: false
+  new_retry_policy: false
+  shadow_reads: true
+  fast_path: true

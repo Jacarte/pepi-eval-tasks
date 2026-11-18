@@ -1,15 +1,13 @@
-# admin-api development alerts
-service: admin-api
+# development alerts
 environment: development
-log_retention_days: 180
-metrics_retention_days: 21
-notify: team-platform
+log_retention_days: 60
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1700
+    threshold_ms: 1800
     for: 10m
     severity: ticket

@@ -1,7 +1,5 @@
-# cart-api development feature flags
-service: cart-api
+# development feature flags
 environment: development
 flags:
-  batch_compaction: true
-  shadow_reads: false
-  fast_path: false
+  async_writes: true
+  batch_compaction: false

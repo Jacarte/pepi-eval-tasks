@@ -1,9 +1,10 @@
-# ledger-api defaults
+# kite deployment
 service: ledger-api
 codename: kite
+role: primary
+status: active
 team: platform
 owner: team-platform@example.com
-status: active
 runtime: go1.20
 replicas: 2
 log_level: info

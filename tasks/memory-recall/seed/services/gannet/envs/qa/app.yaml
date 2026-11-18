@@ -1,13 +1,10 @@
-# risk-api qa settings; keys missing here come from ../../base.yaml
-service: risk-api
+# qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 6
-log_level: info
+replicas: 3
+log_level: debug
 storage:
-  bucket: acme-qa-risk-api
-  retention_days: 21
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
-  - inventory-sync
-  - pricing-worker
+  - reports-worker

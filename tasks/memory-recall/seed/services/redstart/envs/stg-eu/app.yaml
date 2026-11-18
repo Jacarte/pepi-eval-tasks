@@ -1,11 +1,10 @@
-# webhooks-api staging-eu settings; keys missing here come from ../../base.yaml
-service: webhooks-api
+# staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 5
+replicas: 2
 log_level: debug
 storage:
-  bucket: acme-staging-eu-webhooks-api
-  retention_days: 365
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 1500
 upstreams:
+  - reports-api

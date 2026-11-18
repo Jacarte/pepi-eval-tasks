@@ -1,6 +1,8 @@
-# billing-worker qa feature flags
-service: billing-worker
+# qa feature flags
 environment: qa
 flags:
-  new_retry_policy: false
-  strict_validation: true
+  new_retry_policy: true
+  async_writes: false
+  strict_validation: false
+  batch_compaction: true
+  shadow_reads: true

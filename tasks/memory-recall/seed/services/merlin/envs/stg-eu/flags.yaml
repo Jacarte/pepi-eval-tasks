@@ -1,7 +1,6 @@
-# reports-api staging-eu feature flags
-service: reports-api
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  new_retry_policy: true
-  batch_compaction: false
-  fast_path: true
+  new_retry_policy: false
+  strict_validation: true
+  shadow_reads: false

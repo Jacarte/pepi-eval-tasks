@@ -1,15 +1,13 @@
-# catalog-indexer production alerts
-service: catalog-indexer
+# production alerts
 environment: production
-log_retention_days: 365
-metrics_retention_days: 21
-notify: team-platform
+log_retention_days: 120
+metrics_retention_days: 120
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.01
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 2100
     for: 10m
     severity: ticket

@@ -1,9 +1,10 @@
-# audit-worker defaults
+# pipit deployment
 service: audit-worker
 codename: pipit
+role: primary
+status: active
 team: platform
 owner: team-platform@example.com
-status: active
 runtime: go1.22
 replicas: 1
 log_level: info

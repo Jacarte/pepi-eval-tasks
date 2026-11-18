@@ -1,17 +1,13 @@
-# audit-worker sandbox settings; keys missing here come from ../../base.yaml
-service: audit-worker
+# sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 1
+replicas: 4
 log_level: debug
 queue:
-  name: audit-worker-sandbox
-  batch_size: 200
-  visibility_timeout_s: 90
-storage:
-  bucket: acme-sandbox-audit-worker
-  retention_days: 180
+  name: pipit-sandbox
+  batch_size: 300
+  visibility_timeout_s: 120
 http:
-  timeout_ms: 3000
+  timeout_ms: 500
 upstreams:
-  - admin-api
-  - webhooks-api
+  - pricing-worker
+  - ledger-api

@@ -1,5 +1,6 @@
-# search-indexer perf feature flags
-service: search-indexer
+# perf feature flags
 environment: perf
 flags:
-  shadow_reads: true
+  new_retry_policy: false
+  strict_validation: false
+  batch_compaction: true

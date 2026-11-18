@@ -1,9 +1,10 @@
-# admin-api defaults
+# stint deployment
 service: admin-api
 codename: stint
+role: primary
+status: active
 team: platform
 owner: team-platform@example.com
-status: active
 runtime: go1.21
 replicas: 2
 log_level: info

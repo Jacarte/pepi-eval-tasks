@@ -1,6 +1,7 @@
-# checkout-api production feature flags
-service: checkout-api
+# production feature flags
 environment: production
 flags:
+  async_writes: true
   batch_compaction: false
-  fast_path: false
+  shadow_reads: false
+  fast_path: true

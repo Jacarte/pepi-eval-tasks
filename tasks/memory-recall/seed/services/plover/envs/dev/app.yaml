@@ -1,13 +1,9 @@
-# billing-scheduler development settings; keys missing here come from ../../base.yaml
-service: billing-scheduler
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
-log_level: info
-storage:
-  bucket: acme-development-billing-scheduler
-  retention_days: 60
+replicas: 2
+log_level: warn
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
   - billing-worker
-  - search-indexer
+  - audit-api

@@ -1,12 +1,10 @@
-# audit-api development settings; keys missing here come from ../../base.yaml
-service: audit-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
+replicas: 4
 log_level: info
 storage:
-  bucket: acme-development-audit-api
-  retention_days: 120
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1500
 upstreams:
-  - orders-api
+  - notifications-worker

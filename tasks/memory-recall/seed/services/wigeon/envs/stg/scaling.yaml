@@ -1,6 +1,0 @@
-# metrics-collector staging autoscaling
-service: metrics-collector
-environment: staging
-min_replicas: 3
-max_replicas: 13
-target_cpu_percent: 55

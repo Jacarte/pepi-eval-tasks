@@ -1,7 +1,6 @@
-# catalog-indexer staging-eu feature flags
-service: catalog-indexer
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  async_writes: true
-  strict_validation: false
+  strict_validation: true
+  batch_compaction: false
   shadow_reads: true

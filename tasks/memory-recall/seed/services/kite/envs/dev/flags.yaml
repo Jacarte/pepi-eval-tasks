@@ -1,7 +1,3 @@
-# ledger-api development feature flags
-service: ledger-api
+# development feature flags
 environment: development
 flags:
-  strict_validation: false
-  batch_compaction: true
-  fast_path: false

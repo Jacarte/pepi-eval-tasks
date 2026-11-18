@@ -1,6 +1,6 @@
-# fraud-scorer production feature flags
-service: fraud-scorer
+# production feature flags
 environment: production
 flags:
-  shadow_reads: false
+  new_retry_policy: false
+  strict_validation: true
   fast_path: true

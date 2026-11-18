@@ -1,15 +1,13 @@
-# billing-worker development alerts
-service: billing-worker
+# development alerts
 environment: development
-log_retention_days: 180
-metrics_retention_days: 21
-notify: team-payments
+log_retention_days: 7
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.04
+    threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 800
+    threshold_ms: 300
     for: 10m
     severity: ticket

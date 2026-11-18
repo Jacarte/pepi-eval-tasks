@@ -1,7 +1,6 @@
-# orders-worker perf resources
-service: orders-worker
+# perf resources
 environment: perf
-cpu_request: 300m
-cpu_limit: 600m
-mem_request_mb: 512
-mem_limit_mb: 1024
+cpu_request: 400m
+cpu_limit: 1200m
+mem_request_mb: 768
+mem_limit_mb: 1536

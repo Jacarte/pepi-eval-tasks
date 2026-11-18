@@ -1,8 +1,5 @@
-# audit-worker development feature flags
-service: audit-worker
+# development feature flags
 environment: development
 flags:
-  async_writes: true
-  strict_validation: true
-  shadow_reads: true
+  new_retry_policy: true
   fast_path: true

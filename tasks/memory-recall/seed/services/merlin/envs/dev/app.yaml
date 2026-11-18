@@ -1,13 +1,11 @@
-# reports-api development settings; keys missing here come from ../../base.yaml
-service: reports-api
+# development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 4
-log_level: info
+replicas: 2
+log_level: debug
 storage:
-  bucket: acme-development-reports-api
-  retention_days: 120
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - users-api
-  - scheduler
+  - payouts-worker
+  - export-worker

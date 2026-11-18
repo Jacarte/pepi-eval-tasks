@@ -1,8 +1,5 @@
-# users-api perf feature flags
-service: users-api
+# perf feature flags
 environment: perf
 flags:
   new_retry_policy: true
-  async_writes: false
-  strict_validation: false
-  batch_compaction: false
+  strict_validation: true

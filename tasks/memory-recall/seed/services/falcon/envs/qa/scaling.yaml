@@ -1,6 +1,5 @@
-# auth-worker qa autoscaling
-service: auth-worker
+# qa autoscaling
 environment: qa
-min_replicas: 1
-max_replicas: 7
-target_cpu_percent: 65
+min_replicas: 3
+max_replicas: 11
+target_cpu_percent: 75

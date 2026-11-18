@@ -1,6 +1,8 @@
-# orders-api development feature flags
-service: orders-api
+# development feature flags
 environment: development
 flags:
-  batch_compaction: true
+  new_retry_policy: false
+  async_writes: true
+  batch_compaction: false
   shadow_reads: false
+  fast_path: false

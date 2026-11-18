@@ -1,0 +1,5 @@
+# shared storage profile
+class: hot
+retention_days: 30
+versioning: true
+encryption: kms

@@ -1,15 +1,13 @@
-# webhooks-api qa alerts
-service: webhooks-api
+# qa alerts
 environment: qa
-log_retention_days: 180
-metrics_retention_days: 30
-notify: team-identity
+log_retention_days: 21
+metrics_retention_days: 120
 alerts:
   - name: error-rate
-    threshold: 0.02
+    threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 1900
     for: 10m
     severity: ticket

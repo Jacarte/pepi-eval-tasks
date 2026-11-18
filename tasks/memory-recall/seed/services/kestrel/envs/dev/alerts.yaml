@@ -1,15 +1,13 @@
-# auth-api development alerts
-service: auth-api
+# development alerts
 environment: development
-log_retention_days: 365
-metrics_retention_days: 14
-notify: team-identity
+log_retention_days: 14
+metrics_retention_days: 30
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.04
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 400
+    threshold_ms: 1500
     for: 10m
     severity: ticket

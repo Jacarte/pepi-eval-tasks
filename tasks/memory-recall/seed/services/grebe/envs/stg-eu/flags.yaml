@@ -1,6 +1,4 @@
-# fraud-scorer staging-eu feature flags
-service: fraud-scorer
+# staging-eu feature flags
 environment: staging-eu
 flags:
-  batch_compaction: true
-  fast_path: true
+  fast_path: false

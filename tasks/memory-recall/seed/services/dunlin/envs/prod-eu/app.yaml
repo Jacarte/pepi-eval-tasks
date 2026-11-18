@@ -1,11 +1,10 @@
-# users-api production-eu settings; keys missing here come from ../../base.yaml
-service: users-api
+# production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 4
-log_level: warn
+replicas: 2
+log_level: debug
 storage:
-  bucket: acme-production-eu-users-api
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 500
 upstreams:
-  - audit-api
+  - payouts-worker

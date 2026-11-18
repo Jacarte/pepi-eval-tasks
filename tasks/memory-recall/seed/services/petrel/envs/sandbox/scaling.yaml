@@ -1,6 +1,5 @@
-# notifications-worker sandbox autoscaling
-service: notifications-worker
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 2
-max_replicas: 9
-target_cpu_percent: 80
+min_replicas: 1
+max_replicas: 10
+target_cpu_percent: 50

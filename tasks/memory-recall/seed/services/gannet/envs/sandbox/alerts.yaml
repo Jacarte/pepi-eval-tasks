@@ -1,15 +1,13 @@
-# risk-api sandbox alerts
-service: risk-api
+# sandbox alerts
 environment: sandbox
-log_retention_days: 45
-metrics_retention_days: 60
-notify: team-fulfilment
+log_retention_days: 30
+metrics_retention_days: 365
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.07
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2100
+    threshold_ms: 1500
     for: 10m
     severity: ticket

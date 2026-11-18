@@ -1,9 +1,5 @@
-# billing-worker production-eu feature flags
-service: billing-worker
+# production-eu feature flags
 environment: production-eu
 flags:
-  async_writes: false
-  strict_validation: true
-  batch_compaction: false
-  shadow_reads: false
-  fast_path: false
+  new_retry_policy: true
+  batch_compaction: true

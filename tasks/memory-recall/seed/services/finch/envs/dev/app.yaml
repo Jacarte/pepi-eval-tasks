@@ -1,12 +1,11 @@
-# catalog-indexer development settings; keys missing here come from ../../base.yaml
-service: catalog-indexer
+# development settings; keys missing here come from ../../base.yaml
 environment: development
 replicas: 5
-log_level: info
+log_level: warn
 storage:
-  bucket: acme-development-catalog-indexer
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 1000
 upstreams:
-  - fraud-scorer
-  - orders-worker
+  - payouts-api
+  - billing-api

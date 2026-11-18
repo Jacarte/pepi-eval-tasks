@@ -1,15 +1,13 @@
-# notifications-api sandbox alerts
-service: notifications-api
+# sandbox alerts
 environment: sandbox
-log_retention_days: 60
-metrics_retention_days: 30
-notify: team-platform
+log_retention_days: 45
+metrics_retention_days: 14
 alerts:
   - name: error-rate
-    threshold: 0.08
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1100
+    threshold_ms: 1800
     for: 10m
     severity: ticket

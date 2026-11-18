@@ -1,8 +1,7 @@
-# checkout-worker staging feature flags
-service: checkout-worker
+# staging feature flags
 environment: staging
 flags:
   new_retry_policy: false
-  strict_validation: false
+  strict_validation: true
   batch_compaction: false
   fast_path: false

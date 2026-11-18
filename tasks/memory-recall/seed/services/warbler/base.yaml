@@ -1,9 +1,10 @@
-# orders-worker defaults
+# warbler deployment
 service: orders-worker
 codename: warbler
+role: primary
+status: active
 team: growth
 owner: team-growth@example.com
-status: active
 runtime: go1.21
 replicas: 2
 log_level: info

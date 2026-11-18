@@ -1,6 +1,5 @@
-# catalog-indexer sandbox autoscaling
-service: catalog-indexer
+# sandbox autoscaling
 environment: sandbox
-min_replicas: 3
-max_replicas: 5
-target_cpu_percent: 50
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 75
