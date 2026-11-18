@@ -1,0 +1,37 @@
+milestones:
+  - id: m1-semver
+    title: Semantic versions, precedence, increments and ranges
+    command: go test ./semver/... -run '^TestM1[A-Z]'
+  - id: m2-glob
+    title: gitignore-style matcher with negation and directory rules
+    command: go test ./glob/... -run '^TestM2[A-Z]'
+  - id: m3-csvparse
+    title: Streaming RFC 4180 CSV reader and writer
+    command: go test ./csvparse/... -run '^TestM3[A-Z]'
+  - id: m4-inireader
+    title: INI/TOML-lite parser with typed getters and line-numbered errors
+    command: go test ./inireader/... -run '^TestM4[A-Z]'
+  - id: m5-lrucache
+    title: Generic LRU cache with TTL, weights, callbacks and stats
+    command: go test ./lrucache/... -run '^TestM5[A-Z]'
+  - id: m6-regexlite
+    title: Backtracking regex engine with groups, lazy quantifiers and positioned syntax errors
+    command: go test ./regexlite/... -run '^TestM6[A-Z]'
+  - id: m7-jsonpatch
+    title: JSON Pointer and atomic JSON Patch with exact error kinds
+    command: go test ./jsonpatch/... -run '^TestM7[A-Z]'
+  - id: m8-cron
+    title: Five-field cron parser with field errors and next-run computation
+    command: go test ./cron/... -run '^TestM8[A-Z]'
+  - id: m9-mdlite
+    title: Markdown subset to HTML with nested lists, code and emphasis
+    command: go test ./mdlite/... -run '^TestM9[A-Z]'
+  - id: m10-expr
+    title: Expression parser and evaluator with precedence, short-circuit and positioned errors
+    command: go test ./expr/... -run '^TestM10[A-Z]'
+  - id: m11-udiff
+    title: Myers line diff, unified output and strict patch application
+    command: go test ./udiff/... -run '^TestM11[A-Z]'
+  - id: m12-tmpl
+    title: Text templates with conditionals, ranges, filters, trim markers and escaping
+    command: go test ./tmpl/... -run '^TestM12[A-Z]'
