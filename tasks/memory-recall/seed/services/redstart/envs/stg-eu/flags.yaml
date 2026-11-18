@@ -1,0 +1,8 @@
+# webhooks-api staging-eu feature flags
+service: webhooks-api
+environment: staging-eu
+flags:
+  async_writes: true
+  strict_validation: false
+  batch_compaction: true
+  fast_path: false

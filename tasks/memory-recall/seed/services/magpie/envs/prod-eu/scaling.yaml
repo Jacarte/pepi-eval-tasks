@@ -1,0 +1,6 @@
+# search-indexer production-eu autoscaling
+service: search-indexer
+environment: production-eu
+min_replicas: 2
+max_replicas: 11
+target_cpu_percent: 55

@@ -1,0 +1,17 @@
+# reports-worker perf settings; keys missing here come from ../../base.yaml
+service: reports-worker
+environment: perf
+replicas: 3
+log_level: info
+queue:
+  name: reports-worker-perf
+  batch_size: 200
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-perf-reports-worker
+  retention_days: 30
+http:
+  timeout_ms: 3500
+upstreams:
+  - risk-api
+  - search-indexer

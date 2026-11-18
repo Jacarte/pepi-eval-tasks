@@ -1,0 +1,5 @@
+# scheduler development feature flags
+service: scheduler
+environment: development
+flags:
+  fast_path: false

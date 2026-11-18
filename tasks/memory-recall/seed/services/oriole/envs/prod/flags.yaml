@@ -1,0 +1,7 @@
+# email-sender production feature flags
+service: email-sender
+environment: production
+flags:
+  async_writes: false
+  batch_compaction: true
+  fast_path: false

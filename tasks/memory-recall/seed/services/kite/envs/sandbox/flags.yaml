@@ -1,0 +1,7 @@
+# ledger-api sandbox feature flags
+service: ledger-api
+environment: sandbox
+flags:
+  new_retry_policy: false
+  strict_validation: true
+  fast_path: true

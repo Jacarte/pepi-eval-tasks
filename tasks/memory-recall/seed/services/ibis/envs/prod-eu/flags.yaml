@@ -1,0 +1,7 @@
+# payouts-api production-eu feature flags
+service: payouts-api
+environment: production-eu
+flags:
+  new_retry_policy: true
+  async_writes: false
+  strict_validation: false

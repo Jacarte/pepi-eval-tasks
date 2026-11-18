@@ -1,0 +1,7 @@
+# webhooks-api sandbox resources
+service: webhooks-api
+environment: sandbox
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 640
+mem_limit_mb: 1280

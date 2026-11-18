@@ -1,0 +1,12 @@
+# inventory-sync production-eu settings; keys missing here come from ../../base.yaml
+service: inventory-sync
+environment: production-eu
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-production-eu-inventory-sync
+  retention_days: 90
+http:
+  timeout_ms: 3000
+upstreams:
+  - orders-worker

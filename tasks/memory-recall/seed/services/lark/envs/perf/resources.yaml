@@ -1,0 +1,7 @@
+# search-api perf resources
+service: search-api
+environment: perf
+cpu_request: 100m
+cpu_limit: 200m
+mem_request_mb: 128
+mem_limit_mb: 256

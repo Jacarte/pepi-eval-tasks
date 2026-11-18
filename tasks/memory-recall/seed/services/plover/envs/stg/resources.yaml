@@ -1,0 +1,7 @@
+# billing-scheduler staging resources
+service: billing-scheduler
+environment: staging
+cpu_request: 500m
+cpu_limit: 1500m
+mem_request_mb: 1024
+mem_limit_mb: 2048

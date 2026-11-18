@@ -1,0 +1,6 @@
+# search-indexer qa autoscaling
+service: search-indexer
+environment: qa
+min_replicas: 3
+max_replicas: 10
+target_cpu_percent: 70

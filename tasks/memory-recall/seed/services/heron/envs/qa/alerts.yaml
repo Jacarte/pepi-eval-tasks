@@ -1,0 +1,15 @@
+# billing-worker qa alerts
+service: billing-worker
+environment: qa
+log_retention_days: 90
+metrics_retention_days: 7
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1200
+    for: 10m
+    severity: ticket

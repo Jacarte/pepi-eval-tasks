@@ -1,0 +1,13 @@
+# inventory-api staging-eu settings; keys missing here come from ../../base.yaml
+service: inventory-api
+environment: staging-eu
+replicas: 2
+log_level: warn
+storage:
+  bucket: acme-staging-eu-inventory-api
+  retention_days: 365
+http:
+  timeout_ms: 3000
+upstreams:
+  - pricing-worker
+  - inventory-sync

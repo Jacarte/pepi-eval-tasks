@@ -1,0 +1,12 @@
+# billing-legacy production settings; keys missing here come from ../../base.yaml
+service: billing-legacy
+environment: production
+replicas: 2
+log_level: debug
+storage:
+  bucket: acme-production-billing-legacy
+  retention_days: 45
+http:
+  timeout_ms: 3000
+upstreams:
+  - admin-api

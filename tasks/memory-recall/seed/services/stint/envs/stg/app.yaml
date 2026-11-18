@@ -1,0 +1,12 @@
+# admin-api staging settings; keys missing here come from ../../base.yaml
+service: admin-api
+environment: staging
+replicas: 6
+log_level: info
+storage:
+  bucket: acme-staging-admin-api
+http:
+  timeout_ms: 3000
+upstreams:
+  - pricing-api
+  - billing-worker

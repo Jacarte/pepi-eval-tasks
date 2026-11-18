@@ -1,0 +1,15 @@
+# notifications-api production-eu alerts
+service: notifications-api
+environment: production-eu
+log_retention_days: 45
+metrics_retention_days: 14
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.05
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1700
+    for: 10m
+    severity: ticket

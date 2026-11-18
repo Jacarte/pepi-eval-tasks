@@ -1,0 +1,6 @@
+# webhooks-api sandbox autoscaling
+service: webhooks-api
+environment: sandbox
+min_replicas: 1
+max_replicas: 4
+target_cpu_percent: 65

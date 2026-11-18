@@ -1,0 +1,14 @@
+# billing-api production-eu settings; keys missing here come from ../../base.yaml
+service: billing-api
+environment: production-eu
+replicas: 6
+log_level: info
+storage:
+  bucket: acme-production-eu-billing-api
+  retention_days: 365
+http:
+  timeout_ms: 1500
+upstreams:
+  - billing-worker
+  - risk-api
+  - inventory-sync

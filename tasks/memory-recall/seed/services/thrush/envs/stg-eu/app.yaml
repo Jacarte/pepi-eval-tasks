@@ -1,0 +1,16 @@
+# checkout-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: checkout-worker
+environment: staging-eu
+replicas: 6
+log_level: info
+queue:
+  name: checkout-worker-staging-eu
+  batch_size: 400
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-staging-eu-checkout-worker
+  retention_days: 120
+http:
+  timeout_ms: 2000
+upstreams:
+  - media-transcoder

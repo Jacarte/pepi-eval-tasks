@@ -1,0 +1,6 @@
+# ledger-worker production autoscaling
+service: ledger-worker
+environment: production
+min_replicas: 3
+max_replicas: 8
+target_cpu_percent: 55

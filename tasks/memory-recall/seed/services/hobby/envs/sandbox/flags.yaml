@@ -1,0 +1,6 @@
+# payouts-worker sandbox feature flags
+service: payouts-worker
+environment: sandbox
+flags:
+  strict_validation: true
+  shadow_reads: true

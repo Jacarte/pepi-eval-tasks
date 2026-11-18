@@ -1,0 +1,6 @@
+# risk-api development autoscaling
+service: risk-api
+environment: development
+min_replicas: 1
+max_replicas: 7
+target_cpu_percent: 60

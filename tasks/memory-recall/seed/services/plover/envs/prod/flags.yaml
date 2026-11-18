@@ -1,0 +1,8 @@
+# billing-scheduler production feature flags
+service: billing-scheduler
+environment: production
+flags:
+  new_retry_policy: true
+  async_writes: true
+  batch_compaction: false
+  fast_path: true

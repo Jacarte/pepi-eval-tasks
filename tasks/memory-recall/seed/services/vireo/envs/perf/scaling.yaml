@@ -1,0 +1,6 @@
+# orders-api perf autoscaling
+service: orders-api
+environment: perf
+min_replicas: 1
+max_replicas: 3
+target_cpu_percent: 60

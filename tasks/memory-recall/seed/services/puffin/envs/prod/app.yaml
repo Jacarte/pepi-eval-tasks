@@ -1,0 +1,16 @@
+# export-worker production settings; keys missing here come from ../../base.yaml
+service: export-worker
+environment: production
+replicas: 3
+log_level: warn
+queue:
+  name: export-worker-production
+  batch_size: 200
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-production-export-worker
+  retention_days: 30
+http:
+  timeout_ms: 3000
+upstreams:
+  - audit-worker

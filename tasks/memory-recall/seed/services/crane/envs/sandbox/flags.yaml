@@ -1,0 +1,9 @@
+# media-api sandbox feature flags
+service: media-api
+environment: sandbox
+flags:
+  new_retry_policy: false
+  async_writes: true
+  strict_validation: true
+  batch_compaction: false
+  fast_path: false

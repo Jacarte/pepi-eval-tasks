@@ -1,0 +1,9 @@
+# profiles-api production feature flags
+service: profiles-api
+environment: production
+flags:
+  new_retry_policy: false
+  async_writes: true
+  strict_validation: true
+  batch_compaction: true
+  shadow_reads: true

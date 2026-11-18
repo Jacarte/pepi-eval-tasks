@@ -1,0 +1,7 @@
+# orders-api production-eu feature flags
+service: orders-api
+environment: production-eu
+flags:
+  batch_compaction: false
+  shadow_reads: false
+  fast_path: false

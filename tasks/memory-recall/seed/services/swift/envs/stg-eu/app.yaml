@@ -1,0 +1,12 @@
+# checkout-api staging-eu settings; keys missing here come from ../../base.yaml
+service: checkout-api
+environment: staging-eu
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-staging-eu-checkout-api
+  retention_days: 180
+http:
+  timeout_ms: 2500
+upstreams:
+  - catalog-indexer

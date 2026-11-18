@@ -1,0 +1,7 @@
+# invoice-worker development feature flags
+service: invoice-worker
+environment: development
+flags:
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: false

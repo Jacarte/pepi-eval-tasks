@@ -1,0 +1,5 @@
+# billing-legacy staging-eu feature flags
+service: billing-legacy
+environment: staging-eu
+flags:
+  shadow_reads: false

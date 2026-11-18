@@ -1,0 +1,15 @@
+# media-api development alerts
+service: media-api
+environment: development
+log_retention_days: 21
+metrics_retention_days: 60
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 200
+    for: 10m
+    severity: ticket

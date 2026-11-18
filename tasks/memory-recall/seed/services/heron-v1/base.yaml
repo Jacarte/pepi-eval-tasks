@@ -1,0 +1,16 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+codename: heron-v1
+team: payments
+owner: team-payments@example.com
+status: decommissioned
+replaced_by: heron
+runtime: go1.22
+replicas: 3
+log_level: info
+storage:
+  retention_days: 90
+  encryption: aes256
+http:
+  port: 8082
+  timeout_ms: 5000

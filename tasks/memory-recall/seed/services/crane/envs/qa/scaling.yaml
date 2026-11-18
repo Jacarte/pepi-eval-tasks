@@ -1,0 +1,6 @@
+# media-api qa autoscaling
+service: media-api
+environment: qa
+min_replicas: 2
+max_replicas: 11
+target_cpu_percent: 70

@@ -1,0 +1,11 @@
+# search-indexer qa settings; keys missing here come from ../../base.yaml
+service: search-indexer
+environment: qa
+replicas: 5
+log_level: warn
+storage:
+  bucket: acme-qa-search-indexer
+http:
+  timeout_ms: 1500
+upstreams:
+  - catalog-api

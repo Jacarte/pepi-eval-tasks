@@ -1,0 +1,6 @@
+# payouts-worker sandbox autoscaling
+service: payouts-worker
+environment: sandbox
+min_replicas: 3
+max_replicas: 4
+target_cpu_percent: 60

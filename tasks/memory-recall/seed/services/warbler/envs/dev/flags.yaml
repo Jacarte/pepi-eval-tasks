@@ -1,0 +1,6 @@
+# orders-worker development feature flags
+service: orders-worker
+environment: development
+flags:
+  batch_compaction: true
+  fast_path: false

@@ -1,0 +1,5 @@
+# users-api production feature flags
+service: users-api
+environment: production
+flags:
+  strict_validation: true

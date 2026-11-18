@@ -1,0 +1,7 @@
+# admin-api sandbox feature flags
+service: admin-api
+environment: sandbox
+flags:
+  new_retry_policy: true
+  strict_validation: false
+  shadow_reads: true

@@ -1,0 +1,6 @@
+# inventory-sync production autoscaling
+service: inventory-sync
+environment: production
+min_replicas: 1
+max_replicas: 9
+target_cpu_percent: 65

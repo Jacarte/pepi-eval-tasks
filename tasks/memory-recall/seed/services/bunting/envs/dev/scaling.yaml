@@ -1,0 +1,6 @@
+# media-transcoder development autoscaling
+service: media-transcoder
+environment: development
+min_replicas: 1
+max_replicas: 7
+target_cpu_percent: 75

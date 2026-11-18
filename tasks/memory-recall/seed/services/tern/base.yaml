@@ -1,0 +1,15 @@
+# invoice-worker defaults
+service: invoice-worker
+codename: tern
+team: payments
+owner: team-payments@example.com
+status: active
+runtime: go1.22
+replicas: 3
+log_level: info
+storage:
+  retention_days: 60
+  encryption: aes256
+http:
+  port: 8082
+  timeout_ms: 3000

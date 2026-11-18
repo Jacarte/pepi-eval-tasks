@@ -1,0 +1,15 @@
+# profiles-api production alerts
+service: profiles-api
+environment: production
+log_retention_days: 14
+metrics_retention_days: 90
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.01
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 200
+    for: 10m
+    severity: ticket

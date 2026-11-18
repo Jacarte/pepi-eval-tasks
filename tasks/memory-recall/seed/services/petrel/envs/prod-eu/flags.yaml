@@ -1,0 +1,7 @@
+# notifications-worker production-eu feature flags
+service: notifications-worker
+environment: production-eu
+flags:
+  strict_validation: true
+  batch_compaction: true
+  fast_path: true

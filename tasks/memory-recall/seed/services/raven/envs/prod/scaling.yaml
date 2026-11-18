@@ -1,0 +1,6 @@
+# notifications-api production autoscaling
+service: notifications-api
+environment: production
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 60

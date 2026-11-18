@@ -1,0 +1,15 @@
+# notifications-worker perf alerts
+service: notifications-worker
+environment: perf
+log_retention_days: 30
+metrics_retention_days: 90
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1500
+    for: 10m
+    severity: ticket

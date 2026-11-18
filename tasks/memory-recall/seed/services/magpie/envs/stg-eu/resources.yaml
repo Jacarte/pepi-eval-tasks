@@ -1,0 +1,7 @@
+# search-indexer staging-eu resources
+service: search-indexer
+environment: staging-eu
+cpu_request: 300m
+cpu_limit: 600m
+mem_request_mb: 896
+mem_limit_mb: 1792

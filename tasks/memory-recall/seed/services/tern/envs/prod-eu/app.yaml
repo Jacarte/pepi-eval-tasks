@@ -1,0 +1,17 @@
+# invoice-worker production-eu settings; keys missing here come from ../../base.yaml
+service: invoice-worker
+environment: production-eu
+replicas: 5
+log_level: debug
+queue:
+  name: invoice-worker-production-eu
+  batch_size: 50
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-production-eu-invoice-worker
+http:
+  timeout_ms: 3000
+upstreams:
+  - billing-worker
+  - checkout-api
+  - risk-api

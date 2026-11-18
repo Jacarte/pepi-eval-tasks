@@ -1,0 +1,15 @@
+# scheduler development alerts
+service: scheduler
+environment: development
+log_retention_days: 21
+metrics_retention_days: 7
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.09
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 2000
+    for: 10m
+    severity: ticket

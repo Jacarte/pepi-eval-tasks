@@ -1,0 +1,17 @@
+# billing-worker perf settings; keys missing here come from ../../base.yaml
+service: billing-worker
+environment: perf
+replicas: 6
+log_level: info
+queue:
+  name: billing-worker-perf
+  batch_size: 350
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-perf-billing-worker
+  retention_days: 21
+http:
+  timeout_ms: 2000
+upstreams:
+  - webhooks-api
+  - ledger-worker

@@ -1,0 +1,16 @@
+# orders-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: orders-worker
+environment: staging-eu
+replicas: 1
+log_level: info
+queue:
+  name: orders-worker-staging-eu
+  batch_size: 300
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-eu-orders-worker
+  retention_days: 30
+http:
+  timeout_ms: 3500
+upstreams:
+  - inventory-api

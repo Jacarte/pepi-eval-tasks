@@ -1,0 +1,7 @@
+# auth-api sandbox resources
+service: auth-api
+environment: sandbox
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 512
+mem_limit_mb: 1024

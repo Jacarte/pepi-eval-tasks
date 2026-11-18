@@ -1,0 +1,12 @@
+# scheduler production-eu settings; keys missing here come from ../../base.yaml
+service: scheduler
+environment: production-eu
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-production-eu-scheduler
+http:
+  timeout_ms: 1000
+upstreams:
+  - billing-worker
+  - billing-worker

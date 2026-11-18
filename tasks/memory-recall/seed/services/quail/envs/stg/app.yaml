@@ -1,0 +1,16 @@
+# import-worker staging settings; keys missing here come from ../../base.yaml
+service: import-worker
+environment: staging
+replicas: 2
+log_level: debug
+queue:
+  name: import-worker-staging
+  batch_size: 350
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-staging-import-worker
+http:
+  timeout_ms: 1500
+upstreams:
+  - auth-worker
+  - notifications-api

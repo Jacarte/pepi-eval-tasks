@@ -1,0 +1,6 @@
+# gateway production autoscaling
+service: gateway
+environment: production
+min_replicas: 1
+max_replicas: 7
+target_cpu_percent: 50

@@ -1,0 +1,13 @@
+# inventory-api qa settings; keys missing here come from ../../base.yaml
+service: inventory-api
+environment: qa
+replicas: 3
+log_level: warn
+storage:
+  bucket: acme-qa-inventory-api
+  retention_days: 7
+http:
+  timeout_ms: 2000
+upstreams:
+  - payouts-api
+  - admin-api

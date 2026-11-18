@@ -1,0 +1,15 @@
+# pricing-api perf alerts
+service: pricing-api
+environment: perf
+log_retention_days: 30
+metrics_retention_days: 60
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.01
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1200
+    for: 10m
+    severity: ticket

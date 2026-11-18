@@ -1,0 +1,17 @@
+# audit-worker production settings; keys missing here come from ../../base.yaml
+service: audit-worker
+environment: production
+replicas: 4
+log_level: debug
+queue:
+  name: audit-worker-production
+  batch_size: 350
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-production-audit-worker
+  retention_days: 90
+http:
+  timeout_ms: 4000
+upstreams:
+  - users-api
+  - pricing-api

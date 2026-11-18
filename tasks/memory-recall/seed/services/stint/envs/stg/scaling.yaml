@@ -1,0 +1,6 @@
+# admin-api staging autoscaling
+service: admin-api
+environment: staging
+min_replicas: 2
+max_replicas: 12
+target_cpu_percent: 55

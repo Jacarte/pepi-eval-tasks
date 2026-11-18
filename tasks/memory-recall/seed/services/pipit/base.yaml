@@ -1,0 +1,15 @@
+# audit-worker defaults
+service: audit-worker
+codename: pipit
+team: platform
+owner: team-platform@example.com
+status: active
+runtime: go1.22
+replicas: 1
+log_level: info
+storage:
+  retention_days: 7
+  encryption: aes256
+http:
+  port: 8083
+  timeout_ms: 4000

@@ -1,0 +1,15 @@
+# notifications-worker qa settings; keys missing here come from ../../base.yaml
+service: notifications-worker
+environment: qa
+replicas: 5
+log_level: debug
+queue:
+  name: notifications-worker-qa
+  batch_size: 350
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-qa-notifications-worker
+http:
+  timeout_ms: 1000
+upstreams:
+  - billing-api

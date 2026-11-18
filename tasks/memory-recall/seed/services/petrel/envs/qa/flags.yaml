@@ -1,0 +1,8 @@
+# notifications-worker qa feature flags
+service: notifications-worker
+environment: qa
+flags:
+  new_retry_policy: false
+  strict_validation: false
+  batch_compaction: false
+  fast_path: true

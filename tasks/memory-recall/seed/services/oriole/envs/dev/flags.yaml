@@ -1,0 +1,8 @@
+# email-sender development feature flags
+service: email-sender
+environment: development
+flags:
+  async_writes: false
+  strict_validation: false
+  batch_compaction: false
+  shadow_reads: true

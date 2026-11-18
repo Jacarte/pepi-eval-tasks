@@ -1,0 +1,6 @@
+# checkout-api production-eu autoscaling
+service: checkout-api
+environment: production-eu
+min_replicas: 1
+max_replicas: 2
+target_cpu_percent: 60

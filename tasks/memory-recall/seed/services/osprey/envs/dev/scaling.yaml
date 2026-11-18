@@ -1,0 +1,6 @@
+# billing-legacy development autoscaling
+service: billing-legacy
+environment: development
+min_replicas: 2
+max_replicas: 12
+target_cpu_percent: 50

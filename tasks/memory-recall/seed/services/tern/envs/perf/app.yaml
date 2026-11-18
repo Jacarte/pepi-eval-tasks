@@ -1,0 +1,17 @@
+# invoice-worker perf settings; keys missing here come from ../../base.yaml
+service: invoice-worker
+environment: perf
+replicas: 4
+log_level: debug
+queue:
+  name: invoice-worker-perf
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-perf-invoice-worker
+  retention_days: 30
+http:
+  timeout_ms: 500
+upstreams:
+  - billing-worker
+  - export-worker

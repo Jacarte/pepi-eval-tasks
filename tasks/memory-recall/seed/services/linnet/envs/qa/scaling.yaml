@@ -1,0 +1,6 @@
+# reports-worker qa autoscaling
+service: reports-worker
+environment: qa
+min_replicas: 2
+max_replicas: 6
+target_cpu_percent: 75

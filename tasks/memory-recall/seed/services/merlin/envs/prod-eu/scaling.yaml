@@ -1,0 +1,6 @@
+# reports-api production-eu autoscaling
+service: reports-api
+environment: production-eu
+min_replicas: 2
+max_replicas: 7
+target_cpu_percent: 55

@@ -1,0 +1,7 @@
+# sms-sender staging resources
+service: sms-sender
+environment: staging
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 128
+mem_limit_mb: 256

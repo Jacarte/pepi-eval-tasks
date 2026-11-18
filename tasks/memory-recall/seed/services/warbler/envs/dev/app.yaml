@@ -1,0 +1,16 @@
+# orders-worker development settings; keys missing here come from ../../base.yaml
+service: orders-worker
+environment: development
+replicas: 3
+log_level: debug
+queue:
+  name: orders-worker-development
+  batch_size: 50
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-development-orders-worker
+  retention_days: 90
+http:
+  timeout_ms: 3500
+upstreams:
+  - media-api

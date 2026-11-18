@@ -1,0 +1,4 @@
+# email-sender production-eu feature flags
+service: email-sender
+environment: production-eu
+flags:

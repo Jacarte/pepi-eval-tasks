@@ -1,0 +1,7 @@
+# orders-api perf feature flags
+service: orders-api
+environment: perf
+flags:
+  async_writes: false
+  strict_validation: false
+  fast_path: true

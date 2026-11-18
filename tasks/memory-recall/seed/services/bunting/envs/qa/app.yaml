@@ -1,0 +1,12 @@
+# media-transcoder qa settings; keys missing here come from ../../base.yaml
+service: media-transcoder
+environment: qa
+replicas: 2
+log_level: info
+storage:
+  bucket: acme-qa-media-transcoder
+  retention_days: 14
+http:
+  timeout_ms: 1000
+upstreams:
+  - checkout-api

@@ -1,0 +1,11 @@
+# audit-api perf settings; keys missing here come from ../../base.yaml
+service: audit-api
+environment: perf
+replicas: 5
+log_level: debug
+storage:
+  bucket: acme-perf-audit-api
+http:
+  timeout_ms: 3500
+upstreams:
+  - auth-api

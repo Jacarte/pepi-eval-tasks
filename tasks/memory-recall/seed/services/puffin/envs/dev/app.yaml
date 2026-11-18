@@ -1,0 +1,15 @@
+# export-worker development settings; keys missing here come from ../../base.yaml
+service: export-worker
+environment: development
+replicas: 4
+log_level: debug
+queue:
+  name: export-worker-development
+  batch_size: 100
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-development-export-worker
+http:
+  timeout_ms: 4000
+upstreams:
+  - reports-worker

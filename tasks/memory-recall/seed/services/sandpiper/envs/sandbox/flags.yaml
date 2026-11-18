@@ -1,0 +1,8 @@
+# webhooks-worker sandbox feature flags
+service: webhooks-worker
+environment: sandbox
+flags:
+  strict_validation: false
+  batch_compaction: true
+  shadow_reads: false
+  fast_path: true

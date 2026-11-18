@@ -1,0 +1,6 @@
+# reports-api sandbox autoscaling
+service: reports-api
+environment: sandbox
+min_replicas: 2
+max_replicas: 7
+target_cpu_percent: 80

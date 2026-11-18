@@ -1,0 +1,15 @@
+# billing-legacy production alerts
+service: billing-legacy
+environment: production
+log_retention_days: 90
+metrics_retention_days: 14
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 900
+    for: 10m
+    severity: ticket

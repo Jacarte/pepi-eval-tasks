@@ -1,0 +1,16 @@
+# reports-worker production-eu settings; keys missing here come from ../../base.yaml
+service: reports-worker
+environment: production-eu
+replicas: 3
+log_level: warn
+queue:
+  name: reports-worker-production-eu
+  batch_size: 350
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-eu-reports-worker
+  retention_days: 180
+http:
+  timeout_ms: 2500
+upstreams:
+  - orders-worker

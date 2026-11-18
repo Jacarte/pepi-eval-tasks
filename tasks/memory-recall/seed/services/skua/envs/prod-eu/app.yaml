@@ -1,0 +1,12 @@
+# gateway production-eu settings; keys missing here come from ../../base.yaml
+service: gateway
+environment: production-eu
+replicas: 3
+log_level: debug
+storage:
+  bucket: acme-production-eu-gateway
+http:
+  timeout_ms: 4000
+upstreams:
+  - profiles-api
+  - audit-api

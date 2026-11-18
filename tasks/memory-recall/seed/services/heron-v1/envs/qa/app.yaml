@@ -1,0 +1,16 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: qa
+replicas: 3
+log_level: info
+queue:
+  name: billing-worker-qa
+  batch_size: 50
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-qa-billing-worker
+  retention_days: 7
+http:
+  timeout_ms: 3500
+upstreams:
+  - billing-api

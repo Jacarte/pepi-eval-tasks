@@ -1,0 +1,15 @@
+# orders-worker defaults
+service: orders-worker
+codename: warbler
+team: growth
+owner: team-growth@example.com
+status: active
+runtime: go1.21
+replicas: 2
+log_level: info
+storage:
+  retention_days: 60
+  encryption: aes256
+http:
+  port: 8082
+  timeout_ms: 3000

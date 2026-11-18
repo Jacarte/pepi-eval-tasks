@@ -1,0 +1,7 @@
+# payouts-api qa feature flags
+service: payouts-api
+environment: qa
+flags:
+  async_writes: true
+  strict_validation: true
+  shadow_reads: false

@@ -1,0 +1,7 @@
+# inventory-sync staging-eu feature flags
+service: inventory-sync
+environment: staging-eu
+flags:
+  new_retry_policy: false
+  async_writes: false
+  strict_validation: false

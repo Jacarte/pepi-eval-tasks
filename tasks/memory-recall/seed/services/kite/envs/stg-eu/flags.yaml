@@ -1,0 +1,6 @@
+# ledger-api staging-eu feature flags
+service: ledger-api
+environment: staging-eu
+flags:
+  batch_compaction: true
+  shadow_reads: true

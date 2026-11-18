@@ -1,0 +1,15 @@
+# notifications-worker sandbox settings; keys missing here come from ../../base.yaml
+service: notifications-worker
+environment: sandbox
+replicas: 4
+log_level: info
+queue:
+  name: notifications-worker-sandbox
+  batch_size: 200
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-sandbox-notifications-worker
+http:
+  timeout_ms: 1500
+upstreams:
+  - media-api

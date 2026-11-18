@@ -1,0 +1,16 @@
+# email-sender perf settings; keys missing here come from ../../base.yaml
+service: email-sender
+environment: perf
+replicas: 6
+log_level: debug
+queue:
+  name: email-sender-perf
+  batch_size: 150
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-perf-email-sender
+  retention_days: 60
+http:
+  timeout_ms: 3000
+upstreams:
+  - admin-api

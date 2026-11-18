@@ -1,0 +1,13 @@
+# admin-api production-eu settings; keys missing here come from ../../base.yaml
+service: admin-api
+environment: production-eu
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-production-eu-admin-api
+  retention_days: 45
+http:
+  timeout_ms: 4000
+upstreams:
+  - cart-api
+  - metrics-collector

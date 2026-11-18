@@ -1,0 +1,5 @@
+# inventory-sync qa feature flags
+service: inventory-sync
+environment: qa
+flags:
+  strict_validation: false

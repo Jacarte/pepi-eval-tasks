@@ -1,0 +1,15 @@
+# profiles-api defaults
+service: profiles-api
+codename: curlew
+team: growth
+owner: team-growth@example.com
+status: active
+runtime: go1.21
+replicas: 1
+log_level: info
+storage:
+  retention_days: 7
+  encryption: aes256
+http:
+  port: 8080
+  timeout_ms: 2000

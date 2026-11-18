@@ -1,0 +1,11 @@
+# reports-api sandbox settings; keys missing here come from ../../base.yaml
+service: reports-api
+environment: sandbox
+replicas: 1
+log_level: debug
+storage:
+  bucket: acme-sandbox-reports-api
+http:
+  timeout_ms: 2500
+upstreams:
+  - gateway

@@ -1,0 +1,15 @@
+# ledger-worker production alerts
+service: ledger-worker
+environment: production
+log_retention_days: 21
+metrics_retention_days: 365
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.01
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1000
+    for: 10m
+    severity: ticket

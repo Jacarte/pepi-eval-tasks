@@ -1,0 +1,5 @@
+# catalog-api qa feature flags
+service: catalog-api
+environment: qa
+flags:
+  new_retry_policy: true

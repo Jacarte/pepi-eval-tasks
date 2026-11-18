@@ -1,0 +1,6 @@
+# scheduler staging-eu feature flags
+service: scheduler
+environment: staging-eu
+flags:
+  new_retry_policy: true
+  async_writes: false

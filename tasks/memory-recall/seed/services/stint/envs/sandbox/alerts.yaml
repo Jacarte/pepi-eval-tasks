@@ -1,0 +1,15 @@
+# admin-api sandbox alerts
+service: admin-api
+environment: sandbox
+log_retention_days: 90
+metrics_retention_days: 60
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 200
+    for: 10m
+    severity: ticket

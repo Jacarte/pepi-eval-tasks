@@ -1,0 +1,7 @@
+# orders-api staging feature flags
+service: orders-api
+environment: staging
+flags:
+  new_retry_policy: true
+  shadow_reads: false
+  fast_path: true

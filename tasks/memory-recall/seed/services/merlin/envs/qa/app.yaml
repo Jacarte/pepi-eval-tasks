@@ -1,0 +1,12 @@
+# reports-api qa settings; keys missing here come from ../../base.yaml
+service: reports-api
+environment: qa
+replicas: 6
+log_level: info
+storage:
+  bucket: acme-qa-reports-api
+http:
+  timeout_ms: 2000
+upstreams:
+  - billing-worker
+  - inventory-api

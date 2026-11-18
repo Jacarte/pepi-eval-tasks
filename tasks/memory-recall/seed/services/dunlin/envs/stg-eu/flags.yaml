@@ -1,0 +1,8 @@
+# users-api staging-eu feature flags
+service: users-api
+environment: staging-eu
+flags:
+  new_retry_policy: true
+  strict_validation: true
+  batch_compaction: true
+  shadow_reads: true

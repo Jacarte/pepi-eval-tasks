@@ -1,0 +1,5 @@
+# catalog-indexer development feature flags
+service: catalog-indexer
+environment: development
+flags:
+  strict_validation: false

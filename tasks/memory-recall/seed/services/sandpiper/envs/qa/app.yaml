@@ -1,0 +1,15 @@
+# webhooks-worker qa settings; keys missing here come from ../../base.yaml
+service: webhooks-worker
+environment: qa
+replicas: 4
+log_level: warn
+queue:
+  name: webhooks-worker-qa
+  batch_size: 250
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-qa-webhooks-worker
+http:
+  timeout_ms: 1500
+upstreams:
+  - auth-api

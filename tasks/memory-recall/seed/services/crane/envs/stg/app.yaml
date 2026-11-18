@@ -1,0 +1,12 @@
+# media-api staging settings; keys missing here come from ../../base.yaml
+service: media-api
+environment: staging
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-staging-media-api
+http:
+  timeout_ms: 2500
+upstreams:
+  - billing-api
+  - billing-legacy

@@ -1,0 +1,9 @@
+# import-worker production-eu feature flags
+service: import-worker
+environment: production-eu
+flags:
+  async_writes: true
+  strict_validation: true
+  batch_compaction: false
+  shadow_reads: true
+  fast_path: false

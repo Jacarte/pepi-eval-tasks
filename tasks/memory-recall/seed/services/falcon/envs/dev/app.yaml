@@ -1,0 +1,17 @@
+# auth-worker development settings; keys missing here come from ../../base.yaml
+service: auth-worker
+environment: development
+replicas: 5
+log_level: info
+queue:
+  name: auth-worker-development
+  batch_size: 400
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-development-auth-worker
+  retention_days: 21
+http:
+  timeout_ms: 4000
+upstreams:
+  - media-transcoder
+  - users-api

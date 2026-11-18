@@ -1,0 +1,7 @@
+# import-worker qa resources
+service: import-worker
+environment: qa
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 384
+mem_limit_mb: 768

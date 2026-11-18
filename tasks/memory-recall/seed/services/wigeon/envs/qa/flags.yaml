@@ -1,0 +1,7 @@
+# metrics-collector qa feature flags
+service: metrics-collector
+environment: qa
+flags:
+  new_retry_policy: true
+  async_writes: true
+  fast_path: true

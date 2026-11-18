@@ -1,0 +1,6 @@
+# webhooks-api production autoscaling
+service: webhooks-api
+environment: production
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 65

@@ -1,0 +1,15 @@
+# ledger-api qa alerts
+service: ledger-api
+environment: qa
+log_retention_days: 90
+metrics_retention_days: 60
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.05
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1200
+    for: 10m
+    severity: ticket

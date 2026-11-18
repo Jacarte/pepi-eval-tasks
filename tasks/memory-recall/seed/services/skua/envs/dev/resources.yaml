@@ -1,0 +1,7 @@
+# gateway development resources
+service: gateway
+environment: development
+cpu_request: 300m
+cpu_limit: 900m
+mem_request_mb: 896
+mem_limit_mb: 1792

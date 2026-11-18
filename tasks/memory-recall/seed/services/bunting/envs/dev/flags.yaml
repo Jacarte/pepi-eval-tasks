@@ -1,0 +1,7 @@
+# media-transcoder development feature flags
+service: media-transcoder
+environment: development
+flags:
+  async_writes: false
+  strict_validation: false
+  batch_compaction: false

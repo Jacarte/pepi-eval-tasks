@@ -1,0 +1,7 @@
+# admin-api production resources
+service: admin-api
+environment: production
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 1024
+mem_limit_mb: 2048

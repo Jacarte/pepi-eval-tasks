@@ -1,0 +1,5 @@
+# ledger-worker staging feature flags
+service: ledger-worker
+environment: staging
+flags:
+  new_retry_policy: false

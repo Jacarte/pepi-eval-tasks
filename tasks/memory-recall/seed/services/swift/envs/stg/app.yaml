@@ -1,0 +1,12 @@
+# checkout-api staging settings; keys missing here come from ../../base.yaml
+service: checkout-api
+environment: staging
+replicas: 4
+log_level: debug
+storage:
+  bucket: acme-staging-checkout-api
+  retention_days: 120
+http:
+  timeout_ms: 2000
+upstreams:
+  - risk-api

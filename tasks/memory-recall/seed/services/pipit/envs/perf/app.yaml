@@ -1,0 +1,15 @@
+# audit-worker perf settings; keys missing here come from ../../base.yaml
+service: audit-worker
+environment: perf
+replicas: 5
+log_level: debug
+queue:
+  name: audit-worker-perf
+  batch_size: 350
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-perf-audit-worker
+http:
+  timeout_ms: 2500
+upstreams:
+  - pricing-worker

@@ -1,0 +1,13 @@
+# cart-api qa settings; keys missing here come from ../../base.yaml
+service: cart-api
+environment: qa
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-qa-cart-api
+  retention_days: 7
+http:
+  timeout_ms: 1500
+upstreams:
+  - inventory-sync
+  - billing-scheduler

@@ -1,0 +1,5 @@
+# media-transcoder production feature flags
+service: media-transcoder
+environment: production
+flags:
+  strict_validation: false

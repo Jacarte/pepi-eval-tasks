@@ -1,0 +1,6 @@
+# inventory-api production feature flags
+service: inventory-api
+environment: production
+flags:
+  strict_validation: false
+  shadow_reads: false

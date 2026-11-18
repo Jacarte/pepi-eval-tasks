@@ -1,0 +1,6 @@
+# fraud-scorer qa autoscaling
+service: fraud-scorer
+environment: qa
+min_replicas: 2
+max_replicas: 4
+target_cpu_percent: 55

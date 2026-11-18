@@ -1,0 +1,7 @@
+# auth-api sandbox feature flags
+service: auth-api
+environment: sandbox
+flags:
+  async_writes: true
+  batch_compaction: false
+  fast_path: true

@@ -1,0 +1,12 @@
+# audit-api sandbox settings; keys missing here come from ../../base.yaml
+service: audit-api
+environment: sandbox
+replicas: 3
+log_level: debug
+storage:
+  bucket: acme-sandbox-audit-api
+http:
+  timeout_ms: 500
+upstreams:
+  - admin-api
+  - billing-legacy

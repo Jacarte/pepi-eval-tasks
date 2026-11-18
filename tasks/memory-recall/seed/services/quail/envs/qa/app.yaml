@@ -1,0 +1,17 @@
+# import-worker qa settings; keys missing here come from ../../base.yaml
+service: import-worker
+environment: qa
+replicas: 4
+log_level: debug
+queue:
+  name: import-worker-qa
+  batch_size: 50
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-qa-import-worker
+  retention_days: 7
+http:
+  timeout_ms: 1500
+upstreams:
+  - billing-worker
+  - fraud-scorer

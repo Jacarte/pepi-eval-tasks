@@ -1,0 +1,5 @@
+# checkout-api qa feature flags
+service: checkout-api
+environment: qa
+flags:
+  batch_compaction: true

@@ -1,0 +1,15 @@
+# catalog-api production-eu alerts
+service: catalog-api
+environment: production-eu
+log_retention_days: 90
+metrics_retention_days: 21
+notify: team-fulfilment
+alerts:
+  - name: error-rate
+    threshold: 0.01
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 200
+    for: 10m
+    severity: ticket

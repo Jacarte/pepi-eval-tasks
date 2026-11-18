@@ -1,0 +1,6 @@
+# export-worker sandbox autoscaling
+service: export-worker
+environment: sandbox
+min_replicas: 2
+max_replicas: 11
+target_cpu_percent: 75

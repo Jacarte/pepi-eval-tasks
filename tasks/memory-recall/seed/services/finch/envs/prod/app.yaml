@@ -1,0 +1,12 @@
+# catalog-indexer production settings; keys missing here come from ../../base.yaml
+service: catalog-indexer
+environment: production
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-production-catalog-indexer
+http:
+  timeout_ms: 4000
+upstreams:
+  - search-api
+  - catalog-api

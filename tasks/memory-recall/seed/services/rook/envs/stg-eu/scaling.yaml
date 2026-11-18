@@ -1,0 +1,6 @@
+# pricing-worker staging-eu autoscaling
+service: pricing-worker
+environment: staging-eu
+min_replicas: 3
+max_replicas: 7
+target_cpu_percent: 55

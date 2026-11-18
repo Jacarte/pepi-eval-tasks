@@ -1,0 +1,13 @@
+# billing-api qa settings; keys missing here come from ../../base.yaml
+service: billing-api
+environment: qa
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-qa-billing-api
+http:
+  timeout_ms: 2500
+upstreams:
+  - billing-worker
+  - inventory-api
+  - orders-api

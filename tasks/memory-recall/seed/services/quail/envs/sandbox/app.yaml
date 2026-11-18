@@ -1,0 +1,16 @@
+# import-worker sandbox settings; keys missing here come from ../../base.yaml
+service: import-worker
+environment: sandbox
+replicas: 1
+log_level: warn
+queue:
+  name: import-worker-sandbox
+  batch_size: 50
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-sandbox-import-worker
+  retention_days: 60
+http:
+  timeout_ms: 4000
+upstreams:
+  - admin-api

@@ -1,0 +1,15 @@
+# billing-scheduler sandbox alerts
+service: billing-scheduler
+environment: sandbox
+log_retention_days: 90
+metrics_retention_days: 60
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.09
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1100
+    for: 10m
+    severity: ticket

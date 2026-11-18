@@ -1,0 +1,5 @@
+# catalog-api sandbox feature flags
+service: catalog-api
+environment: sandbox
+flags:
+  fast_path: false

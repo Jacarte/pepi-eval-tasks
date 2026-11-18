@@ -1,0 +1,7 @@
+# risk-api staging resources
+service: risk-api
+environment: staging
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 384
+mem_limit_mb: 768

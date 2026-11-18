@@ -1,0 +1,17 @@
+# sms-sender staging-eu settings; keys missing here come from ../../base.yaml
+service: sms-sender
+environment: staging-eu
+replicas: 4
+log_level: debug
+queue:
+  name: sms-sender-staging-eu
+  batch_size: 350
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-staging-eu-sms-sender
+  retention_days: 120
+http:
+  timeout_ms: 3000
+upstreams:
+  - orders-api
+  - checkout-worker

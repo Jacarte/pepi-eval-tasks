@@ -1,0 +1,6 @@
+# inventory-sync development autoscaling
+service: inventory-sync
+environment: development
+min_replicas: 1
+max_replicas: 8
+target_cpu_percent: 65

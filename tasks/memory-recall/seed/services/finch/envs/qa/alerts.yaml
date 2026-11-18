@@ -1,0 +1,15 @@
+# catalog-indexer qa alerts
+service: catalog-indexer
+environment: qa
+log_retention_days: 7
+metrics_retention_days: 180
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1100
+    for: 10m
+    severity: ticket

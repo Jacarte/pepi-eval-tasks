@@ -1,0 +1,16 @@
+# billing-worker sandbox settings; keys missing here come from ../../base.yaml
+service: billing-worker
+environment: sandbox
+replicas: 1
+log_level: info
+queue:
+  name: billing-worker-sandbox
+  batch_size: 200
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-sandbox-billing-worker
+  retention_days: 3
+http:
+  timeout_ms: 3500
+upstreams:
+  - admin-api

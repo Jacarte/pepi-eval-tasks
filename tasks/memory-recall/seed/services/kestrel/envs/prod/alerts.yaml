@@ -1,0 +1,15 @@
+# auth-api production alerts
+service: auth-api
+environment: production
+log_retention_days: 7
+metrics_retention_days: 45
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 700
+    for: 10m
+    severity: ticket

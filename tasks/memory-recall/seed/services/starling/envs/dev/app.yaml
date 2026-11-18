@@ -1,0 +1,13 @@
+# inventory-api development settings; keys missing here come from ../../base.yaml
+service: inventory-api
+environment: development
+replicas: 1
+log_level: warn
+storage:
+  bucket: acme-development-inventory-api
+  retention_days: 365
+http:
+  timeout_ms: 3500
+upstreams:
+  - auth-api
+  - billing-scheduler

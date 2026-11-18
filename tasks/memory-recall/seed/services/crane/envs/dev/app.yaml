@@ -1,0 +1,11 @@
+# media-api development settings; keys missing here come from ../../base.yaml
+service: media-api
+environment: development
+replicas: 6
+log_level: info
+storage:
+  bucket: acme-development-media-api
+http:
+  timeout_ms: 4000
+upstreams:
+  - billing-worker

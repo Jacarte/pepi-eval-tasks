@@ -1,0 +1,17 @@
+# webhooks-worker perf settings; keys missing here come from ../../base.yaml
+service: webhooks-worker
+environment: perf
+replicas: 1
+log_level: warn
+queue:
+  name: webhooks-worker-perf
+  batch_size: 50
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-perf-webhooks-worker
+  retention_days: 120
+http:
+  timeout_ms: 2500
+upstreams:
+  - billing-worker
+  - ledger-worker

@@ -1,0 +1,15 @@
+# notifications-api development alerts
+service: notifications-api
+environment: development
+log_retention_days: 365
+metrics_retention_days: 21
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1400
+    for: 10m
+    severity: ticket

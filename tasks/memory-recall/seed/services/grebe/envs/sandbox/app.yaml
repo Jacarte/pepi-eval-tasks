@@ -1,0 +1,13 @@
+# fraud-scorer sandbox settings; keys missing here come from ../../base.yaml
+service: fraud-scorer
+environment: sandbox
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-sandbox-fraud-scorer
+  retention_days: 7
+http:
+  timeout_ms: 3000
+upstreams:
+  - webhooks-api
+  - catalog-api

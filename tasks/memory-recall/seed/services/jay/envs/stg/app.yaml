@@ -1,0 +1,17 @@
+# ledger-worker staging settings; keys missing here come from ../../base.yaml
+service: ledger-worker
+environment: staging
+replicas: 1
+log_level: debug
+queue:
+  name: ledger-worker-staging
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-ledger-worker
+  retention_days: 180
+http:
+  timeout_ms: 2000
+upstreams:
+  - billing-legacy
+  - risk-api

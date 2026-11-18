@@ -1,0 +1,6 @@
+# reports-api qa feature flags
+service: reports-api
+environment: qa
+flags:
+  strict_validation: true
+  fast_path: true

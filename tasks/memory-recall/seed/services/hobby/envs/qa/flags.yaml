@@ -1,0 +1,4 @@
+# payouts-worker qa feature flags
+service: payouts-worker
+environment: qa
+flags:

@@ -1,0 +1,8 @@
+# payouts-api production feature flags
+service: payouts-api
+environment: production
+flags:
+  async_writes: true
+  strict_validation: true
+  shadow_reads: false
+  fast_path: false

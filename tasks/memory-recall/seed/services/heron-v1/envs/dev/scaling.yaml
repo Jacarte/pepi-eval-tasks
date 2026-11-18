@@ -1,0 +1,6 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: development
+min_replicas: 2
+max_replicas: 7
+target_cpu_percent: 75

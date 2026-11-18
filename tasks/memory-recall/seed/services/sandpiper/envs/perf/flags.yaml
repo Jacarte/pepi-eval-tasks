@@ -1,0 +1,5 @@
+# webhooks-worker perf feature flags
+service: webhooks-worker
+environment: perf
+flags:
+  strict_validation: false

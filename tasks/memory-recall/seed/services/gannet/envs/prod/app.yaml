@@ -1,0 +1,12 @@
+# risk-api production settings; keys missing here come from ../../base.yaml
+service: risk-api
+environment: production
+replicas: 3
+log_level: debug
+storage:
+  bucket: acme-production-risk-api
+  retention_days: 365
+http:
+  timeout_ms: 4000
+upstreams:
+  - checkout-worker

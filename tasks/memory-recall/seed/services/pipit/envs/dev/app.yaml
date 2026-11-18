@@ -1,0 +1,15 @@
+# audit-worker development settings; keys missing here come from ../../base.yaml
+service: audit-worker
+environment: development
+replicas: 3
+log_level: debug
+queue:
+  name: audit-worker-development
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-development-audit-worker
+http:
+  timeout_ms: 3500
+upstreams:
+  - billing-legacy

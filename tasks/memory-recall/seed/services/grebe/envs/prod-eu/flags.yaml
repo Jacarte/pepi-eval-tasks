@@ -1,0 +1,6 @@
+# fraud-scorer production-eu feature flags
+service: fraud-scorer
+environment: production-eu
+flags:
+  async_writes: true
+  shadow_reads: true

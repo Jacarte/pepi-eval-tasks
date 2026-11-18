@@ -1,0 +1,16 @@
+# orders-worker staging settings; keys missing here come from ../../base.yaml
+service: orders-worker
+environment: staging
+replicas: 4
+log_level: debug
+queue:
+  name: orders-worker-staging
+  batch_size: 50
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-orders-worker
+  retention_days: 21
+http:
+  timeout_ms: 500
+upstreams:
+  - billing-legacy

@@ -1,0 +1,7 @@
+# audit-api qa feature flags
+service: audit-api
+environment: qa
+flags:
+  strict_validation: true
+  batch_compaction: false
+  fast_path: true

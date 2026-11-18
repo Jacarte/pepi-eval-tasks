@@ -1,0 +1,17 @@
+# sms-sender development settings; keys missing here come from ../../base.yaml
+service: sms-sender
+environment: development
+replicas: 2
+log_level: warn
+queue:
+  name: sms-sender-development
+  batch_size: 250
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-development-sms-sender
+  retention_days: 90
+http:
+  timeout_ms: 1000
+upstreams:
+  - notifications-worker
+  - media-transcoder

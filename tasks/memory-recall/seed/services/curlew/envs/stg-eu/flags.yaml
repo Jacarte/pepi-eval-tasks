@@ -1,0 +1,9 @@
+# profiles-api staging-eu feature flags
+service: profiles-api
+environment: staging-eu
+flags:
+  new_retry_policy: true
+  async_writes: true
+  strict_validation: true
+  shadow_reads: true
+  fast_path: true

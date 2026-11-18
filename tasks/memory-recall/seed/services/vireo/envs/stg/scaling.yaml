@@ -1,0 +1,6 @@
+# orders-api staging autoscaling
+service: orders-api
+environment: staging
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 70

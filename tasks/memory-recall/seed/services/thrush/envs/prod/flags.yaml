@@ -1,0 +1,7 @@
+# checkout-worker production feature flags
+service: checkout-worker
+environment: production
+flags:
+  strict_validation: true
+  shadow_reads: false
+  fast_path: false

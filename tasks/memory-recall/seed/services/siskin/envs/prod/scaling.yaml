@@ -1,0 +1,6 @@
+# pricing-api production autoscaling
+service: pricing-api
+environment: production
+min_replicas: 3
+max_replicas: 12
+target_cpu_percent: 55

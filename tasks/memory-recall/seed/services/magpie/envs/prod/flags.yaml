@@ -1,0 +1,7 @@
+# search-indexer production feature flags
+service: search-indexer
+environment: production
+flags:
+  new_retry_policy: true
+  shadow_reads: true
+  fast_path: false

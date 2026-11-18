@@ -1,0 +1,6 @@
+# scheduler sandbox autoscaling
+service: scheduler
+environment: sandbox
+min_replicas: 1
+max_replicas: 11
+target_cpu_percent: 75

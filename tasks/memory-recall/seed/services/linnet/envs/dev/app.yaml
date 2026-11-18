@@ -1,0 +1,17 @@
+# reports-worker development settings; keys missing here come from ../../base.yaml
+service: reports-worker
+environment: development
+replicas: 1
+log_level: debug
+queue:
+  name: reports-worker-development
+  batch_size: 250
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-development-reports-worker
+  retention_days: 60
+http:
+  timeout_ms: 3000
+upstreams:
+  - search-indexer
+  - sms-sender

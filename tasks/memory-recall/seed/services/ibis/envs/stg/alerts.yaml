@@ -1,0 +1,15 @@
+# payouts-api staging alerts
+service: payouts-api
+environment: staging
+log_retention_days: 365
+metrics_retention_days: 120
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1600
+    for: 10m
+    severity: ticket

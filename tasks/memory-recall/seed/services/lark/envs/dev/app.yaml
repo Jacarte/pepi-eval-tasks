@@ -1,0 +1,12 @@
+# search-api development settings; keys missing here come from ../../base.yaml
+service: search-api
+environment: development
+replicas: 5
+log_level: warn
+storage:
+  bucket: acme-development-search-api
+  retention_days: 90
+http:
+  timeout_ms: 500
+upstreams:
+  - payouts-api

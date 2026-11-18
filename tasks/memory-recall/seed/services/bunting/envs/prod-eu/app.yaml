@@ -1,0 +1,11 @@
+# media-transcoder production-eu settings; keys missing here come from ../../base.yaml
+service: media-transcoder
+environment: production-eu
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-production-eu-media-transcoder
+http:
+  timeout_ms: 1500
+upstreams:
+  - billing-legacy

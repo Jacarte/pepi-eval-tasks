@@ -1,0 +1,17 @@
+# ledger-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: ledger-worker
+environment: staging-eu
+replicas: 5
+log_level: debug
+queue:
+  name: ledger-worker-staging-eu
+  batch_size: 400
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-eu-ledger-worker
+  retention_days: 14
+http:
+  timeout_ms: 2000
+upstreams:
+  - media-transcoder
+  - ledger-api

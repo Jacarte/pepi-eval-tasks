@@ -1,0 +1,7 @@
+# search-indexer development resources
+service: search-indexer
+environment: development
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 1024
+mem_limit_mb: 2048

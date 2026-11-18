@@ -1,0 +1,6 @@
+# checkout-api staging feature flags
+service: checkout-api
+environment: staging
+flags:
+  new_retry_policy: false
+  shadow_reads: true

@@ -21,13 +21,14 @@ tasks/<name>/
   prompts/          one prompt per session: 01.md, 02.md, ...
   hidden/           milestone tests, applied only at grading
   milestones.yaml   ordered milestones and the command that checks each
+  memory/           optional fixture.json: memories stored in the agent's memory service before it starts
 ```
 
 ### task.yaml
 
 ```yaml
 name: kv-database
-kind: long                 # long | needs-subagents | parallel
+kind: long                 # long | needs-subagents | parallel | memory
 language: go
 go_version: 1.22.5
 sessions: 3                # sequential `pi -p` runs in the same workspace
@@ -41,6 +42,7 @@ restore_seed_tests: false  # optional: true restores the seed's visible tests be
 
 - `scoring` (required): `prefix` scores the number of consecutive milestones passed from the first one (for ordered tasks); `count` scores the number of milestones passed, in any order (for independent milestones).
 - `owned_dirs` (optional, flow-style list of relative paths): directories that only `hidden/` may populate. Each must exist under `hidden/`. Before `hidden/` is overlaid, the grading harness deletes them from the agent workspace.
+- `memory/fixture.json` (optional): `{"memories": [{"text": "..."}]}` with 1 to 20 non-empty texts. The harness stores them in the memory service of the run when memory is on and the fixture enabled; they are never copied into the workspace, and no seed or prompt file may contain one.
 - `restore_seed_tests` (optional, `true` or `false`, default `false`): when `true`, before `hidden/` is overlaid the grading harness deletes every `*_test.go` in the agent workspace and copies the seed's `*_test.go` files back. Deleting, editing or adding visible tests then cannot make a regression milestone (for example a full-suite milestone with no `TestM<N>` tests) pass. When `false`, the agent's test files are left as they are, but a full-suite milestone still expects every test of the seed to pass, so a deleted or renamed seed test fails it.
 
 ### milestones.yaml

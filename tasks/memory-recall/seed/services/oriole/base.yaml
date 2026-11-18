@@ -1,0 +1,15 @@
+# email-sender defaults
+service: email-sender
+codename: oriole
+team: data
+owner: team-data@example.com
+status: active
+runtime: go1.20
+replicas: 1
+log_level: info
+storage:
+  retention_days: 60
+  encryption: aes256
+http:
+  port: 8080
+  timeout_ms: 5000

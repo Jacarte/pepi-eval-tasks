@@ -1,0 +1,17 @@
+# invoice-worker staging settings; keys missing here come from ../../base.yaml
+service: invoice-worker
+environment: staging
+replicas: 3
+log_level: info
+queue:
+  name: invoice-worker-staging
+  batch_size: 400
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-staging-invoice-worker
+  retention_days: 90
+http:
+  timeout_ms: 1000
+upstreams:
+  - billing-worker
+  - catalog-api

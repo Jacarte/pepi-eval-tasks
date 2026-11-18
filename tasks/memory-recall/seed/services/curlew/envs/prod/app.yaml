@@ -1,0 +1,12 @@
+# profiles-api production settings; keys missing here come from ../../base.yaml
+service: profiles-api
+environment: production
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-production-profiles-api
+  retention_days: 365
+http:
+  timeout_ms: 1500
+upstreams:
+  - search-api

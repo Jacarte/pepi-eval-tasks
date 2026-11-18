@@ -1,0 +1,5 @@
+# payouts-worker production-eu feature flags
+service: payouts-worker
+environment: production-eu
+flags:
+  shadow_reads: false

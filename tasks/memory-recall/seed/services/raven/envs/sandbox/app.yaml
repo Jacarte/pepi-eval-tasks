@@ -1,0 +1,11 @@
+# notifications-api sandbox settings; keys missing here come from ../../base.yaml
+service: notifications-api
+environment: sandbox
+replicas: 2
+log_level: debug
+storage:
+  bucket: acme-sandbox-notifications-api
+http:
+  timeout_ms: 2500
+upstreams:
+  - webhooks-worker

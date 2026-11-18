@@ -1,0 +1,15 @@
+# metrics-collector qa alerts
+service: metrics-collector
+environment: qa
+log_retention_days: 7
+metrics_retention_days: 120
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 300
+    for: 10m
+    severity: ticket

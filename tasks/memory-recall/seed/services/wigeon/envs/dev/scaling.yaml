@@ -1,0 +1,6 @@
+# metrics-collector development autoscaling
+service: metrics-collector
+environment: development
+min_replicas: 3
+max_replicas: 7
+target_cpu_percent: 80

@@ -1,0 +1,15 @@
+# scheduler staging-eu alerts
+service: scheduler
+environment: staging-eu
+log_retention_days: 14
+metrics_retention_days: 30
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 900
+    for: 10m
+    severity: ticket

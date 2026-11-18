@@ -1,0 +1,6 @@
+# ledger-api sandbox autoscaling
+service: ledger-api
+environment: sandbox
+min_replicas: 1
+max_replicas: 9
+target_cpu_percent: 55

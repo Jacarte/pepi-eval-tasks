@@ -1,0 +1,15 @@
+# media-api defaults
+service: media-api
+codename: crane
+team: data
+owner: team-data@example.com
+status: active
+runtime: go1.20
+replicas: 2
+log_level: info
+storage:
+  retention_days: 60
+  encryption: aes256
+http:
+  port: 8081
+  timeout_ms: 1000

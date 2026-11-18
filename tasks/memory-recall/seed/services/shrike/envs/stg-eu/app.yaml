@@ -1,0 +1,13 @@
+# audit-api staging-eu settings; keys missing here come from ../../base.yaml
+service: audit-api
+environment: staging-eu
+replicas: 1
+log_level: debug
+storage:
+  bucket: acme-staging-eu-audit-api
+  retention_days: 180
+http:
+  timeout_ms: 500
+upstreams:
+  - ledger-worker
+  - users-api

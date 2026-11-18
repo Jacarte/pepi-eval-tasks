@@ -1,0 +1,6 @@
+# pricing-worker production-eu autoscaling
+service: pricing-worker
+environment: production-eu
+min_replicas: 2
+max_replicas: 8
+target_cpu_percent: 70

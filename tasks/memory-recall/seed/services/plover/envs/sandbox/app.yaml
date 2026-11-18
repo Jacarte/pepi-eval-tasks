@@ -1,0 +1,14 @@
+# billing-scheduler sandbox settings; keys missing here come from ../../base.yaml
+service: billing-scheduler
+environment: sandbox
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-sandbox-billing-scheduler
+  retention_days: 7
+http:
+  timeout_ms: 2500
+upstreams:
+  - billing-worker
+  - reports-worker
+  - billing-api

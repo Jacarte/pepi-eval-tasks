@@ -1,0 +1,15 @@
+# auth-worker defaults
+service: auth-worker
+codename: falcon
+team: commerce
+owner: team-commerce@example.com
+status: active
+runtime: go1.20
+replicas: 1
+log_level: info
+storage:
+  retention_days: 180
+  encryption: aes256
+http:
+  port: 8082
+  timeout_ms: 2000

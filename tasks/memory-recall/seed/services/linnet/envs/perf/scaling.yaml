@@ -1,0 +1,6 @@
+# reports-worker perf autoscaling
+service: reports-worker
+environment: perf
+min_replicas: 2
+max_replicas: 10
+target_cpu_percent: 80

@@ -1,0 +1,6 @@
+# inventory-sync sandbox autoscaling
+service: inventory-sync
+environment: sandbox
+min_replicas: 1
+max_replicas: 9
+target_cpu_percent: 55

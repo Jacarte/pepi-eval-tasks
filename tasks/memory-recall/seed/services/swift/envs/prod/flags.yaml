@@ -1,0 +1,6 @@
+# checkout-api production feature flags
+service: checkout-api
+environment: production
+flags:
+  batch_compaction: false
+  fast_path: false

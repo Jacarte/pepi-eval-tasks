@@ -1,0 +1,15 @@
+# payouts-worker perf alerts
+service: payouts-worker
+environment: perf
+log_retention_days: 21
+metrics_retention_days: 365
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.05
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1200
+    for: 10m
+    severity: ticket

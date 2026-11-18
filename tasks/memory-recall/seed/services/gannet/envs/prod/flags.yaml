@@ -1,0 +1,8 @@
+# risk-api production feature flags
+service: risk-api
+environment: production
+flags:
+  new_retry_policy: true
+  strict_validation: true
+  shadow_reads: false
+  fast_path: false

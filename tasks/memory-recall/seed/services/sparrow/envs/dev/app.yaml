@@ -1,0 +1,13 @@
+# inventory-sync development settings; keys missing here come from ../../base.yaml
+service: inventory-sync
+environment: development
+replicas: 3
+log_level: info
+storage:
+  bucket: acme-development-inventory-sync
+  retention_days: 60
+http:
+  timeout_ms: 3000
+upstreams:
+  - metrics-collector
+  - import-worker

@@ -1,0 +1,8 @@
+# fraud-scorer qa feature flags
+service: fraud-scorer
+environment: qa
+flags:
+  async_writes: false
+  strict_validation: false
+  batch_compaction: false
+  shadow_reads: true

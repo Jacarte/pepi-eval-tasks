@@ -1,0 +1,7 @@
+# ledger-api development resources
+service: ledger-api
+environment: development
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 1024
+mem_limit_mb: 2048

@@ -1,0 +1,6 @@
+# notifications-api perf autoscaling
+service: notifications-api
+environment: perf
+min_replicas: 2
+max_replicas: 4
+target_cpu_percent: 80

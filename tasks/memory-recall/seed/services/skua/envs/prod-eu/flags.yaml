@@ -1,0 +1,6 @@
+# gateway production-eu feature flags
+service: gateway
+environment: production-eu
+flags:
+  shadow_reads: false
+  fast_path: false

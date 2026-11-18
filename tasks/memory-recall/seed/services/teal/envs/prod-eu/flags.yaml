@@ -1,0 +1,8 @@
+# scheduler production-eu feature flags
+service: scheduler
+environment: production-eu
+flags:
+  new_retry_policy: false
+  async_writes: false
+  strict_validation: false
+  shadow_reads: true

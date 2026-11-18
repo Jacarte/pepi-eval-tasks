@@ -1,0 +1,7 @@
+# media-api qa feature flags
+service: media-api
+environment: qa
+flags:
+  strict_validation: false
+  shadow_reads: false
+  fast_path: true

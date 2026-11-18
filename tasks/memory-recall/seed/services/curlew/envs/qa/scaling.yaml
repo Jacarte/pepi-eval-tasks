@@ -1,0 +1,6 @@
+# profiles-api qa autoscaling
+service: profiles-api
+environment: qa
+min_replicas: 1
+max_replicas: 4
+target_cpu_percent: 65

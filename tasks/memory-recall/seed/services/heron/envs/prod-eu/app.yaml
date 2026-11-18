@@ -1,0 +1,15 @@
+# billing-worker production-eu settings; keys missing here come from ../../base.yaml
+service: billing-worker
+environment: production-eu
+replicas: 5
+log_level: debug
+queue:
+  name: billing-worker-production-eu
+  batch_size: 50
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-eu-billing-worker
+  retention_days: 90
+http:
+  timeout_ms: 1500
+upstreams:

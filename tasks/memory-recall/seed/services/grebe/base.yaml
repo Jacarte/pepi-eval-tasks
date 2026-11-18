@@ -1,0 +1,15 @@
+# fraud-scorer defaults
+service: fraud-scorer
+codename: grebe
+team: commerce
+owner: team-commerce@example.com
+status: active
+runtime: go1.22
+replicas: 1
+log_level: info
+storage:
+  retention_days: 21
+  encryption: aes256
+http:
+  port: 8080
+  timeout_ms: 4000

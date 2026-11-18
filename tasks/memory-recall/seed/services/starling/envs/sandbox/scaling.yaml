@@ -1,0 +1,6 @@
+# inventory-api sandbox autoscaling
+service: inventory-api
+environment: sandbox
+min_replicas: 3
+max_replicas: 10
+target_cpu_percent: 70

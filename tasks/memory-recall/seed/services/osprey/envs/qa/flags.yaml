@@ -1,0 +1,5 @@
+# billing-legacy qa feature flags
+service: billing-legacy
+environment: qa
+flags:
+  batch_compaction: false

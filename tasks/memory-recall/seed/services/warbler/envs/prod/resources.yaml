@@ -1,0 +1,7 @@
+# orders-worker production resources
+service: orders-worker
+environment: production
+cpu_request: 400m
+cpu_limit: 800m
+mem_request_mb: 384
+mem_limit_mb: 768

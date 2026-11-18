@@ -1,0 +1,7 @@
+# notifications-worker staging feature flags
+service: notifications-worker
+environment: staging
+flags:
+  async_writes: true
+  batch_compaction: true
+  shadow_reads: false

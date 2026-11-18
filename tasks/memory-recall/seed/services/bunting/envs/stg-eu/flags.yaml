@@ -1,0 +1,7 @@
+# media-transcoder staging-eu feature flags
+service: media-transcoder
+environment: staging-eu
+flags:
+  new_retry_policy: false
+  strict_validation: false
+  fast_path: false

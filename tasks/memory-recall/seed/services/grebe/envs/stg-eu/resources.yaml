@@ -1,0 +1,7 @@
+# fraud-scorer staging-eu resources
+service: fraud-scorer
+environment: staging-eu
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 256
+mem_limit_mb: 512

@@ -1,0 +1,6 @@
+# orders-api qa feature flags
+service: orders-api
+environment: qa
+flags:
+  new_retry_policy: true
+  strict_validation: false

@@ -1,0 +1,7 @@
+# search-api sandbox feature flags
+service: search-api
+environment: sandbox
+flags:
+  async_writes: false
+  strict_validation: false
+  shadow_reads: false

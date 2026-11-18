@@ -1,0 +1,15 @@
+# sms-sender production alerts
+service: sms-sender
+environment: production
+log_retention_days: 365
+metrics_retention_days: 21
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1500
+    for: 10m
+    severity: ticket

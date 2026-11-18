@@ -1,0 +1,6 @@
+# thumbnails-worker sandbox feature flags
+service: thumbnails-worker
+environment: sandbox
+flags:
+  batch_compaction: true
+  shadow_reads: true

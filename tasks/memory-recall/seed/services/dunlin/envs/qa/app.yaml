@@ -1,0 +1,13 @@
+# users-api qa settings; keys missing here come from ../../base.yaml
+service: users-api
+environment: qa
+replicas: 2
+log_level: info
+storage:
+  bucket: acme-qa-users-api
+  retention_days: 7
+http:
+  timeout_ms: 2500
+upstreams:
+  - orders-api
+  - billing-api

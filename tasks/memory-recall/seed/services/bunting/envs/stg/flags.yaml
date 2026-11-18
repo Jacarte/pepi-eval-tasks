@@ -1,0 +1,7 @@
+# media-transcoder staging feature flags
+service: media-transcoder
+environment: staging
+flags:
+  batch_compaction: false
+  shadow_reads: false
+  fast_path: true

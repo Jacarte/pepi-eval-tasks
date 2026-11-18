@@ -1,0 +1,16 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: staging-eu
+replicas: 6
+log_level: warn
+queue:
+  name: billing-worker-staging-eu
+  batch_size: 350
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-eu-billing-worker
+  retention_days: 21
+http:
+  timeout_ms: 4000
+upstreams:
+  - inventory-sync

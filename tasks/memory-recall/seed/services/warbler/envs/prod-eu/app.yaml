@@ -1,0 +1,17 @@
+# orders-worker production-eu settings; keys missing here come from ../../base.yaml
+service: orders-worker
+environment: production-eu
+replicas: 1
+log_level: debug
+queue:
+  name: orders-worker-production-eu
+  batch_size: 100
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-eu-orders-worker
+  retention_days: 30
+http:
+  timeout_ms: 500
+upstreams:
+  - inventory-sync
+  - media-transcoder

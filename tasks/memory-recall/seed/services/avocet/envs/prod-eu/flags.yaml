@@ -1,0 +1,6 @@
+# thumbnails-worker production-eu feature flags
+service: thumbnails-worker
+environment: production-eu
+flags:
+  new_retry_policy: true
+  shadow_reads: false

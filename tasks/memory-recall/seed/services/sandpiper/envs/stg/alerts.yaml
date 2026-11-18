@@ -1,0 +1,15 @@
+# webhooks-worker staging alerts
+service: webhooks-worker
+environment: staging
+log_retention_days: 7
+metrics_retention_days: 90
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.05
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 2000
+    for: 10m
+    severity: ticket

@@ -1,0 +1,6 @@
+# pricing-api staging-eu feature flags
+service: pricing-api
+environment: staging-eu
+flags:
+  async_writes: false
+  shadow_reads: true

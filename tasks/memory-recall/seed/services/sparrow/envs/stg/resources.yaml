@@ -1,0 +1,7 @@
+# inventory-sync staging resources
+service: inventory-sync
+environment: staging
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 512
+mem_limit_mb: 1024

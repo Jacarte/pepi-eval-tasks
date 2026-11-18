@@ -1,0 +1,7 @@
+# admin-api development feature flags
+service: admin-api
+environment: development
+flags:
+  async_writes: false
+  batch_compaction: true
+  shadow_reads: true

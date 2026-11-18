@@ -1,0 +1,7 @@
+# auth-worker production-eu feature flags
+service: auth-worker
+environment: production-eu
+flags:
+  strict_validation: false
+  batch_compaction: true
+  fast_path: false

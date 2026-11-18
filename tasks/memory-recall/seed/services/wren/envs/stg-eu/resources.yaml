@@ -1,0 +1,7 @@
+# billing-api staging-eu resources
+service: billing-api
+environment: staging-eu
+cpu_request: 300m
+cpu_limit: 900m
+mem_request_mb: 896
+mem_limit_mb: 1792

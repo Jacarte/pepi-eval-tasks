@@ -1,0 +1,12 @@
+# checkout-api production settings; keys missing here come from ../../base.yaml
+service: checkout-api
+environment: production
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-production-checkout-api
+  retention_days: 21
+http:
+  timeout_ms: 4000
+upstreams:
+  - audit-api

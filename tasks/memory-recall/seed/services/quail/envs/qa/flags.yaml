@@ -1,0 +1,7 @@
+# import-worker qa feature flags
+service: import-worker
+environment: qa
+flags:
+  strict_validation: false
+  batch_compaction: false
+  fast_path: false

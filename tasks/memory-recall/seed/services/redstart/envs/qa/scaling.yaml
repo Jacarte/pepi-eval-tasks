@@ -1,0 +1,6 @@
+# webhooks-api qa autoscaling
+service: webhooks-api
+environment: qa
+min_replicas: 3
+max_replicas: 7
+target_cpu_percent: 50

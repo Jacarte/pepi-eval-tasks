@@ -1,0 +1,6 @@
+# search-indexer development autoscaling
+service: search-indexer
+environment: development
+min_replicas: 1
+max_replicas: 10
+target_cpu_percent: 80

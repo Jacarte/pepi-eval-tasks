@@ -1,0 +1,7 @@
+# billing-legacy production-eu feature flags
+service: billing-legacy
+environment: production-eu
+flags:
+  new_retry_policy: true
+  async_writes: false
+  fast_path: false

@@ -1,0 +1,12 @@
+# scheduler staging settings; keys missing here come from ../../base.yaml
+service: scheduler
+environment: staging
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-staging-scheduler
+http:
+  timeout_ms: 500
+upstreams:
+  - ledger-worker
+  - auth-api

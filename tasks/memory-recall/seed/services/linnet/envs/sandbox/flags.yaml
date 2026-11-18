@@ -1,0 +1,7 @@
+# reports-worker sandbox feature flags
+service: reports-worker
+environment: sandbox
+flags:
+  strict_validation: true
+  batch_compaction: true
+  shadow_reads: false

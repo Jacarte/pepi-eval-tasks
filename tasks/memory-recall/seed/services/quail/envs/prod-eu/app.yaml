@@ -1,0 +1,17 @@
+# import-worker production-eu settings; keys missing here come from ../../base.yaml
+service: import-worker
+environment: production-eu
+replicas: 6
+log_level: warn
+queue:
+  name: import-worker-production-eu
+  batch_size: 200
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-eu-import-worker
+  retention_days: 14
+http:
+  timeout_ms: 2000
+upstreams:
+  - inventory-api
+  - scheduler

@@ -1,0 +1,6 @@
+# catalog-api staging-eu autoscaling
+service: catalog-api
+environment: staging-eu
+min_replicas: 3
+max_replicas: 9
+target_cpu_percent: 55

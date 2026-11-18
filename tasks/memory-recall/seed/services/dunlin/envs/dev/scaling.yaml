@@ -1,0 +1,6 @@
+# users-api development autoscaling
+service: users-api
+environment: development
+min_replicas: 1
+max_replicas: 11
+target_cpu_percent: 60

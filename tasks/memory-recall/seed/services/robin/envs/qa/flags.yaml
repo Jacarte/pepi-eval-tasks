@@ -1,0 +1,6 @@
+# cart-api qa feature flags
+service: cart-api
+environment: qa
+flags:
+  batch_compaction: false
+  shadow_reads: true

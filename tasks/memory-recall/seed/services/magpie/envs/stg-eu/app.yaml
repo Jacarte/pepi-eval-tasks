@@ -1,0 +1,12 @@
+# search-indexer staging-eu settings; keys missing here come from ../../base.yaml
+service: search-indexer
+environment: staging-eu
+replicas: 6
+log_level: info
+storage:
+  bucket: acme-staging-eu-search-indexer
+http:
+  timeout_ms: 4000
+upstreams:
+  - audit-api
+  - webhooks-worker

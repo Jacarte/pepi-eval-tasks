@@ -1,0 +1,6 @@
+# reports-api staging feature flags
+service: reports-api
+environment: staging
+flags:
+  async_writes: false
+  batch_compaction: false

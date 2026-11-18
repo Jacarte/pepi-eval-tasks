@@ -1,0 +1,15 @@
+# search-api staging alerts
+service: search-api
+environment: staging
+log_retention_days: 45
+metrics_retention_days: 21
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 300
+    for: 10m
+    severity: ticket

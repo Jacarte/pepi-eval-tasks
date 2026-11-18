@@ -1,0 +1,15 @@
+# cart-api defaults
+service: cart-api
+codename: robin
+team: identity
+owner: team-identity@example.com
+status: active
+runtime: go1.22
+replicas: 3
+log_level: info
+storage:
+  retention_days: 180
+  encryption: aes256
+http:
+  port: 8081
+  timeout_ms: 4000

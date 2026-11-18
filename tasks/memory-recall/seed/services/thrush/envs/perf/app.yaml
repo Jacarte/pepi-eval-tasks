@@ -1,0 +1,17 @@
+# checkout-worker perf settings; keys missing here come from ../../base.yaml
+service: checkout-worker
+environment: perf
+replicas: 1
+log_level: warn
+queue:
+  name: checkout-worker-perf
+  batch_size: 350
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-perf-checkout-worker
+  retention_days: 90
+http:
+  timeout_ms: 4000
+upstreams:
+  - payouts-api
+  - risk-api

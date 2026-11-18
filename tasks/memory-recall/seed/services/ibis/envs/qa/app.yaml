@@ -1,0 +1,11 @@
+# payouts-api qa settings; keys missing here come from ../../base.yaml
+service: payouts-api
+environment: qa
+replicas: 3
+log_level: info
+storage:
+  bucket: acme-qa-payouts-api
+http:
+  timeout_ms: 2500
+upstreams:
+  - reports-api

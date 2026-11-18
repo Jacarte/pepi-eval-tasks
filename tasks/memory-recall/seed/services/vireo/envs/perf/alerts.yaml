@@ -1,0 +1,15 @@
+# orders-api perf alerts
+service: orders-api
+environment: perf
+log_retention_days: 60
+metrics_retention_days: 60
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 500
+    for: 10m
+    severity: ticket

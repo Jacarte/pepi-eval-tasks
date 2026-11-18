@@ -1,0 +1,6 @@
+# billing-worker development autoscaling
+service: billing-worker
+environment: development
+min_replicas: 2
+max_replicas: 4
+target_cpu_percent: 70

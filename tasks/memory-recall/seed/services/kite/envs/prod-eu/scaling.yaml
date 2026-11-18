@@ -1,0 +1,6 @@
+# ledger-api production-eu autoscaling
+service: ledger-api
+environment: production-eu
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 55

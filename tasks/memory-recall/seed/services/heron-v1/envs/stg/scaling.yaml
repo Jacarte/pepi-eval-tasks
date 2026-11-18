@@ -1,0 +1,6 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: staging
+min_replicas: 1
+max_replicas: 6
+target_cpu_percent: 50

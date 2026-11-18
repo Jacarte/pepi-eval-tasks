@@ -1,0 +1,6 @@
+# risk-api staging feature flags
+service: risk-api
+environment: staging
+flags:
+  shadow_reads: true
+  fast_path: true

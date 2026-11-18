@@ -1,0 +1,15 @@
+# payouts-worker staging settings; keys missing here come from ../../base.yaml
+service: payouts-worker
+environment: staging
+replicas: 3
+log_level: debug
+queue:
+  name: payouts-worker-staging
+  batch_size: 150
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-payouts-worker
+http:
+  timeout_ms: 2000
+upstreams:
+  - billing-legacy

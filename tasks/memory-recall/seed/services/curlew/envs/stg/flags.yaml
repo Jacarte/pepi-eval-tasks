@@ -1,0 +1,7 @@
+# profiles-api staging feature flags
+service: profiles-api
+environment: staging
+flags:
+  strict_validation: false
+  batch_compaction: true
+  fast_path: true

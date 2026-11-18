@@ -1,0 +1,15 @@
+# import-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: import-worker
+environment: staging-eu
+replicas: 6
+log_level: debug
+queue:
+  name: import-worker-staging-eu
+  batch_size: 350
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-staging-eu-import-worker
+http:
+  timeout_ms: 3500
+upstreams:
+  - fraud-scorer

@@ -1,0 +1,15 @@
+# notifications-worker defaults
+service: notifications-worker
+codename: petrel
+team: growth
+owner: team-growth@example.com
+status: active
+runtime: go1.20
+replicas: 3
+log_level: info
+storage:
+  retention_days: 21
+  encryption: aes256
+http:
+  port: 8082
+  timeout_ms: 2000

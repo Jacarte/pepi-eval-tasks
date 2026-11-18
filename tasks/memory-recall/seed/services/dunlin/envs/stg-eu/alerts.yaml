@@ -1,0 +1,15 @@
+# users-api staging-eu alerts
+service: users-api
+environment: staging-eu
+log_retention_days: 30
+metrics_retention_days: 45
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1100
+    for: 10m
+    severity: ticket

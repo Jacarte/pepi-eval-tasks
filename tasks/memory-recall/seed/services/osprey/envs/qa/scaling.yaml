@@ -1,0 +1,6 @@
+# billing-legacy qa autoscaling
+service: billing-legacy
+environment: qa
+min_replicas: 2
+max_replicas: 12
+target_cpu_percent: 55

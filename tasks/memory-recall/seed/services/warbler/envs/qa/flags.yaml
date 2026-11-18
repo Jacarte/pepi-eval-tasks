@@ -1,0 +1,7 @@
+# orders-worker qa feature flags
+service: orders-worker
+environment: qa
+flags:
+  async_writes: true
+  batch_compaction: false
+  shadow_reads: false

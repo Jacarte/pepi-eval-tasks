@@ -1,0 +1,12 @@
+# admin-api development settings; keys missing here come from ../../base.yaml
+service: admin-api
+environment: development
+replicas: 4
+log_level: warn
+storage:
+  bucket: acme-development-admin-api
+  retention_days: 60
+http:
+  timeout_ms: 1000
+upstreams:
+  - pricing-api

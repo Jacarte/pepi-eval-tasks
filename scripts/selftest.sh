@@ -117,6 +117,23 @@ mk extraprompt "$GOOD"
 echo 'More.' > "$T/extraprompt/task/prompts/02.md"
 expect "prompt count differs from sessions" 1 extraprompt "prompts/ must hold"
 
+# mk_memory <case> <fixture-json>: a kind=memory task with memory/fixture.json
+mk_memory() {
+  mk "$1" "$GOOD"
+  sed -i.bak 's/^kind: .*/kind: memory/' "$T/$1/task/task.yaml"
+  mkdir -p "$T/$1/task/memory"
+  printf '%s\n' "$2" > "$T/$1/task/memory/fixture.json"
+}
+mk_memory memkind '{"memories": [{"text": "One and Two live in demo.go."}]}'
+expect "memory kind with a fixture" 0 memkind
+
+mk_memory badfixture '{"memories": [{"text": " "}]}'
+expect "fixture with an empty memory text" 1 badfixture "text is empty"
+
+mk_memory fixtureinseed '{"memories": [{"text": "One and Two live in demo.go."}]}'
+cp "$T/fixtureinseed/task/memory/fixture.json" "$T/fixtureinseed/task/seed/notes.json"
+expect "seed holding a copy of the fixture" 1 fixtureinseed "contains memories"
+
 # owned_dirs: hidden/acc owns acc/. The reference leaves a broken file there, which must be deleted.
 mk_owned() {
   mk "$1" "  - id: m1

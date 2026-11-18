@@ -1,0 +1,7 @@
+# invoice-worker sandbox feature flags
+service: invoice-worker
+environment: sandbox
+flags:
+  new_retry_policy: true
+  strict_validation: false
+  shadow_reads: true

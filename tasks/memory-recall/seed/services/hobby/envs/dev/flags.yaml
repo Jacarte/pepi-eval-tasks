@@ -1,0 +1,6 @@
+# payouts-worker development feature flags
+service: payouts-worker
+environment: development
+flags:
+  batch_compaction: true
+  fast_path: true

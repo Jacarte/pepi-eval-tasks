@@ -1,0 +1,13 @@
+# inventory-api staging settings; keys missing here come from ../../base.yaml
+service: inventory-api
+environment: staging
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-staging-inventory-api
+  retention_days: 7
+http:
+  timeout_ms: 2500
+upstreams:
+  - checkout-api
+  - webhooks-worker

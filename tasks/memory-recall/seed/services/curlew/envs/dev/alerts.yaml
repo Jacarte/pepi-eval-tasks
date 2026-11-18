@@ -1,0 +1,15 @@
+# profiles-api development alerts
+service: profiles-api
+environment: development
+log_retention_days: 21
+metrics_retention_days: 120
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 900
+    for: 10m
+    severity: ticket

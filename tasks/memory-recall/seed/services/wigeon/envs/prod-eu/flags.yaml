@@ -1,0 +1,6 @@
+# metrics-collector production-eu feature flags
+service: metrics-collector
+environment: production-eu
+flags:
+  async_writes: false
+  strict_validation: false

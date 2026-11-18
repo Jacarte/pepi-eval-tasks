@@ -1,0 +1,6 @@
+# fraud-scorer production feature flags
+service: fraud-scorer
+environment: production
+flags:
+  shadow_reads: false
+  fast_path: true

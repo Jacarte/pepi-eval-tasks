@@ -1,0 +1,6 @@
+# ledger-api development autoscaling
+service: ledger-api
+environment: development
+min_replicas: 2
+max_replicas: 7
+target_cpu_percent: 55

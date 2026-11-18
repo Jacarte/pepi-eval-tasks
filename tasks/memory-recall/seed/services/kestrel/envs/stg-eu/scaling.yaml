@@ -1,0 +1,6 @@
+# auth-api staging-eu autoscaling
+service: auth-api
+environment: staging-eu
+min_replicas: 1
+max_replicas: 5
+target_cpu_percent: 65

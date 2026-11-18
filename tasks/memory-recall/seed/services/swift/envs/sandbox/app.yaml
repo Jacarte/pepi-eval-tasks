@@ -1,0 +1,12 @@
+# checkout-api sandbox settings; keys missing here come from ../../base.yaml
+service: checkout-api
+environment: sandbox
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-sandbox-checkout-api
+  retention_days: 180
+http:
+  timeout_ms: 1000
+upstreams:
+  - gateway

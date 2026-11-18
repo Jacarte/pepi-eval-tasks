@@ -1,0 +1,8 @@
+# export-worker perf feature flags
+service: export-worker
+environment: perf
+flags:
+  async_writes: false
+  strict_validation: false
+  batch_compaction: true
+  fast_path: false

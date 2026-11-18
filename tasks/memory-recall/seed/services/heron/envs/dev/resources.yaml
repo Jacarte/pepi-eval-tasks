@@ -1,0 +1,7 @@
+# billing-worker development resources
+service: billing-worker
+environment: development
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 768
+mem_limit_mb: 1536

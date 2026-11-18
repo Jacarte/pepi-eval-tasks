@@ -1,0 +1,6 @@
+# risk-api sandbox feature flags
+service: risk-api
+environment: sandbox
+flags:
+  async_writes: false
+  strict_validation: false

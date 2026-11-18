@@ -1,0 +1,12 @@
+# orders-api sandbox settings; keys missing here come from ../../base.yaml
+service: orders-api
+environment: sandbox
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-sandbox-orders-api
+http:
+  timeout_ms: 500
+upstreams:
+  - payouts-api
+  - checkout-worker

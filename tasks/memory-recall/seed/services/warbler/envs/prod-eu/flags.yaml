@@ -1,0 +1,6 @@
+# orders-worker production-eu feature flags
+service: orders-worker
+environment: production-eu
+flags:
+  new_retry_policy: true
+  batch_compaction: false

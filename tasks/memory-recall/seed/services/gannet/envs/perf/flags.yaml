@@ -1,0 +1,7 @@
+# risk-api perf feature flags
+service: risk-api
+environment: perf
+flags:
+  async_writes: true
+  strict_validation: true
+  fast_path: false

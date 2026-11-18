@@ -1,0 +1,15 @@
+# audit-api defaults
+service: audit-api
+codename: shrike
+team: fulfilment
+owner: team-fulfilment@example.com
+status: active
+runtime: go1.20
+replicas: 1
+log_level: info
+storage:
+  retention_days: 30
+  encryption: aes256
+http:
+  port: 8083
+  timeout_ms: 2000

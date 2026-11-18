@@ -1,0 +1,7 @@
+# search-indexer staging-eu feature flags
+service: search-indexer
+environment: staging-eu
+flags:
+  new_retry_policy: false
+  shadow_reads: true
+  fast_path: true

@@ -1,0 +1,6 @@
+# export-worker staging autoscaling
+service: export-worker
+environment: staging
+min_replicas: 2
+max_replicas: 5
+target_cpu_percent: 55

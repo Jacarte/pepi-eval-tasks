@@ -1,0 +1,15 @@
+# billing-legacy sandbox alerts
+service: billing-legacy
+environment: sandbox
+log_retention_days: 180
+metrics_retention_days: 180
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 300
+    for: 10m
+    severity: ticket

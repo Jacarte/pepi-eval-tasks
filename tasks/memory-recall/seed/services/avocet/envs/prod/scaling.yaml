@@ -1,0 +1,6 @@
+# thumbnails-worker production autoscaling
+service: thumbnails-worker
+environment: production
+min_replicas: 1
+max_replicas: 8
+target_cpu_percent: 75

@@ -1,0 +1,12 @@
+# search-indexer perf settings; keys missing here come from ../../base.yaml
+service: search-indexer
+environment: perf
+replicas: 6
+log_level: warn
+storage:
+  bucket: acme-perf-search-indexer
+  retention_days: 120
+http:
+  timeout_ms: 2500
+upstreams:
+  - export-worker

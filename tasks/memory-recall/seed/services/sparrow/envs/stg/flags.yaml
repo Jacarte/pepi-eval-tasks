@@ -1,0 +1,9 @@
+# inventory-sync staging feature flags
+service: inventory-sync
+environment: staging
+flags:
+  async_writes: true
+  strict_validation: false
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: true

@@ -1,0 +1,9 @@
+# scheduler staging feature flags
+service: scheduler
+environment: staging
+flags:
+  new_retry_policy: true
+  async_writes: true
+  strict_validation: true
+  batch_compaction: true
+  shadow_reads: false

@@ -1,0 +1,10 @@
+# payouts-api production settings; keys missing here come from ../../base.yaml
+service: payouts-api
+environment: production
+replicas: 4
+log_level: debug
+storage:
+  bucket: acme-production-payouts-api
+http:
+  timeout_ms: 2000
+upstreams:

@@ -1,0 +1,12 @@
+# cart-api production settings; keys missing here come from ../../base.yaml
+service: cart-api
+environment: production
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-production-cart-api
+  retention_days: 60
+http:
+  timeout_ms: 1500
+upstreams:
+  - media-transcoder

@@ -1,0 +1,6 @@
+# search-api perf feature flags
+service: search-api
+environment: perf
+flags:
+  new_retry_policy: true
+  strict_validation: true

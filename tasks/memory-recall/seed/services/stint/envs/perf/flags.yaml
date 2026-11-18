@@ -1,0 +1,7 @@
+# admin-api perf feature flags
+service: admin-api
+environment: perf
+flags:
+  strict_validation: true
+  batch_compaction: false
+  shadow_reads: false

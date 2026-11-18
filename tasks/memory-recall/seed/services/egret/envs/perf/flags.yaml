@@ -1,0 +1,6 @@
+# catalog-api perf feature flags
+service: catalog-api
+environment: perf
+flags:
+  strict_validation: true
+  shadow_reads: true

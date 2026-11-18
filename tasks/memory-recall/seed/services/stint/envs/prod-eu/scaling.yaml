@@ -1,0 +1,6 @@
+# admin-api production-eu autoscaling
+service: admin-api
+environment: production-eu
+min_replicas: 2
+max_replicas: 10
+target_cpu_percent: 80

@@ -1,0 +1,15 @@
+# search-indexer development alerts
+service: search-indexer
+environment: development
+log_retention_days: 14
+metrics_retention_days: 90
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 2100
+    for: 10m
+    severity: ticket

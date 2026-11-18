@@ -1,0 +1,6 @@
+# billing-scheduler production autoscaling
+service: billing-scheduler
+environment: production
+min_replicas: 1
+max_replicas: 8
+target_cpu_percent: 70

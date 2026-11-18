@@ -1,0 +1,13 @@
+# search-api sandbox settings; keys missing here come from ../../base.yaml
+service: search-api
+environment: sandbox
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-sandbox-search-api
+  retention_days: 180
+http:
+  timeout_ms: 500
+upstreams:
+  - pricing-api
+  - pricing-api

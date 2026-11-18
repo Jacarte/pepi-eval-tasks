@@ -1,0 +1,7 @@
+# notifications-api perf feature flags
+service: notifications-api
+environment: perf
+flags:
+  async_writes: true
+  shadow_reads: false
+  fast_path: true

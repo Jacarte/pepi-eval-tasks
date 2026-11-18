@@ -1,0 +1,5 @@
+# admin-api qa feature flags
+service: admin-api
+environment: qa
+flags:
+  batch_compaction: false

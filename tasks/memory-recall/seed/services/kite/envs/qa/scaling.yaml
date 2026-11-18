@@ -1,0 +1,6 @@
+# ledger-api qa autoscaling
+service: ledger-api
+environment: qa
+min_replicas: 3
+max_replicas: 8
+target_cpu_percent: 75

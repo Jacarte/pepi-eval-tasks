@@ -1,0 +1,11 @@
+# payouts-api perf settings; keys missing here come from ../../base.yaml
+service: payouts-api
+environment: perf
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-perf-payouts-api
+http:
+  timeout_ms: 4000
+upstreams:
+  - pricing-worker

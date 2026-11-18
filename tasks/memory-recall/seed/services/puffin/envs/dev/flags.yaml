@@ -1,0 +1,6 @@
+# export-worker development feature flags
+service: export-worker
+environment: development
+flags:
+  new_retry_policy: true
+  strict_validation: false

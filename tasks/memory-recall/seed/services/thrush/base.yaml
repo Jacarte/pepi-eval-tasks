@@ -1,0 +1,15 @@
+# checkout-worker defaults
+service: checkout-worker
+codename: thrush
+team: fulfilment
+owner: team-fulfilment@example.com
+status: active
+runtime: go1.21
+replicas: 3
+log_level: info
+storage:
+  retention_days: 45
+  encryption: aes256
+http:
+  port: 8080
+  timeout_ms: 4000

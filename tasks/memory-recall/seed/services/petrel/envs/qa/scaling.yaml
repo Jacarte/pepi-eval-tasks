@@ -1,0 +1,6 @@
+# notifications-worker qa autoscaling
+service: notifications-worker
+environment: qa
+min_replicas: 1
+max_replicas: 11
+target_cpu_percent: 70

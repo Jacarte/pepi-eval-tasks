@@ -1,0 +1,8 @@
+# orders-api sandbox feature flags
+service: orders-api
+environment: sandbox
+flags:
+  new_retry_policy: true
+  async_writes: false
+  batch_compaction: false
+  fast_path: false

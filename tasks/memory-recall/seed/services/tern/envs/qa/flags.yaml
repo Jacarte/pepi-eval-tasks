@@ -1,0 +1,8 @@
+# invoice-worker qa feature flags
+service: invoice-worker
+environment: qa
+flags:
+  async_writes: false
+  strict_validation: true
+  batch_compaction: false
+  fast_path: true

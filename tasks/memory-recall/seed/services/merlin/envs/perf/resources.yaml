@@ -1,0 +1,7 @@
+# reports-api perf resources
+service: reports-api
+environment: perf
+cpu_request: 200m
+cpu_limit: 800m
+mem_request_mb: 256
+mem_limit_mb: 512

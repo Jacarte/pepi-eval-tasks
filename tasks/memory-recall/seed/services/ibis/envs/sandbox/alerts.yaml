@@ -1,0 +1,15 @@
+# payouts-api sandbox alerts
+service: payouts-api
+environment: sandbox
+log_retention_days: 180
+metrics_retention_days: 7
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.05
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1500
+    for: 10m
+    severity: ticket

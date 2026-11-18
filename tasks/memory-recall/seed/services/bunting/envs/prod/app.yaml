@@ -1,0 +1,12 @@
+# media-transcoder production settings; keys missing here come from ../../base.yaml
+service: media-transcoder
+environment: production
+replicas: 6
+log_level: info
+storage:
+  bucket: acme-production-media-transcoder
+  retention_days: 21
+http:
+  timeout_ms: 2500
+upstreams:
+  - catalog-api

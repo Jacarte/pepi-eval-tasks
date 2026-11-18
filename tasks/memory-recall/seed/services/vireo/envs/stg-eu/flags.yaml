@@ -1,0 +1,5 @@
+# orders-api staging-eu feature flags
+service: orders-api
+environment: staging-eu
+flags:
+  shadow_reads: true

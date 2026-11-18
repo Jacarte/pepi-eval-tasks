@@ -1,0 +1,6 @@
+# billing-api development autoscaling
+service: billing-api
+environment: development
+min_replicas: 3
+max_replicas: 9
+target_cpu_percent: 50

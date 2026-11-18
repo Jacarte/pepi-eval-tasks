@@ -1,0 +1,8 @@
+# media-api perf feature flags
+service: media-api
+environment: perf
+flags:
+  new_retry_policy: true
+  async_writes: true
+  batch_compaction: false
+  fast_path: true

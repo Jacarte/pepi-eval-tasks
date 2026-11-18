@@ -1,0 +1,6 @@
+# ledger-worker development feature flags
+service: ledger-worker
+environment: development
+flags:
+  batch_compaction: false
+  fast_path: true

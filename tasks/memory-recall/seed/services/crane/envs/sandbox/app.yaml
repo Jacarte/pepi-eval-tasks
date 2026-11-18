@@ -1,0 +1,12 @@
+# media-api sandbox settings; keys missing here come from ../../base.yaml
+service: media-api
+environment: sandbox
+replicas: 1
+log_level: debug
+storage:
+  bucket: acme-sandbox-media-api
+  retention_days: 120
+http:
+  timeout_ms: 2500
+upstreams:
+  - orders-worker

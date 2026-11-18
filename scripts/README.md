@@ -13,7 +13,8 @@ Checks:
 - `task.yaml`/`milestones.yaml` against the README schema, including `scoring` (`prefix|count`, required) and `owned_dirs` (each entry must be a directory under `hidden/`) and the optional `restore_seed_tests` (`true|false`);
 - milestone ids start with `m<N>` and commands start with `go test`;
 - `seed/` has a `go.mod`; `seed/` and `prompts/` never match, case-insensitively, `pepi-eval-tasks`, `Jacarte`, `AGENTS`, `subagent` or `delegat`;
-- `prompts/` holds exactly `01.md` .. `NN.md` for `sessions: NN`.
+- `prompts/` holds exactly `01.md` .. `NN.md` for `sessions: NN`;
+- when `memory/fixture.json` exists, its shape (`checkfixture`), and that no file of `seed/` or `prompts/` contains one of its texts.
 
 Then every milestone is judged by `check-milestone.sh` twice. The workspace is built by `prepare-workspace.sh` (see below), as the grading harness does: `owned_dirs` deleted, seed tests restored when `restore_seed_tests: true`, then `hidden/` overlaid:
 

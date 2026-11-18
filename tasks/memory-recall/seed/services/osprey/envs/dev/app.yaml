@@ -1,0 +1,12 @@
+# billing-legacy development settings; keys missing here come from ../../base.yaml
+service: billing-legacy
+environment: development
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-development-billing-legacy
+  retention_days: 180
+http:
+  timeout_ms: 2000
+upstreams:
+  - ledger-api

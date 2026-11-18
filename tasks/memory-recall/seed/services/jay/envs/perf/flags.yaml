@@ -1,0 +1,8 @@
+# ledger-worker perf feature flags
+service: ledger-worker
+environment: perf
+flags:
+  new_retry_policy: true
+  strict_validation: true
+  batch_compaction: true
+  shadow_reads: false

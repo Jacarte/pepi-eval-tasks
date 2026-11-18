@@ -1,0 +1,7 @@
+# ledger-worker production feature flags
+service: ledger-worker
+environment: production
+flags:
+  new_retry_policy: true
+  async_writes: false
+  strict_validation: false

@@ -1,0 +1,15 @@
+# reports-worker qa settings; keys missing here come from ../../base.yaml
+service: reports-worker
+environment: qa
+replicas: 5
+log_level: warn
+queue:
+  name: reports-worker-qa
+  batch_size: 50
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-qa-reports-worker
+http:
+  timeout_ms: 1500
+upstreams:
+  - billing-legacy

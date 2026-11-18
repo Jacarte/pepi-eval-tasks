@@ -1,0 +1,13 @@
+# media-api qa settings; keys missing here come from ../../base.yaml
+service: media-api
+environment: qa
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-qa-media-api
+  retention_days: 21
+http:
+  timeout_ms: 1000
+upstreams:
+  - invoice-worker
+  - webhooks-worker

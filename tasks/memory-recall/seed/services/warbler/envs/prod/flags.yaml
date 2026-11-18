@@ -1,0 +1,9 @@
+# orders-worker production feature flags
+service: orders-worker
+environment: production
+flags:
+  new_retry_policy: false
+  async_writes: false
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: false

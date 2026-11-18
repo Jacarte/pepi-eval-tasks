@@ -1,0 +1,4 @@
+# search-api production-eu feature flags
+service: search-api
+environment: production-eu
+flags:

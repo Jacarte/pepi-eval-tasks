@@ -1,0 +1,8 @@
+# inventory-api sandbox feature flags
+service: inventory-api
+environment: sandbox
+flags:
+  async_writes: true
+  strict_validation: true
+  shadow_reads: false
+  fast_path: false

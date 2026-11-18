@@ -1,0 +1,12 @@
+# catalog-indexer staging settings; keys missing here come from ../../base.yaml
+service: catalog-indexer
+environment: staging
+replicas: 5
+log_level: info
+storage:
+  bucket: acme-staging-catalog-indexer
+http:
+  timeout_ms: 2000
+upstreams:
+  - notifications-worker
+  - billing-api

@@ -1,0 +1,6 @@
+# payouts-api staging-eu autoscaling
+service: payouts-api
+environment: staging-eu
+min_replicas: 3
+max_replicas: 8
+target_cpu_percent: 50

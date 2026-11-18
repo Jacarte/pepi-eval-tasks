@@ -1,0 +1,16 @@
+# billing-worker development settings; keys missing here come from ../../base.yaml
+service: billing-worker
+environment: development
+replicas: 4
+log_level: info
+queue:
+  name: billing-worker-development
+  batch_size: 200
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-development-billing-worker
+  retention_days: 7
+http:
+  timeout_ms: 1500
+upstreams:
+  - checkout-api

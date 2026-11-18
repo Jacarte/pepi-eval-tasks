@@ -1,0 +1,13 @@
+# notifications-api production settings; keys missing here come from ../../base.yaml
+service: notifications-api
+environment: production
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-production-notifications-api
+  retention_days: 180
+http:
+  timeout_ms: 1500
+upstreams:
+  - audit-api
+  - pricing-api

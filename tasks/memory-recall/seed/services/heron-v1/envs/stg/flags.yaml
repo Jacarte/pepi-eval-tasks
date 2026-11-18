@@ -1,0 +1,6 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: staging
+flags:
+  strict_validation: true
+  fast_path: true

@@ -1,0 +1,6 @@
+# webhooks-api perf feature flags
+service: webhooks-api
+environment: perf
+flags:
+  async_writes: true
+  strict_validation: true

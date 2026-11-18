@@ -1,0 +1,15 @@
+# inventory-api development alerts
+service: inventory-api
+environment: development
+log_retention_days: 21
+metrics_retention_days: 90
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1900
+    for: 10m
+    severity: ticket

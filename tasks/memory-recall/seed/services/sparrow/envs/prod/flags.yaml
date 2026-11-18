@@ -1,0 +1,8 @@
+# inventory-sync production feature flags
+service: inventory-sync
+environment: production
+flags:
+  async_writes: false
+  strict_validation: false
+  shadow_reads: true
+  fast_path: false

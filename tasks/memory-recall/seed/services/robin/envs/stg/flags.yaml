@@ -1,0 +1,5 @@
+# cart-api staging feature flags
+service: cart-api
+environment: staging
+flags:
+  strict_validation: false

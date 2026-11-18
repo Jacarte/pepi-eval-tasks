@@ -1,0 +1,15 @@
+# catalog-api staging-eu alerts
+service: catalog-api
+environment: staging-eu
+log_retention_days: 7
+metrics_retention_days: 7
+notify: team-fulfilment
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1200
+    for: 10m
+    severity: ticket

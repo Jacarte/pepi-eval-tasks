@@ -1,0 +1,6 @@
+# inventory-api perf feature flags
+service: inventory-api
+environment: perf
+flags:
+  new_retry_policy: false
+  fast_path: true

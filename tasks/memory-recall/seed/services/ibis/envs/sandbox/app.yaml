@@ -1,0 +1,12 @@
+# payouts-api sandbox settings; keys missing here come from ../../base.yaml
+service: payouts-api
+environment: sandbox
+replicas: 6
+log_level: warn
+storage:
+  bucket: acme-sandbox-payouts-api
+  retention_days: 90
+http:
+  timeout_ms: 3500
+upstreams:
+  - media-api

@@ -1,0 +1,7 @@
+# reports-worker sandbox resources
+service: reports-worker
+environment: sandbox
+cpu_request: 400m
+cpu_limit: 1200m
+mem_request_mb: 512
+mem_limit_mb: 1024

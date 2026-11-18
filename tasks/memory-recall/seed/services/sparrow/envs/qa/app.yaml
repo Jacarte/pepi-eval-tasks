@@ -1,0 +1,13 @@
+# inventory-sync qa settings; keys missing here come from ../../base.yaml
+service: inventory-sync
+environment: qa
+replicas: 4
+log_level: info
+storage:
+  bucket: acme-qa-inventory-sync
+  retention_days: 365
+http:
+  timeout_ms: 2000
+upstreams:
+  - webhooks-worker
+  - auth-worker

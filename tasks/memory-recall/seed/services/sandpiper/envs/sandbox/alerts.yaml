@@ -1,0 +1,15 @@
+# webhooks-worker sandbox alerts
+service: webhooks-worker
+environment: sandbox
+log_retention_days: 120
+metrics_retention_days: 30
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 500
+    for: 10m
+    severity: ticket

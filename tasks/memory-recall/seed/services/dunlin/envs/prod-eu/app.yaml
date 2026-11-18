@@ -1,0 +1,11 @@
+# users-api production-eu settings; keys missing here come from ../../base.yaml
+service: users-api
+environment: production-eu
+replicas: 4
+log_level: warn
+storage:
+  bucket: acme-production-eu-users-api
+http:
+  timeout_ms: 4000
+upstreams:
+  - audit-api

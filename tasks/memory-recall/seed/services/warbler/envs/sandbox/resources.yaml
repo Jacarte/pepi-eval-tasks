@@ -1,0 +1,7 @@
+# orders-worker sandbox resources
+service: orders-worker
+environment: sandbox
+cpu_request: 300m
+cpu_limit: 900m
+mem_request_mb: 1024
+mem_limit_mb: 2048

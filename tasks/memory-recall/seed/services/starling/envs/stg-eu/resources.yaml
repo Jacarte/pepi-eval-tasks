@@ -1,0 +1,7 @@
+# inventory-api staging-eu resources
+service: inventory-api
+environment: staging-eu
+cpu_request: 400m
+cpu_limit: 800m
+mem_request_mb: 256
+mem_limit_mb: 512

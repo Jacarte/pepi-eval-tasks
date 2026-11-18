@@ -1,0 +1,17 @@
+# auth-worker production-eu settings; keys missing here come from ../../base.yaml
+service: auth-worker
+environment: production-eu
+replicas: 5
+log_level: warn
+queue:
+  name: auth-worker-production-eu
+  batch_size: 400
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-production-eu-auth-worker
+  retention_days: 14
+http:
+  timeout_ms: 1500
+upstreams:
+  - orders-worker
+  - export-worker

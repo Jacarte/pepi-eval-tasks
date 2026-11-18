@@ -1,0 +1,12 @@
+# users-api staging-eu settings; keys missing here come from ../../base.yaml
+service: users-api
+environment: staging-eu
+replicas: 3
+log_level: info
+storage:
+  bucket: acme-staging-eu-users-api
+  retention_days: 21
+http:
+  timeout_ms: 2000
+upstreams:
+  - orders-api

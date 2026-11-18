@@ -1,0 +1,6 @@
+# search-api sandbox autoscaling
+service: search-api
+environment: sandbox
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 55

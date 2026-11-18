@@ -93,7 +93,7 @@ NAME=$(tget name); KIND=$(tget kind); LANG_=$(tget language); GOV=$(tget go_vers
 SESS=$(tget sessions); STO=$(tget session_timeout_minutes); BUD=$(tget budget_usd); DL=$(tget deadline_minutes)
 SCORING=$(tget scoring); OWNED_RAW=$(tget owned_dirs); RESTORE=$(tget restore_seed_tests)
 [ -n "$NAME" ] || fail "task.yaml: name missing"
-case "$KIND" in long|needs-subagents|parallel) ;; *) fail "task.yaml: kind must be long|needs-subagents|parallel (got '$KIND')" ;; esac
+case "$KIND" in long|needs-subagents|parallel|memory) ;; *) fail "task.yaml: kind must be long|needs-subagents|parallel|memory (got '$KIND')" ;; esac
 [ "$LANG_" = go ] || fail "task.yaml: language must be go (got '$LANG_')"
 [ -n "$GOV" ] || fail "task.yaml: go_version missing"
 [[ "$SESS" =~ ^[0-9]+$ ]] && [ "$SESS" -ge 1 ] || fail "task.yaml: sessions must be an integer >= 1 (got '$SESS')"
@@ -154,6 +154,10 @@ if [ -d "$SEED" ]; then
   [ -z "$(find "$SEED" -name hidden -type d)" ] || fail "hidden/ must not be inside seed/"
 fi
 [ -d "$TASK/hidden" ] || fail "hidden/ missing"
+if [ -f "$TASK/memory/fixture.json" ]; then
+  (cd "$HERE/checkfixture" && GOTOOLCHAIN=local go build -o "$WORK/checkfixture" main.go)
+  while IFS= read -r p; do fail "$p"; done < <("$WORK/checkfixture" "$TASK/memory/fixture.json" "$SEED" "$TASK/prompts" 2>&1)
+fi
 
 if [ "$ERRORS" -gt 0 ]; then
   echo "Static checks failed ($ERRORS); not running milestones."

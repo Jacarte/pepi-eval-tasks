@@ -1,0 +1,13 @@
+# catalog-api qa settings; keys missing here come from ../../base.yaml
+service: catalog-api
+environment: qa
+replicas: 3
+log_level: warn
+storage:
+  bucket: acme-qa-catalog-api
+  retention_days: 180
+http:
+  timeout_ms: 1000
+upstreams:
+  - ledger-worker
+  - auth-worker

@@ -1,0 +1,16 @@
+# pricing-worker staging settings; keys missing here come from ../../base.yaml
+service: pricing-worker
+environment: staging
+replicas: 4
+log_level: info
+queue:
+  name: pricing-worker-staging
+  batch_size: 350
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-staging-pricing-worker
+  retention_days: 45
+http:
+  timeout_ms: 1000
+upstreams:
+  - billing-legacy

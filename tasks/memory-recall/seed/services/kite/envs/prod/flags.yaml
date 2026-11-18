@@ -1,0 +1,6 @@
+# ledger-api production feature flags
+service: ledger-api
+environment: production
+flags:
+  batch_compaction: false
+  fast_path: false

@@ -1,0 +1,15 @@
+# ledger-api staging alerts
+service: ledger-api
+environment: staging
+log_retention_days: 120
+metrics_retention_days: 120
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.08
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 2100
+    for: 10m
+    severity: ticket

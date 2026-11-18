@@ -1,0 +1,4 @@
+# checkout-api production-eu feature flags
+service: checkout-api
+environment: production-eu
+flags:

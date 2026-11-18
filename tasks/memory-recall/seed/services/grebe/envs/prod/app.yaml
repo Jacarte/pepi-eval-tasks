@@ -1,0 +1,12 @@
+# fraud-scorer production settings; keys missing here come from ../../base.yaml
+service: fraud-scorer
+environment: production
+replicas: 6
+log_level: info
+storage:
+  bucket: acme-production-fraud-scorer
+http:
+  timeout_ms: 4000
+upstreams:
+  - billing-api
+  - import-worker

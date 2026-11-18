@@ -1,0 +1,6 @@
+# export-worker production autoscaling
+service: export-worker
+environment: production
+min_replicas: 2
+max_replicas: 12
+target_cpu_percent: 75

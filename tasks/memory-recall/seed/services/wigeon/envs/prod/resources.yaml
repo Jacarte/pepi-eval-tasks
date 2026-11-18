@@ -1,0 +1,7 @@
+# metrics-collector production resources
+service: metrics-collector
+environment: production
+cpu_request: 500m
+cpu_limit: 1000m
+mem_request_mb: 768
+mem_limit_mb: 1536

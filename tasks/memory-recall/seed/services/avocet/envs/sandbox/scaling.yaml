@@ -1,0 +1,6 @@
+# thumbnails-worker sandbox autoscaling
+service: thumbnails-worker
+environment: sandbox
+min_replicas: 3
+max_replicas: 12
+target_cpu_percent: 75

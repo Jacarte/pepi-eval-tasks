@@ -1,0 +1,13 @@
+# auth-api development settings; keys missing here come from ../../base.yaml
+service: auth-api
+environment: development
+replicas: 2
+log_level: info
+storage:
+  bucket: acme-development-auth-api
+  retention_days: 120
+http:
+  timeout_ms: 500
+upstreams:
+  - risk-api
+  - sms-sender

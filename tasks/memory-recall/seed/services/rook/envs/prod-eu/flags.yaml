@@ -1,0 +1,7 @@
+# pricing-worker production-eu feature flags
+service: pricing-worker
+environment: production-eu
+flags:
+  new_retry_policy: false
+  strict_validation: false
+  batch_compaction: false

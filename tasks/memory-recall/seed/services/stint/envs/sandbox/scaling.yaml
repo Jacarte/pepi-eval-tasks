@@ -1,0 +1,6 @@
+# admin-api sandbox autoscaling
+service: admin-api
+environment: sandbox
+min_replicas: 1
+max_replicas: 8
+target_cpu_percent: 55

@@ -1,0 +1,6 @@
+# checkout-api development autoscaling
+service: checkout-api
+environment: development
+min_replicas: 1
+max_replicas: 7
+target_cpu_percent: 60

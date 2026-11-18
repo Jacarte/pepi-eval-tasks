@@ -1,0 +1,5 @@
+# search-indexer perf feature flags
+service: search-indexer
+environment: perf
+flags:
+  shadow_reads: true

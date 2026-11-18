@@ -1,0 +1,7 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: qa
+flags:
+  new_retry_policy: false
+  strict_validation: true
+  fast_path: false

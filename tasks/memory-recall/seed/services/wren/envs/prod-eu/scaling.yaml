@@ -1,0 +1,6 @@
+# billing-api production-eu autoscaling
+service: billing-api
+environment: production-eu
+min_replicas: 3
+max_replicas: 8
+target_cpu_percent: 60

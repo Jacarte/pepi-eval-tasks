@@ -1,0 +1,6 @@
+# email-sender perf autoscaling
+service: email-sender
+environment: perf
+min_replicas: 2
+max_replicas: 11
+target_cpu_percent: 50

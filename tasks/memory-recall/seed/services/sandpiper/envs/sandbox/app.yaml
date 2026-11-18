@@ -1,0 +1,16 @@
+# webhooks-worker sandbox settings; keys missing here come from ../../base.yaml
+service: webhooks-worker
+environment: sandbox
+replicas: 6
+log_level: warn
+queue:
+  name: webhooks-worker-sandbox
+  batch_size: 300
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-sandbox-webhooks-worker
+  retention_days: 30
+http:
+  timeout_ms: 4000
+upstreams:
+  - media-transcoder

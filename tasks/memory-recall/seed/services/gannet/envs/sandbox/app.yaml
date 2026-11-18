@@ -1,0 +1,12 @@
+# risk-api sandbox settings; keys missing here come from ../../base.yaml
+service: risk-api
+environment: sandbox
+replicas: 1
+log_level: warn
+storage:
+  bucket: acme-sandbox-risk-api
+  retention_days: 21
+http:
+  timeout_ms: 3000
+upstreams:
+  - orders-worker

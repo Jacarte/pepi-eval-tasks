@@ -1,0 +1,17 @@
+# sms-sender staging settings; keys missing here come from ../../base.yaml
+service: sms-sender
+environment: staging
+replicas: 6
+log_level: debug
+queue:
+  name: sms-sender-staging
+  batch_size: 400
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-sms-sender
+  retention_days: 90
+http:
+  timeout_ms: 3500
+upstreams:
+  - inventory-sync
+  - webhooks-api

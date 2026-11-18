@@ -1,0 +1,7 @@
+# notifications-api production-eu resources
+service: notifications-api
+environment: production-eu
+cpu_request: 200m
+cpu_limit: 600m
+mem_request_mb: 128
+mem_limit_mb: 256

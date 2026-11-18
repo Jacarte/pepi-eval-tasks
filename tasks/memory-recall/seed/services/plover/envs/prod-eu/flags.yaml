@@ -1,0 +1,6 @@
+# billing-scheduler production-eu feature flags
+service: billing-scheduler
+environment: production-eu
+flags:
+  async_writes: false
+  batch_compaction: true

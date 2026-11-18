@@ -1,0 +1,13 @@
+# gateway qa settings; keys missing here come from ../../base.yaml
+service: gateway
+environment: qa
+replicas: 5
+log_level: info
+storage:
+  bucket: acme-qa-gateway
+  retention_days: 60
+http:
+  timeout_ms: 1500
+upstreams:
+  - pricing-worker
+  - thumbnails-worker

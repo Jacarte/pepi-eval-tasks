@@ -1,0 +1,6 @@
+# fraud-scorer perf feature flags
+service: fraud-scorer
+environment: perf
+flags:
+  batch_compaction: true
+  fast_path: false

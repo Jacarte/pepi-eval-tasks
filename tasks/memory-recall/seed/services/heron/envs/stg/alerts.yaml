@@ -1,0 +1,15 @@
+# billing-worker staging alerts
+service: billing-worker
+environment: staging
+log_retention_days: 7
+metrics_retention_days: 30
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 800
+    for: 10m
+    severity: ticket

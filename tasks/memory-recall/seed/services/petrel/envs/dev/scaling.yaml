@@ -1,0 +1,6 @@
+# notifications-worker development autoscaling
+service: notifications-worker
+environment: development
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 55

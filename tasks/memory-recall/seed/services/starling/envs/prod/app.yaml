@@ -1,0 +1,12 @@
+# inventory-api production settings; keys missing here come from ../../base.yaml
+service: inventory-api
+environment: production
+replicas: 4
+log_level: warn
+storage:
+  bucket: acme-production-inventory-api
+  retention_days: 365
+http:
+  timeout_ms: 4000
+upstreams:
+  - notifications-worker

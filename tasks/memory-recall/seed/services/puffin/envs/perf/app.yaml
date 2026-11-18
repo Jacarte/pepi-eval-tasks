@@ -1,0 +1,17 @@
+# export-worker perf settings; keys missing here come from ../../base.yaml
+service: export-worker
+environment: perf
+replicas: 1
+log_level: debug
+queue:
+  name: export-worker-perf
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-perf-export-worker
+  retention_days: 365
+http:
+  timeout_ms: 500
+upstreams:
+  - audit-worker
+  - catalog-indexer

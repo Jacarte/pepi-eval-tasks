@@ -1,0 +1,7 @@
+# inventory-sync production-eu resources
+service: inventory-sync
+environment: production-eu
+cpu_request: 400m
+cpu_limit: 800m
+mem_request_mb: 128
+mem_limit_mb: 256

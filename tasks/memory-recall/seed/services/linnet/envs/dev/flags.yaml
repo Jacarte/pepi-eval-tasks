@@ -1,0 +1,9 @@
+# reports-worker development feature flags
+service: reports-worker
+environment: development
+flags:
+  new_retry_policy: false
+  async_writes: false
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: true

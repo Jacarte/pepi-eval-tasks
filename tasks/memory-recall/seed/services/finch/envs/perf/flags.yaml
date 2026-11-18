@@ -1,0 +1,8 @@
+# catalog-indexer perf feature flags
+service: catalog-indexer
+environment: perf
+flags:
+  new_retry_policy: false
+  async_writes: false
+  batch_compaction: false
+  shadow_reads: true

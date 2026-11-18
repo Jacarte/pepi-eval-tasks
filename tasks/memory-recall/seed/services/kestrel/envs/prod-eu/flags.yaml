@@ -1,0 +1,7 @@
+# auth-api production-eu feature flags
+service: auth-api
+environment: production-eu
+flags:
+  batch_compaction: false
+  shadow_reads: true
+  fast_path: true

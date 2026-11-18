@@ -1,0 +1,12 @@
+# users-api perf settings; keys missing here come from ../../base.yaml
+service: users-api
+environment: perf
+replicas: 3
+log_level: warn
+storage:
+  bucket: acme-perf-users-api
+  retention_days: 90
+http:
+  timeout_ms: 2000
+upstreams:
+  - audit-worker

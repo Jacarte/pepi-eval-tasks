@@ -1,0 +1,6 @@
+# catalog-indexer staging autoscaling
+service: catalog-indexer
+environment: staging
+min_replicas: 1
+max_replicas: 6
+target_cpu_percent: 60

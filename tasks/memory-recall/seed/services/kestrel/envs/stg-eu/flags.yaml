@@ -1,0 +1,5 @@
+# auth-api staging-eu feature flags
+service: auth-api
+environment: staging-eu
+flags:
+  fast_path: true

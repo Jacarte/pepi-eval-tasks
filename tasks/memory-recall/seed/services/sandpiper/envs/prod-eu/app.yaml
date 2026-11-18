@@ -1,0 +1,17 @@
+# webhooks-worker production-eu settings; keys missing here come from ../../base.yaml
+service: webhooks-worker
+environment: production-eu
+replicas: 5
+log_level: info
+queue:
+  name: webhooks-worker-production-eu
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-production-eu-webhooks-worker
+  retention_days: 180
+http:
+  timeout_ms: 500
+upstreams:
+  - users-api
+  - payouts-api

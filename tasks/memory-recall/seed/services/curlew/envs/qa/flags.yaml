@@ -1,0 +1,7 @@
+# profiles-api qa feature flags
+service: profiles-api
+environment: qa
+flags:
+  strict_validation: true
+  batch_compaction: true
+  fast_path: true

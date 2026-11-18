@@ -1,0 +1,17 @@
+# pricing-worker perf settings; keys missing here come from ../../base.yaml
+service: pricing-worker
+environment: perf
+replicas: 6
+log_level: info
+queue:
+  name: pricing-worker-perf
+  batch_size: 300
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-perf-pricing-worker
+  retention_days: 7
+http:
+  timeout_ms: 500
+upstreams:
+  - auth-worker
+  - risk-api

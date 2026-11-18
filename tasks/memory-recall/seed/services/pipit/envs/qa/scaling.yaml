@@ -1,0 +1,6 @@
+# audit-worker qa autoscaling
+service: audit-worker
+environment: qa
+min_replicas: 3
+max_replicas: 12
+target_cpu_percent: 65

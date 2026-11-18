@@ -1,0 +1,7 @@
+# orders-api sandbox resources
+service: orders-api
+environment: sandbox
+cpu_request: 100m
+cpu_limit: 300m
+mem_request_mb: 896
+mem_limit_mb: 1792

@@ -1,0 +1,13 @@
+# search-api perf settings; keys missing here come from ../../base.yaml
+service: search-api
+environment: perf
+replicas: 5
+log_level: info
+storage:
+  bucket: acme-perf-search-api
+  retention_days: 45
+http:
+  timeout_ms: 2000
+upstreams:
+  - audit-worker
+  - import-worker

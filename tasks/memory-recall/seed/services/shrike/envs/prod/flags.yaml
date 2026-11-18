@@ -1,0 +1,6 @@
+# audit-api production feature flags
+service: audit-api
+environment: production
+flags:
+  batch_compaction: false
+  shadow_reads: false

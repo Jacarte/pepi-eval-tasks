@@ -1,0 +1,5 @@
+# checkout-api perf feature flags
+service: checkout-api
+environment: perf
+flags:
+  new_retry_policy: false

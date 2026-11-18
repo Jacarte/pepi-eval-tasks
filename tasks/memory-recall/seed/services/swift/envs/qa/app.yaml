@@ -1,0 +1,12 @@
+# checkout-api qa settings; keys missing here come from ../../base.yaml
+service: checkout-api
+environment: qa
+replicas: 1
+log_level: warn
+storage:
+  bucket: acme-qa-checkout-api
+  retention_days: 180
+http:
+  timeout_ms: 2500
+upstreams:
+  - sms-sender

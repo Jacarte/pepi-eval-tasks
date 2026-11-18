@@ -1,0 +1,17 @@
+# reports-worker sandbox settings; keys missing here come from ../../base.yaml
+service: reports-worker
+environment: sandbox
+replicas: 4
+log_level: info
+queue:
+  name: reports-worker-sandbox
+  batch_size: 300
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-sandbox-reports-worker
+  retention_days: 14
+http:
+  timeout_ms: 3500
+upstreams:
+  - invoice-worker
+  - fraud-scorer

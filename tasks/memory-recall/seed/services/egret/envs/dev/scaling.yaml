@@ -1,0 +1,6 @@
+# catalog-api development autoscaling
+service: catalog-api
+environment: development
+min_replicas: 1
+max_replicas: 8
+target_cpu_percent: 65

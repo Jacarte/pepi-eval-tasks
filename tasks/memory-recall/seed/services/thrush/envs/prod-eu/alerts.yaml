@@ -1,0 +1,15 @@
+# checkout-worker production-eu alerts
+service: checkout-worker
+environment: production-eu
+log_retention_days: 180
+metrics_retention_days: 180
+notify: team-fulfilment
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 300
+    for: 10m
+    severity: ticket

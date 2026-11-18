@@ -1,0 +1,12 @@
+# billing-scheduler qa settings; keys missing here come from ../../base.yaml
+service: billing-scheduler
+environment: qa
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-qa-billing-scheduler
+http:
+  timeout_ms: 2500
+upstreams:
+  - billing-worker
+  - checkout-api

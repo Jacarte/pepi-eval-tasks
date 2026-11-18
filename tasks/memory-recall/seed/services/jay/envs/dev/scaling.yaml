@@ -1,0 +1,6 @@
+# ledger-worker development autoscaling
+service: ledger-worker
+environment: development
+min_replicas: 3
+max_replicas: 11
+target_cpu_percent: 50

@@ -1,0 +1,15 @@
+# inventory-sync perf alerts
+service: inventory-sync
+environment: perf
+log_retention_days: 180
+metrics_retention_days: 21
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 700
+    for: 10m
+    severity: ticket

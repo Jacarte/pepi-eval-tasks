@@ -1,0 +1,7 @@
+# sms-sender production feature flags
+service: sms-sender
+environment: production
+flags:
+  new_retry_policy: true
+  async_writes: false
+  strict_validation: false

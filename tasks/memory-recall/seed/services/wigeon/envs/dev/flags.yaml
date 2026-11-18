@@ -1,0 +1,6 @@
+# metrics-collector development feature flags
+service: metrics-collector
+environment: development
+flags:
+  strict_validation: false
+  shadow_reads: true

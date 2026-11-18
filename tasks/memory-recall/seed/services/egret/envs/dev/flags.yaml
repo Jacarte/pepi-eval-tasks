@@ -1,0 +1,6 @@
+# catalog-api development feature flags
+service: catalog-api
+environment: development
+flags:
+  batch_compaction: true
+  fast_path: false

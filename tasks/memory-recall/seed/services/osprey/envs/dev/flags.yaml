@@ -1,0 +1,7 @@
+# billing-legacy development feature flags
+service: billing-legacy
+environment: development
+flags:
+  new_retry_policy: true
+  async_writes: true
+  fast_path: false

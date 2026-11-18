@@ -1,0 +1,6 @@
+# auth-api qa feature flags
+service: auth-api
+environment: qa
+flags:
+  strict_validation: false
+  fast_path: true

@@ -1,0 +1,13 @@
+# billing-legacy qa settings; keys missing here come from ../../base.yaml
+service: billing-legacy
+environment: qa
+replicas: 5
+log_level: debug
+storage:
+  bucket: acme-qa-billing-legacy
+  retention_days: 45
+http:
+  timeout_ms: 2000
+upstreams:
+  - auth-worker
+  - inventory-api

@@ -1,0 +1,6 @@
+# reports-api staging-eu autoscaling
+service: reports-api
+environment: staging-eu
+min_replicas: 1
+max_replicas: 2
+target_cpu_percent: 50

@@ -1,0 +1,5 @@
+# ledger-api production-eu feature flags
+service: ledger-api
+environment: production-eu
+flags:
+  async_writes: true

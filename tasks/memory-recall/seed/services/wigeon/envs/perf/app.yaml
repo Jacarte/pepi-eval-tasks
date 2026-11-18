@@ -1,0 +1,13 @@
+# metrics-collector perf settings; keys missing here come from ../../base.yaml
+service: metrics-collector
+environment: perf
+replicas: 4
+log_level: debug
+storage:
+  bucket: acme-perf-metrics-collector
+  retention_days: 21
+http:
+  timeout_ms: 1000
+upstreams:
+  - import-worker
+  - ledger-worker

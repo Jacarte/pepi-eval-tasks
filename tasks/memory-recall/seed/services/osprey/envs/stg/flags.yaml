@@ -1,0 +1,6 @@
+# billing-legacy staging feature flags
+service: billing-legacy
+environment: staging
+flags:
+  strict_validation: false
+  batch_compaction: true

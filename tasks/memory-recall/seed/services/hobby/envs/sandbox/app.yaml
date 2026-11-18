@@ -1,0 +1,16 @@
+# payouts-worker sandbox settings; keys missing here come from ../../base.yaml
+service: payouts-worker
+environment: sandbox
+replicas: 4
+log_level: warn
+queue:
+  name: payouts-worker-sandbox
+  batch_size: 350
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-sandbox-payouts-worker
+  retention_days: 21
+http:
+  timeout_ms: 3000
+upstreams:
+  - thumbnails-worker

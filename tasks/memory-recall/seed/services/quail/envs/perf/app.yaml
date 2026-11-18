@@ -1,0 +1,16 @@
+# import-worker perf settings; keys missing here come from ../../base.yaml
+service: import-worker
+environment: perf
+replicas: 2
+log_level: debug
+queue:
+  name: import-worker-perf
+  batch_size: 300
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-perf-import-worker
+http:
+  timeout_ms: 500
+upstreams:
+  - payouts-api
+  - search-indexer

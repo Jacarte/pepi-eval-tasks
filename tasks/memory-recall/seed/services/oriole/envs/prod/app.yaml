@@ -1,0 +1,15 @@
+# email-sender production settings; keys missing here come from ../../base.yaml
+service: email-sender
+environment: production
+replicas: 5
+log_level: warn
+queue:
+  name: email-sender-production
+  batch_size: 50
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-production-email-sender
+http:
+  timeout_ms: 1500
+upstreams:
+  - reports-api

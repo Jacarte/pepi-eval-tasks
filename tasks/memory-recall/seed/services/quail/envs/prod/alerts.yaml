@@ -1,0 +1,15 @@
+# import-worker production alerts
+service: import-worker
+environment: production
+log_retention_days: 60
+metrics_retention_days: 7
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.01
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1100
+    for: 10m
+    severity: ticket

@@ -1,0 +1,7 @@
+# audit-api perf feature flags
+service: audit-api
+environment: perf
+flags:
+  batch_compaction: false
+  shadow_reads: true
+  fast_path: true

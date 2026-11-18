@@ -1,0 +1,5 @@
+# inventory-sync production-eu feature flags
+service: inventory-sync
+environment: production-eu
+flags:
+  fast_path: true

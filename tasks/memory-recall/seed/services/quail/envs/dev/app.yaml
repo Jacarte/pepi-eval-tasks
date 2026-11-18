@@ -1,0 +1,16 @@
+# import-worker development settings; keys missing here come from ../../base.yaml
+service: import-worker
+environment: development
+replicas: 4
+log_level: warn
+queue:
+  name: import-worker-development
+  batch_size: 300
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-development-import-worker
+http:
+  timeout_ms: 3000
+upstreams:
+  - media-transcoder
+  - gateway

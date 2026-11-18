@@ -1,0 +1,7 @@
+# import-worker sandbox feature flags
+service: import-worker
+environment: sandbox
+flags:
+  batch_compaction: true
+  shadow_reads: true
+  fast_path: true

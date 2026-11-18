@@ -1,0 +1,6 @@
+# catalog-api sandbox autoscaling
+service: catalog-api
+environment: sandbox
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 70

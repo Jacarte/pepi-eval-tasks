@@ -1,0 +1,6 @@
+# media-api perf autoscaling
+service: media-api
+environment: perf
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 70

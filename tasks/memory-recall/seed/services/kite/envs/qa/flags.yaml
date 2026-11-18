@@ -1,0 +1,7 @@
+# ledger-api qa feature flags
+service: ledger-api
+environment: qa
+flags:
+  new_retry_policy: true
+  strict_validation: false
+  fast_path: true

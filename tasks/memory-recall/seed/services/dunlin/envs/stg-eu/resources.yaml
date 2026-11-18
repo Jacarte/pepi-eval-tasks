@@ -1,0 +1,7 @@
+# users-api staging-eu resources
+service: users-api
+environment: staging-eu
+cpu_request: 200m
+cpu_limit: 600m
+mem_request_mb: 768
+mem_limit_mb: 1536

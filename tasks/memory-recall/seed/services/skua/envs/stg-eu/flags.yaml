@@ -1,0 +1,4 @@
+# gateway staging-eu feature flags
+service: gateway
+environment: staging-eu
+flags:

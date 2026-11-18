@@ -1,0 +1,16 @@
+# pricing-worker production-eu settings; keys missing here come from ../../base.yaml
+service: pricing-worker
+environment: production-eu
+replicas: 1
+log_level: warn
+queue:
+  name: pricing-worker-production-eu
+  batch_size: 200
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-production-eu-pricing-worker
+  retention_days: 180
+http:
+  timeout_ms: 2000
+upstreams:
+  - checkout-api

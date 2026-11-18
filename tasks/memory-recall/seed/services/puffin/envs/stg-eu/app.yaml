@@ -1,0 +1,17 @@
+# export-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: export-worker
+environment: staging-eu
+replicas: 4
+log_level: debug
+queue:
+  name: export-worker-staging-eu
+  batch_size: 400
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-staging-eu-export-worker
+  retention_days: 7
+http:
+  timeout_ms: 2000
+upstreams:
+  - import-worker
+  - search-api

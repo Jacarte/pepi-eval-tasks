@@ -1,0 +1,6 @@
+# search-indexer sandbox feature flags
+service: search-indexer
+environment: sandbox
+flags:
+  strict_validation: false
+  fast_path: false

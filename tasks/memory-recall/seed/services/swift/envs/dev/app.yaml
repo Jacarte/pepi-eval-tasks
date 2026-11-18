@@ -1,0 +1,12 @@
+# checkout-api development settings; keys missing here come from ../../base.yaml
+service: checkout-api
+environment: development
+replicas: 3
+log_level: debug
+storage:
+  bucket: acme-development-checkout-api
+http:
+  timeout_ms: 2000
+upstreams:
+  - checkout-worker
+  - gateway

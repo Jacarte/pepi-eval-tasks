@@ -1,0 +1,16 @@
+# email-sender production-eu settings; keys missing here come from ../../base.yaml
+service: email-sender
+environment: production-eu
+replicas: 3
+log_level: info
+queue:
+  name: email-sender-production-eu
+  batch_size: 250
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-production-eu-email-sender
+  retention_days: 120
+http:
+  timeout_ms: 2000
+upstreams:
+  - billing-api

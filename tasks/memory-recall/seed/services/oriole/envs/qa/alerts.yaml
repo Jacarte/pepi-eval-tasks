@@ -1,0 +1,15 @@
+# email-sender qa alerts
+service: email-sender
+environment: qa
+log_retention_days: 180
+metrics_retention_days: 60
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 600
+    for: 10m
+    severity: ticket

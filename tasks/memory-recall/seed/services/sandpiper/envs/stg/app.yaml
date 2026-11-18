@@ -1,0 +1,16 @@
+# webhooks-worker staging settings; keys missing here come from ../../base.yaml
+service: webhooks-worker
+environment: staging
+replicas: 3
+log_level: warn
+queue:
+  name: webhooks-worker-staging
+  batch_size: 50
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-staging-webhooks-worker
+  retention_days: 21
+http:
+  timeout_ms: 2500
+upstreams:
+  - billing-scheduler

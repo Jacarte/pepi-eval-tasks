@@ -1,0 +1,6 @@
+# orders-api sandbox autoscaling
+service: orders-api
+environment: sandbox
+min_replicas: 1
+max_replicas: 2
+target_cpu_percent: 50

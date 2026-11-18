@@ -1,0 +1,6 @@
+# reports-api sandbox feature flags
+service: reports-api
+environment: sandbox
+flags:
+  async_writes: true
+  fast_path: false

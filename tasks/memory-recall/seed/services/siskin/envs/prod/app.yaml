@@ -1,0 +1,12 @@
+# pricing-api production settings; keys missing here come from ../../base.yaml
+service: pricing-api
+environment: production
+replicas: 3
+log_level: info
+storage:
+  bucket: acme-production-pricing-api
+  retention_days: 45
+http:
+  timeout_ms: 2000
+upstreams:
+  - import-worker

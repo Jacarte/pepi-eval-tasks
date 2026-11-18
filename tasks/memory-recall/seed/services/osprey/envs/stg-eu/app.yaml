@@ -1,0 +1,12 @@
+# billing-legacy staging-eu settings; keys missing here come from ../../base.yaml
+service: billing-legacy
+environment: staging-eu
+replicas: 6
+log_level: debug
+storage:
+  bucket: acme-staging-eu-billing-legacy
+  retention_days: 45
+http:
+  timeout_ms: 500
+upstreams:
+  - payouts-worker

@@ -1,0 +1,7 @@
+# auth-worker production resources
+service: auth-worker
+environment: production
+cpu_request: 200m
+cpu_limit: 800m
+mem_request_mb: 384
+mem_limit_mb: 768

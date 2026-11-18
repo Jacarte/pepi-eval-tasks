@@ -1,0 +1,16 @@
+# billing-worker production settings; keys missing here come from ../../base.yaml
+service: billing-worker
+environment: production
+replicas: 6
+log_level: debug
+queue:
+  name: billing-worker-production
+  batch_size: 300
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-billing-worker
+  retention_days: 90
+http:
+  timeout_ms: 500
+upstreams:
+  - media-transcoder

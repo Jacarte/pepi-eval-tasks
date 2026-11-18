@@ -1,0 +1,7 @@
+# gateway production resources
+service: gateway
+environment: production
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 256
+mem_limit_mb: 512

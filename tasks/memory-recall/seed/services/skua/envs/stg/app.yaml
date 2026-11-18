@@ -1,0 +1,13 @@
+# gateway staging settings; keys missing here come from ../../base.yaml
+service: gateway
+environment: staging
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-staging-gateway
+  retention_days: 120
+http:
+  timeout_ms: 3000
+upstreams:
+  - orders-api
+  - ledger-api

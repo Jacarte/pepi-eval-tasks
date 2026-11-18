@@ -1,0 +1,15 @@
+# payouts-worker defaults
+service: payouts-worker
+codename: hobby
+team: identity
+owner: team-identity@example.com
+status: active
+runtime: go1.21
+replicas: 3
+log_level: info
+storage:
+  retention_days: 30
+  encryption: aes256
+http:
+  port: 8082
+  timeout_ms: 1000

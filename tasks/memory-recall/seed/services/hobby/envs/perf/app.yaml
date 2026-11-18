@@ -1,0 +1,17 @@
+# payouts-worker perf settings; keys missing here come from ../../base.yaml
+service: payouts-worker
+environment: perf
+replicas: 3
+log_level: info
+queue:
+  name: payouts-worker-perf
+  batch_size: 200
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-perf-payouts-worker
+  retention_days: 30
+http:
+  timeout_ms: 3000
+upstreams:
+  - catalog-api
+  - auth-api

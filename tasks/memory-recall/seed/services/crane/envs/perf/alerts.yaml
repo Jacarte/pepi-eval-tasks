@@ -1,0 +1,15 @@
+# media-api perf alerts
+service: media-api
+environment: perf
+log_retention_days: 365
+metrics_retention_days: 14
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 700
+    for: 10m
+    severity: ticket

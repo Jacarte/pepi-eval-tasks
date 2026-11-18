@@ -1,0 +1,7 @@
+# audit-worker staging-eu feature flags
+service: audit-worker
+environment: staging-eu
+flags:
+  new_retry_policy: false
+  batch_compaction: false
+  fast_path: true

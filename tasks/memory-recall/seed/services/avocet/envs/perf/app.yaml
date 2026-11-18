@@ -1,0 +1,16 @@
+# thumbnails-worker perf settings; keys missing here come from ../../base.yaml
+service: thumbnails-worker
+environment: perf
+replicas: 5
+log_level: info
+queue:
+  name: thumbnails-worker-perf
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-perf-thumbnails-worker
+http:
+  timeout_ms: 500
+upstreams:
+  - invoice-worker
+  - pricing-worker

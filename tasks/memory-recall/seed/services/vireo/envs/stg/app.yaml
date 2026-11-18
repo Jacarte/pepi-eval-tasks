@@ -1,0 +1,11 @@
+# orders-api staging settings; keys missing here come from ../../base.yaml
+service: orders-api
+environment: staging
+replicas: 6
+log_level: warn
+storage:
+  bucket: acme-staging-orders-api
+http:
+  timeout_ms: 2500
+upstreams:
+  - notifications-worker

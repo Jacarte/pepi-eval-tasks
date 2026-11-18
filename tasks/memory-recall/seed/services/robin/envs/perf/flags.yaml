@@ -1,0 +1,6 @@
+# cart-api perf feature flags
+service: cart-api
+environment: perf
+flags:
+  shadow_reads: true
+  fast_path: true

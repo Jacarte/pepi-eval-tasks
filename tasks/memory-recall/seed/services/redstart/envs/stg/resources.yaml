@@ -1,0 +1,7 @@
+# webhooks-api staging resources
+service: webhooks-api
+environment: staging
+cpu_request: 400m
+cpu_limit: 1600m
+mem_request_mb: 512
+mem_limit_mb: 1024

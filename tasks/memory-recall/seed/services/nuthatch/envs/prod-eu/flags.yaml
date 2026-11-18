@@ -1,0 +1,6 @@
+# sms-sender production-eu feature flags
+service: sms-sender
+environment: production-eu
+flags:
+  async_writes: false
+  shadow_reads: false

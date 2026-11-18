@@ -1,0 +1,7 @@
+# checkout-worker sandbox feature flags
+service: checkout-worker
+environment: sandbox
+flags:
+  new_retry_policy: true
+  async_writes: true
+  fast_path: true

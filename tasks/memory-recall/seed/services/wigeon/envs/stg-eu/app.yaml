@@ -1,0 +1,11 @@
+# metrics-collector staging-eu settings; keys missing here come from ../../base.yaml
+service: metrics-collector
+environment: staging-eu
+replicas: 6
+log_level: warn
+storage:
+  bucket: acme-staging-eu-metrics-collector
+http:
+  timeout_ms: 1500
+upstreams:
+  - inventory-api

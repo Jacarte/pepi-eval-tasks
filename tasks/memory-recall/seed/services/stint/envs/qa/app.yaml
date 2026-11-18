@@ -1,0 +1,11 @@
+# admin-api qa settings; keys missing here come from ../../base.yaml
+service: admin-api
+environment: qa
+replicas: 5
+log_level: debug
+storage:
+  bucket: acme-qa-admin-api
+http:
+  timeout_ms: 3000
+upstreams:
+  - profiles-api

@@ -1,0 +1,7 @@
+# billing-scheduler sandbox feature flags
+service: billing-scheduler
+environment: sandbox
+flags:
+  new_retry_policy: false
+  strict_validation: true
+  batch_compaction: false

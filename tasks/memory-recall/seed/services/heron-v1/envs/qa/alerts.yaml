@@ -1,0 +1,15 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: qa
+log_retention_days: 21
+metrics_retention_days: 90
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1000
+    for: 10m
+    severity: ticket

@@ -1,0 +1,6 @@
+# import-worker perf feature flags
+service: import-worker
+environment: perf
+flags:
+  async_writes: true
+  fast_path: false

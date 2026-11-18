@@ -1,0 +1,6 @@
+# webhooks-worker qa feature flags
+service: webhooks-worker
+environment: qa
+flags:
+  async_writes: false
+  shadow_reads: false

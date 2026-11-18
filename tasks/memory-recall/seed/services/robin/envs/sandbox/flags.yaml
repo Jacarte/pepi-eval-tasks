@@ -1,0 +1,8 @@
+# cart-api sandbox feature flags
+service: cart-api
+environment: sandbox
+flags:
+  new_retry_policy: true
+  async_writes: false
+  strict_validation: true
+  fast_path: false

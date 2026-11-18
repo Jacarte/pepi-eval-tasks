@@ -1,0 +1,17 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: sandbox
+replicas: 2
+log_level: debug
+queue:
+  name: billing-worker-sandbox
+  batch_size: 300
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-sandbox-billing-worker
+  retention_days: 21
+http:
+  timeout_ms: 1000
+upstreams:
+  - admin-api
+  - inventory-api

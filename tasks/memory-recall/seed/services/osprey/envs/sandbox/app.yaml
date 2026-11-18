@@ -1,0 +1,12 @@
+# billing-legacy sandbox settings; keys missing here come from ../../base.yaml
+service: billing-legacy
+environment: sandbox
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-sandbox-billing-legacy
+  retention_days: 14
+http:
+  timeout_ms: 2000
+upstreams:
+  - auth-worker

@@ -1,0 +1,6 @@
+# auth-api production autoscaling
+service: auth-api
+environment: production
+min_replicas: 2
+max_replicas: 4
+target_cpu_percent: 60

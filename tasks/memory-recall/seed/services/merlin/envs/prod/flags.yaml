@@ -1,0 +1,6 @@
+# reports-api production feature flags
+service: reports-api
+environment: production
+flags:
+  strict_validation: false
+  batch_compaction: true

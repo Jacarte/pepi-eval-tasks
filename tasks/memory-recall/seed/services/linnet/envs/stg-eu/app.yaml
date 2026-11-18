@@ -1,0 +1,16 @@
+# reports-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: reports-worker
+environment: staging-eu
+replicas: 2
+log_level: debug
+queue:
+  name: reports-worker-staging-eu
+  batch_size: 100
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-staging-eu-reports-worker
+  retention_days: 60
+http:
+  timeout_ms: 2500
+upstreams:
+  - orders-worker

@@ -1,0 +1,6 @@
+# reports-worker production autoscaling
+service: reports-worker
+environment: production
+min_replicas: 2
+max_replicas: 5
+target_cpu_percent: 50

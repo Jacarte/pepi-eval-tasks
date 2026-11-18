@@ -1,0 +1,16 @@
+# sms-sender production settings; keys missing here come from ../../base.yaml
+service: sms-sender
+environment: production
+replicas: 5
+log_level: warn
+queue:
+  name: sms-sender-production
+  batch_size: 50
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-sms-sender
+  retention_days: 365
+http:
+  timeout_ms: 3500
+upstreams:
+  - search-api

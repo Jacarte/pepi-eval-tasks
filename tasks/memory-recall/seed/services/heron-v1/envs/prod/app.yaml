@@ -1,0 +1,16 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: production
+replicas: 3
+log_level: debug
+queue:
+  name: billing-worker-production
+  batch_size: 400
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-production-billing-worker
+  retention_days: 90
+http:
+  timeout_ms: 3000
+upstreams:
+  - email-sender

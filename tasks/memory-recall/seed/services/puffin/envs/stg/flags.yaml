@@ -1,0 +1,8 @@
+# export-worker staging feature flags
+service: export-worker
+environment: staging
+flags:
+  new_retry_policy: true
+  async_writes: false
+  shadow_reads: true
+  fast_path: false

@@ -1,0 +1,6 @@
+# users-api staging-eu autoscaling
+service: users-api
+environment: staging-eu
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 60

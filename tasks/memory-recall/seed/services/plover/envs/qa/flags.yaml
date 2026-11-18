@@ -1,0 +1,7 @@
+# billing-scheduler qa feature flags
+service: billing-scheduler
+environment: qa
+flags:
+  async_writes: true
+  strict_validation: true
+  batch_compaction: false

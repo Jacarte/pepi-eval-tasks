@@ -1,0 +1,16 @@
+# webhooks-worker development settings; keys missing here come from ../../base.yaml
+service: webhooks-worker
+environment: development
+replicas: 3
+log_level: info
+queue:
+  name: webhooks-worker-development
+  batch_size: 250
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-development-webhooks-worker
+  retention_days: 180
+http:
+  timeout_ms: 3500
+upstreams:
+  - payouts-worker

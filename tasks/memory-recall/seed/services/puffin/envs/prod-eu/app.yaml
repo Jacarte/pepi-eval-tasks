@@ -1,0 +1,16 @@
+# export-worker production-eu settings; keys missing here come from ../../base.yaml
+service: export-worker
+environment: production-eu
+replicas: 1
+log_level: warn
+queue:
+  name: export-worker-production-eu
+  batch_size: 350
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-production-eu-export-worker
+  retention_days: 180
+http:
+  timeout_ms: 1000
+upstreams:
+  - billing-worker

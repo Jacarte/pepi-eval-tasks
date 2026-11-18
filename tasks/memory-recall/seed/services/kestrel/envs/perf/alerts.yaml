@@ -1,0 +1,15 @@
+# auth-api perf alerts
+service: auth-api
+environment: perf
+log_retention_days: 90
+metrics_retention_days: 45
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1600
+    for: 10m
+    severity: ticket

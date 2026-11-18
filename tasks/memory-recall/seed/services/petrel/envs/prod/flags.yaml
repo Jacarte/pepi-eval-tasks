@@ -1,0 +1,7 @@
+# notifications-worker production feature flags
+service: notifications-worker
+environment: production
+flags:
+  new_retry_policy: true
+  batch_compaction: true
+  shadow_reads: false

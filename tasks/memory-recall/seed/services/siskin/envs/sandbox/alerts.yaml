@@ -1,0 +1,15 @@
+# pricing-api sandbox alerts
+service: pricing-api
+environment: sandbox
+log_retention_days: 120
+metrics_retention_days: 180
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 300
+    for: 10m
+    severity: ticket

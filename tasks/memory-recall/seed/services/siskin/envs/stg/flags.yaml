@@ -1,0 +1,6 @@
+# pricing-api staging feature flags
+service: pricing-api
+environment: staging
+flags:
+  strict_validation: false
+  shadow_reads: true

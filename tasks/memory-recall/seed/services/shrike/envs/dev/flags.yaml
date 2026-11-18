@@ -1,0 +1,5 @@
+# audit-api development feature flags
+service: audit-api
+environment: development
+flags:
+  fast_path: true

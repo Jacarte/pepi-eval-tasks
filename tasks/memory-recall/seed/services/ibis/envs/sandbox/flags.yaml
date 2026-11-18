@@ -1,0 +1,8 @@
+# payouts-api sandbox feature flags
+service: payouts-api
+environment: sandbox
+flags:
+  async_writes: true
+  strict_validation: true
+  batch_compaction: false
+  fast_path: true

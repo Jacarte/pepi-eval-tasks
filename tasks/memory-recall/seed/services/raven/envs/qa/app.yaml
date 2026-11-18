@@ -1,0 +1,11 @@
+# notifications-api qa settings; keys missing here come from ../../base.yaml
+service: notifications-api
+environment: qa
+replicas: 4
+log_level: warn
+storage:
+  bucket: acme-qa-notifications-api
+  retention_days: 180
+http:
+  timeout_ms: 1500
+upstreams:

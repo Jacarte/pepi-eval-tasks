@@ -1,0 +1,7 @@
+# payouts-api development resources
+service: payouts-api
+environment: development
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 128
+mem_limit_mb: 256

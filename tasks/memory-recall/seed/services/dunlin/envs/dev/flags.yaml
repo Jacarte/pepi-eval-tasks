@@ -1,0 +1,7 @@
+# users-api development feature flags
+service: users-api
+environment: development
+flags:
+  async_writes: true
+  shadow_reads: false
+  fast_path: true

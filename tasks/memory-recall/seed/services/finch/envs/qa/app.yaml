@@ -1,0 +1,12 @@
+# catalog-indexer qa settings; keys missing here come from ../../base.yaml
+service: catalog-indexer
+environment: qa
+replicas: 4
+log_level: debug
+storage:
+  bucket: acme-qa-catalog-indexer
+http:
+  timeout_ms: 3000
+upstreams:
+  - billing-scheduler
+  - auth-api

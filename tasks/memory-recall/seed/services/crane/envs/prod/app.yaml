@@ -1,0 +1,13 @@
+# media-api production settings; keys missing here come from ../../base.yaml
+service: media-api
+environment: production
+replicas: 4
+log_level: warn
+storage:
+  bucket: acme-production-media-api
+  retention_days: 14
+http:
+  timeout_ms: 3000
+upstreams:
+  - import-worker
+  - inventory-sync

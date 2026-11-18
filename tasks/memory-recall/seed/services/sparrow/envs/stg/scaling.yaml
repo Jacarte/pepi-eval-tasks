@@ -1,0 +1,6 @@
+# inventory-sync staging autoscaling
+service: inventory-sync
+environment: staging
+min_replicas: 2
+max_replicas: 6
+target_cpu_percent: 70

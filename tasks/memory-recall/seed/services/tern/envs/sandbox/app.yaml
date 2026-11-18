@@ -1,0 +1,17 @@
+# invoice-worker sandbox settings; keys missing here come from ../../base.yaml
+service: invoice-worker
+environment: sandbox
+replicas: 3
+log_level: debug
+queue:
+  name: invoice-worker-sandbox
+  batch_size: 250
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-sandbox-invoice-worker
+  retention_days: 30
+http:
+  timeout_ms: 4000
+upstreams:
+  - billing-worker
+  - notifications-api

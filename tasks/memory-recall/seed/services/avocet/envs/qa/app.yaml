@@ -1,0 +1,16 @@
+# thumbnails-worker qa settings; keys missing here come from ../../base.yaml
+service: thumbnails-worker
+environment: qa
+replicas: 1
+log_level: debug
+queue:
+  name: thumbnails-worker-qa
+  batch_size: 200
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-qa-thumbnails-worker
+http:
+  timeout_ms: 2000
+upstreams:
+  - users-api
+  - webhooks-worker

@@ -1,0 +1,12 @@
+# billing-legacy staging settings; keys missing here come from ../../base.yaml
+service: billing-legacy
+environment: staging
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-staging-billing-legacy
+  retention_days: 60
+http:
+  timeout_ms: 1500
+upstreams:
+  - sms-sender

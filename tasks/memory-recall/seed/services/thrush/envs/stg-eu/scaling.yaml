@@ -1,0 +1,6 @@
+# checkout-worker staging-eu autoscaling
+service: checkout-worker
+environment: staging-eu
+min_replicas: 1
+max_replicas: 11
+target_cpu_percent: 80

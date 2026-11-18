@@ -1,0 +1,6 @@
+# auth-worker staging-eu autoscaling
+service: auth-worker
+environment: staging-eu
+min_replicas: 1
+max_replicas: 2
+target_cpu_percent: 60

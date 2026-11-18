@@ -1,0 +1,12 @@
+# media-transcoder development settings; keys missing here come from ../../base.yaml
+service: media-transcoder
+environment: development
+replicas: 3
+log_level: debug
+storage:
+  bucket: acme-development-media-transcoder
+  retention_days: 365
+http:
+  timeout_ms: 2500
+upstreams:
+  - audit-worker

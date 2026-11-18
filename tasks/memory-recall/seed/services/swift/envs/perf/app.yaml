@@ -1,0 +1,12 @@
+# checkout-api perf settings; keys missing here come from ../../base.yaml
+service: checkout-api
+environment: perf
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-perf-checkout-api
+http:
+  timeout_ms: 3000
+upstreams:
+  - billing-legacy
+  - search-indexer

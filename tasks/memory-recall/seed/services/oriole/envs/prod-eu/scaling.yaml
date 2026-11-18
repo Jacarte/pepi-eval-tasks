@@ -1,0 +1,6 @@
+# email-sender production-eu autoscaling
+service: email-sender
+environment: production-eu
+min_replicas: 1
+max_replicas: 8
+target_cpu_percent: 70

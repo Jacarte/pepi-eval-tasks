@@ -1,0 +1,12 @@
+# scheduler perf settings; keys missing here come from ../../base.yaml
+service: scheduler
+environment: perf
+replicas: 4
+log_level: warn
+storage:
+  bucket: acme-perf-scheduler
+  retention_days: 30
+http:
+  timeout_ms: 1000
+upstreams:
+  - sms-sender

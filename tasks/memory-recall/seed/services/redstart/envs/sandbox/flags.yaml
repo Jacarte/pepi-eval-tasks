@@ -1,0 +1,6 @@
+# webhooks-api sandbox feature flags
+service: webhooks-api
+environment: sandbox
+flags:
+  async_writes: true
+  batch_compaction: true

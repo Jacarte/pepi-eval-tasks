@@ -1,0 +1,15 @@
+# catalog-indexer development alerts
+service: catalog-indexer
+environment: development
+log_retention_days: 45
+metrics_retention_days: 120
+notify: team-platform
+alerts:
+  - name: error-rate
+    threshold: 0.08
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 300
+    for: 10m
+    severity: ticket

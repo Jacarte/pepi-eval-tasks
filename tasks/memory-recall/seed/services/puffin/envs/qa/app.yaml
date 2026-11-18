@@ -1,0 +1,17 @@
+# export-worker qa settings; keys missing here come from ../../base.yaml
+service: export-worker
+environment: qa
+replicas: 2
+log_level: info
+queue:
+  name: export-worker-qa
+  batch_size: 100
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-qa-export-worker
+  retention_days: 45
+http:
+  timeout_ms: 2000
+upstreams:
+  - orders-worker
+  - inventory-sync

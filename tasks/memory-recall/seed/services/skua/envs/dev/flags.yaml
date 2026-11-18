@@ -1,0 +1,7 @@
+# gateway development feature flags
+service: gateway
+environment: development
+flags:
+  batch_compaction: true
+  shadow_reads: false
+  fast_path: false

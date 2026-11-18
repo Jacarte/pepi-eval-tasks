@@ -1,0 +1,6 @@
+# admin-api production feature flags
+service: admin-api
+environment: production
+flags:
+  async_writes: false
+  strict_validation: false

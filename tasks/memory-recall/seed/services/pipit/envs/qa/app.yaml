@@ -1,0 +1,16 @@
+# audit-worker qa settings; keys missing here come from ../../base.yaml
+service: audit-worker
+environment: qa
+replicas: 4
+log_level: info
+queue:
+  name: audit-worker-qa
+  batch_size: 100
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-qa-audit-worker
+  retention_days: 21
+http:
+  timeout_ms: 1000
+upstreams:
+  - notifications-api

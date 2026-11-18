@@ -1,0 +1,12 @@
+# inventory-sync staging settings; keys missing here come from ../../base.yaml
+service: inventory-sync
+environment: staging
+replicas: 3
+log_level: info
+storage:
+  bucket: acme-staging-inventory-sync
+  retention_days: 45
+http:
+  timeout_ms: 1500
+upstreams:
+  - metrics-collector

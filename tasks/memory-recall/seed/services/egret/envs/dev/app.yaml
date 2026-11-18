@@ -1,0 +1,12 @@
+# catalog-api development settings; keys missing here come from ../../base.yaml
+service: catalog-api
+environment: development
+replicas: 4
+log_level: debug
+storage:
+  bucket: acme-development-catalog-api
+  retention_days: 365
+http:
+  timeout_ms: 1000
+upstreams:
+  - auth-api

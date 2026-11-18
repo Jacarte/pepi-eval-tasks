@@ -1,0 +1,7 @@
+# auth-worker staging resources
+service: auth-worker
+environment: staging
+cpu_request: 100m
+cpu_limit: 400m
+mem_request_mb: 1024
+mem_limit_mb: 2048

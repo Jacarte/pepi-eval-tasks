@@ -1,0 +1,6 @@
+# audit-api production autoscaling
+service: audit-api
+environment: production
+min_replicas: 1
+max_replicas: 11
+target_cpu_percent: 60

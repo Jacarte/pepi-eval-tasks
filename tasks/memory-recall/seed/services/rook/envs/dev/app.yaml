@@ -1,0 +1,16 @@
+# pricing-worker development settings; keys missing here come from ../../base.yaml
+service: pricing-worker
+environment: development
+replicas: 2
+log_level: warn
+queue:
+  name: pricing-worker-development
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-development-pricing-worker
+  retention_days: 180
+http:
+  timeout_ms: 2500
+upstreams:
+  - catalog-indexer

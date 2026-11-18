@@ -1,0 +1,15 @@
+# pricing-api development alerts
+service: pricing-api
+environment: development
+log_retention_days: 120
+metrics_retention_days: 14
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.01
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 800
+    for: 10m
+    severity: ticket

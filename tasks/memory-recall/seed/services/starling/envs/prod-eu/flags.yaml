@@ -1,0 +1,8 @@
+# inventory-api production-eu feature flags
+service: inventory-api
+environment: production-eu
+flags:
+  new_retry_policy: true
+  strict_validation: false
+  batch_compaction: true
+  fast_path: false

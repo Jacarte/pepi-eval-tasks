@@ -1,0 +1,15 @@
+# cart-api perf alerts
+service: cart-api
+environment: perf
+log_retention_days: 45
+metrics_retention_days: 60
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 800
+    for: 10m
+    severity: ticket

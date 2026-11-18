@@ -1,0 +1,17 @@
+# audit-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: audit-worker
+environment: staging-eu
+replicas: 6
+log_level: debug
+queue:
+  name: audit-worker-staging-eu
+  batch_size: 150
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-staging-eu-audit-worker
+  retention_days: 365
+http:
+  timeout_ms: 1500
+upstreams:
+  - catalog-indexer
+  - billing-legacy

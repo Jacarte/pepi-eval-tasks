@@ -1,0 +1,7 @@
+# notifications-api production-eu feature flags
+service: notifications-api
+environment: production-eu
+flags:
+  async_writes: true
+  batch_compaction: true
+  shadow_reads: false

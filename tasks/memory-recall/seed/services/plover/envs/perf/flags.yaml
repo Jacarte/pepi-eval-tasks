@@ -1,0 +1,7 @@
+# billing-scheduler perf feature flags
+service: billing-scheduler
+environment: perf
+flags:
+  new_retry_policy: true
+  async_writes: false
+  strict_validation: true

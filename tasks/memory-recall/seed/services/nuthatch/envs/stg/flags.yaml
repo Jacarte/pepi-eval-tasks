@@ -1,0 +1,8 @@
+# sms-sender staging feature flags
+service: sms-sender
+environment: staging
+flags:
+  async_writes: true
+  strict_validation: true
+  batch_compaction: true
+  shadow_reads: false

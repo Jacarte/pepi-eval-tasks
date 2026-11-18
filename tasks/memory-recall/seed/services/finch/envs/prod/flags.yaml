@@ -1,0 +1,6 @@
+# catalog-indexer production feature flags
+service: catalog-indexer
+environment: production
+flags:
+  async_writes: false
+  batch_compaction: false

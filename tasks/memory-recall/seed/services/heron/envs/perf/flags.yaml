@@ -1,0 +1,10 @@
+# billing-worker perf feature flags
+service: billing-worker
+environment: perf
+flags:
+  new_retry_policy: true
+  async_writes: true
+  strict_validation: false
+  batch_compaction: true
+  shadow_reads: false
+  fast_path: false

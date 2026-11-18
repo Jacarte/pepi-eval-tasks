@@ -1,0 +1,6 @@
+# media-api development autoscaling
+service: media-api
+environment: development
+min_replicas: 3
+max_replicas: 10
+target_cpu_percent: 65

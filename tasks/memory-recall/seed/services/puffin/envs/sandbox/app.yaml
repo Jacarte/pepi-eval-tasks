@@ -1,0 +1,16 @@
+# export-worker sandbox settings; keys missing here come from ../../base.yaml
+service: export-worker
+environment: sandbox
+replicas: 3
+log_level: debug
+queue:
+  name: export-worker-sandbox
+  batch_size: 400
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-sandbox-export-worker
+  retention_days: 60
+http:
+  timeout_ms: 2000
+upstreams:
+  - auth-api

@@ -1,0 +1,15 @@
+# pricing-api qa alerts
+service: pricing-api
+environment: qa
+log_retention_days: 180
+metrics_retention_days: 21
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1700
+    for: 10m
+    severity: ticket

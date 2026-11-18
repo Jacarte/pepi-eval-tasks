@@ -1,0 +1,7 @@
+# payouts-api perf feature flags
+service: payouts-api
+environment: perf
+flags:
+  async_writes: true
+  strict_validation: false
+  fast_path: true

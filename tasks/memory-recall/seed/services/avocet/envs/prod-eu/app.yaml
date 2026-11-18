@@ -1,0 +1,16 @@
+# thumbnails-worker production-eu settings; keys missing here come from ../../base.yaml
+service: thumbnails-worker
+environment: production-eu
+replicas: 6
+log_level: debug
+queue:
+  name: thumbnails-worker-production-eu
+  batch_size: 200
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-production-eu-thumbnails-worker
+  retention_days: 60
+http:
+  timeout_ms: 3000
+upstreams:
+  - payouts-api

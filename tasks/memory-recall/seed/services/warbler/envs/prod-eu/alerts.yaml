@@ -1,0 +1,15 @@
+# orders-worker production-eu alerts
+service: orders-worker
+environment: production-eu
+log_retention_days: 14
+metrics_retention_days: 14
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.09
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1700
+    for: 10m
+    severity: ticket

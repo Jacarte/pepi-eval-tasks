@@ -1,0 +1,16 @@
+# payouts-worker development settings; keys missing here come from ../../base.yaml
+service: payouts-worker
+environment: development
+replicas: 1
+log_level: info
+queue:
+  name: payouts-worker-development
+  batch_size: 300
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-development-payouts-worker
+  retention_days: 14
+http:
+  timeout_ms: 500
+upstreams:
+  - cart-api

@@ -1,0 +1,15 @@
+# email-sender staging-eu alerts
+service: email-sender
+environment: staging-eu
+log_retention_days: 7
+metrics_retention_days: 120
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 800
+    for: 10m
+    severity: ticket

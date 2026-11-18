@@ -1,0 +1,6 @@
+# reports-worker perf feature flags
+service: reports-worker
+environment: perf
+flags:
+  shadow_reads: true
+  fast_path: false

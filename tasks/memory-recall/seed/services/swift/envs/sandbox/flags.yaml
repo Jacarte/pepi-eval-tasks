@@ -1,0 +1,8 @@
+# checkout-api sandbox feature flags
+service: checkout-api
+environment: sandbox
+flags:
+  async_writes: false
+  strict_validation: false
+  batch_compaction: true
+  fast_path: false

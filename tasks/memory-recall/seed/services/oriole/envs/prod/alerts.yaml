@@ -1,0 +1,15 @@
+# email-sender production alerts
+service: email-sender
+environment: production
+log_retention_days: 45
+metrics_retention_days: 120
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1500
+    for: 10m
+    severity: ticket

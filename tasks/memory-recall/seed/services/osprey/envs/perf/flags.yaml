@@ -1,0 +1,7 @@
+# billing-legacy perf feature flags
+service: billing-legacy
+environment: perf
+flags:
+  async_writes: true
+  batch_compaction: false
+  shadow_reads: false

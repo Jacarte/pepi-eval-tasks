@@ -1,0 +1,6 @@
+# auth-api development autoscaling
+service: auth-api
+environment: development
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 60

@@ -1,0 +1,17 @@
+# ledger-worker production-eu settings; keys missing here come from ../../base.yaml
+service: ledger-worker
+environment: production-eu
+replicas: 5
+log_level: warn
+queue:
+  name: ledger-worker-production-eu
+  batch_size: 200
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-eu-ledger-worker
+  retention_days: 45
+http:
+  timeout_ms: 2500
+upstreams:
+  - gateway
+  - orders-worker

@@ -1,0 +1,15 @@
+# notifications-worker development alerts
+service: notifications-worker
+environment: development
+log_retention_days: 45
+metrics_retention_days: 180
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 700
+    for: 10m
+    severity: ticket

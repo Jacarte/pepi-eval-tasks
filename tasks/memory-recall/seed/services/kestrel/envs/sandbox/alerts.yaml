@@ -1,0 +1,15 @@
+# auth-api sandbox alerts
+service: auth-api
+environment: sandbox
+log_retention_days: 90
+metrics_retention_days: 21
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.04
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 2000
+    for: 10m
+    severity: ticket

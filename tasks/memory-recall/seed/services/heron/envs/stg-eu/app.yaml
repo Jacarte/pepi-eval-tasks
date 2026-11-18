@@ -1,0 +1,17 @@
+# billing-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: billing-worker
+environment: staging-eu
+replicas: 1
+log_level: debug
+queue:
+  name: billing-worker-staging-eu
+  batch_size: 300
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-staging-eu-billing-worker
+  retention_days: 35
+http:
+  timeout_ms: 1000
+upstreams:
+  - notifications-worker
+  - audit-api

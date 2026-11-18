@@ -1,0 +1,6 @@
+# billing-legacy perf autoscaling
+service: billing-legacy
+environment: perf
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 65

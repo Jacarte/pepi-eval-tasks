@@ -1,0 +1,6 @@
+# audit-api staging autoscaling
+service: audit-api
+environment: staging
+min_replicas: 3
+max_replicas: 13
+target_cpu_percent: 60

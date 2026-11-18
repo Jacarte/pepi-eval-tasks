@@ -1,0 +1,11 @@
+# metrics-collector qa settings; keys missing here come from ../../base.yaml
+service: metrics-collector
+environment: qa
+replicas: 1
+log_level: info
+storage:
+  bucket: acme-qa-metrics-collector
+http:
+  timeout_ms: 1500
+upstreams:
+  - orders-api

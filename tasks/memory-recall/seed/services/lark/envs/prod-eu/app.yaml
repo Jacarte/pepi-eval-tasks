@@ -1,0 +1,13 @@
+# search-api production-eu settings; keys missing here come from ../../base.yaml
+service: search-api
+environment: production-eu
+replicas: 2
+log_level: debug
+storage:
+  bucket: acme-production-eu-search-api
+  retention_days: 180
+http:
+  timeout_ms: 1500
+upstreams:
+  - auth-worker
+  - auth-api

@@ -1,0 +1,15 @@
+# billing-legacy staging-eu alerts
+service: billing-legacy
+environment: staging-eu
+log_retention_days: 45
+metrics_retention_days: 45
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.08
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 800
+    for: 10m
+    severity: ticket

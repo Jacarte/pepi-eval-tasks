@@ -1,0 +1,8 @@
+# billing-api staging-eu feature flags
+service: billing-api
+environment: staging-eu
+flags:
+  strict_validation: true
+  batch_compaction: false
+  shadow_reads: false
+  fast_path: false

@@ -1,0 +1,17 @@
+# ledger-worker perf settings; keys missing here come from ../../base.yaml
+service: ledger-worker
+environment: perf
+replicas: 6
+log_level: info
+queue:
+  name: ledger-worker-perf
+  batch_size: 150
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-perf-ledger-worker
+  retention_days: 365
+http:
+  timeout_ms: 1500
+upstreams:
+  - thumbnails-worker
+  - orders-api

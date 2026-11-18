@@ -1,0 +1,15 @@
+# auth-worker staging settings; keys missing here come from ../../base.yaml
+service: auth-worker
+environment: staging
+replicas: 6
+log_level: info
+queue:
+  name: auth-worker-staging
+  batch_size: 300
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-staging-auth-worker
+http:
+  timeout_ms: 1000
+upstreams:
+  - ledger-worker

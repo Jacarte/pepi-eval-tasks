@@ -1,0 +1,13 @@
+# billing-api production settings; keys missing here come from ../../base.yaml
+service: billing-api
+environment: production
+replicas: 2
+log_level: debug
+storage:
+  bucket: acme-production-billing-api
+  retention_days: 365
+http:
+  timeout_ms: 2000
+upstreams:
+  - billing-worker
+  - metrics-collector

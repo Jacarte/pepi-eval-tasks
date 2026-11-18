@@ -1,0 +1,6 @@
+# orders-api qa autoscaling
+service: orders-api
+environment: qa
+min_replicas: 3
+max_replicas: 11
+target_cpu_percent: 80

@@ -1,0 +1,6 @@
+# media-api production feature flags
+service: media-api
+environment: production
+flags:
+  async_writes: false
+  fast_path: false

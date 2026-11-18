@@ -1,0 +1,7 @@
+# auth-api production feature flags
+service: auth-api
+environment: production
+flags:
+  strict_validation: false
+  batch_compaction: false
+  shadow_reads: true

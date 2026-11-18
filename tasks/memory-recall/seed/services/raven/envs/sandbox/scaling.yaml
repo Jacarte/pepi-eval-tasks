@@ -1,0 +1,6 @@
+# notifications-api sandbox autoscaling
+service: notifications-api
+environment: sandbox
+min_replicas: 2
+max_replicas: 10
+target_cpu_percent: 60

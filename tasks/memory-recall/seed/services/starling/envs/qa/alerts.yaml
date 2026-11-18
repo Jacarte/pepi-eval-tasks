@@ -1,0 +1,15 @@
+# inventory-api qa alerts
+service: inventory-api
+environment: qa
+log_retention_days: 30
+metrics_retention_days: 90
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1500
+    for: 10m
+    severity: ticket

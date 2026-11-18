@@ -1,0 +1,6 @@
+# invoice-worker production feature flags
+service: invoice-worker
+environment: production
+flags:
+  async_writes: false
+  strict_validation: false

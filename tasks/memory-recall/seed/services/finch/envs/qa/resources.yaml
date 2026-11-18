@@ -1,0 +1,7 @@
+# catalog-indexer qa resources
+service: catalog-indexer
+environment: qa
+cpu_request: 500m
+cpu_limit: 1500m
+mem_request_mb: 768
+mem_limit_mb: 1536

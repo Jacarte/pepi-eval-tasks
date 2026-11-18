@@ -1,0 +1,7 @@
+# admin-api development resources
+service: admin-api
+environment: development
+cpu_request: 300m
+cpu_limit: 900m
+mem_request_mb: 512
+mem_limit_mb: 1024

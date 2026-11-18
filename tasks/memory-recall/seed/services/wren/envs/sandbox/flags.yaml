@@ -1,0 +1,6 @@
+# billing-api sandbox feature flags
+service: billing-api
+environment: sandbox
+flags:
+  shadow_reads: true
+  fast_path: true

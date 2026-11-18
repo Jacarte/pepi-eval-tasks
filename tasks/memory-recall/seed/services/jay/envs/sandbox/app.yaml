@@ -1,0 +1,16 @@
+# ledger-worker sandbox settings; keys missing here come from ../../base.yaml
+service: ledger-worker
+environment: sandbox
+replicas: 5
+log_level: warn
+queue:
+  name: ledger-worker-sandbox
+  batch_size: 300
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-sandbox-ledger-worker
+  retention_days: 120
+http:
+  timeout_ms: 1000
+upstreams:
+  - email-sender

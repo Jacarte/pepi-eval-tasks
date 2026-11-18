@@ -1,0 +1,6 @@
+# billing-api production-eu feature flags
+service: billing-api
+environment: production-eu
+flags:
+  strict_validation: true
+  shadow_reads: true

@@ -1,0 +1,7 @@
+# invoice-worker production resources
+service: invoice-worker
+environment: production
+cpu_request: 300m
+cpu_limit: 600m
+mem_request_mb: 128
+mem_limit_mb: 256

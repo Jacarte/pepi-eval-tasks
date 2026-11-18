@@ -1,0 +1,6 @@
+# risk-api development feature flags
+service: risk-api
+environment: development
+flags:
+  batch_compaction: true
+  shadow_reads: true

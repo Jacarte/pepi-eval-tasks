@@ -1,0 +1,15 @@
+# cart-api staging alerts
+service: cart-api
+environment: staging
+log_retention_days: 45
+metrics_retention_days: 21
+notify: team-identity
+alerts:
+  - name: error-rate
+    threshold: 0.03
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 200
+    for: 10m
+    severity: ticket

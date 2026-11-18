@@ -1,0 +1,7 @@
+# pricing-worker development feature flags
+service: pricing-worker
+environment: development
+flags:
+  strict_validation: true
+  shadow_reads: false
+  fast_path: true

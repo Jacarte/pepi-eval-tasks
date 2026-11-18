@@ -1,0 +1,6 @@
+# webhooks-worker development feature flags
+service: webhooks-worker
+environment: development
+flags:
+  strict_validation: false
+  fast_path: true

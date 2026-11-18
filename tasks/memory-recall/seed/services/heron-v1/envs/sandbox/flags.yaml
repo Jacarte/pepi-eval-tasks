@@ -1,0 +1,6 @@
+# Decommissioned: replaced by services/heron. Kept for reference, not deployed.
+service: billing-worker
+environment: sandbox
+flags:
+  async_writes: true
+  fast_path: false

@@ -1,0 +1,16 @@
+# checkout-worker production settings; keys missing here come from ../../base.yaml
+service: checkout-worker
+environment: production
+replicas: 5
+log_level: warn
+queue:
+  name: checkout-worker-production
+  batch_size: 100
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-production-checkout-worker
+  retention_days: 14
+http:
+  timeout_ms: 1500
+upstreams:
+  - metrics-collector

@@ -1,0 +1,13 @@
+# reports-api staging-eu settings; keys missing here come from ../../base.yaml
+service: reports-api
+environment: staging-eu
+replicas: 5
+log_level: info
+storage:
+  bucket: acme-staging-eu-reports-api
+  retention_days: 365
+http:
+  timeout_ms: 2500
+upstreams:
+  - search-indexer
+  - search-indexer

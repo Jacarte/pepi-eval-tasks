@@ -1,0 +1,15 @@
+# scheduler production alerts
+service: scheduler
+environment: production
+log_retention_days: 365
+metrics_retention_days: 365
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.05
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 900
+    for: 10m
+    severity: ticket

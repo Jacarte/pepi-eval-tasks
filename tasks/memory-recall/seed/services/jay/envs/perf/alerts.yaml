@@ -1,0 +1,15 @@
+# ledger-worker perf alerts
+service: ledger-worker
+environment: perf
+log_retention_days: 60
+metrics_retention_days: 60
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1400
+    for: 10m
+    severity: ticket

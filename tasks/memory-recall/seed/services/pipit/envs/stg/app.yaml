@@ -1,0 +1,17 @@
+# audit-worker staging settings; keys missing here come from ../../base.yaml
+service: audit-worker
+environment: staging
+replicas: 3
+log_level: debug
+queue:
+  name: audit-worker-staging
+  batch_size: 350
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-audit-worker
+  retention_days: 30
+http:
+  timeout_ms: 3000
+upstreams:
+  - billing-scheduler
+  - sms-sender

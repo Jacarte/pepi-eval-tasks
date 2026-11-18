@@ -1,0 +1,15 @@
+# fraud-scorer sandbox alerts
+service: fraud-scorer
+environment: sandbox
+log_retention_days: 30
+metrics_retention_days: 120
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.08
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1800
+    for: 10m
+    severity: ticket

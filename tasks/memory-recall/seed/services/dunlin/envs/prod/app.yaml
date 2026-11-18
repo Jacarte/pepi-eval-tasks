@@ -1,0 +1,13 @@
+# users-api production settings; keys missing here come from ../../base.yaml
+service: users-api
+environment: production
+replicas: 2
+log_level: info
+storage:
+  bucket: acme-production-users-api
+  retention_days: 60
+http:
+  timeout_ms: 3000
+upstreams:
+  - orders-worker
+  - catalog-api

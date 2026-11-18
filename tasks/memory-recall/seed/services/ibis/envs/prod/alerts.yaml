@@ -1,0 +1,15 @@
+# payouts-api production alerts
+service: payouts-api
+environment: production
+log_retention_days: 180
+metrics_retention_days: 180
+notify: team-data
+alerts:
+  - name: error-rate
+    threshold: 0.07
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 2100
+    for: 10m
+    severity: ticket

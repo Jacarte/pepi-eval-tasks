@@ -1,0 +1,12 @@
+# inventory-sync perf settings; keys missing here come from ../../base.yaml
+service: inventory-sync
+environment: perf
+replicas: 2
+log_level: debug
+storage:
+  bucket: acme-perf-inventory-sync
+  retention_days: 90
+http:
+  timeout_ms: 1500
+upstreams:
+  - sms-sender

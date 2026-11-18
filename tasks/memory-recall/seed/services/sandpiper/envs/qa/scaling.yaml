@@ -1,0 +1,6 @@
+# webhooks-worker qa autoscaling
+service: webhooks-worker
+environment: qa
+min_replicas: 2
+max_replicas: 10
+target_cpu_percent: 75

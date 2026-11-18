@@ -1,0 +1,5 @@
+# billing-worker staging feature flags
+service: billing-worker
+environment: staging
+flags:
+  batch_compaction: false

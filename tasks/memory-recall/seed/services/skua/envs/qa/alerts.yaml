@@ -1,0 +1,15 @@
+# gateway qa alerts
+service: gateway
+environment: qa
+log_retention_days: 180
+metrics_retention_days: 45
+notify: team-fulfilment
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1000
+    for: 10m
+    severity: ticket

@@ -1,0 +1,6 @@
+# orders-api development feature flags
+service: orders-api
+environment: development
+flags:
+  batch_compaction: true
+  shadow_reads: false

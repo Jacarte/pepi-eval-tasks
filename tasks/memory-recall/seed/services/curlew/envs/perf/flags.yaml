@@ -1,0 +1,6 @@
+# profiles-api perf feature flags
+service: profiles-api
+environment: perf
+flags:
+  async_writes: true
+  batch_compaction: false

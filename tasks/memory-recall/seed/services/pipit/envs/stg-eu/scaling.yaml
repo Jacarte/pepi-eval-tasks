@@ -1,0 +1,6 @@
+# audit-worker staging-eu autoscaling
+service: audit-worker
+environment: staging-eu
+min_replicas: 2
+max_replicas: 6
+target_cpu_percent: 75

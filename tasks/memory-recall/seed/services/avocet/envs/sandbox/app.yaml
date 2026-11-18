@@ -1,0 +1,16 @@
+# thumbnails-worker sandbox settings; keys missing here come from ../../base.yaml
+service: thumbnails-worker
+environment: sandbox
+replicas: 1
+log_level: debug
+queue:
+  name: thumbnails-worker-sandbox
+  batch_size: 250
+  visibility_timeout_s: 90
+storage:
+  bucket: acme-sandbox-thumbnails-worker
+  retention_days: 14
+http:
+  timeout_ms: 3500
+upstreams:
+  - orders-api

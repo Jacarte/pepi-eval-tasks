@@ -1,0 +1,13 @@
+# pricing-api development settings; keys missing here come from ../../base.yaml
+service: pricing-api
+environment: development
+replicas: 5
+log_level: info
+storage:
+  bucket: acme-development-pricing-api
+  retention_days: 90
+http:
+  timeout_ms: 3000
+upstreams:
+  - catalog-api
+  - ledger-api

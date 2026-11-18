@@ -1,0 +1,7 @@
+# fraud-scorer production resources
+service: fraud-scorer
+environment: production
+cpu_request: 200m
+cpu_limit: 600m
+mem_request_mb: 512
+mem_limit_mb: 1024

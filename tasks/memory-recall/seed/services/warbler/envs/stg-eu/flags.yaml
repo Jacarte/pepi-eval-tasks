@@ -1,0 +1,5 @@
+# orders-worker staging-eu feature flags
+service: orders-worker
+environment: staging-eu
+flags:
+  shadow_reads: true

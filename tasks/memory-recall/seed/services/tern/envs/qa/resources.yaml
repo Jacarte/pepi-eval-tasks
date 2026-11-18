@@ -1,0 +1,7 @@
+# invoice-worker qa resources
+service: invoice-worker
+environment: qa
+cpu_request: 500m
+cpu_limit: 1500m
+mem_request_mb: 128
+mem_limit_mb: 256

@@ -1,0 +1,15 @@
+# import-worker defaults
+service: import-worker
+codename: quail
+team: data
+owner: team-data@example.com
+status: active
+runtime: go1.21
+replicas: 3
+log_level: info
+storage:
+  retention_days: 90
+  encryption: aes256
+http:
+  port: 8081
+  timeout_ms: 2000

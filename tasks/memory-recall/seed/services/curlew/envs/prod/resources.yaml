@@ -1,0 +1,7 @@
+# profiles-api production resources
+service: profiles-api
+environment: production
+cpu_request: 300m
+cpu_limit: 600m
+mem_request_mb: 256
+mem_limit_mb: 512

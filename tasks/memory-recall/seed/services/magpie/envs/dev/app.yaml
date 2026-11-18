@@ -1,0 +1,12 @@
+# search-indexer development settings; keys missing here come from ../../base.yaml
+service: search-indexer
+environment: development
+replicas: 1
+log_level: warn
+storage:
+  bucket: acme-development-search-indexer
+http:
+  timeout_ms: 4000
+upstreams:
+  - profiles-api
+  - checkout-worker

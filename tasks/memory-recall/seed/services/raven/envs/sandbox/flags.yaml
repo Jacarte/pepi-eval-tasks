@@ -1,0 +1,7 @@
+# notifications-api sandbox feature flags
+service: notifications-api
+environment: sandbox
+flags:
+  async_writes: false
+  strict_validation: false
+  batch_compaction: false

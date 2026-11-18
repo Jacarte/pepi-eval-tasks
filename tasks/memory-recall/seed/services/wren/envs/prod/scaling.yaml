@@ -1,0 +1,6 @@
+# billing-api production autoscaling
+service: billing-api
+environment: production
+min_replicas: 1
+max_replicas: 2
+target_cpu_percent: 65

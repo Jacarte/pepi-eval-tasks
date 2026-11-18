@@ -1,0 +1,13 @@
+# scheduler production settings; keys missing here come from ../../base.yaml
+service: scheduler
+environment: production
+replicas: 5
+log_level: info
+storage:
+  bucket: acme-production-scheduler
+  retention_days: 365
+http:
+  timeout_ms: 1000
+upstreams:
+  - audit-worker
+  - fraud-scorer

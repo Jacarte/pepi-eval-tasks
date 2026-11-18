@@ -1,0 +1,6 @@
+# risk-api production-eu autoscaling
+service: risk-api
+environment: production-eu
+min_replicas: 2
+max_replicas: 3
+target_cpu_percent: 70

@@ -1,0 +1,15 @@
+# webhooks-worker development alerts
+service: webhooks-worker
+environment: development
+log_retention_days: 30
+metrics_retention_days: 45
+notify: team-commerce
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 400
+    for: 10m
+    severity: ticket

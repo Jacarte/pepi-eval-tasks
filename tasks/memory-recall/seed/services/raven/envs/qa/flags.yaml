@@ -1,0 +1,6 @@
+# notifications-api qa feature flags
+service: notifications-api
+environment: qa
+flags:
+  strict_validation: false
+  batch_compaction: true

@@ -1,0 +1,17 @@
+# notifications-worker production settings; keys missing here come from ../../base.yaml
+service: notifications-worker
+environment: production
+replicas: 6
+log_level: info
+queue:
+  name: notifications-worker-production
+  batch_size: 400
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-production-notifications-worker
+  retention_days: 60
+http:
+  timeout_ms: 3000
+upstreams:
+  - search-api
+  - payouts-worker

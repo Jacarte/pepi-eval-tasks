@@ -1,0 +1,6 @@
+# metrics-collector production autoscaling
+service: metrics-collector
+environment: production
+min_replicas: 3
+max_replicas: 5
+target_cpu_percent: 60

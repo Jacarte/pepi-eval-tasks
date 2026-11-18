@@ -1,0 +1,15 @@
+# pricing-worker staging-eu settings; keys missing here come from ../../base.yaml
+service: pricing-worker
+environment: staging-eu
+replicas: 4
+log_level: warn
+queue:
+  name: pricing-worker-staging-eu
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-staging-eu-pricing-worker
+http:
+  timeout_ms: 1000
+upstreams:
+  - audit-worker

@@ -1,0 +1,15 @@
+# checkout-worker staging alerts
+service: checkout-worker
+environment: staging
+log_retention_days: 30
+metrics_retention_days: 7
+notify: team-fulfilment
+alerts:
+  - name: error-rate
+    threshold: 0.09
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1500
+    for: 10m
+    severity: ticket

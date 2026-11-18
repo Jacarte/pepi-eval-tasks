@@ -1,0 +1,6 @@
+# invoice-worker qa autoscaling
+service: invoice-worker
+environment: qa
+min_replicas: 2
+max_replicas: 9
+target_cpu_percent: 50

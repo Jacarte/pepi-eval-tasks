@@ -1,0 +1,15 @@
+# billing-worker production alerts
+service: billing-worker
+environment: production
+log_retention_days: 14
+metrics_retention_days: 365
+notify: team-payments
+alerts:
+  - name: error-rate
+    threshold: 0.06
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 900
+    for: 10m
+    severity: ticket

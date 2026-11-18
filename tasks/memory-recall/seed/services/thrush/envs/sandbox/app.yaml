@@ -1,0 +1,16 @@
+# checkout-worker sandbox settings; keys missing here come from ../../base.yaml
+service: checkout-worker
+environment: sandbox
+replicas: 4
+log_level: info
+queue:
+  name: checkout-worker-sandbox
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  bucket: acme-sandbox-checkout-worker
+  retention_days: 14
+http:
+  timeout_ms: 3000
+upstreams:
+  - pricing-worker

@@ -1,0 +1,11 @@
+# profiles-api qa settings; keys missing here come from ../../base.yaml
+service: profiles-api
+environment: qa
+replicas: 4
+log_level: debug
+storage:
+  bucket: acme-qa-profiles-api
+http:
+  timeout_ms: 3500
+upstreams:
+  - reports-worker

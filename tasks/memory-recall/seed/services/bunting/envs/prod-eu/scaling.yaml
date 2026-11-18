@@ -1,0 +1,6 @@
+# media-transcoder production-eu autoscaling
+service: media-transcoder
+environment: production-eu
+min_replicas: 3
+max_replicas: 10
+target_cpu_percent: 60

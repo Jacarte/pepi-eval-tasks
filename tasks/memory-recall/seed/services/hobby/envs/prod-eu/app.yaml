@@ -1,0 +1,17 @@
+# payouts-worker production-eu settings; keys missing here come from ../../base.yaml
+service: payouts-worker
+environment: production-eu
+replicas: 4
+log_level: warn
+queue:
+  name: payouts-worker-production-eu
+  batch_size: 250
+  visibility_timeout_s: 120
+storage:
+  bucket: acme-production-eu-payouts-worker
+  retention_days: 60
+http:
+  timeout_ms: 4000
+upstreams:
+  - auth-worker
+  - reports-api

@@ -1,0 +1,15 @@
+# orders-worker qa alerts
+service: orders-worker
+environment: qa
+log_retention_days: 30
+metrics_retention_days: 365
+notify: team-growth
+alerts:
+  - name: error-rate
+    threshold: 0.02
+    for: 5m
+    severity: page
+  - name: latency-p99
+    threshold_ms: 1800
+    for: 10m
+    severity: ticket

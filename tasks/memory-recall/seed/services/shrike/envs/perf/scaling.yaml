@@ -1,0 +1,6 @@
+# audit-api perf autoscaling
+service: audit-api
+environment: perf
+min_replicas: 1
+max_replicas: 4
+target_cpu_percent: 50

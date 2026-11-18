@@ -1,0 +1,5 @@
+# notifications-api development feature flags
+service: notifications-api
+environment: development
+flags:
+  shadow_reads: false

@@ -1,0 +1,6 @@
+# catalog-indexer qa feature flags
+service: catalog-indexer
+environment: qa
+flags:
+  new_retry_policy: true
+  shadow_reads: false

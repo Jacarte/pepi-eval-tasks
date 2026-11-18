@@ -1,0 +1,6 @@
+# reports-worker staging-eu feature flags
+service: reports-worker
+environment: staging-eu
+flags:
+  batch_compaction: false
+  fast_path: false

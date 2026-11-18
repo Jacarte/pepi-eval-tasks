@@ -1,0 +1,15 @@
+# export-worker defaults
+service: export-worker
+codename: puffin
+team: growth
+owner: team-growth@example.com
+status: active
+runtime: go1.20
+replicas: 3
+log_level: info
+storage:
+  retention_days: 120
+  encryption: aes256
+http:
+  port: 8083
+  timeout_ms: 5000

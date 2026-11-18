@@ -1,0 +1,16 @@
+# email-sender development settings; keys missing here come from ../../base.yaml
+service: email-sender
+environment: development
+replicas: 5
+log_level: debug
+queue:
+  name: email-sender-development
+  batch_size: 400
+  visibility_timeout_s: 60
+storage:
+  bucket: acme-development-email-sender
+  retention_days: 60
+http:
+  timeout_ms: 2000
+upstreams:
+  - audit-worker

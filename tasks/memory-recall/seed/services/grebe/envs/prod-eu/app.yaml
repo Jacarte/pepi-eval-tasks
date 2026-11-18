@@ -1,0 +1,12 @@
+# fraud-scorer production-eu settings; keys missing here come from ../../base.yaml
+service: fraud-scorer
+environment: production-eu
+replicas: 3
+log_level: debug
+storage:
+  bucket: acme-production-eu-fraud-scorer
+  retention_days: 120
+http:
+  timeout_ms: 1000
+upstreams:
+  - media-transcoder

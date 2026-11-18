@@ -1,0 +1,6 @@
+# media-api staging feature flags
+service: media-api
+environment: staging
+flags:
+  async_writes: true
+  batch_compaction: false

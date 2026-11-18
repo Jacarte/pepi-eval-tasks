@@ -1,0 +1,15 @@
+# payouts-api defaults
+service: payouts-api
+codename: ibis
+team: data
+owner: team-data@example.com
+status: active
+runtime: go1.22
+replicas: 1
+log_level: info
+storage:
+  retention_days: 90
+  encryption: aes256
+http:
+  port: 8081
+  timeout_ms: 3000

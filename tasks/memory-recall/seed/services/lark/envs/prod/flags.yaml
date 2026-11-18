@@ -1,0 +1,6 @@
+# search-api production feature flags
+service: search-api
+environment: production
+flags:
+  async_writes: true
+  shadow_reads: false

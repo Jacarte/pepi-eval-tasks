@@ -1,0 +1,6 @@
+# metrics-collector staging-eu feature flags
+service: metrics-collector
+environment: staging-eu
+flags:
+  new_retry_policy: false
+  shadow_reads: false

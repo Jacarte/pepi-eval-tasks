@@ -1,0 +1,7 @@
+# ledger-worker qa resources
+service: ledger-worker
+environment: qa
+cpu_request: 500m
+cpu_limit: 2000m
+mem_request_mb: 768
+mem_limit_mb: 1536

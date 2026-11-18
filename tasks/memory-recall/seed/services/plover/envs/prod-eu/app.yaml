@@ -1,0 +1,14 @@
+# billing-scheduler production-eu settings; keys missing here come from ../../base.yaml
+service: billing-scheduler
+environment: production-eu
+replicas: 5
+log_level: debug
+storage:
+  bucket: acme-production-eu-billing-scheduler
+  retention_days: 60
+http:
+  timeout_ms: 1500
+upstreams:
+  - billing-worker
+  - reports-api
+  - reports-worker
