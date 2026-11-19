@@ -1,15 +1,15 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
+region: us-east-1
+replicas: 6
 log_level: warn
 queue:
   name: heron-v1-sandbox
-  batch_size: 50
-  visibility_timeout_s: 120
+  batch_size: 400
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3000
 upstreams:
-  - checkout-worker
   - payouts-api

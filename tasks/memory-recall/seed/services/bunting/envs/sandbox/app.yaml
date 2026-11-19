@@ -1,11 +1,12 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 4
-log_level: info
+region: ap-southeast-2
+replicas: 1
+log_level: warn
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/compliance.yaml
 http:
   timeout_ms: 2000
 upstreams:
-  - auth-worker
-  - auth-worker
+  - checkout-api
+  - catalog-indexer

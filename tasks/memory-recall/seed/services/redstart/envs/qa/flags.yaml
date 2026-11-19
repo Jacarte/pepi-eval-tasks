@@ -1,7 +1,6 @@
 # qa feature flags
 environment: qa
 flags:
-  async_writes: true
-  strict_validation: false
-  shadow_reads: true
-  fast_path: false
+  new_retry_policy: false
+  batch_compaction: true
+  fast_path: true

@@ -1,0 +1,6 @@
+# apac-core retention
+parent: apac
+retention_days:
+  short: 91
+  standard: 387
+  regulated: 145

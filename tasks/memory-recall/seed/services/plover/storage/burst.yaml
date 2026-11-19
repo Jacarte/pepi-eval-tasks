@@ -1,5 +1,4 @@
 # burst storage profile
-class: hot
-retention_days: 365
-versioning: false
-encryption: kms
+include: ../../../templates/fragments/frag-20.yaml
+versioning: true
+encryption: aes256

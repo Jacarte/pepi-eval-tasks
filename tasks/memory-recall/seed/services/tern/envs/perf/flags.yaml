@@ -1,4 +1,5 @@
 # perf feature flags
 environment: perf
 flags:
-  async_writes: true
+  shadow_reads: false
+  fast_path: true

@@ -1,0 +1,4 @@
+id: P-0397
+target: services/sparrow/envs/stg-eu
+set:
+  replicas: 2

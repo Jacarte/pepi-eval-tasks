@@ -1,14 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: eu-central-1
 replicas: 5
-log_level: info
+log_level: debug
 queue:
   name: petrel-development
-  batch_size: 400
+  batch_size: 150
   visibility_timeout_s: 60
 storage:
   include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2500
 upstreams:
-  - fraud-scorer
+  - email-sender
+  - reports-worker

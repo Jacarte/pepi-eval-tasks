@@ -1,14 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 2
-log_level: info
+region: us-east-2
+replicas: 4
+log_level: warn
 queue:
   name: falcon-staging
-  batch_size: 150
+  batch_size: 100
   visibility_timeout_s: 120
 storage:
   include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - webhooks-worker
+  - profiles-api
+  - invoice-worker

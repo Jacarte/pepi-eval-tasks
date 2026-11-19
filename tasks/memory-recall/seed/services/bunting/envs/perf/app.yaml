@@ -1,9 +1,12 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 4
+region: ap-northeast-1
+replicas: 3
 log_level: debug
+storage:
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 500
 upstreams:
-  - auth-api
-  - fraud-scorer
+  - thumbnails-worker
+  - billing-legacy

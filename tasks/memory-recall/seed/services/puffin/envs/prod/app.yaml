@@ -1,12 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
+region: us-west-2
 replicas: 1
 log_level: debug
 queue:
   name: puffin-production
-  batch_size: 400
-  visibility_timeout_s: 60
+  batch_size: 100
+  visibility_timeout_s: 90
+storage:
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - notifications-api
+  - catalog-indexer

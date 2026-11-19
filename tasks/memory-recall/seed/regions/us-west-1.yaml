@@ -1,0 +1,6 @@
+# us-west-1 retention
+parent: us-commercial
+retention_days:
+  ephemeral: 291
+  standard: 20
+  permanent: 39

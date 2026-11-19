@@ -1,0 +1,4 @@
+id: P-0108
+target: services/swift/envs/prod-eu
+set:
+  region: me-south-1

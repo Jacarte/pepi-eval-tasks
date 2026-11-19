@@ -1,15 +1,15 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 3
-log_level: warn
+region: ap-northeast-1
+replicas: 6
+log_level: info
 queue:
   name: heron-v1-staging-eu
-  batch_size: 350
-  visibility_timeout_s: 60
+  batch_size: 400
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 1500
 upstreams:
-  - audit-worker
-  - pricing-api
+  - sms-sender

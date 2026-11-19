@@ -1,10 +1,11 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 6
-log_level: warn
+region: eu-west-1
+replicas: 2
+log_level: info
 storage:
   include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3500
 upstreams:
-  - billing-worker
+  - profiles-api

@@ -1,11 +1,12 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 4
+region: us-east-2
+replicas: 3
 log_level: info
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - thumbnails-worker
-  - profiles-api
+  - invoice-worker
+  - sms-sender

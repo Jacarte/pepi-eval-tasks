@@ -1,13 +1,14 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
+region: us-west-1
+replicas: 5
 log_level: debug
 queue:
   name: petrel-sandbox
-  batch_size: 200
-  visibility_timeout_s: 90
+  batch_size: 100
+  visibility_timeout_s: 120
+storage:
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 3000
 upstreams:
-  - reports-worker
-  - search-api

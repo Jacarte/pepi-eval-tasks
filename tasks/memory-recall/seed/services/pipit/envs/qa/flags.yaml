@@ -1,7 +1,6 @@
 # qa feature flags
 environment: qa
 flags:
-  new_retry_policy: false
-  strict_validation: true
-  shadow_reads: false
-  fast_path: false
+  new_retry_policy: true
+  batch_compaction: true
+  shadow_reads: true

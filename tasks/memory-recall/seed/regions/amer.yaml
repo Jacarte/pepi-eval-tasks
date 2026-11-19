@@ -1,0 +1,8 @@
+# amer retention
+parent: global
+retention_days:
+  ephemeral: 333
+  short: 286
+  standard: 85
+  extended: 101
+  regulated: 282

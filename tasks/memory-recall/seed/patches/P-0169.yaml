@@ -1,0 +1,4 @@
+id: P-0169
+target: services/dunlin/envs/sandbox
+set:
+  replicas: 2

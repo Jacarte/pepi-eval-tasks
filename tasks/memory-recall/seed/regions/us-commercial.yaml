@@ -1,0 +1,6 @@
+# us-commercial retention
+parent: amer
+retention_days:
+  short: 394
+  extended: 330
+  regulated: 178

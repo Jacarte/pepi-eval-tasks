@@ -1,0 +1,3 @@
+# frag-20
+include: ../bases/exports.yaml
+class: cold

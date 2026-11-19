@@ -1,0 +1,4 @@
+id: P-0293
+target: services/ibis/envs/dev
+set:
+  replicas: 4

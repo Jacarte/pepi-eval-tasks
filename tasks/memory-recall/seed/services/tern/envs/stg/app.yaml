@@ -1,16 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
+region: ap-south-1
 replicas: 6
 log_level: info
 queue:
   name: tern-staging
-  batch_size: 250
-  visibility_timeout_s: 60
+  batch_size: 100
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 1500
 upstreams:
   - billing-worker
   - export-worker
-  - thumbnails-worker

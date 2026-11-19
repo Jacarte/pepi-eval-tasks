@@ -1,0 +1,4 @@
+id: P-0423
+target: services/finch/envs/prod-eu
+set:
+  region: me-south-1

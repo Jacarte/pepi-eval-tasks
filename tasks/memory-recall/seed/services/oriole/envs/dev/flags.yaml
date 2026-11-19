@@ -2,4 +2,5 @@
 environment: development
 flags:
   new_retry_policy: true
-  strict_validation: true
+  strict_validation: false
+  batch_compaction: false

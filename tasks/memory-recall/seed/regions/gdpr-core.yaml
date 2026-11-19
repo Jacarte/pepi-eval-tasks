@@ -1,0 +1,5 @@
+# gdpr-core retention
+parent: emea
+retention_days:
+  extended: 133
+  permanent: 900

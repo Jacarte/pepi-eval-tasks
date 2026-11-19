@@ -1,0 +1,4 @@
+id: P-0210
+target: services/hobby/envs/qa
+set:
+  replicas: 5

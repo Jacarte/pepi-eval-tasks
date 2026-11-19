@@ -1,0 +1,4 @@
+id: P-0198
+target: services/dunlin/envs/stg
+set:
+  replicas: 5

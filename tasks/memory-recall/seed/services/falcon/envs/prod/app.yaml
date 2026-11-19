@@ -1,14 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 3
+region: eu-south-1
+replicas: 6
 log_level: info
 queue:
   name: falcon-production
-  batch_size: 150
+  batch_size: 200
   visibility_timeout_s: 30
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - webhooks-api
+  - inventory-api

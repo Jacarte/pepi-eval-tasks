@@ -1,4 +1,5 @@
 # production-eu feature flags
 environment: production-eu
 flags:
+  async_writes: false
   fast_path: true

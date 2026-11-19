@@ -1,11 +1,12 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
+region: ca-central-1
 replicas: 5
 log_level: debug
 storage:
-  include: ../../storage/audit.yaml
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3000
 upstreams:
-  - media-transcoder
-  - orders-worker
+  - orders-api
+  - profiles-api

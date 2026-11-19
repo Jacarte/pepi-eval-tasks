@@ -1,14 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 6
+region: us-east-2
+replicas: 3
 log_level: info
 queue:
   name: quail-staging
   batch_size: 100
-  visibility_timeout_s: 60
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
-  - inventory-sync
+  - reports-api
+  - users-api

@@ -1,8 +1,12 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
+region: us-east-2
 replicas: 4
 log_level: info
+storage:
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - billing-scheduler
+  - fraud-scorer
+  - invoice-worker

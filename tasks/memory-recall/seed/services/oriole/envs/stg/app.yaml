@@ -1,14 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
+region: sa-east-1
+replicas: 3
 log_level: debug
 queue:
   name: oriole-staging
-  batch_size: 350
-  visibility_timeout_s: 120
+  batch_size: 50
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - checkout-api
+  - ledger-worker
+  - audit-api

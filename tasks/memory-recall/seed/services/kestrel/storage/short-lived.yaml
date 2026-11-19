@@ -1,5 +1,4 @@
 # short-lived storage profile
-class: cold
-retention_days: 60
+include: ../../../templates/fragments/frag-09.yaml
 versioning: false
 encryption: aes256

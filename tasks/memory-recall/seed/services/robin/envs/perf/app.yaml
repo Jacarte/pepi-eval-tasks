@@ -1,9 +1,11 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 2
+region: eu-west-1
+replicas: 1
 log_level: debug
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2500
 upstreams:
+  - ledger-worker

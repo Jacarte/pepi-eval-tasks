@@ -1,11 +1,13 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 5
-log_level: debug
+region: eu-south-1
+replicas: 4
+log_level: warn
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
   - billing-worker
-  - orders-api
+  - cart-api
+  - payouts-api

@@ -1,15 +1,15 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
-log_level: debug
+region: us-west-1
+replicas: 4
+log_level: info
 queue:
   name: heron-canary-sandbox
-  batch_size: 100
+  batch_size: 150
   visibility_timeout_s: 90
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2000
 upstreams:
-  - audit-api
   - billing-api

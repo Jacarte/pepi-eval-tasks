@@ -1,6 +1,7 @@
 # development feature flags
 environment: development
 flags:
-  async_writes: false
+  new_retry_policy: true
   strict_validation: true
-  shadow_reads: true
+  batch_compaction: false
+  shadow_reads: false

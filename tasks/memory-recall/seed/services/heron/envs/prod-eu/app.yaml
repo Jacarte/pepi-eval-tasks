@@ -1,14 +1,16 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 4
+region: eu-central-1
+replicas: 6
 log_level: warn
 queue:
   name: heron-production-eu
   batch_size: 250
-  visibility_timeout_s: 60
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1500
 upstreams:
-  - pricing-worker
+  - email-sender
+  - checkout-api

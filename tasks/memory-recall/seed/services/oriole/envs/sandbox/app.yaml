@@ -1,14 +1,16 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 6
-log_level: debug
+region: eu-west-3
+replicas: 4
+log_level: info
 queue:
   name: oriole-sandbox
-  batch_size: 250
-  visibility_timeout_s: 30
+  batch_size: 400
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2500
 upstreams:
-  - audit-api
+  - ledger-api
+  - checkout-api

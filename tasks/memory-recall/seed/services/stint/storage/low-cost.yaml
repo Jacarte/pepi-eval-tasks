@@ -1,5 +1,4 @@
 # low-cost storage profile
-class: hot
-retention_days: 180
-versioning: true
+include: ../../../templates/fragments/frag-11.yaml
+versioning: false
 encryption: kms

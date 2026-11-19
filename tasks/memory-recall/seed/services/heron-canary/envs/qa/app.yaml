@@ -1,14 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 3
+region: af-south-1
+replicas: 6
 log_level: warn
 queue:
   name: heron-canary-qa
-  batch_size: 50
-  visibility_timeout_s: 30
+  batch_size: 300
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 4000
 upstreams:
-  - webhooks-api
+  - webhooks-worker

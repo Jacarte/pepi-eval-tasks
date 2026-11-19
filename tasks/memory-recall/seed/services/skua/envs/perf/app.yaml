@@ -1,11 +1,12 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
+region: me-south-1
 replicas: 3
 log_level: debug
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/burst.yaml
 http:
   timeout_ms: 3500
 upstreams:
-  - catalog-indexer
-  - email-sender
+  - checkout-api
+  - thumbnails-worker

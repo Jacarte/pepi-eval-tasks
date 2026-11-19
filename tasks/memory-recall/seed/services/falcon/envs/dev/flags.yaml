@@ -2,6 +2,7 @@
 environment: development
 flags:
   new_retry_policy: false
-  strict_validation: false
+  async_writes: false
+  strict_validation: true
   batch_compaction: true
-  fast_path: true
+  shadow_reads: true

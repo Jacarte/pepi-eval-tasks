@@ -1,14 +1,16 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
+region: eu-south-1
+replicas: 6
 log_level: warn
 queue:
   name: jay-production
-  batch_size: 150
-  visibility_timeout_s: 60
+  batch_size: 100
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 2500
 upstreams:
-  - gateway
+  - users-api
+  - users-api

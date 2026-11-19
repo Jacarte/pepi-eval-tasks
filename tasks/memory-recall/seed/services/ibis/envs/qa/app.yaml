@@ -1,10 +1,11 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
+region: ca-central-1
 replicas: 3
-log_level: warn
+log_level: debug
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - ledger-worker
+  - checkout-api

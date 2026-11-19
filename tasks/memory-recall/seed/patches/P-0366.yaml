@@ -1,0 +1,4 @@
+id: P-0366
+target: services/heron/envs/stg
+set:
+  region: us-east-1

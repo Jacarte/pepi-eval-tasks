@@ -1,14 +1,14 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 3
+region: ca-central-1
+replicas: 4
 log_level: warn
 queue:
   name: avocet-production-eu
-  batch_size: 400
-  visibility_timeout_s: 120
+  batch_size: 250
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2500
 upstreams:
-  - inventory-sync

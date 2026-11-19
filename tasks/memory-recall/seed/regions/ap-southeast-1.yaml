@@ -1,0 +1,6 @@
+# ap-southeast-1 retention
+parent: apac-core
+retention_days:
+  ephemeral: 209
+  extended: 159
+  permanent: 224

@@ -1,13 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
+region: eu-north-1
 replicas: 6
-log_level: warn
+log_level: info
 queue:
   name: thrush-qa
-  batch_size: 200
-  visibility_timeout_s: 60
+  batch_size: 150
+  visibility_timeout_s: 90
+storage:
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - ledger-api
-  - billing-scheduler
+  - checkout-api

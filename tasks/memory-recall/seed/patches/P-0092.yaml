@@ -1,0 +1,4 @@
+id: P-0092
+target: services/stint/envs/dev
+set:
+  replicas: 1

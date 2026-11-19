@@ -1,11 +1,12 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 2
-log_level: debug
+region: af-south-1
+replicas: 6
+log_level: info
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1000
 upstreams:
-  - import-worker
-  - pricing-api
+  - billing-api
+  - webhooks-worker

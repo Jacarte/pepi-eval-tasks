@@ -1,0 +1,4 @@
+id: P-0265
+target: services/nuthatch/envs/sandbox
+set:
+  replicas: 2

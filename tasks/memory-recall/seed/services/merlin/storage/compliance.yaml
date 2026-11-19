@@ -1,5 +1,4 @@
 # compliance storage profile
-class: cold
-retention_days: 90
-versioning: false
+include: ../../../templates/fragments/frag-11.yaml
+versioning: true
 encryption: kms

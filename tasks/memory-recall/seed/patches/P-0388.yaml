@@ -1,0 +1,6 @@
+id: P-0388
+target: services/heron/envs/stg
+supersedes: P-0371
+set:
+  storage:
+    include: ../../storage/audit.yaml

@@ -1,0 +1,5 @@
+# eu-west-2 retention
+parent: uk-ch
+retention_days:
+  standard: 66
+  regulated: 74

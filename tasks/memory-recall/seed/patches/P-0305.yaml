@@ -1,0 +1,4 @@
+id: P-0305
+target: services/swift/envs/sandbox
+set:
+  replicas: 5

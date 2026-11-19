@@ -1,10 +1,11 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 6
+region: eu-central-1
+replicas: 4
 log_level: info
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3500
 upstreams:
-  - checkout-worker
+  - payouts-worker

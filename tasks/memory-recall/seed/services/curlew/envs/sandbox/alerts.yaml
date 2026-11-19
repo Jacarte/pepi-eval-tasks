@@ -1,13 +1,13 @@
 # sandbox alerts
 environment: sandbox
-log_retention_days: 120
-metrics_retention_days: 7
+log_retention_days: 16
+metrics_retention_days: 39
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.02
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 1400
+    threshold_ms: 400
     for: 10m
     severity: ticket

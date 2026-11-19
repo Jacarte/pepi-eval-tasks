@@ -2,6 +2,4 @@
 environment: staging-eu
 flags:
   async_writes: true
-  batch_compaction: true
-  shadow_reads: false
-  fast_path: true
+  shadow_reads: true

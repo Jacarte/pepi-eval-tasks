@@ -1,0 +1,3 @@
+# frag-02
+include: ../bases/ledger.yaml
+class: hot

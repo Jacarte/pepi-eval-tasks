@@ -1,15 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
-log_level: warn
+region: me-south-1
+replicas: 3
+log_level: info
 queue:
   name: sandpiper-staging
-  batch_size: 50
-  visibility_timeout_s: 90
+  batch_size: 100
+  visibility_timeout_s: 60
 storage:
   include: ../../storage/compliance.yaml
 http:
   timeout_ms: 3000
 upstreams:
-  - pricing-worker
-  - audit-api
+  - reports-api
+  - risk-api

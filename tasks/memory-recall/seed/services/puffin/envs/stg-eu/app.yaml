@@ -1,14 +1,16 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
+region: eu-west-3
 replicas: 3
 log_level: info
 queue:
   name: puffin-staging-eu
-  batch_size: 400
-  visibility_timeout_s: 30
+  batch_size: 50
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 4000
 upstreams:
-  - reports-worker
+  - risk-api
+  - profiles-api

@@ -1,0 +1,5 @@
+id: P-0142
+target: services/skua/envs/prod
+set:
+  storage:
+    include: ../../storage/standard.yaml

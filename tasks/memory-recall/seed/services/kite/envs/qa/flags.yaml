@@ -2,6 +2,6 @@
 environment: qa
 flags:
   new_retry_policy: true
-  async_writes: false
-  shadow_reads: true
-  fast_path: true
+  async_writes: true
+  strict_validation: true
+  batch_compaction: true

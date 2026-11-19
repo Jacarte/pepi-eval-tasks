@@ -1,0 +1,4 @@
+# mena retention
+parent: emea
+retention_days:
+  short: 95

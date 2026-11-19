@@ -1,11 +1,11 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
+region: us-west-2
+replicas: 1
 log_level: debug
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
-  - orders-worker
-  - orders-api
+  - payouts-worker

@@ -1,5 +1,5 @@
 # qa feature flags
 environment: qa
 flags:
-  batch_compaction: false
-  fast_path: true
+  async_writes: true
+  strict_validation: true

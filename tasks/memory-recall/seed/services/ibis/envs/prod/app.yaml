@@ -1,11 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
+region: ca-central-1
+replicas: 3
 log_level: warn
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - ledger-worker
-  - checkout-worker
+  - email-sender
+  - pricing-api

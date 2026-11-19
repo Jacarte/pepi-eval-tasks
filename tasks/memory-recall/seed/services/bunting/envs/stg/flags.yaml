@@ -1,4 +1,5 @@
 # staging feature flags
 environment: staging
 flags:
+  strict_validation: false
   batch_compaction: true

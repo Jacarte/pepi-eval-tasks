@@ -1,14 +1,14 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
+region: ap-south-1
 replicas: 3
 log_level: info
 queue:
   name: warbler-qa
   batch_size: 350
-  visibility_timeout_s: 120
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3000
 upstreams:
-  - audit-api

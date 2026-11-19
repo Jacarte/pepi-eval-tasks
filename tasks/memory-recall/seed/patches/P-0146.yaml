@@ -1,0 +1,5 @@
+id: P-0146
+target: services/dunlin/envs/dev
+set:
+  storage:
+    include: ../../storage/shared.yaml

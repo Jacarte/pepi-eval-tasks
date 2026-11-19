@@ -1,13 +1,13 @@
 # perf alerts
 environment: perf
-log_retention_days: 90
-metrics_retention_days: 21
+log_retention_days: 309
+metrics_retention_days: 33
 alerts:
   - name: error-rate
     threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 900
     for: 10m
     severity: ticket

@@ -1,12 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: us-east-1
 replicas: 3
-log_level: warn
+log_level: info
 queue:
   name: falcon-development
-  batch_size: 300
-  visibility_timeout_s: 120
+  batch_size: 200
+  visibility_timeout_s: 30
+storage:
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2500
 upstreams:
-  - sms-sender
+  - media-transcoder
+  - webhooks-api

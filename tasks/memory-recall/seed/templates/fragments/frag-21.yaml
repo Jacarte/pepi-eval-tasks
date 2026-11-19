@@ -1,0 +1,3 @@
+# frag-21
+include: ../bases/sessions.yaml
+class: warm

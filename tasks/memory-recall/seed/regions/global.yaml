@@ -1,0 +1,8 @@
+# global retention
+retention_days:
+  ephemeral: 5
+  short: 16
+  standard: 31
+  extended: 180
+  regulated: 340
+  permanent: 2555

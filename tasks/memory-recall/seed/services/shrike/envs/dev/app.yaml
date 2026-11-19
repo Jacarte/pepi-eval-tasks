@@ -1,10 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: me-south-1
 replicas: 4
 log_level: info
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/burst.yaml
 http:
   timeout_ms: 1500
 upstreams:
-  - notifications-worker
+  - sms-sender
+  - pricing-api

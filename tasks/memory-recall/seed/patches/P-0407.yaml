@@ -1,0 +1,4 @@
+id: P-0407
+target: services/pipit/envs/prod-eu
+set:
+  region: eu-north-1

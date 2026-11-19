@@ -1,0 +1,4 @@
+id: P-0382
+target: services/shrike/envs/prod-eu
+set:
+  region: eu-south-1

@@ -1,0 +1,7 @@
+# us-fed retention
+parent: amer
+retention_days:
+  ephemeral: 342
+  standard: 347
+  regulated: 173
+  permanent: 398

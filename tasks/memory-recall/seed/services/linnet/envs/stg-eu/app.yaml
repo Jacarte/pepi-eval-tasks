@@ -1,12 +1,16 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
+region: sa-east-1
 replicas: 2
-log_level: info
+log_level: warn
 queue:
   name: linnet-staging-eu
-  batch_size: 300
-  visibility_timeout_s: 30
+  batch_size: 400
+  visibility_timeout_s: 120
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3500
 upstreams:
-  - payouts-worker
+  - pricing-api
+  - webhooks-worker

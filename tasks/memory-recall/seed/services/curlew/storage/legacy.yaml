@@ -1,5 +1,4 @@
 # legacy storage profile
-class: cold
-retention_days: 21
+include: ../../../templates/fragments/frag-21.yaml
 versioning: false
-encryption: aes256
+encryption: kms

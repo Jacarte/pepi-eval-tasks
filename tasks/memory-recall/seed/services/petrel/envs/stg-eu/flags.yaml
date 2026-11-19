@@ -1,5 +1,4 @@
 # staging-eu feature flags
 environment: staging-eu
 flags:
-  batch_compaction: true
-  shadow_reads: true
+  new_retry_policy: false

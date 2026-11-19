@@ -1,14 +1,15 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
+region: us-east-2
 replicas: 3
-log_level: warn
+log_level: debug
 queue:
   name: heron-v1-staging
-  batch_size: 250
+  batch_size: 200
   visibility_timeout_s: 90
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
-  - checkout-api
+  - gateway

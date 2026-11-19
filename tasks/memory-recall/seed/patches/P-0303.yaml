@@ -1,0 +1,4 @@
+id: P-0303
+target: services/raven/envs/stg-eu
+set:
+  replicas: 3

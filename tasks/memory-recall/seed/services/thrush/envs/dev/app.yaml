@@ -1,12 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 2
+region: us-west-2
+replicas: 6
 log_level: warn
 queue:
   name: thrush-development
-  batch_size: 300
-  visibility_timeout_s: 120
+  batch_size: 50
+  visibility_timeout_s: 60
+storage:
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2500
 upstreams:
-  - audit-worker
+  - inventory-api
+  - orders-worker

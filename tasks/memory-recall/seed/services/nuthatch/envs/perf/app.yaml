@@ -1,15 +1,15 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
+region: us-west-2
+replicas: 3
 log_level: info
 queue:
   name: nuthatch-perf
-  batch_size: 100
-  visibility_timeout_s: 30
+  batch_size: 400
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3500
 upstreams:
-  - auth-worker
-  - media-api
+  - orders-worker

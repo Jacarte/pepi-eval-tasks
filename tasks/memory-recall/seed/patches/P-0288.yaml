@@ -1,0 +1,5 @@
+id: P-0288
+target: services/falcon/envs/sandbox
+set:
+  storage:
+    include: ../../storage/archive.yaml

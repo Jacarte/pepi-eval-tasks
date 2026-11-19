@@ -1,0 +1,4 @@
+id: P-0399
+target: services/wren/envs/stg
+set:
+  replicas: 1

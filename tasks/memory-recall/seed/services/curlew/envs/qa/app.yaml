@@ -1,8 +1,11 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
+region: ap-southeast-1
 replicas: 4
 log_level: debug
+storage:
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 3000
 upstreams:
-  - import-worker
+  - webhooks-worker

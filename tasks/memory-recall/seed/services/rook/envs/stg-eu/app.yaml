@@ -1,15 +1,15 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 3
-log_level: info
+region: us-east-2
+replicas: 4
+log_level: warn
 queue:
   name: rook-staging-eu
   batch_size: 250
   visibility_timeout_s: 30
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
-  - export-worker
-  - inventory-sync
+  - email-sender

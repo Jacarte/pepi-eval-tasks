@@ -1,6 +1,5 @@
 # production-eu feature flags
 environment: production-eu
 flags:
-  strict_validation: true
-  shadow_reads: true
-  fast_path: false
+  batch_compaction: true
+  fast_path: true

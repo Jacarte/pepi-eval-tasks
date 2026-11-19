@@ -1,10 +1,11 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 1
-log_level: info
+region: us-east-1
+replicas: 2
+log_level: warn
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/legacy.yaml
 http:
   timeout_ms: 1500
 upstreams:
-  - cart-api
+  - checkout-api

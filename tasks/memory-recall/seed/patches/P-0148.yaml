@@ -1,0 +1,4 @@
+id: P-0148
+target: services/skua/envs/sandbox
+set:
+  region: ap-southeast-2

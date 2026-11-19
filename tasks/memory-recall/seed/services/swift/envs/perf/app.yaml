@@ -1,11 +1,11 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
-log_level: info
+region: sa-east-1
+replicas: 3
+log_level: debug
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2500
 upstreams:
-  - audit-worker
-  - inventory-api
+  - users-api

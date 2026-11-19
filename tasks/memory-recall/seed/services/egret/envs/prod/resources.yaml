@@ -2,5 +2,5 @@
 environment: production
 cpu_request: 400m
 cpu_limit: 1200m
-mem_request_mb: 1024
-mem_limit_mb: 2048
+mem_request_mb: 256
+mem_limit_mb: 512

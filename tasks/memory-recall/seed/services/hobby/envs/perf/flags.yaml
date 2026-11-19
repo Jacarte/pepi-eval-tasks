@@ -1,5 +1,4 @@
 # perf feature flags
 environment: perf
 flags:
-  strict_validation: false
-  shadow_reads: false
+  strict_validation: true

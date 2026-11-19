@@ -1,15 +1,15 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
+region: eu-central-1
 replicas: 3
-log_level: debug
+log_level: warn
 queue:
   name: puffin-staging
-  batch_size: 300
+  batch_size: 150
   visibility_timeout_s: 120
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 3000
 upstreams:
-  - auth-api
-  - auth-worker
+  - payouts-api

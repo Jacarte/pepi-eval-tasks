@@ -1,0 +1,4 @@
+# latam retention
+parent: amer
+retention_days:
+  standard: 255

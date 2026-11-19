@@ -1,10 +1,12 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 4
-log_level: debug
+region: eu-west-2
+replicas: 1
+log_level: info
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
-  - billing-api
+  - webhooks-api
+  - inventory-sync

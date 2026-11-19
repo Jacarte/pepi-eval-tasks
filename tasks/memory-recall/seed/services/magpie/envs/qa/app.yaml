@@ -1,10 +1,12 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
+region: eu-south-1
 replicas: 5
-log_level: warn
+log_level: info
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/low-cost.yaml
 http:
   timeout_ms: 3500
 upstreams:
-  - profiles-api
+  - risk-api
+  - inventory-api

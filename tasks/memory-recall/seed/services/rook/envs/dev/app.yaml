@@ -1,14 +1,15 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: us-east-1
 replicas: 3
 log_level: debug
 queue:
   name: rook-development
-  batch_size: 50
-  visibility_timeout_s: 30
+  batch_size: 250
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 500
 upstreams:
   - thumbnails-worker

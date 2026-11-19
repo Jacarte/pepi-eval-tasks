@@ -1,5 +1,5 @@
 # perf autoscaling
 environment: perf
 min_replicas: 1
-max_replicas: 5
-target_cpu_percent: 80
+max_replicas: 8
+target_cpu_percent: 70

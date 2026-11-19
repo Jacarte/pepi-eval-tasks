@@ -1,10 +1,12 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
+region: me-south-1
 replicas: 4
 log_level: info
 storage:
   include: ../../storage/audit.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 4000
 upstreams:
-  - import-worker
+  - pricing-worker
+  - checkout-worker

@@ -1,9 +1,11 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
-log_level: info
+region: eu-central-1
+replicas: 3
+log_level: debug
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2500
 upstreams:
-  - inventory-sync
-  - auth-worker
+  - email-sender

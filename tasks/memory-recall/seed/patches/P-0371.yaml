@@ -1,0 +1,5 @@
+id: P-0371
+target: services/heron/envs/stg
+set:
+  storage:
+    include: ../../storage/archive.yaml

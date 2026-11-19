@@ -1,11 +1,12 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
+region: me-south-1
 replicas: 6
-log_level: warn
+log_level: debug
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 500
 upstreams:
-  - users-api
-  - auth-worker
+  - reports-api
+  - profiles-api

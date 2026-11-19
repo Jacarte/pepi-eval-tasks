@@ -1,0 +1,5 @@
+id: P-0376
+target: services/heron/envs/stg-eu
+set:
+  storage:
+    include: ../../storage/low-cost.yaml

@@ -1,14 +1,15 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 1
-log_level: info
+region: eu-west-2
+replicas: 2
+log_level: warn
 queue:
   name: thrush-staging
-  batch_size: 100
-  visibility_timeout_s: 30
+  batch_size: 300
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - import-worker
+  - notifications-worker

@@ -1,6 +1,5 @@
 # staging-eu feature flags
 environment: staging-eu
 flags:
-  async_writes: false
-  batch_compaction: true
+  batch_compaction: false
   fast_path: true

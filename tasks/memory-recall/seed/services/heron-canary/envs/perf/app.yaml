@@ -1,14 +1,16 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
-log_level: debug
+region: eu-west-1
+replicas: 3
+log_level: info
 queue:
   name: heron-canary-perf
-  batch_size: 150
-  visibility_timeout_s: 60
+  batch_size: 400
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 1500
 upstreams:
-  - import-worker
+  - webhooks-worker
+  - fraud-scorer

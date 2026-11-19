@@ -1,11 +1,11 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 5
-log_level: debug
+region: af-south-1
+replicas: 3
+log_level: info
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 1500
 upstreams:
-  - reports-api
-  - media-transcoder
+  - sms-sender

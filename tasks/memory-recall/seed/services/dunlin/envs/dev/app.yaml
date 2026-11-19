@@ -1,10 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 2
-log_level: debug
+region: eu-north-1
+replicas: 5
+log_level: info
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 4000
 upstreams:
-  - import-worker
+  - search-indexer
+  - pricing-worker

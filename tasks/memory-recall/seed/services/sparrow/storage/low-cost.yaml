@@ -1,5 +1,4 @@
 # low-cost storage profile
-class: cold
-retention_days: 30
-versioning: true
-encryption: aes256
+include: ../../../templates/fragments/frag-09.yaml
+versioning: false
+encryption: kms

@@ -1,10 +1,11 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
-log_level: warn
+region: us-east-2
+replicas: 4
+log_level: debug
 storage:
-  include: ../../storage/audit.yaml
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 4000
 upstreams:
-  - webhooks-worker
+  - pricing-api

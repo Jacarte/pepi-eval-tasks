@@ -1,5 +1,5 @@
 # qa autoscaling
 environment: qa
-min_replicas: 2
-max_replicas: 3
-target_cpu_percent: 75
+min_replicas: 1
+max_replicas: 11
+target_cpu_percent: 60

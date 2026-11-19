@@ -1,5 +1,4 @@
 # standard-eu storage profile
-class: warm
-retention_days: 45
-versioning: false
+include: ../../../templates/fragments/frag-09.yaml
+versioning: true
 encryption: aes256

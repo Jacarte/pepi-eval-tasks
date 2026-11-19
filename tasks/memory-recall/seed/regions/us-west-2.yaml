@@ -1,0 +1,5 @@
+# us-west-2 retention
+parent: us-fed
+retention_days:
+  regulated: 200
+  permanent: 354

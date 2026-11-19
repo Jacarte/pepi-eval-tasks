@@ -1,11 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
+region: eu-north-1
+replicas: 3
 log_level: warn
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
-  - media-api
-  - payouts-worker
+  - gateway
+  - notifications-worker

@@ -1,9 +1,11 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
+region: eu-south-1
+replicas: 1
 log_level: debug
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3000
 upstreams:
-  - fraud-scorer
-  - notifications-api
+  - inventory-api

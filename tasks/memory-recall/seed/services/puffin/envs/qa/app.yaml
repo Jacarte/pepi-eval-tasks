@@ -1,12 +1,16 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
+region: ap-southeast-2
 replicas: 4
 log_level: debug
 queue:
   name: puffin-qa
-  batch_size: 150
-  visibility_timeout_s: 60
+  batch_size: 350
+  visibility_timeout_s: 90
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
-  - thumbnails-worker
+  - inventory-api
+  - webhooks-api

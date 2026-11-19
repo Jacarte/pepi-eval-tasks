@@ -2,6 +2,5 @@
 environment: perf
 flags:
   async_writes: true
-  strict_validation: false
-  shadow_reads: true
-  fast_path: true
+  batch_compaction: true
+  shadow_reads: false

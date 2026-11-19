@@ -1,12 +1,12 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 1
-log_level: info
+region: eu-south-1
+replicas: 5
+log_level: warn
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/burst.yaml
 http:
   timeout_ms: 3500
 upstreams:
   - billing-worker
   - reports-worker
-  - thumbnails-worker

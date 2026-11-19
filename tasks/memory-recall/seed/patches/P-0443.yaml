@@ -1,0 +1,5 @@
+id: P-0443
+target: services/puffin/envs/sandbox
+set:
+  storage:
+    include: ../../storage/standard.yaml

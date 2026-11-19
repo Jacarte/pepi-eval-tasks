@@ -1,6 +1,8 @@
 # sandbox feature flags
 environment: sandbox
 flags:
+  new_retry_policy: true
   async_writes: true
-  batch_compaction: true
-  shadow_reads: false
+  strict_validation: true
+  batch_compaction: false
+  fast_path: false

@@ -1,0 +1,4 @@
+id: P-0253
+target: services/grebe/envs/sandbox
+set:
+  region: af-south-1

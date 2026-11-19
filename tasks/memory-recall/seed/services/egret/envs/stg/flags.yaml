@@ -1,5 +1,5 @@
 # staging feature flags
 environment: staging
 flags:
-  strict_validation: true
-  shadow_reads: false
+  batch_compaction: false
+  fast_path: false

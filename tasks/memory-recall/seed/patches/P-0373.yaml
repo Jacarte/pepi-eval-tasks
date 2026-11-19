@@ -1,0 +1,5 @@
+id: P-0373
+target: services/heron-canary/envs/stg
+set:
+  storage:
+    include: ../../storage/shared.yaml

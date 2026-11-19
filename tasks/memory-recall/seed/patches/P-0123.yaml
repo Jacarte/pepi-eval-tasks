@@ -1,0 +1,5 @@
+id: P-0123
+target: services/sparrow/envs/prod
+set:
+  storage:
+    include: ../../storage/standard-eu.yaml

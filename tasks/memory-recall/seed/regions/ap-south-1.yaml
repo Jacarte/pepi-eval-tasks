@@ -1,0 +1,5 @@
+# ap-south-1 retention
+parent: apac-south
+retention_days:
+  ephemeral: 208
+  standard: 375

@@ -1,5 +1,4 @@
 # archive storage profile
-class: warm
-retention_days: 14
+include: ../../../templates/fragments/frag-15.yaml
 versioning: true
 encryption: aes256

@@ -1,9 +1,13 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: af-south-1
 replicas: 2
-log_level: warn
+log_level: debug
+storage:
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
   - billing-worker
-  - audit-api
+  - notifications-api
+  - reports-worker

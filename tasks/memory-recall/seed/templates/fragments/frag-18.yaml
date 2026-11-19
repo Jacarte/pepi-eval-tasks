@@ -1,0 +1,3 @@
+# frag-18
+include: ../bases/snapshots.yaml
+class: cold

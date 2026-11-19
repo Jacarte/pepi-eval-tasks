@@ -1,0 +1,4 @@
+id: P-0282
+target: services/kite/envs/stg-eu
+set:
+  region: sa-east-1

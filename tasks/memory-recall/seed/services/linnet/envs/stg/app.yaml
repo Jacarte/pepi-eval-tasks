@@ -1,14 +1,15 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 5
+region: ap-southeast-2
+replicas: 6
 log_level: debug
 queue:
   name: linnet-staging
-  batch_size: 100
-  visibility_timeout_s: 60
+  batch_size: 400
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 2500
 upstreams:
-  - catalog-api
+  - webhooks-api

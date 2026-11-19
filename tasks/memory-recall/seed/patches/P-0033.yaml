@@ -1,0 +1,5 @@
+id: P-0033
+target: services/thrush/envs/sandbox
+set:
+  storage:
+    include: ../../storage/low-cost.yaml

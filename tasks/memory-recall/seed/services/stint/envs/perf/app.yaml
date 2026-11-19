@@ -1,8 +1,11 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 4
-log_level: info
+region: us-east-2
+replicas: 6
+log_level: debug
+storage:
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
-  - billing-api
+  - ledger-worker

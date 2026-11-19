@@ -1,11 +1,12 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 4
-log_level: debug
+region: ca-central-1
+replicas: 5
+log_level: info
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3000
 upstreams:
-  - email-sender
-  - billing-legacy
+  - orders-worker
+  - pricing-api

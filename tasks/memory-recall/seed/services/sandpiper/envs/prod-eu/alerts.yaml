@@ -1,10 +1,10 @@
 # production-eu alerts
 environment: production-eu
-log_retention_days: 120
-metrics_retention_days: 120
+log_retention_days: 256
+metrics_retention_days: 237
 alerts:
   - name: error-rate
-    threshold: 0.01
+    threshold: 0.08
     for: 5m
     severity: page
   - name: latency-p99

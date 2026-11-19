@@ -8,9 +8,6 @@ owner: team-platform@example.com
 runtime: go1.21
 replicas: 1
 log_level: info
-storage:
-  retention_days: 365
-  encryption: aes256
 http:
-  port: 8081
+  port: 8083
   timeout_ms: 5000

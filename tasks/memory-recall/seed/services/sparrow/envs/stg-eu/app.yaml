@@ -1,10 +1,11 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 2
+region: me-south-1
+replicas: 3
 log_level: warn
 storage:
   include: ../../storage/audit.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - media-api
+  - sms-sender

@@ -1,7 +1,7 @@
 # sandbox alerts
 environment: sandbox
-log_retention_days: 21
-metrics_retention_days: 30
+log_retention_days: 202
+metrics_retention_days: 258
 alerts:
   - name: error-rate
     threshold: 0.07

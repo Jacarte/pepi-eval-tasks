@@ -1,15 +1,16 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 6
-log_level: info
+region: eu-west-1
+replicas: 2
+log_level: debug
 queue:
   name: warbler-sandbox
-  batch_size: 100
-  visibility_timeout_s: 120
+  batch_size: 150
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 2000
 upstreams:
-  - media-transcoder
-  - ledger-api
+  - search-indexer
+  - email-sender

@@ -1,0 +1,4 @@
+# sa-east-1 retention
+parent: latam
+retention_days:
+  ephemeral: 53

@@ -1,0 +1,3 @@
+# frag-09
+include: ../bases/sessions.yaml
+class: hot

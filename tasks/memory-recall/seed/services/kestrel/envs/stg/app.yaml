@@ -1,9 +1,12 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: debug
+region: ap-northeast-1
+replicas: 6
+log_level: warn
+storage:
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 500
 upstreams:
-  - reports-api
-  - thumbnails-worker
+  - email-sender
+  - risk-api

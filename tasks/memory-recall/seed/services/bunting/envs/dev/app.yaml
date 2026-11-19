@@ -1,8 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
+region: ap-southeast-2
+replicas: 5
 log_level: info
+storage:
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 3500
 upstreams:
-  - inventory-api
+  - billing-api
+  - admin-api

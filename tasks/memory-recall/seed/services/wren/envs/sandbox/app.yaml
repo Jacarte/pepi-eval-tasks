@@ -1,10 +1,13 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
-log_level: info
+region: eu-north-1
+replicas: 2
+log_level: warn
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 1500
 upstreams:
   - billing-worker
+  - catalog-indexer
+  - media-api

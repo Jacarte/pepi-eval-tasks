@@ -1,11 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: us-east-2
 replicas: 3
-log_level: warn
+log_level: debug
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - pricing-worker
-  - fraud-scorer
+  - inventory-sync
+  - webhooks-api

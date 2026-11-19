@@ -1,14 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 6
-log_level: info
+region: us-west-2
+replicas: 3
+log_level: debug
 queue:
   name: pipit-production
-  batch_size: 400
-  visibility_timeout_s: 120
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1000
 upstreams:
-  - media-api
+  - reports-worker

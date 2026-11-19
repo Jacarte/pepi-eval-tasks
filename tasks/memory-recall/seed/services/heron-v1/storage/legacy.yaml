@@ -1,5 +1,4 @@
 # legacy storage profile
-class: hot
-retention_days: 90
+include: ../../../templates/fragments/frag-24.yaml
 versioning: true
-encryption: aes256
+encryption: kms

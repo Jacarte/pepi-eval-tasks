@@ -2,4 +2,4 @@
 environment: production
 flags:
   strict_validation: true
-  fast_path: false
+  batch_compaction: true

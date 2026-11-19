@@ -1,0 +1,5 @@
+id: P-0278
+target: services/linnet/envs/stg
+set:
+  storage:
+    include: ../../storage/standard-eu.yaml

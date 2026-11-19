@@ -1,4 +1,4 @@
 # qa feature flags
 environment: qa
 flags:
-  strict_validation: false
+  new_retry_policy: true

@@ -1,15 +1,16 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 6
-log_level: warn
+region: sa-east-1
+replicas: 1
+log_level: debug
 queue:
   name: oriole-qa
   batch_size: 200
-  visibility_timeout_s: 120
+  visibility_timeout_s: 90
 storage:
   include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 500
 upstreams:
-  - auth-worker
+  - media-transcoder
   - media-api

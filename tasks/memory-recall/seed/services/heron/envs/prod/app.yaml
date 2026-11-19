@@ -1,14 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
+region: ap-southeast-2
 replicas: 6
-log_level: debug
+log_level: info
 queue:
   name: heron-production
-  batch_size: 300
-  visibility_timeout_s: 30
+  batch_size: 100
+  visibility_timeout_s: 120
 storage:
   include: ../../storage/shared.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 2000
 upstreams:
-  - payouts-worker
+  - search-indexer

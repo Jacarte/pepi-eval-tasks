@@ -1,0 +1,3 @@
+# frag-17
+include: ../bases/events.yaml
+class: hot

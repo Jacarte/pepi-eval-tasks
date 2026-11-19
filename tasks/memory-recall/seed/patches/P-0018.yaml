@@ -1,0 +1,5 @@
+id: P-0018
+target: services/shrike/envs/sandbox
+set:
+  storage:
+    include: ../../storage/legacy.yaml

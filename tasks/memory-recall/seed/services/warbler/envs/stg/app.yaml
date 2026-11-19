@@ -1,13 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: debug
+region: eu-west-3
+replicas: 4
+log_level: info
 queue:
   name: warbler-staging
-  batch_size: 200
+  batch_size: 350
   visibility_timeout_s: 90
+storage:
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
-  - inventory-api
-  - risk-api
+  - notifications-worker
+  - search-indexer

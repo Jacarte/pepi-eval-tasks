@@ -1,0 +1,5 @@
+# ca-central-1 retention
+parent: us-commercial
+retention_days:
+  extended: 105
+  permanent: 303

@@ -1,0 +1,4 @@
+id: P-0400
+target: services/plover/envs/dev
+set:
+  region: us-west-2

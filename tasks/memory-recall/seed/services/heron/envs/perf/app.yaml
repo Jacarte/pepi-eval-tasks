@@ -1,14 +1,16 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 2
-log_level: warn
+region: ca-central-1
+replicas: 1
+log_level: debug
 queue:
   name: heron-perf
-  batch_size: 250
-  visibility_timeout_s: 90
+  batch_size: 300
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/compliance.yaml
 http:
   timeout_ms: 4000
 upstreams:
-  - notifications-api
+  - admin-api
+  - billing-api

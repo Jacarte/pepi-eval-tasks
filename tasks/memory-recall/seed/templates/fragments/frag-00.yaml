@@ -1,0 +1,3 @@
+# frag-00
+include: ../bases/bulk.yaml
+class: warm

@@ -1,15 +1,15 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 6
-log_level: debug
+region: eu-west-2
+replicas: 1
+log_level: warn
 queue:
   name: rook-sandbox
   batch_size: 150
-  visibility_timeout_s: 60
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 2500
 upstreams:
-  - audit-worker
-  - pricing-api
+  - audit-api

@@ -1,14 +1,16 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 4
-log_level: warn
+region: eu-central-1
+replicas: 3
+log_level: debug
 queue:
   name: sandpiper-production-eu
   batch_size: 200
-  visibility_timeout_s: 90
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - export-worker
+  - catalog-indexer
+  - notifications-api

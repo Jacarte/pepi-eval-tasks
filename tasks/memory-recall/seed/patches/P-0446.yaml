@@ -1,0 +1,5 @@
+id: P-0446
+target: services/robin/envs/stg-eu
+set:
+  storage:
+    include: ../../storage/legacy.yaml

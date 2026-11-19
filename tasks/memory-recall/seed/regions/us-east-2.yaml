@@ -1,0 +1,4 @@
+# us-east-2 retention
+parent: us-commercial
+retention_days:
+  short: 343

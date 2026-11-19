@@ -1,15 +1,16 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 3
+region: me-south-1
+replicas: 2
 log_level: info
 queue:
   name: thrush-production
-  batch_size: 250
-  visibility_timeout_s: 90
+  batch_size: 150
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - checkout-api
-  - webhooks-api
+  - audit-worker
+  - billing-api

@@ -1,0 +1,5 @@
+# emea retention
+parent: global
+retention_days:
+  standard: 45
+  regulated: 217

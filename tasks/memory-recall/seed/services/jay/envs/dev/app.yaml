@@ -1,14 +1,15 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 2
-log_level: debug
+region: eu-south-1
+replicas: 5
+log_level: info
 queue:
   name: jay-development
   batch_size: 250
-  visibility_timeout_s: 30
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - billing-scheduler
+  - billing-worker

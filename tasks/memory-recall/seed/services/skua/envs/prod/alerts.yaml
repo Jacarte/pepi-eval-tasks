@@ -1,7 +1,7 @@
 # production alerts
 environment: production
-log_retention_days: 180
-metrics_retention_days: 60
+log_retention_days: 73
+metrics_retention_days: 319
 alerts:
   - name: error-rate
     threshold: 0.03

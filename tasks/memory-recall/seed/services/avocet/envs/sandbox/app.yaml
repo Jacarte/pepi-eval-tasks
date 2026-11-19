@@ -1,15 +1,16 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
+region: eu-central-1
 replicas: 6
 log_level: info
 queue:
   name: avocet-sandbox
-  batch_size: 350
-  visibility_timeout_s: 90
+  batch_size: 400
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 2500
 upstreams:
-  - payouts-worker
-  - reports-api
+  - auth-worker
+  - billing-scheduler

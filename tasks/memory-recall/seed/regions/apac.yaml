@@ -1,0 +1,8 @@
+# apac retention
+parent: global
+retention_days:
+  ephemeral: 215
+  short: 362
+  standard: 35
+  extended: 233
+  regulated: 95

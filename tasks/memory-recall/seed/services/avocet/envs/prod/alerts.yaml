@@ -1,13 +1,13 @@
 # production alerts
 environment: production
-log_retention_days: 14
-metrics_retention_days: 14
+log_retention_days: 19
+metrics_retention_days: 131
 alerts:
   - name: error-rate
-    threshold: 0.03
+    threshold: 0.05
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 300
+    threshold_ms: 1800
     for: 10m
     severity: ticket

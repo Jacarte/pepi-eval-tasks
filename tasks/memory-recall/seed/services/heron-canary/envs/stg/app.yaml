@@ -1,15 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 6
-log_level: debug
+region: eu-south-1
+replicas: 3
+log_level: info
 queue:
   name: heron-canary-staging
-  batch_size: 50
-  visibility_timeout_s: 120
+  batch_size: 350
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3500
 upstreams:
-  - webhooks-worker
-  - search-indexer
+  - users-api
+  - media-transcoder

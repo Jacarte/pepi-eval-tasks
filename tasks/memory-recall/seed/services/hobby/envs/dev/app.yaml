@@ -1,15 +1,15 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: ap-southeast-2
 replicas: 6
-log_level: warn
+log_level: info
 queue:
   name: hobby-development
-  batch_size: 50
-  visibility_timeout_s: 60
+  batch_size: 150
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/audit.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1000
 upstreams:
-  - catalog-indexer
-  - pricing-api
+  - admin-api

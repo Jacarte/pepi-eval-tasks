@@ -1,0 +1,5 @@
+id: P-0348
+target: services/finch/envs/perf
+set:
+  storage:
+    include: ../../storage/standard.yaml

@@ -1,9 +1,11 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
+region: us-west-1
 replicas: 6
-log_level: debug
+log_level: info
+storage:
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 3500
 upstreams:
-  - reports-worker
-  - catalog-indexer
+  - auth-worker

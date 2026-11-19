@@ -1,13 +1,14 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 3
-log_level: info
+region: ap-northeast-1
+replicas: 2
+log_level: warn
 queue:
   name: falcon-qa
-  batch_size: 300
-  visibility_timeout_s: 30
+  batch_size: 250
+  visibility_timeout_s: 60
+storage:
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
-  - notifications-api
-  - search-indexer

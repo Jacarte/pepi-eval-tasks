@@ -1,0 +1,5 @@
+id: P-0162
+target: services/robin/envs/sandbox
+set:
+  storage:
+    include: ../../storage/legacy.yaml

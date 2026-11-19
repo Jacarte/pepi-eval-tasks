@@ -1,3 +1,5 @@
 # production feature flags
 environment: production
 flags:
+  async_writes: false
+  fast_path: false

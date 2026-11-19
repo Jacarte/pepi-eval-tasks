@@ -3,5 +3,5 @@ environment: sandbox
 flags:
   new_retry_policy: false
   async_writes: false
-  shadow_reads: false
-  fast_path: true
+  strict_validation: false
+  batch_compaction: false

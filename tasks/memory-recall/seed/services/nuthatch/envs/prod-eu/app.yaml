@@ -1,15 +1,15 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 5
-log_level: debug
+region: me-south-1
+replicas: 6
+log_level: info
 queue:
   name: nuthatch-production-eu
-  batch_size: 350
-  visibility_timeout_s: 60
+  batch_size: 400
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
-  - auth-worker
-  - payouts-worker
+  - pricing-api

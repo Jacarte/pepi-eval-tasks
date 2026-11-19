@@ -1,0 +1,6 @@
+id: P-0402
+target: services/heron/envs/stg
+supersedes: P-0388
+set:
+  storage:
+    include: ../../storage/burst.yaml

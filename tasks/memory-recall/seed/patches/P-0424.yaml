@@ -1,0 +1,4 @@
+id: P-0424
+target: services/crane/envs/stg-eu
+set:
+  region: us-west-2

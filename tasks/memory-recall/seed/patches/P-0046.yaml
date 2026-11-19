@@ -1,0 +1,5 @@
+id: P-0046
+target: services/finch/envs/sandbox
+set:
+  storage:
+    include: ../../storage/archive.yaml

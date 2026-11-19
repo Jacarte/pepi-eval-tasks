@@ -1,15 +1,15 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
-log_level: warn
+region: ap-south-1
+replicas: 1
+log_level: info
 queue:
   name: quail-sandbox
-  batch_size: 300
+  batch_size: 200
   visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - gateway
-  - billing-worker
+  - catalog-api

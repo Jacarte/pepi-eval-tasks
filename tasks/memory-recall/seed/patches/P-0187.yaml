@@ -1,0 +1,5 @@
+id: P-0187
+target: services/egret/envs/perf
+set:
+  storage:
+    include: ../../storage/legacy.yaml

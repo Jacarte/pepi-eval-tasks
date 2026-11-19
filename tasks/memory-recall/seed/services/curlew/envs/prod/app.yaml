@@ -1,8 +1,11 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 3
-log_level: info
+region: ap-southeast-2
+replicas: 4
+log_level: debug
+storage:
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1500
 upstreams:
-  - webhooks-api
+  - users-api

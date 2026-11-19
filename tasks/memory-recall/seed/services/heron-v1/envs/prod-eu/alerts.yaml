@@ -1,7 +1,7 @@
 # production-eu alerts
 environment: production-eu
-log_retention_days: 90
-metrics_retention_days: 180
+log_retention_days: 51
+metrics_retention_days: 88
 alerts:
   - name: error-rate
     threshold: 0.07

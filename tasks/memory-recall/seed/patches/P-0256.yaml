@@ -1,0 +1,4 @@
+id: P-0256
+target: services/ibis/envs/stg
+set:
+  replicas: 5

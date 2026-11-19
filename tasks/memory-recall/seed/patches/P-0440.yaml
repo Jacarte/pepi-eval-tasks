@@ -1,0 +1,4 @@
+id: P-0440
+target: services/skua/envs/prod
+set:
+  region: eu-central-1

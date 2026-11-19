@@ -1,15 +1,15 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
+region: us-west-2
 replicas: 2
-log_level: debug
+log_level: info
 queue:
   name: hobby-staging-eu
-  batch_size: 350
+  batch_size: 100
   visibility_timeout_s: 30
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3500
 upstreams:
-  - ledger-worker
-  - auth-worker
+  - risk-api

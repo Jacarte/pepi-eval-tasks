@@ -1,12 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
-log_level: debug
+region: ap-south-1
+replicas: 3
+log_level: info
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
   - billing-worker
-  - webhooks-worker
-  - catalog-indexer
+  - orders-api

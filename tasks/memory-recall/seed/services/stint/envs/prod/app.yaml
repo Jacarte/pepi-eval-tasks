@@ -1,11 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
+region: ap-southeast-1
+replicas: 6
 log_level: info
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 1000
 upstreams:
-  - export-worker
-  - auth-worker
+  - search-indexer
+  - inventory-api

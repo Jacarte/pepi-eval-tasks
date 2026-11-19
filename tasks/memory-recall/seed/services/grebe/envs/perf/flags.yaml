@@ -1,5 +1,5 @@
 # perf feature flags
 environment: perf
 flags:
+  async_writes: true
   strict_validation: true
-  fast_path: false

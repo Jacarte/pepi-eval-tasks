@@ -1,5 +1,4 @@
 # audit storage profile
-class: cold
-retention_days: 30
-versioning: false
+include: ../../../templates/fragments/frag-20.yaml
+versioning: true
 encryption: kms

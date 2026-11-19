@@ -1,9 +1,11 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 6
-log_level: warn
+region: ap-southeast-1
+replicas: 4
+log_level: info
+storage:
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - risk-api
-  - export-worker
+  - auth-worker

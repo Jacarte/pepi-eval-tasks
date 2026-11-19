@@ -2,4 +2,5 @@
 environment: production-eu
 flags:
   async_writes: false
-  shadow_reads: false
+  batch_compaction: false
+  fast_path: false

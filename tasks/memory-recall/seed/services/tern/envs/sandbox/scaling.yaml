@@ -1,5 +1,5 @@
 # sandbox autoscaling
 environment: sandbox
-min_replicas: 2
-max_replicas: 12
-target_cpu_percent: 80
+min_replicas: 1
+max_replicas: 3
+target_cpu_percent: 70

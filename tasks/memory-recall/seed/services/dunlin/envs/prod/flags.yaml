@@ -1,6 +1,5 @@
 # production feature flags
 environment: production
 flags:
-  async_writes: true
-  strict_validation: true
-  fast_path: false
+  new_retry_policy: false
+  shadow_reads: false

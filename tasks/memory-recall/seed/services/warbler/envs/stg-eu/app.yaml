@@ -1,14 +1,15 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 2
+region: eu-north-1
+replicas: 5
 log_level: info
 queue:
   name: warbler-staging-eu
-  batch_size: 100
-  visibility_timeout_s: 120
+  batch_size: 200
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/standard-eu.yaml
 http:
   timeout_ms: 3000
 upstreams:
-  - checkout-worker
+  - webhooks-api

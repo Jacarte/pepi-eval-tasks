@@ -1,0 +1,4 @@
+id: P-0175
+target: services/oriole/envs/prod-eu
+set:
+  replicas: 2

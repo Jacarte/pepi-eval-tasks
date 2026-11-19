@@ -1,11 +1,12 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
+region: us-east-2
+replicas: 1
 log_level: debug
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/compliance.yaml
 http:
   timeout_ms: 500
 upstreams:
-  - profiles-api
-  - email-sender
+  - payouts-worker
+  - webhooks-worker

@@ -1,15 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 6
-log_level: debug
+region: ca-central-1
+replicas: 3
+log_level: warn
 queue:
   name: hobby-qa
   batch_size: 150
   visibility_timeout_s: 120
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2500
 upstreams:
-  - invoice-worker
-  - audit-worker
+  - gateway

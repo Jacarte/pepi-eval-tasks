@@ -1,0 +1,4 @@
+id: P-0321
+target: services/gannet/envs/stg
+set:
+  region: us-west-2

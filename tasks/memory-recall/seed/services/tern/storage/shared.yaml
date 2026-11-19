@@ -1,5 +1,4 @@
 # shared storage profile
-class: hot
-retention_days: 365
+include: ../../../templates/fragments/frag-16.yaml
 versioning: true
 encryption: aes256

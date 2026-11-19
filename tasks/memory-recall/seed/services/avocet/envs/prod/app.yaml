@@ -1,14 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
+region: af-south-1
+replicas: 6
 log_level: info
 queue:
   name: avocet-production
-  batch_size: 250
-  visibility_timeout_s: 90
+  batch_size: 300
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 3000
 upstreams:
-  - auth-api
+  - ledger-api

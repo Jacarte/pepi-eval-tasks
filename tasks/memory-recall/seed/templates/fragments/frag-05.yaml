@@ -1,0 +1,3 @@
+# frag-05
+include: ../bases/events.yaml
+class: cold

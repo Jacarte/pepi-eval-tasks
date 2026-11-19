@@ -1,5 +1,4 @@
 # archive storage profile
-class: warm
-retention_days: 120
-versioning: true
+include: ../../../templates/fragments/frag-23.yaml
+versioning: false
 encryption: kms

@@ -1,15 +1,14 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 2
-log_level: info
+region: eu-west-3
+replicas: 6
+log_level: debug
 queue:
   name: petrel-staging
-  batch_size: 250
+  batch_size: 200
   visibility_timeout_s: 90
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - audit-api
-  - audit-api

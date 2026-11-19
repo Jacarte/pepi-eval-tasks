@@ -1,0 +1,4 @@
+# eu-west-3 retention
+parent: gdpr-core
+retention_days:
+  regulated: 254

@@ -1,14 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: warn
+region: ap-southeast-1
+replicas: 5
+log_level: info
 queue:
   name: hobby-staging
-  batch_size: 100
+  batch_size: 150
   visibility_timeout_s: 60
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 4000
 upstreams:
-  - catalog-indexer
+  - ledger-api
+  - ledger-worker

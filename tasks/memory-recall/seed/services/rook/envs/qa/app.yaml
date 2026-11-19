@@ -1,14 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 3
-log_level: info
+region: af-south-1
+replicas: 5
+log_level: debug
 queue:
   name: rook-qa
   batch_size: 250
-  visibility_timeout_s: 30
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1000
 upstreams:
-  - sms-sender
+  - billing-api

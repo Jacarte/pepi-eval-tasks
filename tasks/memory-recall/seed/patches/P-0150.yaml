@@ -1,0 +1,5 @@
+id: P-0150
+target: services/egret/envs/stg
+set:
+  storage:
+    include: ../../storage/short-lived.yaml

@@ -1,0 +1,4 @@
+id: P-0085
+target: services/osprey/envs/perf
+set:
+  replicas: 1

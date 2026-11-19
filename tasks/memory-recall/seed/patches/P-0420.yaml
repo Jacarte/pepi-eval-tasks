@@ -1,0 +1,5 @@
+id: P-0420
+target: services/swift/envs/perf
+set:
+  storage:
+    include: ../../storage/short-lived.yaml

@@ -1,0 +1,5 @@
+id: P-0349
+target: services/petrel/envs/dev
+set:
+  storage:
+    include: ../../storage/shared.yaml

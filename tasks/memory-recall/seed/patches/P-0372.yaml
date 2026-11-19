@@ -1,0 +1,5 @@
+id: P-0372
+target: services/heron-v1/envs/stg
+set:
+  storage:
+    include: ../../storage/compliance.yaml

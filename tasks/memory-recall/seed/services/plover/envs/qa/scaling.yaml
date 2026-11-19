@@ -2,4 +2,4 @@
 environment: qa
 min_replicas: 3
 max_replicas: 13
-target_cpu_percent: 55
+target_cpu_percent: 70

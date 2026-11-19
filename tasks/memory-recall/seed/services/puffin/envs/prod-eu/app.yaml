@@ -1,14 +1,15 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
+region: ap-southeast-1
 replicas: 1
 log_level: debug
 queue:
   name: puffin-production-eu
-  batch_size: 50
-  visibility_timeout_s: 120
+  batch_size: 200
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3500
 upstreams:
-  - invoice-worker
+  - audit-worker

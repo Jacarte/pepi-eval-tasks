@@ -1,11 +1,11 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
-log_level: info
+region: eu-north-1
+replicas: 3
+log_level: debug
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/compliance.yaml
 http:
   timeout_ms: 2500
 upstreams:
-  - checkout-api
-  - billing-api
+  - pricing-worker

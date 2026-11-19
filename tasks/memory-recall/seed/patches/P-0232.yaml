@@ -1,0 +1,4 @@
+id: P-0232
+target: services/dunlin/envs/qa
+set:
+  region: us-east-2

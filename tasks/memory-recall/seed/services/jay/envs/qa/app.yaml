@@ -1,15 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 3
-log_level: debug
+region: eu-west-3
+replicas: 5
+log_level: info
 queue:
   name: jay-qa
-  batch_size: 100
-  visibility_timeout_s: 30
+  batch_size: 200
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - export-worker
-  - email-sender
+  - payouts-api

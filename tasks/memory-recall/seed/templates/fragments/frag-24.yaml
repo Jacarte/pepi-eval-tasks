@@ -1,0 +1,3 @@
+# frag-24
+include: ../bases/bulk.yaml
+class: cold

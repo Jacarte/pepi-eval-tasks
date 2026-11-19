@@ -1,11 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 6
-log_level: debug
+region: us-east-2
+replicas: 5
+log_level: warn
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
   - billing-worker
-  - media-api
+  - profiles-api

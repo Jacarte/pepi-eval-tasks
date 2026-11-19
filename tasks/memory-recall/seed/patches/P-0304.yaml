@@ -1,0 +1,4 @@
+id: P-0304
+target: services/siskin/envs/stg
+set:
+  region: af-south-1

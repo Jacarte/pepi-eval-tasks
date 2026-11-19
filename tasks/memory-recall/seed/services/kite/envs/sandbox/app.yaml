@@ -1,8 +1,11 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 4
+region: us-west-1
+replicas: 6
 log_level: debug
+storage:
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3000
 upstreams:
-  - auth-worker
+  - payouts-api

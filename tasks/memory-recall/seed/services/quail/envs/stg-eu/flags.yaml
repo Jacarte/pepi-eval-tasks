@@ -1,4 +1,5 @@
 # staging-eu feature flags
 environment: staging-eu
 flags:
-  fast_path: false
+  new_retry_policy: false
+  batch_compaction: false

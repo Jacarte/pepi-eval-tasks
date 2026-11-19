@@ -1,14 +1,15 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
+region: eu-south-1
 replicas: 6
-log_level: debug
+log_level: info
 queue:
   name: thrush-perf
-  batch_size: 350
+  batch_size: 200
   visibility_timeout_s: 120
 storage:
   include: ../../storage/standard.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - notifications-api
+  - catalog-indexer

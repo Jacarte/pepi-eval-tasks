@@ -1,0 +1,5 @@
+id: P-0229
+target: services/thrush/envs/prod
+set:
+  storage:
+    include: ../../storage/archive.yaml

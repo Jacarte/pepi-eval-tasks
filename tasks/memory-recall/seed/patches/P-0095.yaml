@@ -1,0 +1,5 @@
+id: P-0095
+target: services/ibis/envs/prod-eu
+set:
+  storage:
+    include: ../../storage/archive.yaml

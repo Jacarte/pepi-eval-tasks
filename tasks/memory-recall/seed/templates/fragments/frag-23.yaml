@@ -1,0 +1,3 @@
+# frag-23
+include: ../bases/metrics.yaml
+class: cold

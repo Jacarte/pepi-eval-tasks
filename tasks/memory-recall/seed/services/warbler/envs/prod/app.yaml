@@ -1,14 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 1
-log_level: warn
+region: ca-central-1
+replicas: 4
+log_level: debug
 queue:
   name: warbler-production
-  batch_size: 400
-  visibility_timeout_s: 30
+  batch_size: 250
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/audit.yaml
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 1000
 upstreams:
-  - profiles-api
+  - search-api

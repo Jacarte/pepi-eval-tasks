@@ -1,0 +1,5 @@
+id: P-0261
+target: services/grebe/envs/stg-eu
+set:
+  storage:
+    include: ../../storage/shared.yaml

@@ -1,0 +1,5 @@
+id: P-0134
+target: services/stint/envs/sandbox
+set:
+  storage:
+    include: ../../storage/audit.yaml

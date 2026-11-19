@@ -1,0 +1,4 @@
+id: P-0024
+target: services/osprey/envs/sandbox
+set:
+  region: eu-central-1

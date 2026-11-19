@@ -1,0 +1,6 @@
+# eu-north-1 retention
+parent: gdpr-nordic
+retention_days:
+  ephemeral: 93
+  standard: 362
+  extended: 350

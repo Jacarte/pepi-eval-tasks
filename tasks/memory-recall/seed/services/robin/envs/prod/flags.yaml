@@ -2,7 +2,7 @@
 environment: production
 flags:
   async_writes: false
-  strict_validation: true
+  strict_validation: false
   batch_compaction: true
-  shadow_reads: true
-  fast_path: true
+  shadow_reads: false
+  fast_path: false

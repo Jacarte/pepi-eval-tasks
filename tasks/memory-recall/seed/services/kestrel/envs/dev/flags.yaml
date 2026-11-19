@@ -1,4 +1,5 @@
 # development feature flags
 environment: development
 flags:
-  shadow_reads: true
+  strict_validation: false
+  fast_path: true

@@ -1,13 +1,15 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
+region: eu-west-3
 replicas: 2
 log_level: debug
 queue:
   name: puffin-sandbox
-  batch_size: 300
+  batch_size: 200
   visibility_timeout_s: 30
+storage:
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 1000
 upstreams:
-  - inventory-sync
-  - fraud-scorer
+  - billing-worker

@@ -1,8 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 4
-log_level: warn
+region: ca-central-1
+replicas: 5
+log_level: info
+storage:
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 4000
 upstreams:
-  - import-worker
+  - auth-worker
+  - checkout-api

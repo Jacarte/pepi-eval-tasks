@@ -2,5 +2,7 @@
 environment: production-eu
 flags:
   new_retry_policy: false
-  async_writes: true
+  async_writes: false
+  strict_validation: true
+  batch_compaction: false
   fast_path: false

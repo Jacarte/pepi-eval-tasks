@@ -1,7 +1,5 @@
 # production feature flags
 environment: production
 flags:
-  new_retry_policy: false
-  batch_compaction: false
+  async_writes: false
   shadow_reads: false
-  fast_path: false

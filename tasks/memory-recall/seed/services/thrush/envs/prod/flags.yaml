@@ -1,4 +1,5 @@
 # production feature flags
 environment: production
 flags:
-  fast_path: true
+  batch_compaction: true
+  shadow_reads: false

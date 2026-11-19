@@ -1,4 +1,5 @@
 # staging feature flags
 environment: staging
 flags:
+  batch_compaction: false
   shadow_reads: false

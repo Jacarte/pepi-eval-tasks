@@ -1,0 +1,4 @@
+id: P-0246
+target: services/sparrow/envs/sandbox
+set:
+  replicas: 1

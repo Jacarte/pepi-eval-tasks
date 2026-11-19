@@ -1,14 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 6
-log_level: info
+region: ap-southeast-2
+replicas: 5
+log_level: warn
 queue:
   name: quail-development
-  batch_size: 150
+  batch_size: 300
   visibility_timeout_s: 90
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1500
 upstreams:
-  - billing-api
+  - auth-api
+  - search-api

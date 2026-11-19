@@ -1,11 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
-log_level: debug
+region: ap-southeast-2
+replicas: 1
+log_level: info
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1500
 upstreams:
+  - checkout-api
   - inventory-sync
-  - thumbnails-worker

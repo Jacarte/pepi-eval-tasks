@@ -1,7 +1,6 @@
 # production feature flags
 environment: production
 flags:
-  strict_validation: true
-  batch_compaction: true
+  async_writes: true
+  strict_validation: false
   shadow_reads: true
-  fast_path: true

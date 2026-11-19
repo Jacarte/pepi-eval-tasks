@@ -1,13 +1,14 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
+region: eu-central-1
 replicas: 3
 log_level: debug
 queue:
   name: oriole-staging-eu
-  batch_size: 50
-  visibility_timeout_s: 120
+  batch_size: 250
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 3000
 upstreams:

@@ -1,15 +1,16 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: warn
+region: us-east-2
+replicas: 4
+log_level: info
 queue:
   name: falcon-perf
-  batch_size: 150
-  visibility_timeout_s: 60
+  batch_size: 50
+  visibility_timeout_s: 90
 storage:
   include: ../../storage/shared.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - audit-api
-  - profiles-api
+  - reports-api
+  - payouts-worker

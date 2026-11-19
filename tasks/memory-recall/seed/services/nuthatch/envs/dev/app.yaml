@@ -1,14 +1,15 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 5
+region: ap-southeast-2
+replicas: 6
 log_level: info
 queue:
   name: nuthatch-development
-  batch_size: 250
-  visibility_timeout_s: 60
+  batch_size: 350
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 500
 upstreams:
-  - billing-scheduler
+  - pricing-worker

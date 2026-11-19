@@ -1,7 +1,7 @@
 # qa alerts
 environment: qa
-log_retention_days: 60
-metrics_retention_days: 7
+log_retention_days: 140
+metrics_retention_days: 244
 alerts:
   - name: error-rate
     threshold: 0.01

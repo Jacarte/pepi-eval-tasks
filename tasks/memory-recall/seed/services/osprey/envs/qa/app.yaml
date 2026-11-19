@@ -1,11 +1,12 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 2
-log_level: debug
+region: eu-south-1
+replicas: 4
+log_level: info
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/legacy.yaml
 http:
   timeout_ms: 500
 upstreams:
-  - inventory-api
-  - notifications-worker
+  - auth-api
+  - checkout-worker

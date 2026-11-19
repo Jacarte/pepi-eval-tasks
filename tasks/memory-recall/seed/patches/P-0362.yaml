@@ -1,0 +1,4 @@
+id: P-0362
+target: services/magpie/envs/perf
+set:
+  region: us-west-1

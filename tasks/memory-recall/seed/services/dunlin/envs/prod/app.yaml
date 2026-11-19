@@ -1,10 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 6
+region: af-south-1
+replicas: 2
 log_level: warn
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
+  - sms-sender
   - audit-api

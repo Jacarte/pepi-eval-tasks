@@ -1,0 +1,4 @@
+id: P-0056
+target: services/egret/envs/sandbox
+set:
+  region: ap-south-1

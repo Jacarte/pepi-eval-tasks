@@ -1,11 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: ca-central-1
 replicas: 5
 log_level: warn
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - payouts-api
-  - billing-api
+  - webhooks-api
+  - import-worker

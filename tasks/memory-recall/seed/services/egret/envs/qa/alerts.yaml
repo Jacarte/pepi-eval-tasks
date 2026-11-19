@@ -1,13 +1,13 @@
 # qa alerts
 environment: qa
-log_retention_days: 365
-metrics_retention_days: 30
+log_retention_days: 164
+metrics_retention_days: 242
 alerts:
   - name: error-rate
-    threshold: 0.02
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 200
     for: 10m
     severity: ticket

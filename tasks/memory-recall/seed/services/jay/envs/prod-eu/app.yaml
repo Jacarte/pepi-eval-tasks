@@ -1,15 +1,15 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
+region: ap-southeast-1
 replicas: 6
-log_level: debug
+log_level: warn
 queue:
   name: jay-production-eu
-  batch_size: 150
+  batch_size: 400
   visibility_timeout_s: 60
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/archive.yaml
 http:
   timeout_ms: 1000
 upstreams:
-  - cart-api
-  - payouts-worker
+  - webhooks-worker

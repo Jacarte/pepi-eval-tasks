@@ -1,10 +1,11 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
+region: eu-north-1
 replicas: 4
-log_level: info
+log_level: debug
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - checkout-api
+  - inventory-api

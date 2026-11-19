@@ -1,14 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 4
-log_level: info
+region: us-east-2
+replicas: 1
+log_level: debug
 queue:
   name: puffin-development
-  batch_size: 350
-  visibility_timeout_s: 90
+  batch_size: 100
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - ledger-api
+  - import-worker
+  - orders-worker

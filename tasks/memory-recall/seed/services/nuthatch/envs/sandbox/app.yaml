@@ -1,12 +1,15 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 5
-log_level: info
+region: eu-north-1
+replicas: 1
+log_level: warn
 queue:
   name: nuthatch-sandbox
-  batch_size: 350
-  visibility_timeout_s: 60
+  batch_size: 100
+  visibility_timeout_s: 30
+storage:
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 500
 upstreams:
-  - auth-worker
+  - admin-api

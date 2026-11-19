@@ -1,14 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 4
-log_level: info
+region: ap-south-1
+replicas: 2
+log_level: debug
 queue:
   name: linnet-qa
   batch_size: 400
-  visibility_timeout_s: 120
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 3000
 upstreams:
-  - invoice-worker
+  - billing-worker

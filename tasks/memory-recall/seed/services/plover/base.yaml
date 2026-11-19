@@ -8,9 +8,6 @@ owner: team-payments@example.com
 runtime: go1.20
 replicas: 2
 log_level: info
-storage:
-  retention_days: 14
-  encryption: aes256
 http:
-  port: 8082
+  port: 8081
   timeout_ms: 2000

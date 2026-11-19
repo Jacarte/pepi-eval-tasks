@@ -1,5 +1,4 @@
 # archive storage profile
-class: hot
-retention_days: 30
+include: ../../../templates/fragments/frag-26.yaml
 versioning: false
 encryption: kms

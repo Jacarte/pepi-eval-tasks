@@ -1,14 +1,16 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 3
-log_level: debug
+region: ap-southeast-1
+replicas: 1
+log_level: info
 queue:
   name: falcon-production-eu
-  batch_size: 350
+  batch_size: 400
   visibility_timeout_s: 30
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - inventory-sync
+  - payouts-worker
+  - gateway

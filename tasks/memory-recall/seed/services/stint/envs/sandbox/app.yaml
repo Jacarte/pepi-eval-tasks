@@ -1,11 +1,11 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
-log_level: debug
+region: eu-west-2
+replicas: 2
+log_level: warn
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - ledger-worker
-  - search-api
+  - pricing-api

@@ -1,6 +1,6 @@
 # development feature flags
 environment: development
 flags:
-  async_writes: true
-  strict_validation: true
-  shadow_reads: true
+  async_writes: false
+  strict_validation: false
+  fast_path: true

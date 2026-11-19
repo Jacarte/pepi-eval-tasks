@@ -3,4 +3,3 @@ environment: production-eu
 flags:
   strict_validation: false
   shadow_reads: false
-  fast_path: true

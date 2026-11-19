@@ -1,0 +1,3 @@
+# frag-08
+include: ../bases/exports.yaml
+class: warm

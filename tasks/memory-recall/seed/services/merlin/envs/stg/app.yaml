@@ -1,8 +1,12 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 4
+region: sa-east-1
+replicas: 6
 log_level: warn
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3000
 upstreams:
-  - auth-api
+  - pricing-worker
+  - users-api

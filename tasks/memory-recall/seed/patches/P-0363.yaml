@@ -1,0 +1,4 @@
+id: P-0363
+target: services/wren/envs/stg-eu
+set:
+  region: eu-west-3

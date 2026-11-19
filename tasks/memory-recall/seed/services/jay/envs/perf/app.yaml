@@ -1,14 +1,15 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: debug
+region: eu-west-1
+replicas: 6
+log_level: info
 queue:
   name: jay-perf
-  batch_size: 300
-  visibility_timeout_s: 30
+  batch_size: 200
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
-  - pricing-api
+  - payouts-worker

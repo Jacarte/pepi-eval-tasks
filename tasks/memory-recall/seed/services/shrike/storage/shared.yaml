@@ -1,5 +1,4 @@
 # shared storage profile
-class: hot
-retention_days: 45
+include: ../../../templates/fragments/frag-08.yaml
 versioning: false
-encryption: aes256
+encryption: kms

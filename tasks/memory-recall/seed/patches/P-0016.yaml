@@ -1,0 +1,4 @@
+id: P-0016
+target: services/starling/envs/dev
+set:
+  replicas: 4

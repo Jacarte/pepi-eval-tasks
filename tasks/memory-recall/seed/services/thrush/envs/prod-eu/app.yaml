@@ -1,15 +1,15 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 1
-log_level: warn
+region: sa-east-1
+replicas: 6
+log_level: debug
 queue:
   name: thrush-production-eu
-  batch_size: 100
-  visibility_timeout_s: 90
+  batch_size: 50
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3000
 upstreams:
-  - media-api
-  - sms-sender
+  - fraud-scorer

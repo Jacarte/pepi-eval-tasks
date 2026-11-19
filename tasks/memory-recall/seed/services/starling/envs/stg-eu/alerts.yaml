@@ -1,7 +1,7 @@
 # staging-eu alerts
 environment: staging-eu
-log_retention_days: 120
-metrics_retention_days: 45
+log_retention_days: 240
+metrics_retention_days: 353
 alerts:
   - name: error-rate
     threshold: 0.08

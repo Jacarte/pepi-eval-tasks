@@ -1,12 +1,14 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: info
+region: eu-north-1
+replicas: 1
+log_level: debug
 queue:
   name: sandpiper-perf
   batch_size: 350
-  visibility_timeout_s: 60
+  visibility_timeout_s: 30
+storage:
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - sms-sender

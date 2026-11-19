@@ -1,15 +1,14 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
-log_level: info
+region: eu-north-1
+replicas: 5
+log_level: warn
 queue:
   name: linnet-development
-  batch_size: 300
-  visibility_timeout_s: 90
+  batch_size: 50
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 500
 upstreams:
-  - ledger-worker
-  - ledger-api

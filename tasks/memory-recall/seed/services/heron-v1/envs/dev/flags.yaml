@@ -1,5 +1,6 @@
 # development feature flags
 environment: development
 flags:
-  strict_validation: false
-  batch_compaction: false
+  new_retry_policy: false
+  strict_validation: true
+  fast_path: false

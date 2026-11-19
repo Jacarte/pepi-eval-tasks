@@ -1,15 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
+region: eu-west-1
 replicas: 1
-log_level: warn
+log_level: info
 queue:
   name: pipit-staging
   batch_size: 350
-  visibility_timeout_s: 90
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - thumbnails-worker
+  - sms-sender
   - reports-worker

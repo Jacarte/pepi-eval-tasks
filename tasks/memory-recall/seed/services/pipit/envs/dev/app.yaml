@@ -1,14 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
-log_level: debug
+region: af-south-1
+replicas: 4
+log_level: warn
 queue:
   name: pipit-development
-  batch_size: 150
-  visibility_timeout_s: 90
+  batch_size: 350
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3500
 upstreams:
-  - billing-api
+  - inventory-sync
+  - catalog-indexer

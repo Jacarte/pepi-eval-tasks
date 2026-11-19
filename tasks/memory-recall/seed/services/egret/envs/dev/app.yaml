@@ -1,10 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
+region: af-south-1
+replicas: 4
 log_level: info
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 4000
 upstreams:
-  - inventory-sync
+  - ledger-api
+  - inventory-api

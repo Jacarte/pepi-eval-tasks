@@ -2,5 +2,5 @@
 environment: sandbox
 cpu_request: 200m
 cpu_limit: 400m
-mem_request_mb: 896
-mem_limit_mb: 1792
+mem_request_mb: 640
+mem_limit_mb: 1280

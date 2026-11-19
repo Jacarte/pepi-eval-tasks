@@ -1,11 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: eu-central-1
 replicas: 2
 log_level: debug
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1000
 upstreams:
-  - payouts-worker
-  - export-worker
+  - checkout-worker
+  - sms-sender

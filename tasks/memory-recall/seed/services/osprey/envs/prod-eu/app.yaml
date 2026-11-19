@@ -1,11 +1,11 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 2
-log_level: info
+region: ca-central-1
+replicas: 1
+log_level: warn
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - reports-api
-  - audit-worker
+  - thumbnails-worker

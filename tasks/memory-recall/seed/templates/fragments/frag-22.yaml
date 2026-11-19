@@ -1,0 +1,3 @@
+# frag-22
+include: ../bases/backups.yaml
+class: hot

@@ -1,0 +1,5 @@
+id: P-0194
+target: services/grebe/envs/prod-eu
+set:
+  storage:
+    include: ../../storage/archive.yaml

@@ -1,5 +1,4 @@
 # legacy storage profile
-class: warm
-retention_days: 30
-versioning: true
+include: ../../../templates/fragments/frag-28.yaml
+versioning: false
 encryption: kms

@@ -1,10 +1,12 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 5
+region: us-west-2
+replicas: 1
 log_level: warn
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - auth-api
+  - webhooks-worker
+  - catalog-indexer

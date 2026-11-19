@@ -1,5 +1,7 @@
 # staging-eu feature flags
 environment: staging-eu
 flags:
-  shadow_reads: false
-  fast_path: true
+  new_retry_policy: false
+  strict_validation: false
+  shadow_reads: true
+  fast_path: false

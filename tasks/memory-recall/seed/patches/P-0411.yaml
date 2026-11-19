@@ -1,0 +1,4 @@
+id: P-0411
+target: services/thrush/envs/prod
+set:
+  replicas: 4

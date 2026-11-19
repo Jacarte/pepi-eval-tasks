@@ -1,0 +1,4 @@
+id: P-0072
+target: services/tern/envs/stg-eu
+set:
+  region: ap-northeast-1

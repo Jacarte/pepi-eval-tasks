@@ -1,7 +1,6 @@
 # perf feature flags
 environment: perf
 flags:
-  strict_validation: true
-  batch_compaction: true
-  shadow_reads: true
-  fast_path: false
+  new_retry_policy: false
+  strict_validation: false
+  fast_path: true

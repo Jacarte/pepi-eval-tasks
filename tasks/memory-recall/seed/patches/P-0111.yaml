@@ -1,0 +1,5 @@
+id: P-0111
+target: services/plover/envs/qa
+set:
+  storage:
+    include: ../../storage/short-lived.yaml

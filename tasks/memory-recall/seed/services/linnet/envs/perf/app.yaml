@@ -1,15 +1,15 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
+region: af-south-1
+replicas: 2
 log_level: debug
 queue:
   name: linnet-perf
-  batch_size: 150
-  visibility_timeout_s: 60
+  batch_size: 400
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - reports-api
-  - notifications-api
+  - auth-worker

@@ -1,11 +1,11 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
+region: eu-west-3
 replicas: 3
-log_level: warn
+log_level: debug
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 1500
 upstreams:
-  - orders-api
-  - catalog-indexer
+  - thumbnails-worker

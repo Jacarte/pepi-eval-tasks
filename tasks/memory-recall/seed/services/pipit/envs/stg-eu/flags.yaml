@@ -1,6 +1,6 @@
 # staging-eu feature flags
 environment: staging-eu
 flags:
-  async_writes: true
+  new_retry_policy: false
   strict_validation: false
-  batch_compaction: false
+  shadow_reads: false

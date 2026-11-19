@@ -1,10 +1,11 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 4
+region: eu-west-1
+replicas: 1
 log_level: warn
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 4000
 upstreams:
-  - pricing-worker
+  - payouts-api

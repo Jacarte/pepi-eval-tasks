@@ -1,14 +1,15 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 5
+region: af-south-1
+replicas: 3
 log_level: debug
 queue:
   name: oriole-development
-  batch_size: 50
-  visibility_timeout_s: 90
+  batch_size: 350
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
-  - orders-worker
+  - inventory-sync

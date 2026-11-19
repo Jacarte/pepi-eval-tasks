@@ -1,10 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 6
+region: ap-southeast-1
+replicas: 5
 log_level: debug
 storage:
   include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 1500
 upstreams:
-  - risk-api
+  - notifications-api
+  - auth-worker

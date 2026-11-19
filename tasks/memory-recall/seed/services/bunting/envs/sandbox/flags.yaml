@@ -3,3 +3,5 @@ environment: sandbox
 flags:
   new_retry_policy: true
   async_writes: false
+  batch_compaction: true
+  shadow_reads: true

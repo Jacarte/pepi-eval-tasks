@@ -1,14 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 6
-log_level: warn
+region: ap-southeast-2
+replicas: 4
+log_level: info
 queue:
   name: warbler-development
-  batch_size: 300
-  visibility_timeout_s: 30
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/audit.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - checkout-worker
+  - admin-api
+  - search-indexer

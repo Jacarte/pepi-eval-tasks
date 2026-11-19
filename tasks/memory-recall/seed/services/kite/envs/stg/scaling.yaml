@@ -1,5 +1,5 @@
 # staging autoscaling
 environment: staging
 min_replicas: 2
-max_replicas: 11
-target_cpu_percent: 80
+max_replicas: 3
+target_cpu_percent: 55

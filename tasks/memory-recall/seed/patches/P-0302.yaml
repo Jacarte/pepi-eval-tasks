@@ -1,0 +1,4 @@
+id: P-0302
+target: services/crane/envs/perf
+set:
+  region: ca-central-1

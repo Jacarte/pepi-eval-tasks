@@ -1,10 +1,12 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 2
-log_level: warn
+region: ca-central-1
+replicas: 6
+log_level: info
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
-  - ledger-worker
+  - pricing-api
+  - email-sender

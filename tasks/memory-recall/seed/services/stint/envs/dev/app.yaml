@@ -1,11 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: eu-central-1
 replicas: 3
-log_level: warn
+log_level: info
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - checkout-worker
-  - media-api
+  - payouts-api
+  - catalog-api

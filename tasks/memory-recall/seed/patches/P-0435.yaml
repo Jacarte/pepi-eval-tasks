@@ -1,0 +1,5 @@
+id: P-0435
+target: services/bunting/envs/dev
+set:
+  storage:
+    include: ../../storage/standard-eu.yaml

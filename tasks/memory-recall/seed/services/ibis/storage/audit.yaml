@@ -1,5 +1,4 @@
 # audit storage profile
-class: cold
-retention_days: 7
+include: ../../../templates/fragments/frag-23.yaml
 versioning: true
 encryption: aes256

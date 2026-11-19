@@ -1,0 +1,4 @@
+id: P-0103
+target: services/finch/envs/prod
+set:
+  replicas: 3

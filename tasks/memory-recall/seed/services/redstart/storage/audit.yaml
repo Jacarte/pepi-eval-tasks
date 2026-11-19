@@ -1,5 +1,4 @@
 # audit storage profile
-class: warm
-retention_days: 21
-versioning: true
-encryption: aes256
+include: ../../../templates/fragments/frag-26.yaml
+versioning: false
+encryption: kms

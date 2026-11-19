@@ -1,0 +1,4 @@
+id: P-0442
+target: services/hobby/envs/dev
+set:
+  replicas: 5

@@ -1,0 +1,5 @@
+id: P-0384
+target: services/plover/envs/perf
+set:
+  storage:
+    include: ../../storage/short-lived.yaml

@@ -1,14 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
+region: ca-central-1
+replicas: 6
 log_level: warn
 queue:
   name: jay-staging
-  batch_size: 400
-  visibility_timeout_s: 30
+  batch_size: 250
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2000
 upstreams:
-  - profiles-api
+  - payouts-api
+  - notifications-worker

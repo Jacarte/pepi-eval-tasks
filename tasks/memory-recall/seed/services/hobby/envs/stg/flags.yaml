@@ -1,6 +1,4 @@
 # staging feature flags
 environment: staging
 flags:
-  async_writes: true
   shadow_reads: false
-  fast_path: false

@@ -1,0 +1,3 @@
+# frag-13
+include: ../bases/cache.yaml
+class: cold

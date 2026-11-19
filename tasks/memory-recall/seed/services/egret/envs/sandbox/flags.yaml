@@ -1,4 +1,5 @@
 # sandbox feature flags
 environment: sandbox
 flags:
-  strict_validation: false
+  new_retry_policy: true
+  shadow_reads: true

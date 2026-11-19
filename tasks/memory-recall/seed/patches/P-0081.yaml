@@ -1,0 +1,5 @@
+id: P-0081
+target: services/vireo/envs/qa
+set:
+  storage:
+    include: ../../storage/audit.yaml

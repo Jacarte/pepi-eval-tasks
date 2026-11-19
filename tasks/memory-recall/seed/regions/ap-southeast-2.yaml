@@ -1,0 +1,4 @@
+# ap-southeast-2 retention
+parent: apac-core
+retention_days:
+  standard: 313

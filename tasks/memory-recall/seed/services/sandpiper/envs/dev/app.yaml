@@ -1,15 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: eu-south-1
 replicas: 2
 log_level: warn
 queue:
   name: sandpiper-development
-  batch_size: 300
-  visibility_timeout_s: 60
+  batch_size: 50
+  visibility_timeout_s: 90
 storage:
   include: ../../storage/standard.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
-  - payouts-worker
-  - billing-legacy
+  - auth-worker
+  - notifications-worker

@@ -1,0 +1,4 @@
+id: P-0351
+target: services/starling/envs/prod
+set:
+  replicas: 5

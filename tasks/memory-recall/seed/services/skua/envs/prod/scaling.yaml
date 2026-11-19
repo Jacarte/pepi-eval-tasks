@@ -1,5 +1,5 @@
 # production autoscaling
 environment: production
 min_replicas: 3
-max_replicas: 5
-target_cpu_percent: 80
+max_replicas: 13
+target_cpu_percent: 50

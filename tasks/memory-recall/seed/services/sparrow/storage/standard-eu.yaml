@@ -1,5 +1,4 @@
 # standard-eu storage profile
-class: hot
-retention_days: 60
+include: ../../../templates/fragments/frag-03.yaml
 versioning: false
 encryption: kms

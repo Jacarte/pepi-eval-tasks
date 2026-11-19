@@ -1,0 +1,4 @@
+id: P-0360
+target: services/heron/envs/stg
+set:
+  region: eu-west-1

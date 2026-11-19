@@ -1,13 +1,13 @@
 # staging-eu alerts
 environment: staging-eu
-log_retention_days: 45
-metrics_retention_days: 7
+log_retention_days: 146
+metrics_retention_days: 53
 alerts:
   - name: error-rate
-    threshold: 0.08
+    threshold: 0.03
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 2000
+    threshold_ms: 1300
     for: 10m
     severity: ticket

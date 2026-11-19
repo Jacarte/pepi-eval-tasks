@@ -2,3 +2,5 @@
 environment: staging-eu
 flags:
   strict_validation: true
+  shadow_reads: false
+  fast_path: false

@@ -1,6 +1,5 @@
 # development feature flags
 environment: development
 flags:
-  async_writes: true
+  async_writes: false
   batch_compaction: false
-  fast_path: false

@@ -1,10 +1,12 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 2
-log_level: warn
+region: ca-central-1
+replicas: 4
+log_level: info
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 1000
 upstreams:
-  - checkout-api
+  - ledger-api
+  - auth-api

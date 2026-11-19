@@ -1,0 +1,4 @@
+id: P-0158
+target: services/lark/envs/perf
+set:
+  replicas: 4

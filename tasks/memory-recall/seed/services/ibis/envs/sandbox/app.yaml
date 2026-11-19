@@ -1,8 +1,12 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 6
+region: eu-west-1
+replicas: 4
 log_level: info
+storage:
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 4000
 upstreams:
-  - fraud-scorer
+  - inventory-api
+  - admin-api

@@ -1,0 +1,4 @@
+id: P-0398
+target: services/kite/envs/prod
+set:
+  region: us-east-1

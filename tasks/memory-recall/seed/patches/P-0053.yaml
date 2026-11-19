@@ -1,0 +1,5 @@
+id: P-0053
+target: services/sandpiper/envs/stg
+set:
+  storage:
+    include: ../../storage/burst.yaml

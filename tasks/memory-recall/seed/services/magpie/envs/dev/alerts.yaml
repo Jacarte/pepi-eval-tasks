@@ -1,13 +1,13 @@
 # development alerts
 environment: development
-log_retention_days: 45
-metrics_retention_days: 120
+log_retention_days: 345
+metrics_retention_days: 392
 alerts:
   - name: error-rate
-    threshold: 0.09
+    threshold: 0.06
     for: 5m
     severity: page
   - name: latency-p99
-    threshold_ms: 400
+    threshold_ms: 1900
     for: 10m
     severity: ticket

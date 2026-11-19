@@ -1,10 +1,12 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
+region: eu-central-1
 replicas: 5
 log_level: info
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2000
 upstreams:
-  - audit-worker
+  - sms-sender
+  - thumbnails-worker

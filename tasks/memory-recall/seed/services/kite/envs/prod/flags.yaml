@@ -1,4 +1,4 @@
 # production feature flags
 environment: production
 flags:
-  shadow_reads: false
+  async_writes: false

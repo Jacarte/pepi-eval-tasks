@@ -1,14 +1,16 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
+region: us-east-2
 replicas: 4
-log_level: debug
+log_level: warn
 queue:
   name: nuthatch-qa
-  batch_size: 250
-  visibility_timeout_s: 90
+  batch_size: 150
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
-  - billing-worker
+  - payouts-worker
+  - inventory-sync

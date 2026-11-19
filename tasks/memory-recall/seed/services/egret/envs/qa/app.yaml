@@ -1,10 +1,11 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 4
+region: ap-south-1
+replicas: 1
 log_level: info
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
-  - profiles-api
+  - catalog-indexer

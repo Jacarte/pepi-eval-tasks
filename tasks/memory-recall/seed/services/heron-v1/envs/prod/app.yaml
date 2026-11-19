@@ -1,14 +1,16 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 5
-log_level: warn
+region: us-east-1
+replicas: 4
+log_level: debug
 queue:
   name: heron-v1-production
-  batch_size: 400
-  visibility_timeout_s: 60
+  batch_size: 150
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/standard-eu.yaml
 http:
   timeout_ms: 4000
 upstreams:
-  - cart-api
+  - users-api
+  - pricing-worker

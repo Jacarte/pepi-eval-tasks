@@ -1,11 +1,11 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 6
-log_level: debug
+region: ca-central-1
+replicas: 4
+log_level: warn
 storage:
-  include: ../../storage/audit.yaml
+  include: ../../storage/compliance.yaml
 http:
   timeout_ms: 1000
 upstreams:
-  - orders-api
-  - media-transcoder
+  - import-worker

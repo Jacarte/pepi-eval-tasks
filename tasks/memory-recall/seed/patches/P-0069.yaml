@@ -1,0 +1,5 @@
+id: P-0069
+target: services/stint/envs/dev
+set:
+  storage:
+    include: ../../storage/burst.yaml

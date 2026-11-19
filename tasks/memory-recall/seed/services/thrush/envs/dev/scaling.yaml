@@ -1,5 +1,5 @@
 # development autoscaling
 environment: development
 min_replicas: 3
-max_replicas: 9
-target_cpu_percent: 55
+max_replicas: 6
+target_cpu_percent: 80

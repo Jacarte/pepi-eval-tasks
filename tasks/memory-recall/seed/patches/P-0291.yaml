@@ -1,0 +1,4 @@
+id: P-0291
+target: services/bunting/envs/perf
+set:
+  region: eu-south-1

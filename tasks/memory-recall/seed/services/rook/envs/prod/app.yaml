@@ -1,14 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 6
-log_level: info
+region: ap-southeast-1
+replicas: 2
+log_level: warn
 queue:
   name: rook-production
-  batch_size: 150
-  visibility_timeout_s: 60
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - billing-worker
+  - profiles-api

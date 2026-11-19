@@ -1,5 +1,6 @@
 # production-eu feature flags
 environment: production-eu
 flags:
-  async_writes: false
+  new_retry_policy: true
   strict_validation: true
+  fast_path: false

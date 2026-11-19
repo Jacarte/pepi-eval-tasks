@@ -1,6 +1,7 @@
 # staging feature flags
 environment: staging
 flags:
-  new_retry_policy: false
-  async_writes: false
-  fast_path: false
+  new_retry_policy: true
+  strict_validation: false
+  batch_compaction: false
+  shadow_reads: false

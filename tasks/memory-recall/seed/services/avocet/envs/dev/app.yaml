@@ -1,14 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: eu-north-1
 replicas: 4
 log_level: debug
 queue:
   name: avocet-development
-  batch_size: 50
+  batch_size: 100
   visibility_timeout_s: 120
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 3500
 upstreams:
-  - email-sender
+  - pricing-worker
+  - webhooks-worker

@@ -1,12 +1,15 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
+region: ap-northeast-1
 replicas: 3
-log_level: debug
+log_level: info
 queue:
   name: petrel-staging-eu
-  batch_size: 150
+  batch_size: 250
   visibility_timeout_s: 60
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 1000
 upstreams:
-  - users-api
+  - billing-worker

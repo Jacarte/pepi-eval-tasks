@@ -1,15 +1,17 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: info
+region: eu-west-2
+replicas: 1
+log_level: debug
 queue:
   name: tern-perf
-  batch_size: 150
-  visibility_timeout_s: 90
+  batch_size: 50
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2000
 upstreams:
   - billing-worker
-  - ledger-api
+  - profiles-api
+  - media-transcoder

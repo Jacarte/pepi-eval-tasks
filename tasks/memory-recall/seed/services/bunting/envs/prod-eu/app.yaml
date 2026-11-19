@@ -1,11 +1,12 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 3
+region: af-south-1
+replicas: 5
 log_level: warn
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 4000
 upstreams:
-  - orders-api
-  - search-api
+  - thumbnails-worker
+  - sms-sender

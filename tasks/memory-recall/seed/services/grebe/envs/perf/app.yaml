@@ -1,11 +1,12 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 5
-log_level: warn
+region: eu-central-1
+replicas: 6
+log_level: info
 storage:
   include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3500
 upstreams:
-  - checkout-worker
-  - audit-api
+  - orders-worker
+  - sms-sender

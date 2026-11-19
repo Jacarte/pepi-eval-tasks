@@ -1,0 +1,4 @@
+id: P-0317
+target: services/quail/envs/qa
+set:
+  region: us-east-2

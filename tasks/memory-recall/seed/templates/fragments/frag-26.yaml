@@ -1,0 +1,3 @@
+# frag-26
+include: ../bases/ledger.yaml
+class: cold

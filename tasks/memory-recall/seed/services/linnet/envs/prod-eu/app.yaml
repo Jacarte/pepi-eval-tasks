@@ -1,15 +1,16 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 5
+region: eu-north-1
+replicas: 6
 log_level: info
 queue:
   name: linnet-production-eu
-  batch_size: 400
-  visibility_timeout_s: 30
+  batch_size: 100
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/standard-eu.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3500
 upstreams:
-  - sms-sender
-  - gateway
+  - webhooks-api
+  - cart-api

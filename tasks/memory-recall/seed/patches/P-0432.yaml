@@ -1,0 +1,5 @@
+id: P-0432
+target: services/finch/envs/stg-eu
+set:
+  storage:
+    include: ../../storage/compliance.yaml

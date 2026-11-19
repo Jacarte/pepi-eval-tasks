@@ -1,14 +1,15 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 5
+region: eu-central-1
+replicas: 6
 log_level: warn
 queue:
   name: avocet-staging-eu
-  batch_size: 100
-  visibility_timeout_s: 120
+  batch_size: 200
+  visibility_timeout_s: 30
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 2000
 upstreams:
-  - billing-api
+  - webhooks-worker

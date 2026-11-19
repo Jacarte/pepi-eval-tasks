@@ -1,12 +1,15 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
+region: us-east-1
 replicas: 1
 log_level: info
 queue:
   name: linnet-production
-  batch_size: 250
+  batch_size: 300
   visibility_timeout_s: 90
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 2500
 upstreams:
-  - billing-worker
+  - media-transcoder

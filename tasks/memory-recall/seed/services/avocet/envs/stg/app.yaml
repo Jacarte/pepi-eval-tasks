@@ -1,12 +1,15 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 1
-log_level: warn
+region: us-west-1
+replicas: 2
+log_level: info
 queue:
   name: avocet-staging
   batch_size: 200
-  visibility_timeout_s: 120
+  visibility_timeout_s: 90
+storage:
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 500
 upstreams:
-  - users-api
+  - catalog-indexer

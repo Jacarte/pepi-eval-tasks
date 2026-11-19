@@ -1,0 +1,4 @@
+id: P-0231
+target: services/vireo/envs/dev
+set:
+  region: us-west-1

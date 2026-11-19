@@ -1,5 +1,6 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
+region: us-east-2
 replicas: 1
 log_level: debug
 storage:
@@ -7,4 +8,4 @@ storage:
 http:
   timeout_ms: 4000
 upstreams:
-  - billing-api
+  - reports-api

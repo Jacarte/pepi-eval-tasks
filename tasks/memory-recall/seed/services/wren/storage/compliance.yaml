@@ -1,5 +1,4 @@
 # compliance storage profile
-class: cold
-retention_days: 21
+include: ../../../templates/fragments/frag-16.yaml
 versioning: true
-encryption: aes256
+encryption: kms

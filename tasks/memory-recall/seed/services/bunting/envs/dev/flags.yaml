@@ -2,4 +2,6 @@
 environment: development
 flags:
   async_writes: true
+  batch_compaction: true
+  shadow_reads: false
   fast_path: false

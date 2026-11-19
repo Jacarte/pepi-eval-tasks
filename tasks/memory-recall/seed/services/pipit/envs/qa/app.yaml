@@ -1,11 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 3
-log_level: warn
+region: eu-west-3
+replicas: 2
+log_level: debug
 queue:
   name: pipit-qa
-  batch_size: 250
-  visibility_timeout_s: 30
+  batch_size: 300
+  visibility_timeout_s: 120
+storage:
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 2500
 upstreams:
+  - billing-worker

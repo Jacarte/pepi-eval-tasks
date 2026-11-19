@@ -1,5 +1,5 @@
 # sandbox feature flags
 environment: sandbox
 flags:
-  strict_validation: false
-  batch_compaction: true
+  strict_validation: true
+  fast_path: true

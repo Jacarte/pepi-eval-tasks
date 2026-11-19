@@ -1,0 +1,4 @@
+id: P-0403
+target: services/kestrel/envs/qa
+set:
+  replicas: 4

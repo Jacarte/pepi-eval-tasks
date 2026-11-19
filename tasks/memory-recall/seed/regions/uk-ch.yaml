@@ -1,0 +1,6 @@
+# uk-ch retention
+parent: emea
+retention_days:
+  ephemeral: 166
+  regulated: 203
+  permanent: 117

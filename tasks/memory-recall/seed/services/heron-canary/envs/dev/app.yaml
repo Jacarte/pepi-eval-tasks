@@ -1,15 +1,16 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
-log_level: debug
+region: eu-south-1
+replicas: 3
+log_level: warn
 queue:
   name: heron-canary-development
-  batch_size: 150
-  visibility_timeout_s: 30
+  batch_size: 50
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/standard-eu.yaml
 http:
   timeout_ms: 3500
 upstreams:
-  - admin-api
-  - admin-api
+  - notifications-api
+  - notifications-api

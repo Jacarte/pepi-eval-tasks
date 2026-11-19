@@ -1,10 +1,11 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 3
+region: ap-southeast-1
+replicas: 1
 log_level: warn
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/audit.yaml
 http:
   timeout_ms: 500
 upstreams:
-  - search-indexer
+  - catalog-indexer

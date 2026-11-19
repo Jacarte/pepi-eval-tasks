@@ -1,10 +1,12 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
+region: af-south-1
 replicas: 1
 log_level: info
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 1500
 upstreams:
-  - billing-scheduler
+  - reports-worker
+  - search-indexer

@@ -1,15 +1,15 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 3
-log_level: info
+region: eu-north-1
+replicas: 1
+log_level: debug
 queue:
   name: warbler-perf
-  batch_size: 100
+  batch_size: 200
   visibility_timeout_s: 120
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - webhooks-worker
-  - auth-api
+  - users-api

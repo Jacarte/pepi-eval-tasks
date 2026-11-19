@@ -1,0 +1,5 @@
+id: P-0208
+target: services/crane/envs/stg
+set:
+  storage:
+    include: ../../storage/short-lived.yaml

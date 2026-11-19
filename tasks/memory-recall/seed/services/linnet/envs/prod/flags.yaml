@@ -1,5 +1,6 @@
 # production feature flags
 environment: production
 flags:
-  async_writes: false
-  fast_path: false
+  async_writes: true
+  batch_compaction: true
+  shadow_reads: true

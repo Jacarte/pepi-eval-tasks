@@ -1,0 +1,4 @@
+# me-south-1 retention
+parent: mena
+retention_days:
+  regulated: 370

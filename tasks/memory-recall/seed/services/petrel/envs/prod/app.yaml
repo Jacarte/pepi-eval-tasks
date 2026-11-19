@@ -1,15 +1,16 @@
 # production settings; keys missing here come from ../../base.yaml
 environment: production
-replicas: 6
-log_level: debug
+region: eu-west-2
+replicas: 1
+log_level: info
 queue:
   name: petrel-production
-  batch_size: 100
+  batch_size: 350
   visibility_timeout_s: 120
 storage:
-  include: ../../storage/standard.yaml
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 2500
 upstreams:
-  - search-indexer
-  - payouts-api
+  - billing-legacy
+  - auth-api

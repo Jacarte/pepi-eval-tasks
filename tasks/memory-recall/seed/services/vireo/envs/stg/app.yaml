@@ -1,10 +1,12 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 2
-log_level: warn
+region: ap-south-1
+replicas: 5
+log_level: info
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - admin-api
+  - media-api
+  - import-worker

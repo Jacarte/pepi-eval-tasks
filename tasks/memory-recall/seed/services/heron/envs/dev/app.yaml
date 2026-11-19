@@ -1,14 +1,15 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 4
-log_level: debug
+region: eu-south-1
+replicas: 2
+log_level: info
 queue:
   name: heron-development
-  batch_size: 400
-  visibility_timeout_s: 30
+  batch_size: 100
+  visibility_timeout_s: 60
 storage:
-  include: ../../storage/burst.yaml
+  include: ../../storage/legacy.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - reports-api
+  - users-api

@@ -1,4 +1,4 @@
 # development feature flags
 environment: development
 flags:
-  new_retry_policy: false
+  batch_compaction: false

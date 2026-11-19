@@ -1,0 +1,4 @@
+id: P-0096
+target: services/warbler/envs/prod-eu
+set:
+  replicas: 6

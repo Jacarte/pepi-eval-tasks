@@ -1,8 +1,12 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
+region: ap-southeast-2
 replicas: 3
-log_level: debug
+log_level: info
+storage:
+  include: ../../storage/compliance.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 2500
 upstreams:
-  - auth-api
+  - import-worker
+  - catalog-indexer

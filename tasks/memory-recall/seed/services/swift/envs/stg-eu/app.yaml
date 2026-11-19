@@ -1,11 +1,12 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 3
-log_level: warn
+region: ap-northeast-1
+replicas: 4
+log_level: debug
 storage:
   include: ../../storage/shared.yaml
 http:
   timeout_ms: 3000
 upstreams:
-  - auth-api
-  - pricing-worker
+  - catalog-indexer
+  - billing-worker

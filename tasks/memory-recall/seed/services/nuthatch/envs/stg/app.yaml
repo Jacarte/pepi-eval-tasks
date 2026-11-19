@@ -1,13 +1,16 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 2
+region: us-east-2
+replicas: 3
 log_level: debug
 queue:
   name: nuthatch-staging
   batch_size: 350
   visibility_timeout_s: 60
+storage:
+  include: ../../storage/standard-eu.yaml
 http:
-  timeout_ms: 2000
+  timeout_ms: 3000
 upstreams:
-  - payouts-worker
-  - checkout-api
+  - auth-api
+  - admin-api

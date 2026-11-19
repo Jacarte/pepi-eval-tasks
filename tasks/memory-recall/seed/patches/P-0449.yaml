@@ -1,0 +1,4 @@
+id: P-0449
+target: services/swift/envs/stg
+set:
+  replicas: 3

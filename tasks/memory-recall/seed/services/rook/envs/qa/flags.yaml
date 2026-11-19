@@ -1,5 +1,7 @@
 # qa feature flags
 environment: qa
 flags:
-  batch_compaction: false
+  strict_validation: false
+  batch_compaction: true
+  shadow_reads: true
   fast_path: false

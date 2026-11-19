@@ -1,8 +1,11 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 3
+region: eu-central-1
+replicas: 1
 log_level: info
+storage:
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - webhooks-worker
+  - checkout-worker

@@ -1,5 +1,5 @@
 # production-eu autoscaling
 environment: production-eu
-min_replicas: 2
+min_replicas: 1
 max_replicas: 9
-target_cpu_percent: 80
+target_cpu_percent: 75

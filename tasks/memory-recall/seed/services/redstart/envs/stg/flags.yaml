@@ -2,5 +2,7 @@
 environment: staging
 flags:
   new_retry_policy: false
-  strict_validation: false
-  batch_compaction: true
+  async_writes: true
+  batch_compaction: false
+  shadow_reads: false
+  fast_path: true

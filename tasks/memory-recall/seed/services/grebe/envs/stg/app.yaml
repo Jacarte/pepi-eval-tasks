@@ -1,9 +1,11 @@
 # staging settings; keys missing here come from ../../base.yaml
 environment: staging
-replicas: 3
-log_level: warn
+region: ap-south-1
+replicas: 4
+log_level: debug
+storage:
+  include: ../../storage/short-lived.yaml
 http:
   timeout_ms: 1000
 upstreams:
-  - ledger-api
-  - notifications-worker
+  - export-worker

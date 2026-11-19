@@ -1,0 +1,4 @@
+# ap-northeast-1 retention
+parent: apac-core
+retention_days:
+  regulated: 336

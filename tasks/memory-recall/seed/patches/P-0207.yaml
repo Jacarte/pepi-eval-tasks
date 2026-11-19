@@ -1,0 +1,4 @@
+id: P-0207
+target: services/lark/envs/stg-eu
+set:
+  replicas: 3

@@ -1,8 +1,11 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 1
-log_level: debug
+region: ap-south-1
+replicas: 3
+log_level: warn
+storage:
+  include: ../../storage/archive.yaml
 http:
-  timeout_ms: 1500
+  timeout_ms: 500
 upstreams:
-  - media-api
+  - risk-api

@@ -1,15 +1,16 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 6
+region: eu-west-1
+replicas: 1
 log_level: debug
 queue:
   name: pipit-perf
-  batch_size: 350
-  visibility_timeout_s: 90
+  batch_size: 250
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/archive.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 4000
+  timeout_ms: 3000
 upstreams:
-  - notifications-api
-  - gateway
+  - checkout-worker
+  - checkout-worker

@@ -1,8 +1,11 @@
 # development settings; keys missing here come from ../../base.yaml
 environment: development
-replicas: 1
-log_level: debug
+region: ap-northeast-1
+replicas: 4
+log_level: warn
+storage:
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1500
 upstreams:
-  - orders-api
+  - notifications-api

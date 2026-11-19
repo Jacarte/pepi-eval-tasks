@@ -1,0 +1,6 @@
+# gdpr-nordic retention
+parent: emea
+retention_days:
+  short: 242
+  standard: 264
+  regulated: 156

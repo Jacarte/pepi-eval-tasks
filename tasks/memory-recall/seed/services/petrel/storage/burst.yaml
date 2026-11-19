@@ -1,5 +1,4 @@
 # burst storage profile
-class: warm
-retention_days: 60
-versioning: false
+include: ../../../templates/fragments/frag-07.yaml
+versioning: true
 encryption: aes256

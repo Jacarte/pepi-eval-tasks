@@ -1,14 +1,15 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 5
-log_level: warn
+region: us-west-1
+replicas: 3
+log_level: info
 queue:
   name: sandpiper-qa
-  batch_size: 50
-  visibility_timeout_s: 120
+  batch_size: 250
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/low-cost.yaml
 http:
-  timeout_ms: 3500
+  timeout_ms: 1000
 upstreams:
-  - ledger-worker
+  - cart-api

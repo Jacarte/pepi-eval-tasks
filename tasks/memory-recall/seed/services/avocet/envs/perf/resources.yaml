@@ -1,6 +1,6 @@
 # perf resources
 environment: perf
-cpu_request: 300m
-cpu_limit: 900m
-mem_request_mb: 768
-mem_limit_mb: 1536
+cpu_request: 200m
+cpu_limit: 400m
+mem_request_mb: 896
+mem_limit_mb: 1792

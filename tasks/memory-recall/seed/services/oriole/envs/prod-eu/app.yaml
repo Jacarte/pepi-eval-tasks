@@ -1,12 +1,15 @@
 # production-eu settings; keys missing here come from ../../base.yaml
 environment: production-eu
-replicas: 3
+region: us-east-2
+replicas: 2
 log_level: info
 queue:
   name: oriole-production-eu
-  batch_size: 250
-  visibility_timeout_s: 60
+  batch_size: 150
+  visibility_timeout_s: 30
+storage:
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 1000
+  timeout_ms: 500
 upstreams:
-  - risk-api
+  - webhooks-worker

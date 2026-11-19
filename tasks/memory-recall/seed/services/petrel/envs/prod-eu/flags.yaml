@@ -1,4 +1,6 @@
 # production-eu feature flags
 environment: production-eu
 flags:
-  shadow_reads: true
+  async_writes: true
+  strict_validation: false
+  batch_compaction: false

@@ -1,0 +1,4 @@
+id: P-0149
+target: services/redstart/envs/prod-eu
+set:
+  region: eu-south-1

@@ -1,0 +1,4 @@
+id: P-0100
+target: services/plover/envs/sandbox
+set:
+  replicas: 4

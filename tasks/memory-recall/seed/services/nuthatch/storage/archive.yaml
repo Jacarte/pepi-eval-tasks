@@ -1,5 +1,4 @@
 # archive storage profile
-class: cold
-retention_days: 120
-versioning: false
-encryption: aes256
+include: ../../../templates/fragments/frag-16.yaml
+versioning: true
+encryption: kms

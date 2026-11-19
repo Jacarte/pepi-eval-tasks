@@ -1,14 +1,16 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 3
-log_level: warn
+region: eu-west-2
+replicas: 4
+log_level: info
 queue:
   name: heron-v1-qa
-  batch_size: 50
-  visibility_timeout_s: 120
+  batch_size: 100
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/legacy.yaml
+  include: ../../storage/standard.yaml
 http:
-  timeout_ms: 500
+  timeout_ms: 4000
 upstreams:
   - search-api
+  - billing-scheduler

@@ -1,10 +1,11 @@
 # sandbox settings; keys missing here come from ../../base.yaml
 environment: sandbox
-replicas: 6
-log_level: info
+region: sa-east-1
+replicas: 1
+log_level: debug
 storage:
-  include: ../../storage/shared.yaml
+  include: ../../storage/short-lived.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 3000
 upstreams:
-  - invoice-worker
+  - billing-scheduler

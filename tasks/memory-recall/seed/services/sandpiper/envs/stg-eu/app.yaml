@@ -1,14 +1,14 @@
 # staging-eu settings; keys missing here come from ../../base.yaml
 environment: staging-eu
-replicas: 5
+region: us-east-1
+replicas: 2
 log_level: debug
 queue:
   name: sandpiper-staging-eu
-  batch_size: 100
-  visibility_timeout_s: 60
+  batch_size: 250
+  visibility_timeout_s: 120
 storage:
-  include: ../../storage/short-lived.yaml
+  include: ../../storage/burst.yaml
 http:
   timeout_ms: 2500
 upstreams:
-  - search-indexer

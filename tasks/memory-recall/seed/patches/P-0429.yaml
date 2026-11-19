@@ -1,0 +1,4 @@
+id: P-0429
+target: services/jay/envs/stg
+set:
+  region: ap-south-1

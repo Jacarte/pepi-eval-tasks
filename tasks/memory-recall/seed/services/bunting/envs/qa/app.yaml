@@ -1,10 +1,11 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 3
+region: ap-northeast-1
+replicas: 4
 log_level: warn
 storage:
-  include: ../../storage/low-cost.yaml
+  include: ../../storage/shared.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 1000
 upstreams:
-  - payouts-worker
+  - gateway

@@ -1,14 +1,15 @@
 # perf settings; keys missing here come from ../../base.yaml
 environment: perf
-replicas: 4
-log_level: debug
+region: sa-east-1
+replicas: 6
+log_level: info
 queue:
   name: puffin-perf
-  batch_size: 50
-  visibility_timeout_s: 30
+  batch_size: 300
+  visibility_timeout_s: 90
 storage:
-  include: ../../storage/compliance.yaml
+  include: ../../storage/burst.yaml
 http:
-  timeout_ms: 3000
+  timeout_ms: 4000
 upstreams:
-  - notifications-worker
+  - audit-api

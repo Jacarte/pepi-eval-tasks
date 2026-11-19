@@ -1,6 +1,6 @@
 {
   "memories": [
-    {"text": "The billing worker's staging storage settings, retention included, come from services/heron/storage/compliance.yaml, the profile that services/heron/envs/stg/app.yaml includes."},
+    {"text": "The billing worker's staging retention_days is the regulated entry of the retention_days table in regions/emea.yaml."},
     {"text": "Feature flags for every service are set per environment in envs/<env>/flags.yaml, not in base.yaml."}
   ]
 }

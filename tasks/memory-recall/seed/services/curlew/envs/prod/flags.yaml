@@ -4,5 +4,4 @@ flags:
   new_retry_policy: false
   async_writes: false
   strict_validation: true
-  shadow_reads: true
-  fast_path: false
+  fast_path: true

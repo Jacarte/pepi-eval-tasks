@@ -1,0 +1,4 @@
+id: P-0109
+target: services/puffin/envs/qa
+set:
+  region: us-west-1

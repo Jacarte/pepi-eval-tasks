@@ -1,12 +1,16 @@
 # qa settings; keys missing here come from ../../base.yaml
 environment: qa
-replicas: 2
-log_level: warn
+region: eu-central-1
+replicas: 3
+log_level: info
 queue:
   name: quail-qa
   batch_size: 300
-  visibility_timeout_s: 60
+  visibility_timeout_s: 90
+storage:
+  include: ../../storage/audit.yaml
 http:
-  timeout_ms: 2500
+  timeout_ms: 4000
 upstreams:
-  - email-sender
+  - orders-api
+  - orders-api

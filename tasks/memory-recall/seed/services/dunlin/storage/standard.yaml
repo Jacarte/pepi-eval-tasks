@@ -1,5 +1,4 @@
 # standard storage profile
-class: warm
-retention_days: 21
+include: ../../../templates/fragments/frag-26.yaml
 versioning: true
-encryption: kms
+encryption: aes256

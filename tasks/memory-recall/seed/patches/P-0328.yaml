@@ -1,0 +1,4 @@
+id: P-0328
+target: services/magpie/envs/perf
+set:
+  region: eu-west-1
