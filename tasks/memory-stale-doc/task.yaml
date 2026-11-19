@@ -1,0 +1,10 @@
+name: memory-stale-doc
+kind: memory
+language: go
+go_version: 1.22.5
+sessions: 1
+session_timeout_minutes: 15
+budget_usd: 2
+deadline_minutes: null
+scoring: count
+restore_seed_tests: true

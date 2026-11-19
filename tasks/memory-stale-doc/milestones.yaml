@@ -1,0 +1,10 @@
+milestones:
+  - id: m1-attempts
+    title: syncer configs compile, count attempts and skip permanent errors
+    command: go test ./syncer/ -run '^TestM1'
+  - id: m2-linear
+    title: syncer.Config waits 200ms, 400ms, 600ms, 600ms
+    command: go test ./syncer/ -run '^TestM2'
+  - id: m3-exponential
+    title: syncer.BulkConfig waits 100ms, 200ms, 400ms, 800ms, 1s
+    command: go test ./syncer/ -run '^TestM3'
