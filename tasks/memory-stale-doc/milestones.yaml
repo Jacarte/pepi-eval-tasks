@@ -1,7 +1,7 @@
 milestones:
   - id: m1-attempts
-    title: syncer configs compile, count attempts and skip permanent errors
-    command: go test ./syncer/ -run '^TestM1'
+    title: syncer configs count attempts and skip permanent errors; seed tests still pass
+    command: go test . ./syncer/ -run '^(TestM1|TestRun|TestBackoff|TestRetryFields)'
   - id: m2-linear
     title: syncer.Config waits 200ms, 400ms, 600ms, 600ms
     command: go test ./syncer/ -run '^TestM2'

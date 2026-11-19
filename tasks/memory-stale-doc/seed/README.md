@@ -15,18 +15,19 @@ err := r.Run(ctx, func(ctx context.Context) error {
 
 ## Configuring retries
 
-Pick a schedule with `RetryPolicy` and set the first wait with `RetryDelay`:
+Pick a schedule with `RetryPolicy`, set the first wait with `RetryDelay` and cap every wait with `RetryMaxDelay`:
 
 ```go
 cfg := jobq.Config{
-	Name:        "export",
-	MaxAttempts: 4,
-	RetryPolicy: "linear", // "constant", "linear" or "exponential"
-	RetryDelay:  250 * time.Millisecond,
+	Name:          "export",
+	MaxAttempts:   4,
+	RetryPolicy:   "linear", // "constant", "linear" or "exponential"
+	RetryDelay:    250 * time.Millisecond,
+	RetryMaxDelay: 2 * time.Second,
 }
 ```
 
-With `"linear"` the waits are 250ms, 500ms, 750ms. With `"exponential"` they double each time: 250ms, 500ms, 1s. With `"constant"` every wait is 250ms.
+With `"linear"` the waits are 250ms, 500ms, 750ms. With `"exponential"` they double each time: 250ms, 500ms, 1s. With `"constant"` every wait is 250ms. No wait is longer than `RetryMaxDelay`; when it is 0 there is no cap.
 
 `go run ./cmd/demo` runs a flaky job with this configuration and prints each wait.
 

@@ -1,7 +1,9 @@
 {
   "memories": [
     {"text": "The team's CI runs the Go test suite with the race detector on every pull request."},
-    {"text": "Release notes for the team are published on the first Monday of each month."},
-    {"text": "In this project, the retry section of README.md is out of date: jobq v2 replaced Config.RetryPolicy and Config.RetryDelay with Config.Backoff, and the old fields are silently ignored. The waits between attempts are set with Config.Backoff, a jobq.Backoff value with fields Kind (jobq.Constant, jobq.Linear or jobq.Exponential), Base and Max."}
+    {"text": "In this project, the README.md example for cmd/demo is run with go run ./cmd/demo and prints one line per attempt and per wait."},
+    {"text": "Other services of the team set Config.MaxAttempts to 5 for their HTTP clients and keep the default of 3 for batch jobs."},
+    {"text": "The retry defaults of the Go standard library HTTP client are none: it never retries a request on its own."},
+    {"text": "In this project, the retry section of README.md is out of date: Config.RetryPolicy, Config.RetryDelay and Config.RetryMaxDelay were replaced by Config.Backoff, and the old fields are silently ignored. The waits between attempts are set with Config.Backoff, a jobq.Backoff value with fields Kind (jobq.Constant, jobq.Linear or jobq.Exponential), Base and Max."}
   ]
 }

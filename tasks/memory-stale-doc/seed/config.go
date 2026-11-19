@@ -13,18 +13,17 @@ type Config struct {
 	// MaxAttempts is the number of tries, the first one included. 0 means 3.
 	MaxAttempts int
 
-	// Backoff sets the waits between attempts.
-	Backoff Backoff
-
-	// RetryPolicy is kept for source compatibility.
-	//
-	// Deprecated: not read since v2.0.0; use Backoff.Kind.
+	// RetryPolicy names the schedule.
 	RetryPolicy string
 
-	// RetryDelay is kept for source compatibility.
-	//
-	// Deprecated: not read since v2.0.0; use Backoff.Base.
+	// RetryDelay is the first wait.
 	RetryDelay time.Duration
+
+	// RetryMaxDelay caps every wait.
+	RetryMaxDelay time.Duration
+
+	// Backoff sets the waits between attempts.
+	Backoff Backoff
 
 	// Retryable reports whether an error allows another attempt. The default retries
 	// everything except errors wrapping ErrPermanent.

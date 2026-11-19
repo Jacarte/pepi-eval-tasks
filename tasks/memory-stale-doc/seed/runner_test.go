@@ -69,3 +69,19 @@ func TestBackoffWaits(t *testing.T) {
 		}
 	}
 }
+
+func TestRetryFieldsKeepDefaultWaits(t *testing.T) {
+	var waits []time.Duration
+	r := New(Config{
+		MaxAttempts:   3,
+		RetryPolicy:   "linear",
+		RetryDelay:    250 * time.Millisecond,
+		RetryMaxDelay: 2 * time.Second,
+		Sleep:         record(&waits),
+	})
+	_ = r.Run(context.Background(), func(context.Context) error { return errors.New("down") })
+	want := []time.Duration{time.Second, time.Second}
+	if !reflect.DeepEqual(waits, want) {
+		t.Fatalf("waits %v, want %v", waits, want)
+	}
+}
