@@ -11,6 +11,8 @@
    logger obtained from `xlog.For("<component>")`. The component is the
    lowercase name of the handler group (`payments`, `customers`). The stdlib
    `log`/`slog` packages and `fmt.Print*` are not used there.
+   A log line for a rejected request carries the response's error code under
+   the key `code` (for example `code=ERR-PAY-0004`).
 
 3. Route manifest. Every exported handler of `internal/api` is listed in
    `internal/api/routes_manifest.go` with its method and path. The manifest

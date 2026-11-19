@@ -26,7 +26,8 @@ func docCodes(t *testing.T) map[string]string {
 	}
 	rows := map[string]string{}
 	for _, line := range strings.Split(string(b), "\n") {
-		if !strings.HasPrefix(line, "|") {
+		line = strings.ReplaceAll(line, "`", "")
+		if !strings.Contains(line, "ERR-PAY-") {
 			continue
 		}
 		cells := strings.Split(strings.Trim(strings.TrimSpace(line), "|"), "|")
@@ -62,6 +63,10 @@ func constCodes(t *testing.T) map[string]bool {
 			return true
 		}
 		for _, v := range spec.Values {
+			// ErrX = Code("ERR-PAY-0010") counts like ErrX Code = "ERR-PAY-0010"
+			if call, ok := v.(*ast.CallExpr); ok && len(call.Args) == 1 {
+				v = call.Args[0]
+			}
 			lit, ok := v.(*ast.BasicLit)
 			if !ok || lit.Kind != token.STRING {
 				continue

@@ -3,8 +3,10 @@
     {"text": "Release notes for the team are published on the first Monday of each month."},
     {"text": "The team's retrospective is held every other Thursday at 10:00 in the Lisbon office."},
     {"text": "The on-call rotation for the platform team changes every Wednesday at noon."},
-    {"text": "In this project, every error returned to API clients carries a code of the form ERR-PAY-<4 digits>. A code names one failure reason and is never reused. Each new code takes the next free number and is registered in both places with the same value: a row in docs/error-codes.md and a constant in internal/apperr/codes.go."},
+    {"text": "In this project, every error returned to API clients carries a code of the form ERR-PAY-<4 digits>. A code names one failure reason and is never reused; a new failure reason takes the next free number."},
+    {"text": "In this project, a new error code is registered in both places with the same value: a row in docs/error-codes.md and a constant in internal/apperr/codes.go."},
     {"text": "In this project, code under internal/ logs only through internal/xlog, using a logger from xlog.For(\"<component>\") where the component is the lowercase name of the handler group, such as payments or customers. The stdlib log and slog packages and fmt.Print calls are rejected in review."},
+    {"text": "In this project, a log line for a rejected request carries the response's error code under the key code, for example code=ERR-PAY-0004. Reviewers reject rejection logs that lack it."},
     {"text": "In this project, every exported handler of internal/api is listed with its method and path in internal/api/routes_manifest.go. A new handler missing from that manifest is rejected in review."}
   ]
 }

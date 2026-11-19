@@ -30,8 +30,9 @@ func isHandlerSignature(ft *ast.FuncType) bool {
 	return ok && r.Sel.Name == "Request"
 }
 
-// exportedHandlers lists the exported functions and methods of internal/api that look like handlers. (ServeHTTP is the http.Handler method, not a route).
-func exportedHandlers(t *testing.T) []string {
+// apiFuncs lists the functions and methods of internal/api. With handlersOnly it keeps the
+// exported ones that look like handlers (ServeHTTP is the http.Handler method, not a route).
+func apiFuncs(t *testing.T, handlersOnly bool) []string {
 	t.Helper()
 	var names []string
 	fset := token.NewFileSet()
@@ -44,7 +45,11 @@ func exportedHandlers(t *testing.T) []string {
 			return err
 		}
 		for _, decl := range f.Decls {
-			if fn, ok := decl.(*ast.FuncDecl); ok && fn.Name.IsExported() && fn.Name.Name != "ServeHTTP" && isHandlerSignature(fn.Type) {
+			fn, ok := decl.(*ast.FuncDecl)
+			if !ok {
+				continue
+			}
+			if !handlersOnly || fn.Name.IsExported() && fn.Name.Name != "ServeHTTP" && isHandlerSignature(fn.Type) {
 				names = append(names, fn.Name.Name)
 			}
 		}
@@ -74,32 +79,32 @@ func TestM4ManifestListsEveryHandler(t *testing.T) {
 		}
 		listed[r.Handler] = true
 	}
-	handlers := exportedHandlers(t)
+	handlers := apiFuncs(t, true)
+	all := map[string]bool{}
+	for _, name := range apiFuncs(t, false) {
+		all[name] = true
+	}
 	for _, h := range handlers {
 		if !listed[h] {
 			t.Errorf("exported handler %s is not in the routes manifest", h)
 		}
 	}
 	for h := range listed {
-		found := false
-		for _, name := range handlers {
-			found = found || name == h
-		}
-		if !found {
-			t.Errorf("manifest lists %s, which is not an exported handler of internal/api", h)
+		if !all[h] {
+			t.Errorf("manifest lists %s, which is not a function of internal/api", h)
 		}
 	}
 }
 
 func TestM4ManifestHasRefunds(t *testing.T) {
-	handlers := map[string]bool{}
-	for _, h := range exportedHandlers(t) {
-		handlers[h] = true
+	funcs := map[string]bool{}
+	for _, name := range apiFuncs(t, false) {
+		funcs[name] = true
 	}
 	for _, r := range api.Manifest {
 		if r.Method == "POST" && r.Path == "/refunds" {
-			if !handlers[r.Handler] {
-				t.Fatalf("POST /refunds names %s, which is not an exported handler", r.Handler)
+			if !funcs[r.Handler] {
+				t.Fatalf("POST /refunds names %s, which is not a function of internal/api", r.Handler)
 			}
 			return
 		}

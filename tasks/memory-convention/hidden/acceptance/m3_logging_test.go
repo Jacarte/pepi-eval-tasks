@@ -17,7 +17,7 @@ import (
 	"payments/internal/xlog"
 )
 
-var componentRe = regexp.MustCompile(`^[a-z][a-z0-9-]*$`)
+var componentRe = regexp.MustCompile(`^[a-z][a-z0-9._-]*$`)
 
 // logged runs fn and returns the xlog lines it wrote.
 func logged(t *testing.T, fn func()) []map[string]any {
@@ -55,15 +55,33 @@ func requireComponents(t *testing.T, what string, lines []map[string]any) {
 func TestM3RefundOutcomesAreLogged(t *testing.T) {
 	e := newEnv(t)
 	id := e.payment(1000, true)
+	authorized := e.payment(500, false)
 	requireComponents(t, "created refund", logged(t, func() {
 		e.mustCall(201, "POST", "/refunds", refundBody(id, 400))
 	}))
-	requireComponents(t, "rejected refund (over the remaining amount)", logged(t, func() {
-		e.mustCall(422, "POST", "/refunds", refundBody(id, 601))
-	}))
-	requireComponents(t, "rejected refund (unknown payment)", logged(t, func() {
-		e.mustCall(404, "POST", "/refunds", refundBody("pay_999", 1))
-	}))
+
+	rejected := []struct {
+		name   string
+		body   string
+		status int
+	}{
+		{"over the remaining amount", refundBody(id, 601), 422},
+		{"payment not captured", refundBody(authorized, 100), 409},
+		{"unknown payment", refundBody("pay_999", 1), 404},
+	}
+	for _, r := range rejected {
+		var out map[string]any
+		lines := logged(t, func() { out = e.mustCall(r.status, "POST", "/refunds", r.body) })
+		requireComponents(t, "rejected refund ("+r.name+")", lines)
+		want := errorCode(t, out)
+		found := false
+		for _, l := range lines {
+			found = found || l["code"] == want
+		}
+		if !found {
+			t.Fatalf("rejected refund (%s): no log line carries code=%s: %v", r.name, want, lines)
+		}
+	}
 }
 
 func TestM3NoStdlibLoggingUnderInternal(t *testing.T) {
