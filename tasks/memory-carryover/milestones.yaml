@@ -1,0 +1,7 @@
+milestones:
+  - id: m1-damaged
+    title: DAMAGED.txt lists exactly the damaged inbox records (session 1)
+    command: go test ./acceptance/inbox/ -run '^TestM1'
+  - id: m2-encode
+    title: recfmt.Encode writes byte-exact records with the producer's check value (session 2)
+    command: go test ./acceptance/encode/ -run '^TestM2'
