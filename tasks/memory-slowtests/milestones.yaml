@@ -1,0 +1,4 @@
+milestones:
+  - id: m1-totals
+    title: Invoice tax is rounded half away from zero, refunds included
+    command: go test ./internal/billing -run '^TestM1'
