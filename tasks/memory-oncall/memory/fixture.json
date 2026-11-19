@@ -1,0 +1,24 @@
+{
+  "memories": [
+    {"text": "Release notes for the team are published on the first Monday of each month."},
+    {"text": "Error codes in the E-43xx range are produced by the ledger-export job, which is owned by the Tern team."},
+    {"text": "Pager alerts for the ledger-export job, including error codes in the E-43xx range, are routed to the pager rotation named tide-early."},
+    {"text": "Error codes in the E-45xx range are produced by the ledger-reconcile job, which is owned by the Osprey team."},
+    {"text": "Pager alerts for the ledger-reconcile job, including error codes in the E-45xx range, are routed to the pager rotation named cliff-weekend."},
+    {"text": "Error codes in the E-46xx range are produced by the payout-gateway service, which is owned by the Kestrel team."},
+    {"text": "Pager alerts for the payout-gateway service, including error codes in the E-46xx range, are routed to the pager rotation named ridge-day."},
+    {"text": "Before the March reorg, the ledger-sync job was owned by the Plover team; Plover no longer owns it."},
+    {"text": "Before the March reorg, pager alerts for the ledger-sync job were routed to the pager rotation named harbor-day; that rotation was retired."},
+    {"text": "The ledger-sync job runs every 15 minutes and reads from the settlement queue."},
+    {"text": "The ledger-export job runs nightly at 02:00 UTC and writes CSV files to the finance bucket."},
+    {"text": "The team's retrospective is held every other Thursday at 10:00 in the Lisbon office."},
+    {"text": "Alerts for the ledger jobs are posted to the #ledger-alerts channel."},
+    {"text": "The staging cluster runs in eu-west-1 and is rebuilt every Sunday."},
+    {"text": "The Heron team holds its standup at 09:15 in the Porto office."},
+    {"text": "Deploys to production are frozen from December 20 to January 3."},
+    {"text": "On-call handoff notes are written at the end of each shift."},
+    {"text": "Go services in this project are built with Go 1.22."},
+    {"text": "Error codes in the E-44xx range are produced by the ledger-sync job, which is owned by the Heron team."},
+    {"text": "Pager alerts for the ledger-sync job, including error codes in the E-44xx range, are routed to the pager rotation named orbit-night."}
+  ]
+}
