@@ -76,3 +76,23 @@ func TestM2EncodeNewRecords(t *testing.T) {
 		}
 	}
 }
+
+func TestM2EncodeLimits(t *testing.T) {
+	// "k=" + value + "\n" is exactly 65535 bytes: the largest payload the length field holds.
+	largest := recfmt.Record{Kind: 2, Fields: []recfmt.Field{{Key: "k", Value: strings.Repeat("v", 65532)}}}
+	if got := encode(t, largest); !bytes.Equal(got, want(largest)) {
+		t.Error("Encode of a 65535-byte payload differs from the producer's encoding")
+	}
+	bad := map[string]recfmt.Record{
+		"payload over 65535 bytes": {Kind: 2, Fields: []recfmt.Field{{Key: "k", Value: strings.Repeat("v", 65533)}}},
+		"empty key":                {Kind: 1, Fields: []recfmt.Field{{Key: "id", Value: "1"}, {Key: "", Value: "x"}}},
+		"key holding =":            {Kind: 1, Fields: []recfmt.Field{{Key: "a=b", Value: "x"}}},
+		"key holding a newline":    {Kind: 1, Fields: []recfmt.Field{{Key: "a\nb", Value: "x"}}},
+		"value holding a newline":  {Kind: 1, Fields: []recfmt.Field{{Key: "note", Value: "x\ny"}}},
+	}
+	for name, r := range bad {
+		if _, err := recfmt.Encode(r); err == nil {
+			t.Errorf("%s: Encode returned no error", name)
+		}
+	}
+}
