@@ -1,8 +1,8 @@
 # inbox
 
-Notes in `inbox/` are encrypted with the project's archive word. The format is the
-default of this command with the archive word as the password:
+Notes in `inbox/` are encrypted with the project's archive word as the password.
+Decrypt one with:
 
     openssl enc -aes-256-cbc -pbkdf2 -iter 300000 -md sha256 -a -in inbox/note.enc -d -pass pass:<archive word>
 
-A wrong word fails with "bad decrypt".
+A wrong word gives an error or unreadable output.
