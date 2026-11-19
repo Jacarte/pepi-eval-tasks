@@ -1,0 +1,13 @@
+milestones:
+  - id: m1-refunds
+    title: POST /refunds creates and validates refunds
+    command: go test ./acceptance/ -run '^TestM1'
+  - id: m2-error-codes
+    title: Refund errors carry ERR-PAY codes registered in docs and apperr
+    command: go test ./acceptance/ -run '^TestM2'
+  - id: m3-logging
+    title: Refund outcomes are logged through xlog with a component, no stdlib logging
+    command: go test ./acceptance/ -run '^TestM3'
+  - id: m4-manifest
+    title: Every exported handler, refunds included, is in the routes manifest
+    command: go test ./acceptance/ -run '^TestM4'

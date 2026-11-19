@@ -1,0 +1,11 @@
+name: memory-convention
+kind: memory
+language: go
+go_version: 1.22.5
+sessions: 1
+session_timeout_minutes: 20
+budget_usd: 2
+deadline_minutes: null
+scoring: count
+owned_dirs: [acceptance]
+restore_seed_tests: true
