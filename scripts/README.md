@@ -14,7 +14,7 @@ Checks:
 - milestone ids start with `m<N>` and commands start with `go test`;
 - `seed/` has a `go.mod`; `seed/` and `prompts/` never match, case-insensitively, `pepi-eval-tasks`, `Jacarte`, `AGENTS`, `subagent` or `delegat`;
 - `prompts/` holds exactly `01.md` .. `NN.md` for `sessions: NN`;
-- when `memory/fixture.json` exists (it must for `kind: memory` or a `memory/` dir), its shape (`checkfixture`), and that no file of `seed/` or `prompts/` contains one of its texts.
+- when `memory/fixture.json` exists (it must for a `memory/` dir and for `kind: memory` with `sessions: 1`), its shape (`checkfixture`), and that no file of `seed/` or `prompts/` contains one of its texts.
 
 Then every milestone is judged by `check-milestone.sh` twice. The workspace is built by `prepare-workspace.sh` (see below), as the grading harness does: `owned_dirs` deleted, seed tests restored when `restore_seed_tests: true`, then `hidden/` overlaid:
 

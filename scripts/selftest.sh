@@ -151,6 +151,14 @@ mk_memory nofixture '{}'
 rm -r "$T/nofixture/task/memory"
 expect "kind memory without a fixture" 1 nofixture "fixture.json missing"
 
+mk_memory nofixture2 '{}'
+rm -r "$T/nofixture2/task/memory"
+sed -i.bak 's/^sessions: .*/sessions: 2/' "$T/nofixture2/task/task.yaml"
+echo 'Continue.' > "$T/nofixture2/task/prompts/02.md"
+expect "kind memory without a fixture, two sessions" 0 nofixture2
+mkdir "$T/nofixture2/task/memory"
+expect "kind memory, two sessions, memory/ dir without fixture.json" 1 nofixture2 "fixture.json missing"
+
 mk memdir "$GOOD"
 mkdir "$T/memdir/task/memory"
 expect "memory/ dir without fixture.json" 1 memdir "fixture.json missing"

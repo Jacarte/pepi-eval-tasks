@@ -157,8 +157,9 @@ fi
 if [ -f "$TASK/memory/fixture.json" ]; then
   (cd "$HERE/checkfixture" && GOTOOLCHAIN=local go build -o "$WORK/checkfixture" main.go)
   while IFS= read -r p; do fail "$p"; done < <("$WORK/checkfixture" "$TASK/memory/fixture.json" "$SEED" "$TASK/prompts" 2>&1)
-elif [ -e "$TASK/memory" ] || [ "$KIND" = memory ]; then
-  fail "memory/fixture.json missing (required by kind=memory and by a memory/ dir)"
+elif [ -e "$TASK/memory" ] || { [ "$KIND" = memory ] && ! { [[ "$SESS" =~ ^[0-9]+$ ]] && [ "$SESS" -ge 2 ]; }; }; then
+  # A kind=memory task with sessions >= 2 may start with empty memory: later sessions recall what earlier ones stored.
+  fail "memory/fixture.json missing (required by a memory/ dir and by kind=memory with one session)"
 fi
 
 if [ "$ERRORS" -gt 0 ]; then
