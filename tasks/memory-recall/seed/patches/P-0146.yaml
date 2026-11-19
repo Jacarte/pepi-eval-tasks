@@ -3,3 +3,15 @@ target: services/dunlin/envs/dev
 set:
   storage:
     include: ../../storage/shared.yaml
+# 2023-01-18 INC-9871 reviewed by ops: wording only
+# 2021-05-08 INC-6362 reviewed by data: owner updated
+# 2021-05-08 INC-1536 reviewed by platform: owner updated
+# 2022-11-15 INC-0669 reviewed by platform: owner updated
+# 2023-10-08 INC-9800 reviewed by ops: owner updated
+# 2024-04-08 INC-1240 reviewed by security: wording only
+# 2024-05-07 INC-1104 reviewed by finance: no change
+# 2023-09-13 INC-5770 reviewed by data: owner updated
+# 2021-03-12 INC-4983 reviewed by data: wording only
+# 2021-08-14 INC-4995 reviewed by platform: wording only
+# 2024-10-19 INC-6545 reviewed by platform: reviewed, nothing to do
+# 2024-06-28 INC-8268 reviewed by finance: wording only

@@ -2,3 +2,15 @@ id: P-0085
 target: services/osprey/envs/perf
 set:
   replicas: 1
+# 2022-03-05 INC-8763 reviewed by security: wording only
+# 2021-08-22 INC-8807 reviewed by finance: owner updated
+# 2023-12-13 INC-3975 reviewed by finance: wording only
+# 2021-02-06 INC-3048 reviewed by data: owner updated
+# 2023-02-20 INC-3447 reviewed by ops: no change
+# 2024-08-12 INC-2064 reviewed by security: reviewed, nothing to do
+# 2021-09-20 INC-4622 reviewed by platform: wording only
+# 2023-04-20 INC-8347 reviewed by ops: owner updated
+# 2024-12-12 INC-1048 reviewed by platform: wording only
+# 2023-11-23 INC-6089 reviewed by platform: no change
+# 2021-05-21 INC-5261 reviewed by data: owner updated
+# 2023-04-15 INC-3159 reviewed by data: owner updated

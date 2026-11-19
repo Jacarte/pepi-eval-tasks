@@ -2,3 +2,15 @@ id: P-0400
 target: services/plover/envs/dev
 set:
   region: us-west-2
+# 2024-02-28 INC-0922 reviewed by security: owner updated
+# 2022-02-23 INC-4683 reviewed by finance: link fixed
+# 2024-03-26 INC-3450 reviewed by security: no change
+# 2024-09-12 INC-6608 reviewed by platform: wording only
+# 2023-12-02 INC-9875 reviewed by data: no change
+# 2022-11-01 INC-2836 reviewed by platform: reviewed, nothing to do
+# 2022-10-08 INC-4793 reviewed by platform: reviewed, nothing to do
+# 2024-02-11 INC-9331 reviewed by platform: reviewed, nothing to do
+# 2023-11-17 INC-8943 reviewed by security: wording only
+# 2021-06-06 INC-4038 reviewed by security: link fixed
+# 2021-01-24 INC-6912 reviewed by ops: link fixed
+# 2023-05-14 INC-6167 reviewed by finance: no change

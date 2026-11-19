@@ -3,3 +3,15 @@ target: services/heron-canary/envs/stg
 set:
   storage:
     include: ../../storage/shared.yaml
+# 2024-06-11 INC-5965 reviewed by platform: reviewed, nothing to do
+# 2021-09-03 INC-0851 reviewed by ops: no change
+# 2021-09-01 INC-5661 reviewed by finance: link fixed
+# 2022-01-11 INC-0050 reviewed by data: reviewed, nothing to do
+# 2024-05-07 INC-8464 reviewed by data: wording only
+# 2022-02-18 INC-9917 reviewed by platform: link fixed
+# 2023-03-02 INC-9899 reviewed by platform: wording only
+# 2022-07-25 INC-3794 reviewed by platform: owner updated
+# 2022-11-28 INC-2181 reviewed by finance: reviewed, nothing to do
+# 2021-07-13 INC-5071 reviewed by ops: link fixed
+# 2023-01-24 INC-4734 reviewed by platform: reviewed, nothing to do
+# 2023-04-28 INC-9830 reviewed by platform: no change

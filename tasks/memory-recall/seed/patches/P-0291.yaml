@@ -2,3 +2,15 @@ id: P-0291
 target: services/bunting/envs/perf
 set:
   region: eu-south-1
+# 2022-12-28 INC-6047 reviewed by data: link fixed
+# 2022-03-13 INC-4171 reviewed by security: no change
+# 2021-04-09 INC-6767 reviewed by finance: owner updated
+# 2024-11-21 INC-5333 reviewed by platform: wording only
+# 2023-08-07 INC-3347 reviewed by ops: link fixed
+# 2022-06-28 INC-0520 reviewed by security: no change
+# 2021-01-19 INC-4460 reviewed by data: wording only
+# 2024-06-01 INC-8044 reviewed by security: wording only
+# 2021-01-06 INC-2014 reviewed by ops: no change
+# 2023-01-25 INC-5771 reviewed by ops: reviewed, nothing to do
+# 2023-12-03 INC-6918 reviewed by security: link fixed
+# 2022-07-25 INC-6113 reviewed by platform: no change

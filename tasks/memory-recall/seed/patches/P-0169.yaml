@@ -2,3 +2,15 @@ id: P-0169
 target: services/dunlin/envs/sandbox
 set:
   replicas: 2
+# 2022-09-16 INC-5439 reviewed by ops: no change
+# 2022-12-28 INC-0453 reviewed by finance: reviewed, nothing to do
+# 2024-09-17 INC-8651 reviewed by ops: link fixed
+# 2022-05-01 INC-5220 reviewed by ops: owner updated
+# 2024-08-17 INC-2156 reviewed by finance: no change
+# 2024-02-11 INC-9814 reviewed by ops: owner updated
+# 2021-02-28 INC-2238 reviewed by ops: no change
+# 2024-12-13 INC-8316 reviewed by finance: wording only
+# 2024-02-07 INC-2952 reviewed by ops: no change
+# 2023-10-21 INC-4490 reviewed by finance: no change
+# 2023-07-09 INC-5949 reviewed by finance: owner updated
+# 2021-11-24 INC-0870 reviewed by platform: owner updated

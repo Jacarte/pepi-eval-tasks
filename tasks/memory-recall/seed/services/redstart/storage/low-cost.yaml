@@ -1,4 +1,4 @@
 # low-cost storage profile
-include: ../../../templates/fragments/frag-08.yaml
+include: standard.yaml
 versioning: true
 encryption: kms

@@ -2,3 +2,15 @@ id: P-0231
 target: services/vireo/envs/dev
 set:
   region: us-west-1
+# 2021-01-06 INC-7010 reviewed by ops: wording only
+# 2022-07-03 INC-7626 reviewed by security: wording only
+# 2022-01-20 INC-3984 reviewed by security: owner updated
+# 2022-12-10 INC-1657 reviewed by ops: wording only
+# 2023-02-09 INC-7179 reviewed by security: wording only
+# 2023-11-23 INC-9705 reviewed by finance: wording only
+# 2023-06-27 INC-0340 reviewed by platform: owner updated
+# 2021-04-04 INC-9846 reviewed by finance: wording only
+# 2024-03-21 INC-5702 reviewed by security: no change
+# 2023-11-25 INC-9672 reviewed by platform: owner updated
+# 2023-10-24 INC-2747 reviewed by ops: no change
+# 2021-01-05 INC-1209 reviewed by security: no change

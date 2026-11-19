@@ -3,3 +3,15 @@ target: services/finch/envs/sandbox
 set:
   storage:
     include: ../../storage/archive.yaml
+# 2024-07-12 INC-1200 reviewed by ops: reviewed, nothing to do
+# 2023-08-28 INC-1063 reviewed by data: reviewed, nothing to do
+# 2024-11-11 INC-1123 reviewed by data: wording only
+# 2022-06-25 INC-3485 reviewed by ops: owner updated
+# 2022-10-24 INC-3291 reviewed by security: reviewed, nothing to do
+# 2024-04-21 INC-6840 reviewed by security: owner updated
+# 2022-04-18 INC-1727 reviewed by platform: link fixed
+# 2021-03-07 INC-3263 reviewed by finance: owner updated
+# 2022-09-06 INC-7428 reviewed by finance: no change
+# 2023-05-07 INC-2246 reviewed by ops: link fixed
+# 2022-11-18 INC-6149 reviewed by ops: no change
+# 2022-06-27 INC-5604 reviewed by platform: link fixed

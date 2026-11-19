@@ -2,3 +2,15 @@ id: P-0232
 target: services/dunlin/envs/qa
 set:
   region: us-east-2
+# 2021-03-24 INC-9051 reviewed by security: no change
+# 2024-10-18 INC-0468 reviewed by data: reviewed, nothing to do
+# 2024-11-21 INC-6537 reviewed by security: no change
+# 2022-04-07 INC-5800 reviewed by finance: no change
+# 2024-10-02 INC-2689 reviewed by data: link fixed
+# 2021-09-04 INC-1055 reviewed by ops: reviewed, nothing to do
+# 2022-01-13 INC-4403 reviewed by finance: no change
+# 2024-01-21 INC-7187 reviewed by data: wording only
+# 2023-08-07 INC-5392 reviewed by ops: reviewed, nothing to do
+# 2024-03-04 INC-9785 reviewed by data: owner updated
+# 2024-05-03 INC-3820 reviewed by security: no change
+# 2021-09-11 INC-3127 reviewed by platform: link fixed

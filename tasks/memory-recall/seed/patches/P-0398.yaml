@@ -2,3 +2,15 @@ id: P-0398
 target: services/kite/envs/prod
 set:
   region: us-east-1
+# 2022-11-02 INC-6266 reviewed by ops: link fixed
+# 2022-11-08 INC-9084 reviewed by data: owner updated
+# 2022-10-03 INC-6938 reviewed by data: no change
+# 2024-01-26 INC-9712 reviewed by finance: owner updated
+# 2024-08-14 INC-4583 reviewed by ops: owner updated
+# 2021-07-08 INC-1571 reviewed by data: wording only
+# 2021-08-11 INC-2243 reviewed by security: link fixed
+# 2021-04-28 INC-3733 reviewed by data: wording only
+# 2021-12-03 INC-3699 reviewed by platform: no change
+# 2021-10-25 INC-8156 reviewed by ops: link fixed
+# 2023-10-14 INC-2548 reviewed by platform: link fixed
+# 2021-03-22 INC-7115 reviewed by security: reviewed, nothing to do

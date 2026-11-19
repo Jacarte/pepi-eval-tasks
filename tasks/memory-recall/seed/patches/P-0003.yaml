@@ -2,3 +2,15 @@ id: P-0003
 target: services/merlin/envs/stg-eu
 set:
   region: eu-west-3
+# 2023-03-16 INC-3499 reviewed by security: reviewed, nothing to do
+# 2022-07-19 INC-1509 reviewed by ops: no change
+# 2024-03-23 INC-5884 reviewed by ops: wording only
+# 2023-01-27 INC-0340 reviewed by finance: link fixed
+# 2023-02-16 INC-0412 reviewed by security: owner updated
+# 2022-06-06 INC-2773 reviewed by ops: link fixed
+# 2021-06-07 INC-4886 reviewed by data: wording only
+# 2022-04-24 INC-7527 reviewed by platform: wording only
+# 2024-09-01 INC-7395 reviewed by platform: link fixed
+# 2022-05-04 INC-3455 reviewed by platform: link fixed
+# 2023-02-13 INC-1839 reviewed by security: no change
+# 2022-05-20 INC-9855 reviewed by platform: link fixed

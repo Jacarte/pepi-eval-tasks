@@ -3,3 +3,15 @@ target: services/thrush/envs/sandbox
 set:
   storage:
     include: ../../storage/low-cost.yaml
+# 2021-08-18 INC-4769 reviewed by ops: link fixed
+# 2024-10-16 INC-6626 reviewed by ops: owner updated
+# 2022-11-03 INC-7957 reviewed by data: reviewed, nothing to do
+# 2024-08-13 INC-7781 reviewed by security: wording only
+# 2022-05-04 INC-4129 reviewed by platform: wording only
+# 2022-04-05 INC-2705 reviewed by platform: owner updated
+# 2023-10-07 INC-4103 reviewed by platform: reviewed, nothing to do
+# 2022-01-20 INC-7490 reviewed by finance: wording only
+# 2024-10-12 INC-9607 reviewed by security: link fixed
+# 2022-01-06 INC-7406 reviewed by finance: reviewed, nothing to do
+# 2021-11-04 INC-0105 reviewed by data: owner updated
+# 2023-04-16 INC-6810 reviewed by platform: link fixed

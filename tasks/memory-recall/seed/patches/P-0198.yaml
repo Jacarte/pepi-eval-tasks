@@ -2,3 +2,15 @@ id: P-0198
 target: services/dunlin/envs/stg
 set:
   replicas: 5
+# 2022-07-28 INC-6562 reviewed by data: link fixed
+# 2022-10-19 INC-9846 reviewed by data: link fixed
+# 2023-09-24 INC-6719 reviewed by finance: link fixed
+# 2022-06-28 INC-9490 reviewed by security: reviewed, nothing to do
+# 2024-10-15 INC-0052 reviewed by security: link fixed
+# 2024-01-07 INC-4694 reviewed by data: link fixed
+# 2024-09-16 INC-8344 reviewed by data: reviewed, nothing to do
+# 2021-01-11 INC-6069 reviewed by ops: owner updated
+# 2024-10-23 INC-4526 reviewed by data: owner updated
+# 2021-05-02 INC-4079 reviewed by platform: no change
+# 2022-02-02 INC-7655 reviewed by security: reviewed, nothing to do
+# 2024-09-03 INC-2258 reviewed by ops: reviewed, nothing to do

@@ -3,3 +3,15 @@ target: services/swift/envs/perf
 set:
   storage:
     include: ../../storage/short-lived.yaml
+# 2022-08-22 INC-5337 reviewed by ops: no change
+# 2024-01-04 INC-1814 reviewed by ops: wording only
+# 2021-08-04 INC-0857 reviewed by finance: owner updated
+# 2021-05-01 INC-5647 reviewed by data: link fixed
+# 2023-03-20 INC-9586 reviewed by data: wording only
+# 2021-07-08 INC-2121 reviewed by finance: wording only
+# 2021-06-06 INC-9120 reviewed by data: owner updated
+# 2024-01-01 INC-7294 reviewed by data: owner updated
+# 2023-01-27 INC-2305 reviewed by platform: owner updated
+# 2023-11-09 INC-0582 reviewed by finance: reviewed, nothing to do
+# 2021-07-22 INC-7509 reviewed by ops: owner updated
+# 2023-09-18 INC-4886 reviewed by data: no change

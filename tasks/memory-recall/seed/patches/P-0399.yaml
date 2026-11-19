@@ -2,3 +2,15 @@ id: P-0399
 target: services/wren/envs/stg
 set:
   replicas: 1
+# 2023-08-25 INC-5873 reviewed by data: link fixed
+# 2023-12-01 INC-9648 reviewed by platform: reviewed, nothing to do
+# 2024-02-17 INC-3959 reviewed by finance: no change
+# 2024-12-06 INC-7778 reviewed by platform: no change
+# 2022-04-23 INC-5617 reviewed by ops: no change
+# 2024-11-23 INC-0125 reviewed by ops: link fixed
+# 2022-04-27 INC-8964 reviewed by ops: owner updated
+# 2021-05-18 INC-4455 reviewed by finance: no change
+# 2021-11-03 INC-5385 reviewed by data: reviewed, nothing to do
+# 2023-02-19 INC-0804 reviewed by finance: wording only
+# 2023-08-01 INC-3691 reviewed by data: owner updated
+# 2024-11-22 INC-0764 reviewed by security: wording only

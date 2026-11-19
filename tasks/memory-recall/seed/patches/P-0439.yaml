@@ -1,0 +1,16 @@
+id: P-0439
+target: services/heron/envs/stg
+set:
+  region: eu-west-2
+# 2022-03-04 INC-8587 reviewed by platform: wording only
+# 2021-11-22 INC-7321 reviewed by finance: wording only
+# 2022-03-18 INC-5053 reviewed by finance: link fixed
+# 2023-12-17 INC-6078 reviewed by data: owner updated
+# 2021-09-02 INC-4959 reviewed by finance: wording only
+# 2024-11-03 INC-7112 reviewed by platform: reviewed, nothing to do
+# 2023-05-01 INC-4533 reviewed by finance: wording only
+# 2024-08-15 INC-7198 reviewed by finance: owner updated
+# 2023-06-14 INC-6737 reviewed by security: owner updated
+# 2024-11-27 INC-6085 reviewed by ops: link fixed
+# 2022-11-08 INC-2671 reviewed by data: link fixed
+# 2021-03-04 INC-4234 reviewed by platform: no change

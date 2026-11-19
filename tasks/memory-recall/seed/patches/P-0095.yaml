@@ -3,3 +3,15 @@ target: services/ibis/envs/prod-eu
 set:
   storage:
     include: ../../storage/archive.yaml
+# 2023-04-26 INC-8773 reviewed by platform: reviewed, nothing to do
+# 2022-01-19 INC-9450 reviewed by ops: no change
+# 2024-07-22 INC-0184 reviewed by ops: link fixed
+# 2021-06-08 INC-4135 reviewed by ops: owner updated
+# 2021-01-24 INC-4759 reviewed by finance: no change
+# 2021-10-09 INC-7341 reviewed by platform: no change
+# 2023-09-05 INC-8050 reviewed by ops: wording only
+# 2022-02-04 INC-4808 reviewed by platform: wording only
+# 2021-12-16 INC-7134 reviewed by finance: wording only
+# 2023-02-18 INC-3526 reviewed by platform: no change
+# 2024-01-14 INC-0650 reviewed by ops: owner updated
+# 2022-11-15 INC-5899 reviewed by finance: reviewed, nothing to do

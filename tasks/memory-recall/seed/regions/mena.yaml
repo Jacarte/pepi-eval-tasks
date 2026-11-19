@@ -2,3 +2,58 @@
 parent: emea
 retention_days:
   short: 95
+# 2021-01-03 INC-6065 reviewed by ops: wording only
+# 2021-09-09 INC-3568 reviewed by ops: reviewed, nothing to do
+# 2024-09-01 INC-3930 reviewed by ops: link fixed
+# 2024-02-04 INC-6698 reviewed by security: wording only
+# 2022-07-18 INC-9210 reviewed by data: no change
+# 2022-07-11 INC-0588 reviewed by finance: link fixed
+# 2022-06-19 INC-2625 reviewed by finance: wording only
+# 2024-10-28 INC-2885 reviewed by data: owner updated
+# 2022-02-07 INC-4687 reviewed by security: reviewed, nothing to do
+# 2024-09-23 INC-5947 reviewed by data: wording only
+# 2024-07-24 INC-0443 reviewed by platform: wording only
+# 2022-02-28 INC-1845 reviewed by data: wording only
+# 2024-01-24 INC-1151 reviewed by security: owner updated
+# 2022-06-18 INC-8409 reviewed by data: wording only
+# 2022-12-24 INC-0683 reviewed by data: wording only
+# 2023-09-25 INC-2311 reviewed by ops: owner updated
+# 2024-07-13 INC-6001 reviewed by data: no change
+# 2022-12-10 INC-5511 reviewed by finance: link fixed
+# 2021-01-21 INC-7768 reviewed by security: owner updated
+# 2023-02-15 INC-7643 reviewed by platform: link fixed
+# 2023-09-03 INC-0221 reviewed by platform: no change
+# 2023-05-07 INC-7541 reviewed by security: wording only
+# 2024-11-07 INC-6179 reviewed by security: reviewed, nothing to do
+# 2023-09-03 INC-0720 reviewed by data: wording only
+# 2023-11-13 INC-5228 reviewed by data: owner updated
+# 2022-03-27 INC-6336 reviewed by platform: owner updated
+# 2021-03-02 INC-5905 reviewed by finance: reviewed, nothing to do
+# 2024-08-18 INC-8580 reviewed by finance: wording only
+# 2022-04-09 INC-9140 reviewed by security: no change
+# 2024-02-05 INC-4663 reviewed by platform: reviewed, nothing to do
+# 2022-06-25 INC-4063 reviewed by ops: link fixed
+# 2021-07-13 INC-5129 reviewed by data: reviewed, nothing to do
+# 2022-04-23 INC-6147 reviewed by data: link fixed
+# 2024-11-21 INC-7191 reviewed by platform: link fixed
+# 2022-01-18 INC-6404 reviewed by data: link fixed
+# 2021-05-17 INC-0268 reviewed by ops: link fixed
+# 2021-09-24 INC-3816 reviewed by data: link fixed
+# 2021-10-26 INC-2206 reviewed by data: wording only
+# 2023-03-17 INC-2161 reviewed by ops: wording only
+# 2021-02-19 INC-6257 reviewed by platform: owner updated
+# 2024-02-19 INC-9598 reviewed by platform: wording only
+# 2023-04-09 INC-3569 reviewed by finance: link fixed
+# 2021-09-27 INC-0731 reviewed by finance: reviewed, nothing to do
+# 2024-09-14 INC-4534 reviewed by finance: link fixed
+# 2023-10-21 INC-3478 reviewed by data: no change
+# 2022-04-25 INC-1980 reviewed by security: reviewed, nothing to do
+# 2024-06-17 INC-8814 reviewed by security: owner updated
+# 2024-05-02 INC-4810 reviewed by platform: wording only
+# 2022-02-03 INC-0836 reviewed by security: owner updated
+# 2021-11-26 INC-6322 reviewed by finance: link fixed
+# 2022-02-09 INC-5865 reviewed by data: no change
+# 2022-02-16 INC-1553 reviewed by ops: reviewed, nothing to do
+# 2024-05-03 INC-6598 reviewed by data: no change
+# 2023-08-16 INC-9145 reviewed by platform: link fixed
+# 2022-07-04 INC-6945 reviewed by data: no change

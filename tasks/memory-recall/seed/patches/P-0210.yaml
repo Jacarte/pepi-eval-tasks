@@ -2,3 +2,15 @@ id: P-0210
 target: services/hobby/envs/qa
 set:
   replicas: 5
+# 2022-05-20 INC-2327 reviewed by data: owner updated
+# 2022-03-23 INC-6738 reviewed by data: link fixed
+# 2024-02-17 INC-6275 reviewed by security: reviewed, nothing to do
+# 2021-07-17 INC-4440 reviewed by security: owner updated
+# 2023-12-11 INC-6006 reviewed by finance: owner updated
+# 2022-03-07 INC-2961 reviewed by security: owner updated
+# 2022-08-28 INC-1781 reviewed by platform: reviewed, nothing to do
+# 2022-11-28 INC-4783 reviewed by data: reviewed, nothing to do
+# 2024-07-21 INC-1208 reviewed by finance: owner updated
+# 2021-09-06 INC-8104 reviewed by platform: reviewed, nothing to do
+# 2023-10-02 INC-8661 reviewed by platform: no change
+# 2023-09-01 INC-2784 reviewed by platform: link fixed

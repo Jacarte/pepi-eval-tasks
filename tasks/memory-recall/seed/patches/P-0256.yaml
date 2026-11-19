@@ -2,3 +2,15 @@ id: P-0256
 target: services/ibis/envs/stg
 set:
   replicas: 5
+# 2023-01-28 INC-7656 reviewed by security: link fixed
+# 2021-09-04 INC-7456 reviewed by security: wording only
+# 2022-12-02 INC-7904 reviewed by security: no change
+# 2023-07-06 INC-0045 reviewed by security: no change
+# 2021-01-27 INC-1928 reviewed by ops: owner updated
+# 2021-01-18 INC-9844 reviewed by platform: wording only
+# 2021-03-20 INC-9653 reviewed by data: owner updated
+# 2021-01-08 INC-3885 reviewed by security: reviewed, nothing to do
+# 2021-02-14 INC-9310 reviewed by security: link fixed
+# 2023-11-05 INC-5602 reviewed by platform: reviewed, nothing to do
+# 2023-11-06 INC-4095 reviewed by data: link fixed
+# 2022-02-07 INC-4447 reviewed by data: reviewed, nothing to do

@@ -3,3 +3,58 @@ parent: us-fed
 retention_days:
   regulated: 200
   permanent: 354
+# 2024-12-16 INC-4742 reviewed by finance: wording only
+# 2021-06-01 INC-9144 reviewed by finance: wording only
+# 2021-11-27 INC-2078 reviewed by platform: link fixed
+# 2021-06-18 INC-1725 reviewed by security: owner updated
+# 2024-01-16 INC-6597 reviewed by platform: link fixed
+# 2024-09-26 INC-9097 reviewed by finance: no change
+# 2022-07-23 INC-4031 reviewed by platform: link fixed
+# 2023-03-21 INC-2227 reviewed by security: no change
+# 2023-06-18 INC-3226 reviewed by finance: link fixed
+# 2021-05-08 INC-8320 reviewed by security: no change
+# 2022-07-17 INC-1625 reviewed by finance: wording only
+# 2022-04-23 INC-0961 reviewed by data: reviewed, nothing to do
+# 2023-03-04 INC-2727 reviewed by finance: no change
+# 2022-06-21 INC-8489 reviewed by data: wording only
+# 2024-01-06 INC-8725 reviewed by platform: link fixed
+# 2022-06-09 INC-0773 reviewed by platform: no change
+# 2024-12-24 INC-0826 reviewed by platform: reviewed, nothing to do
+# 2023-08-17 INC-7859 reviewed by ops: link fixed
+# 2021-04-28 INC-8572 reviewed by data: no change
+# 2022-06-06 INC-8440 reviewed by data: owner updated
+# 2021-04-01 INC-8668 reviewed by ops: reviewed, nothing to do
+# 2024-06-08 INC-0968 reviewed by data: reviewed, nothing to do
+# 2024-04-10 INC-8992 reviewed by security: wording only
+# 2023-09-13 INC-1268 reviewed by platform: reviewed, nothing to do
+# 2024-06-11 INC-1633 reviewed by data: link fixed
+# 2023-06-23 INC-1021 reviewed by ops: link fixed
+# 2023-07-24 INC-7616 reviewed by security: reviewed, nothing to do
+# 2023-04-01 INC-7211 reviewed by data: reviewed, nothing to do
+# 2023-08-11 INC-1151 reviewed by security: link fixed
+# 2022-07-20 INC-5012 reviewed by platform: reviewed, nothing to do
+# 2024-06-06 INC-7615 reviewed by data: no change
+# 2022-10-15 INC-3436 reviewed by platform: owner updated
+# 2024-04-04 INC-8044 reviewed by data: reviewed, nothing to do
+# 2022-03-07 INC-9391 reviewed by platform: reviewed, nothing to do
+# 2022-07-04 INC-7824 reviewed by finance: link fixed
+# 2022-08-23 INC-0185 reviewed by finance: link fixed
+# 2024-10-05 INC-3045 reviewed by ops: owner updated
+# 2021-06-15 INC-6147 reviewed by platform: wording only
+# 2021-02-14 INC-7914 reviewed by platform: link fixed
+# 2024-01-12 INC-1388 reviewed by ops: owner updated
+# 2024-10-23 INC-5171 reviewed by platform: owner updated
+# 2023-01-10 INC-6106 reviewed by finance: link fixed
+# 2023-02-13 INC-2267 reviewed by platform: wording only
+# 2024-07-28 INC-6675 reviewed by data: reviewed, nothing to do
+# 2021-01-24 INC-0163 reviewed by security: no change
+# 2024-09-26 INC-3562 reviewed by security: no change
+# 2023-11-27 INC-3475 reviewed by data: owner updated
+# 2021-02-09 INC-4764 reviewed by security: no change
+# 2021-10-19 INC-0656 reviewed by security: reviewed, nothing to do
+# 2021-09-16 INC-7616 reviewed by platform: owner updated
+# 2024-02-13 INC-9216 reviewed by data: reviewed, nothing to do
+# 2022-12-26 INC-4482 reviewed by security: reviewed, nothing to do
+# 2021-05-27 INC-7271 reviewed by ops: wording only
+# 2024-02-13 INC-9203 reviewed by security: wording only
+# 2021-12-20 INC-8127 reviewed by security: reviewed, nothing to do

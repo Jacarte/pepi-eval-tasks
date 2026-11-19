@@ -2,3 +2,15 @@ id: P-0108
 target: services/swift/envs/prod-eu
 set:
   region: me-south-1
+# 2022-03-25 INC-3251 reviewed by platform: reviewed, nothing to do
+# 2021-04-03 INC-2295 reviewed by data: reviewed, nothing to do
+# 2023-07-28 INC-9629 reviewed by security: reviewed, nothing to do
+# 2023-09-28 INC-6257 reviewed by finance: wording only
+# 2024-10-28 INC-7924 reviewed by data: reviewed, nothing to do
+# 2021-06-12 INC-8367 reviewed by platform: wording only
+# 2021-01-22 INC-3919 reviewed by security: link fixed
+# 2024-03-09 INC-4698 reviewed by ops: link fixed
+# 2023-12-15 INC-5931 reviewed by platform: wording only
+# 2022-07-16 INC-6914 reviewed by finance: reviewed, nothing to do
+# 2022-10-12 INC-2971 reviewed by platform: no change
+# 2023-11-17 INC-9724 reviewed by data: reviewed, nothing to do

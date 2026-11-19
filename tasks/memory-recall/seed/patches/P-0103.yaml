@@ -2,3 +2,15 @@ id: P-0103
 target: services/finch/envs/prod
 set:
   replicas: 3
+# 2022-09-07 INC-6087 reviewed by platform: owner updated
+# 2023-01-23 INC-7497 reviewed by security: link fixed
+# 2022-07-22 INC-8142 reviewed by finance: no change
+# 2021-02-11 INC-4374 reviewed by platform: no change
+# 2021-06-25 INC-7718 reviewed by data: owner updated
+# 2021-01-17 INC-8489 reviewed by platform: no change
+# 2021-07-09 INC-7729 reviewed by ops: wording only
+# 2023-06-07 INC-4504 reviewed by security: wording only
+# 2021-03-05 INC-7917 reviewed by data: wording only
+# 2022-11-14 INC-9205 reviewed by data: link fixed
+# 2024-04-05 INC-7521 reviewed by finance: reviewed, nothing to do
+# 2021-11-04 INC-0166 reviewed by security: no change

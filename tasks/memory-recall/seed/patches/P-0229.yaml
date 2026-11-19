@@ -3,3 +3,15 @@ target: services/thrush/envs/prod
 set:
   storage:
     include: ../../storage/archive.yaml
+# 2021-08-17 INC-0187 reviewed by security: link fixed
+# 2021-08-17 INC-5886 reviewed by finance: wording only
+# 2021-12-24 INC-4918 reviewed by data: owner updated
+# 2022-07-26 INC-6490 reviewed by finance: wording only
+# 2023-08-15 INC-4264 reviewed by finance: link fixed
+# 2023-11-05 INC-8244 reviewed by finance: wording only
+# 2024-10-23 INC-9667 reviewed by data: link fixed
+# 2024-07-26 INC-5280 reviewed by data: owner updated
+# 2023-02-02 INC-2897 reviewed by platform: reviewed, nothing to do
+# 2024-03-06 INC-2119 reviewed by finance: owner updated
+# 2021-07-05 INC-6243 reviewed by ops: owner updated
+# 2021-11-22 INC-2534 reviewed by data: owner updated

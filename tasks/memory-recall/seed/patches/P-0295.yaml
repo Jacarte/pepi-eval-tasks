@@ -3,3 +3,15 @@ target: services/thrush/envs/prod
 set:
   storage:
     include: ../../storage/compliance.yaml
+# 2021-05-01 INC-9791 reviewed by security: wording only
+# 2023-06-26 INC-9562 reviewed by security: link fixed
+# 2023-08-14 INC-6574 reviewed by platform: owner updated
+# 2023-11-23 INC-6868 reviewed by data: owner updated
+# 2024-02-05 INC-1699 reviewed by platform: no change
+# 2021-01-04 INC-1537 reviewed by platform: owner updated
+# 2023-05-25 INC-4871 reviewed by finance: no change
+# 2022-08-11 INC-7492 reviewed by security: wording only
+# 2021-04-05 INC-3540 reviewed by platform: no change
+# 2023-03-07 INC-0968 reviewed by security: link fixed
+# 2024-07-24 INC-6966 reviewed by ops: no change
+# 2022-09-05 INC-5977 reviewed by ops: no change

@@ -2,3 +2,15 @@ id: P-0351
 target: services/starling/envs/prod
 set:
   replicas: 5
+# 2021-02-05 INC-4908 reviewed by platform: wording only
+# 2021-12-17 INC-8585 reviewed by finance: owner updated
+# 2023-01-24 INC-3100 reviewed by platform: no change
+# 2023-08-13 INC-4279 reviewed by finance: no change
+# 2021-04-25 INC-5112 reviewed by platform: owner updated
+# 2021-04-16 INC-0091 reviewed by data: link fixed
+# 2023-02-27 INC-4337 reviewed by finance: reviewed, nothing to do
+# 2021-08-05 INC-6277 reviewed by data: wording only
+# 2021-06-06 INC-9086 reviewed by platform: link fixed
+# 2021-02-24 INC-8271 reviewed by security: link fixed
+# 2024-12-25 INC-1941 reviewed by platform: wording only
+# 2024-07-12 INC-5147 reviewed by data: reviewed, nothing to do

@@ -1,0 +1,17 @@
+id: P-0419
+target: services/heron/envs/stg
+supersedes: P-0414
+set:
+  replicas: 3
+# 2022-10-11 INC-4057 reviewed by ops: link fixed
+# 2022-06-08 INC-0604 reviewed by data: link fixed
+# 2024-09-07 INC-2120 reviewed by finance: reviewed, nothing to do
+# 2023-10-26 INC-1370 reviewed by data: owner updated
+# 2023-08-02 INC-9830 reviewed by platform: link fixed
+# 2022-04-07 INC-3199 reviewed by ops: reviewed, nothing to do
+# 2023-02-20 INC-0104 reviewed by ops: owner updated
+# 2024-08-03 INC-2845 reviewed by data: no change
+# 2022-06-12 INC-0489 reviewed by ops: reviewed, nothing to do
+# 2021-03-11 INC-1053 reviewed by platform: link fixed
+# 2021-03-09 INC-9747 reviewed by ops: no change
+# 2022-04-20 INC-5728 reviewed by platform: wording only

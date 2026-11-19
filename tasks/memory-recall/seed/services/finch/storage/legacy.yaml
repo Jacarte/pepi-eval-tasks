@@ -1,4 +1,4 @@
 # legacy storage profile
-include: ../../../templates/fragments/frag-22.yaml
+include: short-lived.yaml
 versioning: false
 encryption: kms

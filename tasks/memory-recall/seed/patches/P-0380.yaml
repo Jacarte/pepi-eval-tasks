@@ -3,3 +3,15 @@ target: services/heron-canary/envs/stg
 set:
   storage:
     include: ../../storage/burst.yaml
+# 2024-12-10 INC-0370 reviewed by ops: wording only
+# 2021-05-02 INC-3140 reviewed by finance: owner updated
+# 2023-09-01 INC-5787 reviewed by finance: wording only
+# 2022-02-24 INC-1139 reviewed by data: no change
+# 2024-12-05 INC-3435 reviewed by finance: owner updated
+# 2023-06-13 INC-8605 reviewed by data: reviewed, nothing to do
+# 2021-08-26 INC-7714 reviewed by ops: owner updated
+# 2021-02-02 INC-4550 reviewed by data: wording only
+# 2021-05-11 INC-6874 reviewed by finance: wording only
+# 2021-08-24 INC-1851 reviewed by ops: no change
+# 2022-04-28 INC-0086 reviewed by platform: no change
+# 2023-09-11 INC-2501 reviewed by platform: owner updated

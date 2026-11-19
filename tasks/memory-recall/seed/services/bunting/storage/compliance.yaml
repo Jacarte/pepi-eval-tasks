@@ -1,4 +1,4 @@
 # compliance storage profile
-include: ../../../templates/fragments/frag-09.yaml
+include: audit.yaml
 versioning: true
 encryption: kms

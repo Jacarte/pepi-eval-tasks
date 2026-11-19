@@ -3,3 +3,15 @@ target: services/egret/envs/stg
 set:
   storage:
     include: ../../storage/short-lived.yaml
+# 2024-12-18 INC-0611 reviewed by ops: reviewed, nothing to do
+# 2021-02-24 INC-7298 reviewed by ops: reviewed, nothing to do
+# 2021-11-13 INC-7879 reviewed by data: no change
+# 2022-09-11 INC-0423 reviewed by ops: reviewed, nothing to do
+# 2021-12-12 INC-3335 reviewed by security: wording only
+# 2023-04-21 INC-2324 reviewed by finance: reviewed, nothing to do
+# 2023-05-05 INC-0993 reviewed by data: no change
+# 2023-07-17 INC-0499 reviewed by finance: wording only
+# 2024-11-19 INC-2710 reviewed by data: wording only
+# 2021-10-26 INC-4123 reviewed by security: no change
+# 2022-05-05 INC-7093 reviewed by finance: link fixed
+# 2022-06-07 INC-8068 reviewed by platform: owner updated

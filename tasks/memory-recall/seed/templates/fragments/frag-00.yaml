@@ -1,3 +1,43 @@
 # frag-00
 include: ../bases/bulk.yaml
 class: warm
+# 2023-12-11 INC-8950 reviewed by platform: no change
+# 2021-09-09 INC-5161 reviewed by security: link fixed
+# 2021-12-01 INC-4591 reviewed by security: no change
+# 2022-04-09 INC-7062 reviewed by security: no change
+# 2021-01-10 INC-1730 reviewed by ops: reviewed, nothing to do
+# 2022-02-07 INC-4880 reviewed by security: no change
+# 2023-12-26 INC-7995 reviewed by security: owner updated
+# 2021-11-12 INC-6527 reviewed by platform: link fixed
+# 2022-05-08 INC-9625 reviewed by ops: reviewed, nothing to do
+# 2024-06-12 INC-8944 reviewed by security: owner updated
+# 2024-04-23 INC-0984 reviewed by data: no change
+# 2021-06-07 INC-2048 reviewed by security: link fixed
+# 2022-06-20 INC-6243 reviewed by platform: link fixed
+# 2024-02-16 INC-7942 reviewed by data: wording only
+# 2024-11-01 INC-2226 reviewed by platform: owner updated
+# 2021-06-28 INC-5515 reviewed by security: no change
+# 2024-07-21 INC-3759 reviewed by platform: link fixed
+# 2022-09-13 INC-8147 reviewed by ops: owner updated
+# 2024-08-20 INC-8552 reviewed by platform: owner updated
+# 2024-10-14 INC-3163 reviewed by ops: owner updated
+# 2024-10-02 INC-0208 reviewed by security: wording only
+# 2021-01-19 INC-0920 reviewed by ops: reviewed, nothing to do
+# 2021-05-07 INC-3634 reviewed by security: no change
+# 2024-02-20 INC-3790 reviewed by security: no change
+# 2024-04-21 INC-4925 reviewed by finance: reviewed, nothing to do
+# 2023-08-23 INC-5469 reviewed by platform: wording only
+# 2021-02-22 INC-3275 reviewed by platform: owner updated
+# 2024-03-05 INC-4075 reviewed by data: wording only
+# 2021-06-20 INC-3011 reviewed by security: no change
+# 2023-11-04 INC-7873 reviewed by security: no change
+# 2021-01-28 INC-0218 reviewed by finance: wording only
+# 2023-02-26 INC-8445 reviewed by finance: owner updated
+# 2021-06-03 INC-3011 reviewed by finance: link fixed
+# 2024-08-06 INC-4969 reviewed by security: reviewed, nothing to do
+# 2022-11-28 INC-7882 reviewed by platform: reviewed, nothing to do
+# 2023-10-28 INC-3623 reviewed by platform: wording only
+# 2023-11-24 INC-0624 reviewed by platform: wording only
+# 2024-05-14 INC-0510 reviewed by security: wording only
+# 2022-09-23 INC-2868 reviewed by ops: reviewed, nothing to do
+# 2024-12-23 INC-6282 reviewed by security: wording only

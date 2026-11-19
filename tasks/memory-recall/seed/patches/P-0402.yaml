@@ -4,3 +4,15 @@ supersedes: P-0388
 set:
   storage:
     include: ../../storage/burst.yaml
+# 2022-06-01 INC-4808 reviewed by data: link fixed
+# 2023-12-25 INC-3416 reviewed by finance: owner updated
+# 2021-05-10 INC-0420 reviewed by platform: reviewed, nothing to do
+# 2024-04-28 INC-5749 reviewed by ops: reviewed, nothing to do
+# 2024-10-27 INC-7770 reviewed by data: wording only
+# 2023-08-10 INC-4835 reviewed by ops: owner updated
+# 2024-12-23 INC-9351 reviewed by platform: no change
+# 2024-05-20 INC-5209 reviewed by platform: owner updated
+# 2021-05-07 INC-2252 reviewed by security: no change
+# 2023-03-21 INC-1420 reviewed by ops: link fixed
+# 2023-05-20 INC-6555 reviewed by platform: wording only
+# 2023-05-05 INC-2246 reviewed by security: owner updated

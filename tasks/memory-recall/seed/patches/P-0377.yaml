@@ -2,3 +2,15 @@ id: P-0377
 target: services/heron/envs/prod
 set:
   region: ap-south-1
+# 2023-06-23 INC-1893 reviewed by platform: owner updated
+# 2021-04-14 INC-5379 reviewed by platform: no change
+# 2021-09-24 INC-4195 reviewed by ops: reviewed, nothing to do
+# 2023-09-24 INC-8066 reviewed by ops: owner updated
+# 2021-06-03 INC-9328 reviewed by security: no change
+# 2024-05-22 INC-1951 reviewed by ops: wording only
+# 2022-01-07 INC-7031 reviewed by finance: wording only
+# 2022-06-06 INC-2585 reviewed by ops: owner updated
+# 2023-06-18 INC-5644 reviewed by platform: owner updated
+# 2024-11-27 INC-8725 reviewed by platform: reviewed, nothing to do
+# 2021-02-10 INC-2628 reviewed by ops: wording only
+# 2022-07-12 INC-7894 reviewed by platform: link fixed

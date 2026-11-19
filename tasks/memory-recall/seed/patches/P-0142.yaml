@@ -3,3 +3,15 @@ target: services/skua/envs/prod
 set:
   storage:
     include: ../../storage/standard.yaml
+# 2024-09-10 INC-4627 reviewed by finance: no change
+# 2024-03-19 INC-4311 reviewed by finance: link fixed
+# 2021-05-27 INC-5833 reviewed by data: reviewed, nothing to do
+# 2023-02-20 INC-5083 reviewed by finance: wording only
+# 2022-03-17 INC-1979 reviewed by platform: wording only
+# 2023-02-19 INC-5457 reviewed by ops: link fixed
+# 2024-06-01 INC-3078 reviewed by platform: link fixed
+# 2022-05-25 INC-2387 reviewed by data: no change
+# 2021-05-02 INC-7760 reviewed by ops: owner updated
+# 2021-11-13 INC-8005 reviewed by finance: no change
+# 2024-02-06 INC-8176 reviewed by finance: no change
+# 2024-09-27 INC-6452 reviewed by ops: wording only

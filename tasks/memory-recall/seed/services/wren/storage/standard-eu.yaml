@@ -1,4 +1,4 @@
 # standard-eu storage profile
-include: ../../../templates/fragments/frag-15.yaml
+include: standard.yaml
 versioning: false
 encryption: aes256

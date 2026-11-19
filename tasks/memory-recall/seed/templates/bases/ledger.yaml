@@ -1,2 +1,42 @@
 # ledger base
 retention_tier: standard
+# 2023-12-16 INC-0202 reviewed by finance: wording only
+# 2024-06-18 INC-0209 reviewed by ops: link fixed
+# 2021-07-08 INC-5539 reviewed by platform: link fixed
+# 2023-11-24 INC-9097 reviewed by security: owner updated
+# 2023-10-17 INC-9396 reviewed by ops: owner updated
+# 2022-01-22 INC-9787 reviewed by platform: link fixed
+# 2024-10-19 INC-0188 reviewed by security: reviewed, nothing to do
+# 2023-06-12 INC-1139 reviewed by finance: link fixed
+# 2024-08-16 INC-9260 reviewed by ops: reviewed, nothing to do
+# 2021-11-27 INC-4003 reviewed by security: reviewed, nothing to do
+# 2022-07-02 INC-9894 reviewed by platform: wording only
+# 2021-12-20 INC-2577 reviewed by ops: reviewed, nothing to do
+# 2022-04-12 INC-8305 reviewed by finance: link fixed
+# 2024-06-06 INC-9008 reviewed by finance: reviewed, nothing to do
+# 2023-07-01 INC-5125 reviewed by platform: wording only
+# 2022-10-21 INC-6857 reviewed by finance: no change
+# 2022-03-11 INC-5229 reviewed by ops: link fixed
+# 2022-12-19 INC-2306 reviewed by finance: no change
+# 2021-06-14 INC-9742 reviewed by security: link fixed
+# 2023-11-25 INC-2734 reviewed by security: wording only
+# 2022-01-15 INC-1339 reviewed by security: wording only
+# 2021-09-27 INC-5972 reviewed by platform: reviewed, nothing to do
+# 2021-07-20 INC-3980 reviewed by platform: wording only
+# 2022-02-21 INC-7295 reviewed by platform: owner updated
+# 2021-05-25 INC-7996 reviewed by platform: reviewed, nothing to do
+# 2023-07-06 INC-5827 reviewed by platform: owner updated
+# 2023-09-05 INC-0600 reviewed by platform: wording only
+# 2024-07-24 INC-8069 reviewed by ops: wording only
+# 2024-03-14 INC-4281 reviewed by finance: no change
+# 2022-09-28 INC-3175 reviewed by security: wording only
+# 2023-02-09 INC-3275 reviewed by data: link fixed
+# 2021-02-04 INC-7248 reviewed by ops: no change
+# 2024-05-12 INC-1076 reviewed by security: owner updated
+# 2024-07-04 INC-3550 reviewed by platform: owner updated
+# 2023-12-07 INC-4592 reviewed by platform: link fixed
+# 2021-03-04 INC-1571 reviewed by security: reviewed, nothing to do
+# 2023-07-27 INC-3687 reviewed by data: reviewed, nothing to do
+# 2023-04-26 INC-8268 reviewed by finance: wording only
+# 2024-10-18 INC-4258 reviewed by finance: wording only
+# 2024-09-19 INC-1042 reviewed by ops: wording only

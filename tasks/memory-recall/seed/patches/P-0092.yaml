@@ -2,3 +2,15 @@ id: P-0092
 target: services/stint/envs/dev
 set:
   replicas: 1
+# 2021-10-05 INC-0687 reviewed by platform: reviewed, nothing to do
+# 2022-07-15 INC-6110 reviewed by platform: wording only
+# 2022-02-05 INC-6080 reviewed by finance: reviewed, nothing to do
+# 2022-07-20 INC-4532 reviewed by security: owner updated
+# 2023-02-16 INC-2452 reviewed by finance: link fixed
+# 2021-01-06 INC-5914 reviewed by data: wording only
+# 2024-10-13 INC-9264 reviewed by platform: owner updated
+# 2024-07-01 INC-5693 reviewed by data: link fixed
+# 2024-08-11 INC-3532 reviewed by finance: wording only
+# 2022-12-27 INC-4140 reviewed by security: wording only
+# 2022-04-07 INC-0884 reviewed by ops: no change
+# 2023-02-16 INC-6915 reviewed by finance: wording only

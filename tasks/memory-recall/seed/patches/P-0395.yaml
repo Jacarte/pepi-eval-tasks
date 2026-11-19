@@ -3,3 +3,15 @@ target: services/heron/envs/stg
 set:
   storage:
     include: ../../storage/legacy.yaml
+# 2023-07-17 INC-9233 reviewed by data: reviewed, nothing to do
+# 2023-12-20 INC-8269 reviewed by security: owner updated
+# 2023-02-02 INC-7935 reviewed by finance: owner updated
+# 2023-02-28 INC-9985 reviewed by data: reviewed, nothing to do
+# 2021-07-16 INC-4171 reviewed by security: reviewed, nothing to do
+# 2022-10-28 INC-1897 reviewed by platform: link fixed
+# 2021-04-22 INC-8946 reviewed by platform: owner updated
+# 2024-08-03 INC-3183 reviewed by finance: owner updated
+# 2021-12-02 INC-1304 reviewed by data: no change
+# 2024-01-20 INC-8066 reviewed by data: owner updated
+# 2022-11-09 INC-0644 reviewed by security: no change
+# 2023-12-20 INC-1187 reviewed by platform: reviewed, nothing to do

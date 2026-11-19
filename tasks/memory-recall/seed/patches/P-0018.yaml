@@ -3,3 +3,15 @@ target: services/shrike/envs/sandbox
 set:
   storage:
     include: ../../storage/legacy.yaml
+# 2023-10-12 INC-6464 reviewed by platform: owner updated
+# 2024-01-07 INC-5728 reviewed by platform: owner updated
+# 2023-04-16 INC-6360 reviewed by finance: wording only
+# 2023-11-05 INC-0106 reviewed by platform: no change
+# 2021-12-13 INC-3405 reviewed by finance: owner updated
+# 2024-06-25 INC-8976 reviewed by finance: link fixed
+# 2021-03-22 INC-8310 reviewed by security: reviewed, nothing to do
+# 2022-06-21 INC-6138 reviewed by security: wording only
+# 2023-07-17 INC-3570 reviewed by platform: reviewed, nothing to do
+# 2024-01-22 INC-2632 reviewed by finance: reviewed, nothing to do
+# 2024-02-19 INC-0152 reviewed by security: wording only
+# 2021-11-02 INC-7966 reviewed by platform: wording only

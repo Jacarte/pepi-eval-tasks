@@ -2,3 +2,15 @@ id: P-0403
 target: services/kestrel/envs/qa
 set:
   replicas: 4
+# 2023-03-24 INC-4204 reviewed by security: owner updated
+# 2022-11-01 INC-1483 reviewed by data: link fixed
+# 2022-03-12 INC-0514 reviewed by finance: no change
+# 2023-03-12 INC-2535 reviewed by data: reviewed, nothing to do
+# 2022-12-25 INC-7032 reviewed by platform: no change
+# 2022-10-10 INC-4189 reviewed by security: wording only
+# 2021-08-12 INC-1127 reviewed by ops: no change
+# 2021-06-03 INC-8632 reviewed by ops: wording only
+# 2022-03-02 INC-6338 reviewed by security: wording only
+# 2023-12-22 INC-1323 reviewed by ops: link fixed
+# 2023-09-23 INC-0162 reviewed by data: link fixed
+# 2022-05-13 INC-4030 reviewed by security: link fixed

@@ -1,4 +1,4 @@
 # legacy storage profile
-include: ../../../templates/fragments/frag-14.yaml
+include: short-lived.yaml
 versioning: false
 encryption: aes256

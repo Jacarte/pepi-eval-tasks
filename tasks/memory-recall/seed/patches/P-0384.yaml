@@ -3,3 +3,15 @@ target: services/plover/envs/perf
 set:
   storage:
     include: ../../storage/short-lived.yaml
+# 2024-04-05 INC-5206 reviewed by data: reviewed, nothing to do
+# 2024-03-09 INC-0850 reviewed by security: reviewed, nothing to do
+# 2024-04-09 INC-4741 reviewed by platform: reviewed, nothing to do
+# 2022-10-03 INC-0099 reviewed by data: owner updated
+# 2024-01-27 INC-1790 reviewed by finance: link fixed
+# 2023-04-20 INC-7044 reviewed by finance: owner updated
+# 2022-12-18 INC-2503 reviewed by finance: wording only
+# 2023-11-17 INC-4159 reviewed by security: wording only
+# 2021-06-10 INC-9891 reviewed by security: owner updated
+# 2021-08-18 INC-6542 reviewed by security: reviewed, nothing to do
+# 2021-11-16 INC-9701 reviewed by security: no change
+# 2023-07-26 INC-5469 reviewed by ops: owner updated

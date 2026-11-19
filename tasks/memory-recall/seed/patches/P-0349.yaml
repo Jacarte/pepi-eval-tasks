@@ -3,3 +3,15 @@ target: services/petrel/envs/dev
 set:
   storage:
     include: ../../storage/shared.yaml
+# 2023-03-02 INC-4789 reviewed by ops: wording only
+# 2021-07-28 INC-9993 reviewed by finance: wording only
+# 2023-03-27 INC-3477 reviewed by security: wording only
+# 2023-05-02 INC-2847 reviewed by finance: owner updated
+# 2021-05-22 INC-8345 reviewed by finance: reviewed, nothing to do
+# 2024-07-19 INC-4717 reviewed by security: wording only
+# 2022-11-15 INC-7968 reviewed by platform: link fixed
+# 2023-02-14 INC-5340 reviewed by finance: no change
+# 2024-03-21 INC-6129 reviewed by platform: owner updated
+# 2024-10-28 INC-1544 reviewed by finance: wording only
+# 2022-03-17 INC-4601 reviewed by finance: no change
+# 2021-04-18 INC-4237 reviewed by security: reviewed, nothing to do

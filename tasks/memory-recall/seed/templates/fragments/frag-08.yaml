@@ -1,3 +1,43 @@
 # frag-08
 include: ../bases/exports.yaml
 class: warm
+# 2023-11-08 INC-5841 reviewed by security: no change
+# 2022-09-23 INC-3806 reviewed by security: link fixed
+# 2021-11-24 INC-6773 reviewed by data: no change
+# 2022-01-08 INC-5258 reviewed by security: reviewed, nothing to do
+# 2021-11-26 INC-2393 reviewed by security: owner updated
+# 2021-07-14 INC-9276 reviewed by security: owner updated
+# 2023-07-22 INC-5922 reviewed by data: reviewed, nothing to do
+# 2021-12-01 INC-4350 reviewed by data: link fixed
+# 2023-01-04 INC-8430 reviewed by data: reviewed, nothing to do
+# 2024-10-20 INC-2454 reviewed by ops: no change
+# 2024-10-25 INC-7570 reviewed by security: owner updated
+# 2021-02-20 INC-4128 reviewed by security: reviewed, nothing to do
+# 2024-09-07 INC-6101 reviewed by security: wording only
+# 2021-04-24 INC-3169 reviewed by platform: link fixed
+# 2022-02-04 INC-6584 reviewed by data: link fixed
+# 2021-07-28 INC-1703 reviewed by platform: owner updated
+# 2023-05-09 INC-1816 reviewed by platform: wording only
+# 2023-07-28 INC-6785 reviewed by ops: link fixed
+# 2023-11-20 INC-5871 reviewed by ops: wording only
+# 2023-03-11 INC-8708 reviewed by security: reviewed, nothing to do
+# 2024-12-02 INC-8478 reviewed by ops: reviewed, nothing to do
+# 2022-09-18 INC-9498 reviewed by security: reviewed, nothing to do
+# 2024-06-07 INC-6480 reviewed by ops: wording only
+# 2021-12-12 INC-8749 reviewed by finance: owner updated
+# 2021-01-20 INC-5463 reviewed by security: wording only
+# 2023-10-21 INC-7202 reviewed by ops: reviewed, nothing to do
+# 2022-06-12 INC-8468 reviewed by finance: reviewed, nothing to do
+# 2021-08-18 INC-5034 reviewed by finance: reviewed, nothing to do
+# 2023-03-14 INC-0054 reviewed by ops: reviewed, nothing to do
+# 2024-03-26 INC-3806 reviewed by platform: link fixed
+# 2021-07-01 INC-8470 reviewed by finance: no change
+# 2024-06-27 INC-0364 reviewed by data: owner updated
+# 2023-02-16 INC-9518 reviewed by data: link fixed
+# 2024-11-19 INC-8654 reviewed by ops: link fixed
+# 2021-03-18 INC-8373 reviewed by security: reviewed, nothing to do
+# 2022-07-09 INC-0149 reviewed by finance: wording only
+# 2021-11-07 INC-3395 reviewed by platform: reviewed, nothing to do
+# 2022-07-18 INC-3587 reviewed by platform: reviewed, nothing to do
+# 2024-05-15 INC-9841 reviewed by data: reviewed, nothing to do
+# 2024-08-22 INC-8966 reviewed by data: reviewed, nothing to do

@@ -2,3 +2,15 @@ id: P-0149
 target: services/redstart/envs/prod-eu
 set:
   region: eu-south-1
+# 2024-07-16 INC-8050 reviewed by ops: wording only
+# 2022-05-05 INC-2474 reviewed by security: reviewed, nothing to do
+# 2021-03-16 INC-9430 reviewed by finance: link fixed
+# 2021-11-27 INC-9724 reviewed by security: link fixed
+# 2023-02-11 INC-4574 reviewed by platform: link fixed
+# 2024-07-08 INC-7781 reviewed by platform: reviewed, nothing to do
+# 2021-11-22 INC-2307 reviewed by data: wording only
+# 2024-07-08 INC-9678 reviewed by finance: owner updated
+# 2024-04-01 INC-5027 reviewed by finance: link fixed
+# 2021-06-23 INC-4227 reviewed by platform: reviewed, nothing to do
+# 2022-02-13 INC-9272 reviewed by finance: no change
+# 2022-12-14 INC-6884 reviewed by finance: reviewed, nothing to do

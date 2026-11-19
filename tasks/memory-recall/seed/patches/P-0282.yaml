@@ -2,3 +2,15 @@ id: P-0282
 target: services/kite/envs/stg-eu
 set:
   region: sa-east-1
+# 2024-08-26 INC-4439 reviewed by platform: no change
+# 2023-02-10 INC-9908 reviewed by ops: reviewed, nothing to do
+# 2022-10-22 INC-8006 reviewed by finance: reviewed, nothing to do
+# 2024-11-14 INC-5236 reviewed by data: owner updated
+# 2024-01-15 INC-9293 reviewed by finance: no change
+# 2021-07-24 INC-1533 reviewed by ops: owner updated
+# 2023-06-07 INC-2796 reviewed by finance: link fixed
+# 2024-11-21 INC-2627 reviewed by data: link fixed
+# 2021-01-01 INC-6638 reviewed by finance: reviewed, nothing to do
+# 2022-10-02 INC-1189 reviewed by platform: link fixed
+# 2023-12-12 INC-4847 reviewed by data: reviewed, nothing to do
+# 2022-01-05 INC-8685 reviewed by ops: reviewed, nothing to do

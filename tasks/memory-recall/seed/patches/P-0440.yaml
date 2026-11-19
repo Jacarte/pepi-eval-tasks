@@ -2,3 +2,15 @@ id: P-0440
 target: services/skua/envs/prod
 set:
   region: eu-central-1
+# 2023-09-10 INC-2203 reviewed by data: reviewed, nothing to do
+# 2021-04-14 INC-3890 reviewed by security: link fixed
+# 2022-05-05 INC-7950 reviewed by security: no change
+# 2024-05-03 INC-5785 reviewed by ops: link fixed
+# 2024-08-04 INC-4913 reviewed by security: reviewed, nothing to do
+# 2024-12-22 INC-0229 reviewed by ops: reviewed, nothing to do
+# 2024-12-22 INC-0688 reviewed by finance: wording only
+# 2022-09-03 INC-4648 reviewed by finance: wording only
+# 2021-07-17 INC-2227 reviewed by platform: owner updated
+# 2024-12-17 INC-8404 reviewed by security: no change
+# 2022-09-07 INC-2213 reviewed by finance: wording only
+# 2021-09-16 INC-2259 reviewed by data: owner updated

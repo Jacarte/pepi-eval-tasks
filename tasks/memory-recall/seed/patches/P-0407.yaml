@@ -2,3 +2,15 @@ id: P-0407
 target: services/pipit/envs/prod-eu
 set:
   region: eu-north-1
+# 2023-12-04 INC-4520 reviewed by platform: link fixed
+# 2022-10-18 INC-6784 reviewed by platform: no change
+# 2024-11-07 INC-2270 reviewed by finance: no change
+# 2022-09-26 INC-0696 reviewed by platform: owner updated
+# 2021-11-10 INC-7970 reviewed by finance: reviewed, nothing to do
+# 2023-01-19 INC-3414 reviewed by finance: wording only
+# 2024-08-16 INC-7359 reviewed by platform: wording only
+# 2022-10-07 INC-0575 reviewed by platform: no change
+# 2023-01-18 INC-2584 reviewed by security: reviewed, nothing to do
+# 2023-03-20 INC-6170 reviewed by security: link fixed
+# 2024-05-05 INC-0562 reviewed by ops: owner updated
+# 2022-03-01 INC-1527 reviewed by ops: no change

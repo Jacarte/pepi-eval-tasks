@@ -2,3 +2,15 @@ id: P-0328
 target: services/magpie/envs/perf
 set:
   region: eu-west-1
+# 2023-04-19 INC-3645 reviewed by security: owner updated
+# 2022-05-06 INC-4216 reviewed by platform: reviewed, nothing to do
+# 2022-03-16 INC-8889 reviewed by security: no change
+# 2023-12-18 INC-0869 reviewed by platform: link fixed
+# 2023-01-02 INC-5693 reviewed by data: wording only
+# 2022-01-17 INC-2860 reviewed by data: owner updated
+# 2024-02-06 INC-1375 reviewed by finance: link fixed
+# 2022-06-11 INC-3102 reviewed by finance: wording only
+# 2022-10-08 INC-6109 reviewed by platform: link fixed
+# 2023-04-18 INC-2207 reviewed by platform: wording only
+# 2023-08-04 INC-9228 reviewed by data: wording only
+# 2024-10-03 INC-5704 reviewed by data: reviewed, nothing to do

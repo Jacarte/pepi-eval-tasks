@@ -2,3 +2,15 @@ id: P-0100
 target: services/plover/envs/sandbox
 set:
   replicas: 4
+# 2022-07-24 INC-6928 reviewed by security: reviewed, nothing to do
+# 2023-04-27 INC-5411 reviewed by ops: wording only
+# 2023-03-04 INC-8418 reviewed by ops: no change
+# 2024-11-09 INC-0660 reviewed by data: link fixed
+# 2021-06-26 INC-8688 reviewed by finance: link fixed
+# 2022-04-26 INC-4077 reviewed by security: no change
+# 2023-11-03 INC-3699 reviewed by finance: no change
+# 2022-03-05 INC-9991 reviewed by finance: owner updated
+# 2024-09-10 INC-8424 reviewed by data: wording only
+# 2021-11-12 INC-2517 reviewed by data: owner updated
+# 2022-06-17 INC-1822 reviewed by data: reviewed, nothing to do
+# 2024-03-10 INC-2294 reviewed by platform: wording only

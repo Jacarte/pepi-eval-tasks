@@ -2,3 +2,15 @@ id: P-0424
 target: services/crane/envs/stg-eu
 set:
   region: us-west-2
+# 2022-09-24 INC-8262 reviewed by finance: wording only
+# 2024-11-22 INC-2864 reviewed by finance: owner updated
+# 2022-04-21 INC-7040 reviewed by security: reviewed, nothing to do
+# 2021-02-23 INC-1517 reviewed by finance: link fixed
+# 2024-02-12 INC-5524 reviewed by data: link fixed
+# 2022-02-14 INC-1346 reviewed by security: owner updated
+# 2022-12-16 INC-3372 reviewed by security: link fixed
+# 2024-04-12 INC-8629 reviewed by platform: owner updated
+# 2023-07-16 INC-3207 reviewed by data: link fixed
+# 2022-11-11 INC-8356 reviewed by data: wording only
+# 2022-10-14 INC-0858 reviewed by security: reviewed, nothing to do
+# 2023-08-24 INC-0767 reviewed by ops: no change

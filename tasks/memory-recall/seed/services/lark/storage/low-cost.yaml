@@ -1,4 +1,4 @@
 # low-cost storage profile
-include: ../../../templates/fragments/frag-00.yaml
+include: standard.yaml
 versioning: false
 encryption: aes256

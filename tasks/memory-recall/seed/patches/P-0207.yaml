@@ -2,3 +2,15 @@ id: P-0207
 target: services/lark/envs/stg-eu
 set:
   replicas: 3
+# 2023-09-01 INC-5319 reviewed by platform: no change
+# 2024-06-22 INC-9428 reviewed by data: no change
+# 2024-09-15 INC-6037 reviewed by ops: owner updated
+# 2021-11-07 INC-3074 reviewed by finance: owner updated
+# 2022-04-09 INC-3935 reviewed by ops: no change
+# 2024-02-20 INC-0876 reviewed by ops: no change
+# 2024-05-21 INC-5526 reviewed by finance: owner updated
+# 2021-05-16 INC-1335 reviewed by ops: owner updated
+# 2021-01-13 INC-7772 reviewed by security: owner updated
+# 2024-09-15 INC-2320 reviewed by data: wording only
+# 2024-03-02 INC-8154 reviewed by ops: reviewed, nothing to do
+# 2022-09-14 INC-9748 reviewed by data: reviewed, nothing to do

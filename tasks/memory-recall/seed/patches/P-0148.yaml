@@ -2,3 +2,15 @@ id: P-0148
 target: services/skua/envs/sandbox
 set:
   region: ap-southeast-2
+# 2024-02-23 INC-5416 reviewed by finance: no change
+# 2023-01-10 INC-4102 reviewed by platform: no change
+# 2023-08-02 INC-3794 reviewed by ops: reviewed, nothing to do
+# 2024-06-05 INC-1288 reviewed by security: link fixed
+# 2022-05-14 INC-2075 reviewed by finance: owner updated
+# 2024-03-03 INC-0830 reviewed by data: owner updated
+# 2024-03-11 INC-6626 reviewed by ops: wording only
+# 2023-04-12 INC-8961 reviewed by data: wording only
+# 2024-07-28 INC-7321 reviewed by security: link fixed
+# 2023-08-13 INC-3283 reviewed by security: no change
+# 2024-05-21 INC-5763 reviewed by security: reviewed, nothing to do
+# 2023-12-03 INC-7706 reviewed by ops: reviewed, nothing to do

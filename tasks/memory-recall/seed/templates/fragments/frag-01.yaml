@@ -1,3 +1,43 @@
 # frag-01
 include: ../bases/cache.yaml
 class: hot
+# 2024-06-17 INC-4592 reviewed by ops: reviewed, nothing to do
+# 2021-01-21 INC-4777 reviewed by platform: wording only
+# 2022-08-08 INC-7077 reviewed by platform: reviewed, nothing to do
+# 2024-12-07 INC-5355 reviewed by finance: reviewed, nothing to do
+# 2024-10-28 INC-5195 reviewed by security: wording only
+# 2021-02-23 INC-4116 reviewed by security: no change
+# 2024-07-11 INC-4690 reviewed by ops: owner updated
+# 2024-05-08 INC-7957 reviewed by security: no change
+# 2023-11-10 INC-0096 reviewed by data: owner updated
+# 2021-05-26 INC-6397 reviewed by platform: owner updated
+# 2021-07-24 INC-0180 reviewed by finance: wording only
+# 2021-05-11 INC-8310 reviewed by data: wording only
+# 2024-05-11 INC-3395 reviewed by platform: wording only
+# 2023-08-18 INC-4478 reviewed by ops: reviewed, nothing to do
+# 2022-04-05 INC-0798 reviewed by finance: reviewed, nothing to do
+# 2022-02-01 INC-6807 reviewed by platform: owner updated
+# 2023-05-10 INC-1960 reviewed by data: reviewed, nothing to do
+# 2022-09-06 INC-5917 reviewed by data: wording only
+# 2022-09-25 INC-6482 reviewed by platform: wording only
+# 2021-11-05 INC-2453 reviewed by data: wording only
+# 2024-12-17 INC-8988 reviewed by platform: wording only
+# 2023-07-26 INC-7744 reviewed by finance: owner updated
+# 2024-07-22 INC-7399 reviewed by data: link fixed
+# 2024-06-01 INC-2883 reviewed by data: owner updated
+# 2022-04-25 INC-0653 reviewed by data: reviewed, nothing to do
+# 2022-04-12 INC-5237 reviewed by finance: link fixed
+# 2023-12-05 INC-3646 reviewed by platform: link fixed
+# 2021-10-13 INC-7113 reviewed by finance: wording only
+# 2021-09-14 INC-6895 reviewed by ops: no change
+# 2022-10-25 INC-1221 reviewed by ops: owner updated
+# 2021-04-20 INC-5252 reviewed by ops: no change
+# 2023-03-07 INC-0507 reviewed by platform: reviewed, nothing to do
+# 2024-05-21 INC-7749 reviewed by data: wording only
+# 2022-10-19 INC-8908 reviewed by ops: wording only
+# 2024-03-17 INC-0031 reviewed by ops: no change
+# 2021-07-16 INC-8181 reviewed by security: wording only
+# 2024-04-12 INC-4185 reviewed by security: reviewed, nothing to do
+# 2022-08-02 INC-0947 reviewed by finance: wording only
+# 2023-05-10 INC-5383 reviewed by finance: owner updated
+# 2022-06-17 INC-8449 reviewed by ops: reviewed, nothing to do

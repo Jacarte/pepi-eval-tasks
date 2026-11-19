@@ -2,3 +2,15 @@ id: P-0195
 target: services/dunlin/envs/qa
 set:
   region: eu-west-3
+# 2023-12-19 INC-1628 reviewed by data: reviewed, nothing to do
+# 2021-04-28 INC-1718 reviewed by ops: reviewed, nothing to do
+# 2024-06-06 INC-8110 reviewed by ops: owner updated
+# 2024-05-25 INC-2363 reviewed by ops: no change
+# 2022-06-23 INC-4524 reviewed by data: reviewed, nothing to do
+# 2023-10-01 INC-4439 reviewed by ops: no change
+# 2023-06-11 INC-7434 reviewed by platform: link fixed
+# 2024-11-16 INC-1360 reviewed by ops: no change
+# 2021-09-10 INC-1471 reviewed by security: owner updated
+# 2021-10-22 INC-4889 reviewed by finance: owner updated
+# 2023-08-06 INC-0548 reviewed by security: owner updated
+# 2023-05-05 INC-2441 reviewed by data: wording only

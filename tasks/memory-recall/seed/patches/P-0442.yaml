@@ -2,3 +2,15 @@ id: P-0442
 target: services/hobby/envs/dev
 set:
   replicas: 5
+# 2021-07-28 INC-7689 reviewed by ops: link fixed
+# 2021-05-15 INC-9878 reviewed by platform: reviewed, nothing to do
+# 2023-02-09 INC-2336 reviewed by platform: no change
+# 2023-11-13 INC-6814 reviewed by ops: wording only
+# 2022-09-24 INC-1300 reviewed by security: wording only
+# 2022-01-21 INC-0968 reviewed by platform: owner updated
+# 2023-08-04 INC-5103 reviewed by platform: reviewed, nothing to do
+# 2021-08-20 INC-0589 reviewed by platform: owner updated
+# 2024-08-14 INC-4337 reviewed by finance: reviewed, nothing to do
+# 2022-09-03 INC-0962 reviewed by platform: link fixed
+# 2022-01-22 INC-9823 reviewed by ops: owner updated
+# 2023-03-11 INC-2778 reviewed by security: wording only

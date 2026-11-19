@@ -3,3 +3,15 @@ target: services/grebe/envs/stg-eu
 set:
   storage:
     include: ../../storage/shared.yaml
+# 2021-10-05 INC-9566 reviewed by finance: link fixed
+# 2024-09-19 INC-7843 reviewed by security: link fixed
+# 2021-12-05 INC-7060 reviewed by security: owner updated
+# 2022-06-07 INC-7154 reviewed by security: no change
+# 2023-05-27 INC-5258 reviewed by security: wording only
+# 2022-09-24 INC-8949 reviewed by ops: link fixed
+# 2021-02-12 INC-9860 reviewed by security: owner updated
+# 2024-09-23 INC-3545 reviewed by ops: owner updated
+# 2023-03-26 INC-8764 reviewed by security: owner updated
+# 2024-11-04 INC-2861 reviewed by finance: wording only
+# 2021-08-28 INC-2020 reviewed by finance: reviewed, nothing to do
+# 2021-10-07 INC-5645 reviewed by ops: reviewed, nothing to do

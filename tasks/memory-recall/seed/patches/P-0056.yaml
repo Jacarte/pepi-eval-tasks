@@ -2,3 +2,15 @@ id: P-0056
 target: services/egret/envs/sandbox
 set:
   region: ap-south-1
+# 2023-03-14 INC-4166 reviewed by finance: link fixed
+# 2022-10-05 INC-8457 reviewed by security: wording only
+# 2021-02-13 INC-6231 reviewed by security: wording only
+# 2024-07-06 INC-0317 reviewed by data: no change
+# 2022-08-19 INC-9437 reviewed by security: link fixed
+# 2024-11-27 INC-3117 reviewed by security: owner updated
+# 2022-05-10 INC-8381 reviewed by data: reviewed, nothing to do
+# 2021-02-19 INC-5172 reviewed by finance: no change
+# 2024-03-23 INC-3393 reviewed by platform: no change
+# 2022-07-27 INC-9220 reviewed by ops: wording only
+# 2021-04-06 INC-0493 reviewed by finance: link fixed
+# 2023-11-23 INC-1220 reviewed by platform: reviewed, nothing to do

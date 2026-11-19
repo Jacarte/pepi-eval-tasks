@@ -2,3 +2,15 @@ id: P-0016
 target: services/starling/envs/dev
 set:
   replicas: 4
+# 2024-07-02 INC-8577 reviewed by ops: link fixed
+# 2024-02-15 INC-7222 reviewed by platform: wording only
+# 2022-04-04 INC-6764 reviewed by data: reviewed, nothing to do
+# 2023-11-04 INC-3652 reviewed by data: owner updated
+# 2021-08-06 INC-8225 reviewed by data: owner updated
+# 2024-09-24 INC-9433 reviewed by data: reviewed, nothing to do
+# 2024-03-06 INC-8586 reviewed by security: link fixed
+# 2021-12-01 INC-2242 reviewed by finance: link fixed
+# 2024-06-17 INC-7908 reviewed by data: owner updated
+# 2024-07-05 INC-4296 reviewed by data: reviewed, nothing to do
+# 2021-02-08 INC-0806 reviewed by ops: no change
+# 2024-12-05 INC-5182 reviewed by security: link fixed

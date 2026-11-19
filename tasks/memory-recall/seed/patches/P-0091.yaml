@@ -3,3 +3,15 @@ target: services/egret/envs/perf
 set:
   storage:
     include: ../../storage/legacy.yaml
+# 2024-12-04 INC-8694 reviewed by security: no change
+# 2023-04-15 INC-5592 reviewed by finance: reviewed, nothing to do
+# 2022-03-07 INC-7494 reviewed by platform: link fixed
+# 2022-03-13 INC-8534 reviewed by ops: wording only
+# 2022-01-21 INC-0417 reviewed by data: link fixed
+# 2024-05-17 INC-0613 reviewed by ops: no change
+# 2022-08-14 INC-4125 reviewed by data: no change
+# 2022-07-12 INC-7407 reviewed by platform: reviewed, nothing to do
+# 2021-07-09 INC-4338 reviewed by finance: no change
+# 2021-01-13 INC-4587 reviewed by platform: no change
+# 2024-01-08 INC-4523 reviewed by data: wording only
+# 2022-10-08 INC-1763 reviewed by ops: wording only

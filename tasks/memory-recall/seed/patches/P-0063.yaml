@@ -2,3 +2,15 @@ id: P-0063
 target: services/raven/envs/prod-eu
 set:
   replicas: 5
+# 2021-01-26 INC-2785 reviewed by ops: wording only
+# 2024-10-13 INC-1289 reviewed by data: no change
+# 2024-06-26 INC-2322 reviewed by security: wording only
+# 2023-01-08 INC-1751 reviewed by security: owner updated
+# 2024-11-20 INC-4095 reviewed by ops: wording only
+# 2021-06-11 INC-1910 reviewed by security: no change
+# 2022-01-28 INC-1743 reviewed by data: owner updated
+# 2022-12-26 INC-2613 reviewed by data: wording only
+# 2023-04-20 INC-2650 reviewed by ops: link fixed
+# 2022-01-18 INC-6180 reviewed by finance: owner updated
+# 2024-11-15 INC-1998 reviewed by security: reviewed, nothing to do
+# 2024-01-06 INC-4129 reviewed by platform: owner updated

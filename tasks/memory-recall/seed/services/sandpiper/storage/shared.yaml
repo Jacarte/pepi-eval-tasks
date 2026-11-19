@@ -1,4 +1,4 @@
 # shared storage profile
-include: ../../../templates/fragments/frag-27.yaml
+include: archive.yaml
 versioning: false
 encryption: aes256

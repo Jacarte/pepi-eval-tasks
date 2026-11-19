@@ -2,3 +2,15 @@ id: P-0041
 target: services/ibis/envs/prod-eu
 set:
   replicas: 1
+# 2023-02-13 INC-0765 reviewed by data: no change
+# 2021-09-10 INC-9711 reviewed by ops: wording only
+# 2022-06-18 INC-1544 reviewed by finance: reviewed, nothing to do
+# 2023-01-12 INC-2410 reviewed by finance: no change
+# 2021-03-28 INC-4627 reviewed by security: reviewed, nothing to do
+# 2024-09-04 INC-8568 reviewed by finance: link fixed
+# 2024-12-27 INC-0662 reviewed by finance: reviewed, nothing to do
+# 2021-01-28 INC-5926 reviewed by data: link fixed
+# 2024-08-10 INC-8264 reviewed by ops: owner updated
+# 2022-11-27 INC-9288 reviewed by data: reviewed, nothing to do
+# 2022-09-08 INC-7065 reviewed by data: no change
+# 2024-02-14 INC-7084 reviewed by platform: link fixed

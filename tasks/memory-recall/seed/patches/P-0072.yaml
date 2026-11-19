@@ -2,3 +2,15 @@ id: P-0072
 target: services/tern/envs/stg-eu
 set:
   region: ap-northeast-1
+# 2024-04-21 INC-7363 reviewed by platform: link fixed
+# 2022-06-01 INC-4948 reviewed by data: link fixed
+# 2023-05-01 INC-9246 reviewed by security: wording only
+# 2021-09-03 INC-7914 reviewed by platform: reviewed, nothing to do
+# 2022-05-05 INC-4191 reviewed by platform: wording only
+# 2023-11-13 INC-1480 reviewed by finance: wording only
+# 2022-06-04 INC-2526 reviewed by platform: wording only
+# 2024-06-08 INC-6845 reviewed by platform: wording only
+# 2023-10-21 INC-6029 reviewed by finance: wording only
+# 2022-12-22 INC-1125 reviewed by ops: wording only
+# 2023-03-25 INC-2656 reviewed by platform: link fixed
+# 2021-06-12 INC-7732 reviewed by security: owner updated

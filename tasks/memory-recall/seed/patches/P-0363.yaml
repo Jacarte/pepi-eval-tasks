@@ -2,3 +2,15 @@ id: P-0363
 target: services/wren/envs/stg-eu
 set:
   region: eu-west-3
+# 2021-02-10 INC-5660 reviewed by security: reviewed, nothing to do
+# 2023-06-14 INC-5103 reviewed by platform: no change
+# 2022-03-15 INC-0490 reviewed by ops: wording only
+# 2024-11-26 INC-9352 reviewed by finance: wording only
+# 2021-11-12 INC-7863 reviewed by security: wording only
+# 2022-10-07 INC-0213 reviewed by ops: wording only
+# 2024-01-25 INC-0800 reviewed by data: wording only
+# 2021-12-23 INC-3710 reviewed by security: reviewed, nothing to do
+# 2023-05-02 INC-5537 reviewed by platform: reviewed, nothing to do
+# 2024-06-23 INC-5770 reviewed by ops: no change
+# 2021-05-21 INC-1621 reviewed by ops: wording only
+# 2024-06-08 INC-1335 reviewed by data: reviewed, nothing to do

@@ -2,3 +2,15 @@ id: P-0303
 target: services/raven/envs/stg-eu
 set:
   replicas: 3
+# 2023-01-21 INC-2579 reviewed by ops: wording only
+# 2024-04-20 INC-2865 reviewed by platform: link fixed
+# 2021-10-13 INC-1277 reviewed by platform: no change
+# 2023-05-22 INC-5348 reviewed by finance: no change
+# 2022-03-19 INC-1283 reviewed by finance: owner updated
+# 2021-04-09 INC-5457 reviewed by finance: reviewed, nothing to do
+# 2022-09-14 INC-8211 reviewed by security: no change
+# 2024-10-16 INC-1087 reviewed by data: wording only
+# 2022-12-01 INC-0461 reviewed by ops: wording only
+# 2022-10-23 INC-1964 reviewed by finance: reviewed, nothing to do
+# 2024-12-11 INC-3569 reviewed by ops: reviewed, nothing to do
+# 2023-07-21 INC-5256 reviewed by finance: link fixed

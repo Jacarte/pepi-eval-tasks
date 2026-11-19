@@ -2,3 +2,15 @@ id: P-0449
 target: services/swift/envs/stg
 set:
   replicas: 3
+# 2024-04-14 INC-7706 reviewed by security: owner updated
+# 2022-12-07 INC-2118 reviewed by ops: wording only
+# 2024-02-11 INC-6192 reviewed by data: owner updated
+# 2021-06-08 INC-1532 reviewed by security: reviewed, nothing to do
+# 2022-10-26 INC-6225 reviewed by security: owner updated
+# 2021-09-28 INC-2303 reviewed by finance: reviewed, nothing to do
+# 2024-02-03 INC-6668 reviewed by platform: link fixed
+# 2024-03-09 INC-5036 reviewed by ops: no change
+# 2021-12-27 INC-7134 reviewed by finance: wording only
+# 2024-03-01 INC-3584 reviewed by finance: no change
+# 2022-09-13 INC-4114 reviewed by security: link fixed
+# 2022-08-19 INC-3875 reviewed by ops: link fixed

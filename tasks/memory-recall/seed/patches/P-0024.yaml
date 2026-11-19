@@ -2,3 +2,15 @@ id: P-0024
 target: services/osprey/envs/sandbox
 set:
   region: eu-central-1
+# 2021-03-07 INC-6673 reviewed by finance: owner updated
+# 2024-11-20 INC-7680 reviewed by data: wording only
+# 2023-01-23 INC-1118 reviewed by finance: reviewed, nothing to do
+# 2023-11-06 INC-5242 reviewed by ops: wording only
+# 2023-07-13 INC-7563 reviewed by platform: wording only
+# 2024-10-12 INC-1948 reviewed by finance: wording only
+# 2024-01-25 INC-0570 reviewed by data: owner updated
+# 2022-05-24 INC-6998 reviewed by finance: link fixed
+# 2024-08-11 INC-0495 reviewed by data: link fixed
+# 2021-10-04 INC-6388 reviewed by security: link fixed
+# 2022-05-22 INC-5972 reviewed by data: no change
+# 2023-01-06 INC-5740 reviewed by security: no change

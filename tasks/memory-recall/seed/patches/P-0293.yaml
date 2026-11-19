@@ -2,3 +2,15 @@ id: P-0293
 target: services/ibis/envs/dev
 set:
   replicas: 4
+# 2023-04-12 INC-3836 reviewed by data: owner updated
+# 2022-04-21 INC-5462 reviewed by data: link fixed
+# 2022-01-26 INC-2099 reviewed by finance: no change
+# 2023-09-13 INC-2720 reviewed by ops: reviewed, nothing to do
+# 2024-01-28 INC-2366 reviewed by security: owner updated
+# 2024-12-26 INC-4414 reviewed by finance: link fixed
+# 2023-07-03 INC-9671 reviewed by data: link fixed
+# 2024-04-14 INC-0031 reviewed by platform: wording only
+# 2022-06-01 INC-1035 reviewed by security: owner updated
+# 2022-02-27 INC-6817 reviewed by platform: reviewed, nothing to do
+# 2022-10-14 INC-7740 reviewed by finance: owner updated
+# 2022-09-22 INC-4834 reviewed by data: no change

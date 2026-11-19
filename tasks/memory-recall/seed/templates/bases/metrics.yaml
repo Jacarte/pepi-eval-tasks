@@ -1,2 +1,42 @@
 # metrics base
 retention_tier: permanent
+# 2021-12-15 INC-3913 reviewed by ops: owner updated
+# 2023-06-05 INC-5040 reviewed by security: no change
+# 2024-01-11 INC-3350 reviewed by finance: reviewed, nothing to do
+# 2021-02-28 INC-0500 reviewed by platform: wording only
+# 2022-06-03 INC-1220 reviewed by ops: no change
+# 2024-04-24 INC-5267 reviewed by ops: link fixed
+# 2023-04-05 INC-8112 reviewed by data: link fixed
+# 2022-12-05 INC-5115 reviewed by data: wording only
+# 2022-10-14 INC-5252 reviewed by platform: wording only
+# 2022-08-28 INC-4901 reviewed by data: no change
+# 2024-04-03 INC-6437 reviewed by platform: link fixed
+# 2023-05-12 INC-5203 reviewed by ops: owner updated
+# 2022-06-15 INC-3348 reviewed by finance: reviewed, nothing to do
+# 2024-01-11 INC-5751 reviewed by ops: link fixed
+# 2021-12-14 INC-5180 reviewed by platform: reviewed, nothing to do
+# 2022-01-27 INC-1526 reviewed by security: no change
+# 2023-12-23 INC-8346 reviewed by platform: no change
+# 2022-03-13 INC-1461 reviewed by ops: link fixed
+# 2022-06-25 INC-6906 reviewed by ops: owner updated
+# 2021-09-01 INC-6891 reviewed by platform: wording only
+# 2024-03-13 INC-7548 reviewed by platform: wording only
+# 2021-12-18 INC-9101 reviewed by security: link fixed
+# 2022-12-19 INC-0896 reviewed by ops: no change
+# 2023-02-17 INC-9259 reviewed by security: no change
+# 2024-04-11 INC-9296 reviewed by finance: wording only
+# 2022-07-19 INC-2187 reviewed by security: owner updated
+# 2024-04-19 INC-3819 reviewed by ops: owner updated
+# 2023-05-17 INC-3909 reviewed by ops: reviewed, nothing to do
+# 2022-01-17 INC-2652 reviewed by ops: owner updated
+# 2023-10-16 INC-3005 reviewed by finance: link fixed
+# 2022-02-07 INC-5505 reviewed by finance: wording only
+# 2024-10-04 INC-4894 reviewed by data: wording only
+# 2024-06-05 INC-4801 reviewed by finance: wording only
+# 2021-02-18 INC-8133 reviewed by security: link fixed
+# 2024-02-24 INC-2818 reviewed by security: no change
+# 2023-07-14 INC-4289 reviewed by data: owner updated
+# 2024-10-11 INC-8326 reviewed by platform: owner updated
+# 2021-02-08 INC-4033 reviewed by ops: wording only
+# 2024-12-12 INC-5993 reviewed by ops: owner updated
+# 2021-07-08 INC-4391 reviewed by finance: link fixed

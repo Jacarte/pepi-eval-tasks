@@ -2,3 +2,15 @@ id: P-0397
 target: services/sparrow/envs/stg-eu
 set:
   replicas: 2
+# 2024-09-02 INC-4734 reviewed by ops: owner updated
+# 2024-02-25 INC-8816 reviewed by data: reviewed, nothing to do
+# 2024-04-16 INC-6952 reviewed by finance: no change
+# 2022-07-18 INC-4276 reviewed by data: owner updated
+# 2022-05-09 INC-8702 reviewed by finance: owner updated
+# 2024-03-14 INC-6522 reviewed by platform: wording only
+# 2022-02-18 INC-9280 reviewed by finance: reviewed, nothing to do
+# 2024-07-21 INC-4452 reviewed by data: no change
+# 2023-01-01 INC-5089 reviewed by finance: owner updated
+# 2023-08-11 INC-0665 reviewed by platform: owner updated
+# 2022-04-09 INC-8446 reviewed by platform: reviewed, nothing to do
+# 2024-02-02 INC-7634 reviewed by data: no change

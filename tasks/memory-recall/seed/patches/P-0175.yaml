@@ -2,3 +2,15 @@ id: P-0175
 target: services/oriole/envs/prod-eu
 set:
   replicas: 2
+# 2022-12-12 INC-9993 reviewed by platform: owner updated
+# 2021-07-06 INC-6054 reviewed by data: wording only
+# 2024-02-23 INC-9891 reviewed by ops: link fixed
+# 2024-10-15 INC-6317 reviewed by ops: no change
+# 2021-11-22 INC-4359 reviewed by platform: link fixed
+# 2023-08-27 INC-2323 reviewed by platform: no change
+# 2022-08-21 INC-9503 reviewed by finance: no change
+# 2024-01-28 INC-9834 reviewed by security: reviewed, nothing to do
+# 2021-02-20 INC-2296 reviewed by finance: reviewed, nothing to do
+# 2022-12-08 INC-7194 reviewed by ops: owner updated
+# 2023-04-05 INC-8555 reviewed by data: wording only
+# 2024-04-18 INC-4192 reviewed by finance: owner updated

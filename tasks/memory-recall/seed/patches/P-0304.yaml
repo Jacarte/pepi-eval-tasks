@@ -2,3 +2,15 @@ id: P-0304
 target: services/siskin/envs/stg
 set:
   region: af-south-1
+# 2022-06-10 INC-7548 reviewed by data: owner updated
+# 2024-07-27 INC-8977 reviewed by ops: link fixed
+# 2021-08-16 INC-6911 reviewed by ops: owner updated
+# 2023-05-25 INC-0202 reviewed by finance: no change
+# 2024-04-23 INC-7673 reviewed by finance: wording only
+# 2021-10-05 INC-6359 reviewed by security: reviewed, nothing to do
+# 2021-04-26 INC-7031 reviewed by security: wording only
+# 2024-08-01 INC-3883 reviewed by security: wording only
+# 2024-01-10 INC-8615 reviewed by platform: link fixed
+# 2024-04-05 INC-0020 reviewed by finance: reviewed, nothing to do
+# 2024-07-16 INC-2806 reviewed by finance: no change
+# 2024-03-26 INC-2079 reviewed by platform: reviewed, nothing to do

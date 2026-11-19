@@ -2,3 +2,15 @@ id: P-0309
 target: services/redstart/envs/prod-eu
 set:
   region: us-west-2
+# 2021-01-28 INC-7189 reviewed by data: wording only
+# 2021-04-28 INC-7904 reviewed by platform: wording only
+# 2024-10-26 INC-0164 reviewed by data: wording only
+# 2024-09-03 INC-5655 reviewed by platform: wording only
+# 2024-07-04 INC-4366 reviewed by security: wording only
+# 2024-01-25 INC-3525 reviewed by finance: wording only
+# 2021-01-18 INC-1244 reviewed by platform: no change
+# 2021-03-06 INC-5766 reviewed by data: wording only
+# 2023-12-27 INC-7000 reviewed by ops: wording only
+# 2021-05-22 INC-4303 reviewed by security: owner updated
+# 2022-01-04 INC-0369 reviewed by data: no change
+# 2023-01-09 INC-7032 reviewed by finance: no change

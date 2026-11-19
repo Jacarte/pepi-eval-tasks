@@ -2,3 +2,15 @@ id: P-0265
 target: services/nuthatch/envs/sandbox
 set:
   replicas: 2
+# 2022-09-24 INC-8090 reviewed by security: owner updated
+# 2021-04-12 INC-7147 reviewed by data: reviewed, nothing to do
+# 2021-12-12 INC-3576 reviewed by ops: no change
+# 2024-02-27 INC-7041 reviewed by security: owner updated
+# 2022-04-24 INC-0295 reviewed by platform: owner updated
+# 2023-03-09 INC-9946 reviewed by ops: reviewed, nothing to do
+# 2022-09-04 INC-9132 reviewed by security: link fixed
+# 2022-01-27 INC-6078 reviewed by platform: link fixed
+# 2022-02-16 INC-4481 reviewed by finance: link fixed
+# 2022-01-06 INC-6675 reviewed by ops: owner updated
+# 2024-02-13 INC-4761 reviewed by security: no change
+# 2023-08-15 INC-0917 reviewed by finance: no change

@@ -77,9 +77,28 @@ func fragmentTier(i int) string { return tiers[(i%len(baseNames))%len(tiers)] }
 // and lists that tier before global does. Every wrong shortcut lands on a different value.
 const answerDays = 217
 
-// The billing worker's staging profile candidates, one tier each. Only "audit" is in effect.
+// A profile with an entry here includes that sibling profile instead of a fragment.
+var profileParent = map[string]string{
+	"compliance": "audit", "legacy": "short-lived", "shared": "archive", "low-cost": "standard", "standard-eu": "standard",
+}
+
+// The billing worker's root profiles, one tier each. The profile in effect is "compliance",
+// which includes "audit".
 var heronTier = map[string]string{
-	"standard": "standard", "archive": "permanent", "audit": "regulated", "burst": "ephemeral", "legacy": "extended",
+	"standard": "standard", "archive": "permanent", "audit": "regulated", "burst": "ephemeral", "short-lived": "extended",
+}
+
+// bulk writes n inert comment lines. Directory-wide reads (cat regions/*) then overflow a tool's
+// output limit, so the chain has to be followed file by file.
+func bulk(r *rand.Rand, n int) string {
+	teams := []string{"ops", "platform", "security", "data", "finance"}
+	notes := []string{"no change", "wording only", "owner updated", "reviewed, nothing to do", "link fixed"}
+	var b strings.Builder
+	for i := 0; i < n; i++ {
+		fmt.Fprintf(&b, "# 20%02d-%02d-%02d INC-%04d reviewed by %s: %s\n",
+			21+r.Intn(4), 1+r.Intn(12), 1+r.Intn(28), r.Intn(10000), teams[r.Intn(len(teams))], notes[r.Intn(len(notes))])
+	}
+	return b.String()
 }
 
 // Tier values pinned on the billing worker's resolution path (and the traps around it); every
@@ -191,11 +210,11 @@ func build() map[string]string {
 	}
 	for i := 0; i < fragmentCount; i++ {
 		r := rngFor(fragmentName(i))
-		files["templates/fragments/"+fragmentName(i)+".yaml"] = fmt.Sprintf("# %s\ninclude: ../bases/%s.yaml\nclass: %s\n",
-			fragmentName(i), baseNames[i%len(baseNames)], []string{"hot", "warm", "cold"}[r.Intn(3)])
+		files["templates/fragments/"+fragmentName(i)+".yaml"] = fmt.Sprintf("# %s\ninclude: ../bases/%s.yaml\nclass: %s\n%s",
+			fragmentName(i), baseNames[i%len(baseNames)], []string{"hot", "warm", "cold"}[r.Intn(3)], bulk(r, 40))
 	}
 	for j, n := range baseNames {
-		files["templates/bases/"+n+".yaml"] = fmt.Sprintf("# %s base\nretention_tier: %s\n", n, tiers[j%len(tiers)])
+		files["templates/bases/"+n+".yaml"] = fmt.Sprintf("# %s base\nretention_tier: %s\n%s", n, tiers[j%len(tiers)], bulk(rngFor("base/"+n), 40))
 	}
 	for _, rg := range regions {
 		files["regions/"+rg.name+".yaml"] = regionYAML(rg)
@@ -224,17 +243,19 @@ A key set in an environment's app.yaml overrides the same key in base.yaml. "inc
 there; includes nest. Only files ending in .yaml are read.
 
 Retention. An environment's storage profile is the file named by "storage: include:" in its
-app.yaml. Following its includes ends at a retention_tier. The retention_days of the environment
-is the entry for that tier in the retention_days table of regions/<region>.yaml, where <region>
-is the "region:" of the environment's app.yaml. A tier the region file does not list is taken
-from the region named by its "parent:", repeatedly.
+effective app.yaml (app.yaml with the winning patches applied, see Patches). Following its
+includes ends at a retention_tier. The retention_days of the environment is the entry for that
+tier in the retention_days table of regions/<region>.yaml, where <region> is the "region:" of
+its effective app.yaml. A tier the region file does not list is taken from the region named by
+its "parent:", repeatedly.
 
 Patches. A patch (patches/<id>.yaml) sets keys of the environment directory named by its
-"target:", overriding that environment's app.yaml; "set:" nests like app.yaml. A patch counts
-when patches/manifest.yaml lists its id under "applied:" and not under "revoked:". A patch is
-void when another patch that counts names it in "supersedes:" (that other patch may itself be
-void). When several counting patches that are not void set the same key of a target, the one
-listed last under "applied:" wins. A key set by a winning patch replaces the app.yaml value.
+"target:"; "set:" nests like app.yaml, and paths in it are relative to the target's app.yaml.
+A patch counts when patches/manifest.yaml lists its id under "applied:" and not under
+"revoked:". A patch is void when another patch that counts names it in "supersedes:" (that
+other patch may itself be void). Patches that do not count or are void have no effect. When
+several counting patches that are not void set the same key of a target, the one listed last
+under "applied:" wins. A key set by a winning patch replaces the app.yaml value.
 `
 
 // includeFor picks the storage profile an environment includes. The billing worker's staging
@@ -270,7 +291,11 @@ func profileYAML(s service, p string, r *rand.Rand) string {
 	}
 	var b strings.Builder
 	fmt.Fprintf(&b, "# %s storage profile\n", p)
-	fmt.Fprintf(&b, "include: ../../../templates/fragments/%s.yaml\n", fragmentName(frag))
+	if parent, ok := profileParent[p]; ok {
+		fmt.Fprintf(&b, "include: %s.yaml\n", parent)
+	} else {
+		fmt.Fprintf(&b, "include: ../../../templates/fragments/%s.yaml\n", fragmentName(frag))
+	}
 	fmt.Fprintf(&b, "versioning: %t\nencryption: %s\n", r.Intn(2) == 0, []string{"aes256", "kms"}[r.Intn(2)])
 	return b.String()
 }
@@ -307,7 +332,7 @@ func regionYAML(rg region) string {
 		}
 		fmt.Fprintf(&b, "  %s: %d\n", t, d)
 	}
-	return b.String()
+	return b.String() + bulk(r, 55)
 }
 
 func days(r *rand.Rand) int { return 5 + r.Intn(395) }
@@ -392,18 +417,22 @@ func flagsYAML(e env, r *rand.Rand) string {
 
 type patch struct {
 	id, target, supersedes, key, value string
-	state                              string // applied, revoked or draft (in neither list)
+	state                              string // applied, revoked (listed in both) or draft (in neither)
 }
 
-// Patches on the billing worker. On heron's staging environment the one in effect is P-0388
-// (P-0371 is void, P-0402 is revoked, P-0395 is a draft) and P-0360 moves it to eu-west-1.
+// Patches on the billing worker. On heron's staging environment the profile comes from P-0388
+// (P-0371 and P-0414 are void, P-0402 is revoked, P-0395 is a draft) and the region from P-0360:
+// P-0439 has the higher id but is listed first.
 var heronPatches = []patch{
 	{"P-0360", "heron/stg", "", "region", "eu-west-1", "applied"},
 	{"P-0366", "heron/stg", "", "region", "us-east-1", "revoked"},
 	{"P-0371", "heron/stg", "", "storage.include", "../../storage/archive.yaml", "applied"},
-	{"P-0388", "heron/stg", "P-0371", "storage.include", "../../storage/audit.yaml", "applied"},
+	{"P-0388", "heron/stg", "P-0371", "storage.include", "../../storage/compliance.yaml", "applied"},
 	{"P-0395", "heron/stg", "", "storage.include", "../../storage/legacy.yaml", "draft"},
 	{"P-0402", "heron/stg", "P-0388", "storage.include", "../../storage/burst.yaml", "revoked"},
+	{"P-0414", "heron/stg", "", "storage.include", "../../storage/low-cost.yaml", "applied"},
+	{"P-0419", "heron/stg", "P-0414", "replicas", "3", "applied"},
+	{"P-0439", "heron/stg", "", "region", "eu-west-2", "applied"},
 	{"P-0372", "heron-v1/stg", "", "storage.include", "../../storage/compliance.yaml", "applied"},
 	{"P-0373", "heron-canary/stg", "", "storage.include", "../../storage/shared.yaml", "applied"},
 	{"P-0376", "heron/stg-eu", "", "storage.include", "../../storage/low-cost.yaml", "applied"},
@@ -452,17 +481,19 @@ func addPatches(files map[string]string) {
 		switch p.state {
 		case "applied":
 			applied = append(applied, p.id)
-		case "revoked":
+		case "revoked": // applied once, then revoked
+			applied = append(applied, p.id)
 			revoked = append(revoked, p.id)
 		}
 	}
-	// P-0388 was a hotfix, applied before the older P-0371.
-	for i, id := range applied {
-		if id == "P-0388" {
-			applied = append([]string{id}, append(applied[:i:i], applied[i+1:]...)...)
-			break
+	// Hotfixes were applied before older patches that have lower or higher ids.
+	rest := applied[:0:0]
+	for _, id := range applied {
+		if id != "P-0388" && id != "P-0439" {
+			rest = append(rest, id)
 		}
 	}
+	applied = append([]string{"P-0388", "P-0439"}, rest...)
 	var b strings.Builder
 	b.WriteString("# applied lists patches in the order they were applied.\napplied:\n")
 	for _, id := range applied {
@@ -487,5 +518,5 @@ func patchYAML(p patch) string {
 	} else {
 		fmt.Fprintf(&b, "  %s: %s\n", p.key, p.value)
 	}
-	return b.String()
+	return b.String() + bulk(rngFor("patch/"+p.id), 12)
 }

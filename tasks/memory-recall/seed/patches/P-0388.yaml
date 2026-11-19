@@ -3,4 +3,16 @@ target: services/heron/envs/stg
 supersedes: P-0371
 set:
   storage:
-    include: ../../storage/audit.yaml
+    include: ../../storage/compliance.yaml
+# 2024-09-26 INC-0455 reviewed by security: reviewed, nothing to do
+# 2023-06-10 INC-2303 reviewed by data: link fixed
+# 2021-02-17 INC-3278 reviewed by finance: no change
+# 2021-12-14 INC-7988 reviewed by data: link fixed
+# 2023-05-19 INC-1687 reviewed by security: reviewed, nothing to do
+# 2021-03-23 INC-4008 reviewed by ops: owner updated
+# 2023-05-27 INC-9515 reviewed by finance: wording only
+# 2024-09-08 INC-6611 reviewed by ops: wording only
+# 2022-02-26 INC-6932 reviewed by platform: reviewed, nothing to do
+# 2024-02-12 INC-0526 reviewed by platform: no change
+# 2024-04-24 INC-3036 reviewed by platform: link fixed
+# 2021-08-11 INC-3382 reviewed by finance: no change

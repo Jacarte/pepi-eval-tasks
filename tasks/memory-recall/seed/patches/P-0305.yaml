@@ -2,3 +2,15 @@ id: P-0305
 target: services/swift/envs/sandbox
 set:
   replicas: 5
+# 2024-05-17 INC-8773 reviewed by data: link fixed
+# 2023-03-15 INC-5734 reviewed by data: wording only
+# 2024-11-09 INC-2747 reviewed by platform: reviewed, nothing to do
+# 2023-10-21 INC-8232 reviewed by security: wording only
+# 2022-01-16 INC-0023 reviewed by data: no change
+# 2023-02-18 INC-5210 reviewed by finance: owner updated
+# 2024-03-15 INC-7047 reviewed by finance: reviewed, nothing to do
+# 2023-08-17 INC-2525 reviewed by platform: wording only
+# 2023-06-01 INC-3360 reviewed by platform: wording only
+# 2024-10-08 INC-1445 reviewed by data: wording only
+# 2023-06-28 INC-8806 reviewed by security: wording only
+# 2023-06-13 INC-6993 reviewed by data: link fixed

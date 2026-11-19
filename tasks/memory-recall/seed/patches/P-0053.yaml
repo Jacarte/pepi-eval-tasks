@@ -3,3 +3,15 @@ target: services/sandpiper/envs/stg
 set:
   storage:
     include: ../../storage/burst.yaml
+# 2022-10-18 INC-2454 reviewed by platform: no change
+# 2021-03-14 INC-2841 reviewed by security: owner updated
+# 2022-03-08 INC-8317 reviewed by ops: no change
+# 2024-04-13 INC-5994 reviewed by security: no change
+# 2023-08-13 INC-7922 reviewed by security: owner updated
+# 2024-11-03 INC-4700 reviewed by platform: no change
+# 2022-12-03 INC-2209 reviewed by finance: owner updated
+# 2021-10-13 INC-8731 reviewed by data: reviewed, nothing to do
+# 2022-06-04 INC-7061 reviewed by platform: reviewed, nothing to do
+# 2021-11-12 INC-3727 reviewed by security: reviewed, nothing to do
+# 2024-04-09 INC-1003 reviewed by security: reviewed, nothing to do
+# 2021-03-10 INC-1732 reviewed by security: wording only

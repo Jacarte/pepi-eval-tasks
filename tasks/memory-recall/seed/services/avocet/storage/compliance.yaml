@@ -1,4 +1,4 @@
 # compliance storage profile
-include: ../../../templates/fragments/frag-06.yaml
+include: audit.yaml
 versioning: false
 encryption: aes256

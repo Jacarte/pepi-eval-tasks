@@ -2,3 +2,15 @@ id: P-0366
 target: services/heron/envs/stg
 set:
   region: us-east-1
+# 2023-04-04 INC-8807 reviewed by ops: owner updated
+# 2023-04-09 INC-0108 reviewed by security: wording only
+# 2023-10-01 INC-3850 reviewed by finance: link fixed
+# 2024-09-06 INC-2395 reviewed by data: no change
+# 2023-03-24 INC-1287 reviewed by data: link fixed
+# 2023-11-06 INC-7546 reviewed by ops: wording only
+# 2021-03-17 INC-6705 reviewed by ops: owner updated
+# 2021-10-19 INC-1803 reviewed by platform: link fixed
+# 2023-09-27 INC-7808 reviewed by security: wording only
+# 2021-10-17 INC-0484 reviewed by platform: reviewed, nothing to do
+# 2022-04-23 INC-6908 reviewed by data: reviewed, nothing to do
+# 2022-12-22 INC-9951 reviewed by platform: no change

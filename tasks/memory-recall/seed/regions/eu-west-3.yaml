@@ -2,3 +2,58 @@
 parent: gdpr-core
 retention_days:
   regulated: 254
+# 2024-10-25 INC-6374 reviewed by platform: owner updated
+# 2022-01-10 INC-7599 reviewed by ops: link fixed
+# 2023-06-03 INC-3721 reviewed by data: link fixed
+# 2022-06-12 INC-9062 reviewed by finance: wording only
+# 2021-03-28 INC-4981 reviewed by finance: reviewed, nothing to do
+# 2022-07-13 INC-1563 reviewed by platform: no change
+# 2022-03-19 INC-7095 reviewed by finance: no change
+# 2022-11-11 INC-8049 reviewed by platform: no change
+# 2022-02-25 INC-3221 reviewed by data: reviewed, nothing to do
+# 2024-06-08 INC-2924 reviewed by platform: no change
+# 2024-08-28 INC-3657 reviewed by security: reviewed, nothing to do
+# 2021-10-22 INC-7307 reviewed by security: link fixed
+# 2024-01-08 INC-9791 reviewed by data: owner updated
+# 2022-05-26 INC-9925 reviewed by platform: owner updated
+# 2022-04-15 INC-7153 reviewed by platform: reviewed, nothing to do
+# 2023-06-16 INC-8580 reviewed by finance: owner updated
+# 2021-11-12 INC-6877 reviewed by security: owner updated
+# 2023-12-20 INC-4768 reviewed by data: no change
+# 2021-11-05 INC-2066 reviewed by data: wording only
+# 2022-09-25 INC-4867 reviewed by finance: wording only
+# 2022-10-16 INC-0026 reviewed by finance: owner updated
+# 2024-08-08 INC-6371 reviewed by data: no change
+# 2022-03-20 INC-7994 reviewed by security: wording only
+# 2023-01-06 INC-3136 reviewed by data: owner updated
+# 2021-08-23 INC-2684 reviewed by data: owner updated
+# 2023-01-12 INC-0343 reviewed by finance: no change
+# 2021-11-26 INC-4821 reviewed by security: link fixed
+# 2023-08-22 INC-9263 reviewed by ops: no change
+# 2021-11-27 INC-3266 reviewed by finance: link fixed
+# 2021-03-19 INC-3362 reviewed by data: reviewed, nothing to do
+# 2021-05-15 INC-8576 reviewed by finance: wording only
+# 2024-01-04 INC-3690 reviewed by ops: wording only
+# 2021-09-18 INC-6697 reviewed by platform: owner updated
+# 2023-01-12 INC-4578 reviewed by finance: no change
+# 2021-07-07 INC-1484 reviewed by finance: owner updated
+# 2023-11-10 INC-0502 reviewed by platform: wording only
+# 2023-01-28 INC-9921 reviewed by data: link fixed
+# 2022-12-16 INC-1973 reviewed by platform: wording only
+# 2021-03-22 INC-7144 reviewed by data: owner updated
+# 2022-05-08 INC-3798 reviewed by finance: no change
+# 2021-10-17 INC-1620 reviewed by platform: wording only
+# 2022-09-18 INC-8520 reviewed by security: no change
+# 2021-06-05 INC-3732 reviewed by ops: no change
+# 2022-03-18 INC-1050 reviewed by platform: owner updated
+# 2021-01-17 INC-3732 reviewed by data: no change
+# 2022-09-05 INC-9282 reviewed by finance: no change
+# 2021-12-17 INC-3978 reviewed by finance: reviewed, nothing to do
+# 2023-10-28 INC-3836 reviewed by finance: no change
+# 2022-03-20 INC-5433 reviewed by data: link fixed
+# 2023-05-23 INC-2008 reviewed by data: no change
+# 2022-05-13 INC-0370 reviewed by security: link fixed
+# 2021-03-02 INC-4435 reviewed by platform: reviewed, nothing to do
+# 2024-01-10 INC-6561 reviewed by ops: link fixed
+# 2024-05-11 INC-1576 reviewed by data: no change
+# 2021-02-28 INC-7519 reviewed by platform: no change

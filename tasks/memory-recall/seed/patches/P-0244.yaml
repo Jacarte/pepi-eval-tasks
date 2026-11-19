@@ -2,3 +2,15 @@ id: P-0244
 target: services/siskin/envs/prod-eu
 set:
   replicas: 6
+# 2021-10-23 INC-2273 reviewed by data: no change
+# 2021-06-13 INC-7861 reviewed by finance: link fixed
+# 2022-07-09 INC-1744 reviewed by ops: no change
+# 2021-08-14 INC-2774 reviewed by ops: no change
+# 2022-11-02 INC-4795 reviewed by platform: reviewed, nothing to do
+# 2024-08-26 INC-0053 reviewed by security: reviewed, nothing to do
+# 2023-07-03 INC-0404 reviewed by ops: reviewed, nothing to do
+# 2021-03-23 INC-5023 reviewed by data: no change
+# 2022-06-10 INC-5567 reviewed by security: reviewed, nothing to do
+# 2021-08-16 INC-8506 reviewed by finance: link fixed
+# 2022-08-18 INC-9703 reviewed by platform: no change
+# 2024-05-11 INC-2982 reviewed by platform: reviewed, nothing to do

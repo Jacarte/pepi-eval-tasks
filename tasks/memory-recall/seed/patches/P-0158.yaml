@@ -2,3 +2,15 @@ id: P-0158
 target: services/lark/envs/perf
 set:
   replicas: 4
+# 2021-04-21 INC-0556 reviewed by data: no change
+# 2022-06-08 INC-0789 reviewed by ops: wording only
+# 2024-11-22 INC-4058 reviewed by data: owner updated
+# 2021-07-13 INC-2630 reviewed by ops: owner updated
+# 2022-09-26 INC-2593 reviewed by data: reviewed, nothing to do
+# 2021-07-15 INC-1887 reviewed by data: no change
+# 2021-11-08 INC-9400 reviewed by data: no change
+# 2021-08-16 INC-4513 reviewed by data: link fixed
+# 2021-08-03 INC-8577 reviewed by ops: owner updated
+# 2024-05-07 INC-0815 reviewed by ops: owner updated
+# 2024-01-02 INC-3207 reviewed by security: wording only
+# 2022-06-12 INC-1773 reviewed by data: wording only

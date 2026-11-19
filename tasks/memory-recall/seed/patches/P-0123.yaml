@@ -3,3 +3,15 @@ target: services/sparrow/envs/prod
 set:
   storage:
     include: ../../storage/standard-eu.yaml
+# 2022-11-09 INC-4380 reviewed by platform: wording only
+# 2021-09-13 INC-7889 reviewed by platform: no change
+# 2023-05-21 INC-7701 reviewed by ops: no change
+# 2021-02-26 INC-0117 reviewed by finance: no change
+# 2021-12-28 INC-0373 reviewed by finance: wording only
+# 2024-02-04 INC-2156 reviewed by ops: owner updated
+# 2024-08-08 INC-3520 reviewed by data: owner updated
+# 2021-01-07 INC-9824 reviewed by security: no change
+# 2021-11-07 INC-4069 reviewed by data: link fixed
+# 2024-05-12 INC-0793 reviewed by platform: link fixed
+# 2021-05-23 INC-8602 reviewed by finance: reviewed, nothing to do
+# 2021-04-14 INC-7284 reviewed by data: wording only

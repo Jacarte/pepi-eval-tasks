@@ -2,3 +2,15 @@ id: P-0311
 target: services/quail/envs/qa
 set:
   region: us-east-1
+# 2024-05-16 INC-1566 reviewed by platform: wording only
+# 2021-10-16 INC-4447 reviewed by platform: wording only
+# 2021-12-23 INC-6155 reviewed by security: no change
+# 2021-02-06 INC-9329 reviewed by data: link fixed
+# 2022-07-03 INC-7842 reviewed by platform: owner updated
+# 2022-04-18 INC-8175 reviewed by security: owner updated
+# 2022-11-06 INC-9303 reviewed by data: wording only
+# 2024-02-28 INC-9498 reviewed by ops: link fixed
+# 2024-01-09 INC-9504 reviewed by data: owner updated
+# 2024-04-03 INC-0901 reviewed by data: wording only
+# 2021-12-07 INC-7746 reviewed by data: no change
+# 2021-10-18 INC-1143 reviewed by finance: reviewed, nothing to do

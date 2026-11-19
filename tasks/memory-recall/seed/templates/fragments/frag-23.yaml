@@ -1,3 +1,43 @@
 # frag-23
 include: ../bases/metrics.yaml
 class: cold
+# 2021-04-11 INC-1681 reviewed by finance: no change
+# 2023-03-06 INC-8066 reviewed by security: no change
+# 2022-10-09 INC-3200 reviewed by data: no change
+# 2021-03-15 INC-0309 reviewed by finance: owner updated
+# 2024-11-05 INC-1280 reviewed by ops: owner updated
+# 2023-09-04 INC-6727 reviewed by security: link fixed
+# 2021-01-12 INC-7147 reviewed by security: reviewed, nothing to do
+# 2022-04-25 INC-7457 reviewed by platform: owner updated
+# 2024-01-08 INC-5331 reviewed by finance: link fixed
+# 2023-03-24 INC-9357 reviewed by ops: no change
+# 2024-07-26 INC-5567 reviewed by platform: no change
+# 2023-03-18 INC-8089 reviewed by ops: owner updated
+# 2023-05-15 INC-3629 reviewed by finance: wording only
+# 2022-10-05 INC-9364 reviewed by finance: no change
+# 2021-09-07 INC-9013 reviewed by ops: wording only
+# 2022-09-26 INC-1872 reviewed by ops: owner updated
+# 2021-06-17 INC-7510 reviewed by finance: owner updated
+# 2024-04-24 INC-5471 reviewed by ops: reviewed, nothing to do
+# 2024-11-01 INC-7151 reviewed by data: reviewed, nothing to do
+# 2022-08-08 INC-4095 reviewed by security: wording only
+# 2024-06-13 INC-5164 reviewed by ops: link fixed
+# 2024-03-17 INC-5056 reviewed by security: owner updated
+# 2022-11-05 INC-4376 reviewed by finance: no change
+# 2022-11-08 INC-3162 reviewed by data: reviewed, nothing to do
+# 2021-01-26 INC-1112 reviewed by data: wording only
+# 2022-05-10 INC-4955 reviewed by data: no change
+# 2021-07-12 INC-0752 reviewed by data: reviewed, nothing to do
+# 2022-07-27 INC-9228 reviewed by security: reviewed, nothing to do
+# 2023-04-07 INC-1621 reviewed by data: wording only
+# 2022-01-20 INC-2208 reviewed by platform: link fixed
+# 2022-04-25 INC-2160 reviewed by platform: owner updated
+# 2021-08-25 INC-7658 reviewed by finance: link fixed
+# 2021-09-27 INC-3662 reviewed by finance: owner updated
+# 2024-10-05 INC-5743 reviewed by platform: link fixed
+# 2023-06-22 INC-5696 reviewed by ops: link fixed
+# 2022-04-20 INC-9618 reviewed by security: wording only
+# 2024-08-28 INC-8165 reviewed by platform: no change
+# 2022-10-17 INC-0762 reviewed by platform: reviewed, nothing to do
+# 2023-04-26 INC-0636 reviewed by data: wording only
+# 2022-07-14 INC-2775 reviewed by data: no change

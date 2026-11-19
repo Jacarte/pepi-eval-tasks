@@ -2,3 +2,58 @@
 parent: gdpr-core
 retention_days:
   standard: 200
+# 2024-12-04 INC-2281 reviewed by ops: reviewed, nothing to do
+# 2023-08-22 INC-5844 reviewed by security: owner updated
+# 2023-10-19 INC-1383 reviewed by data: owner updated
+# 2024-03-22 INC-2402 reviewed by security: wording only
+# 2021-05-06 INC-2581 reviewed by ops: reviewed, nothing to do
+# 2024-05-08 INC-5173 reviewed by security: reviewed, nothing to do
+# 2023-03-04 INC-7426 reviewed by finance: owner updated
+# 2022-12-03 INC-9060 reviewed by security: reviewed, nothing to do
+# 2021-12-26 INC-4132 reviewed by platform: link fixed
+# 2022-05-24 INC-4793 reviewed by finance: owner updated
+# 2021-11-13 INC-1737 reviewed by platform: link fixed
+# 2021-10-06 INC-9391 reviewed by platform: wording only
+# 2023-01-14 INC-4667 reviewed by platform: reviewed, nothing to do
+# 2022-03-14 INC-5744 reviewed by security: wording only
+# 2023-03-07 INC-1517 reviewed by ops: reviewed, nothing to do
+# 2021-12-09 INC-6945 reviewed by security: owner updated
+# 2024-02-28 INC-6300 reviewed by platform: wording only
+# 2023-06-15 INC-1833 reviewed by platform: owner updated
+# 2022-04-17 INC-5239 reviewed by ops: no change
+# 2024-07-14 INC-5562 reviewed by ops: owner updated
+# 2023-11-05 INC-2220 reviewed by platform: owner updated
+# 2023-04-20 INC-7355 reviewed by finance: reviewed, nothing to do
+# 2023-06-23 INC-5822 reviewed by data: link fixed
+# 2021-11-21 INC-4569 reviewed by security: no change
+# 2021-06-01 INC-6357 reviewed by finance: link fixed
+# 2024-03-21 INC-2228 reviewed by platform: wording only
+# 2023-08-23 INC-2039 reviewed by security: wording only
+# 2021-07-28 INC-3901 reviewed by platform: no change
+# 2022-12-09 INC-4354 reviewed by data: owner updated
+# 2024-05-05 INC-3171 reviewed by ops: reviewed, nothing to do
+# 2022-10-03 INC-0797 reviewed by security: owner updated
+# 2021-06-06 INC-1933 reviewed by platform: wording only
+# 2024-01-01 INC-5409 reviewed by data: no change
+# 2024-11-07 INC-6289 reviewed by security: wording only
+# 2023-02-26 INC-5765 reviewed by security: link fixed
+# 2021-04-03 INC-1043 reviewed by finance: no change
+# 2024-04-23 INC-2162 reviewed by security: owner updated
+# 2021-04-04 INC-0739 reviewed by finance: reviewed, nothing to do
+# 2024-10-03 INC-2526 reviewed by ops: link fixed
+# 2021-07-19 INC-0207 reviewed by security: wording only
+# 2021-10-06 INC-1045 reviewed by platform: owner updated
+# 2024-01-08 INC-2302 reviewed by security: owner updated
+# 2022-02-17 INC-6637 reviewed by ops: link fixed
+# 2022-10-28 INC-3317 reviewed by data: wording only
+# 2023-07-24 INC-8510 reviewed by platform: wording only
+# 2024-06-27 INC-1691 reviewed by security: owner updated
+# 2021-07-01 INC-8138 reviewed by security: wording only
+# 2024-08-26 INC-6360 reviewed by finance: no change
+# 2023-06-18 INC-3054 reviewed by platform: link fixed
+# 2023-04-05 INC-2456 reviewed by finance: reviewed, nothing to do
+# 2022-02-28 INC-8921 reviewed by platform: owner updated
+# 2023-11-20 INC-7906 reviewed by security: wording only
+# 2023-09-21 INC-6782 reviewed by data: no change
+# 2021-10-08 INC-9773 reviewed by ops: owner updated
+# 2023-08-18 INC-9034 reviewed by ops: reviewed, nothing to do

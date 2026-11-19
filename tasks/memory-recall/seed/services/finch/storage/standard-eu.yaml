@@ -1,4 +1,4 @@
 # standard-eu storage profile
-include: ../../../templates/fragments/frag-22.yaml
+include: standard.yaml
 versioning: true
 encryption: kms

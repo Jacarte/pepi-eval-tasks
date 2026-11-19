@@ -1,3 +1,43 @@
 # frag-14
 include: ../bases/ledger.yaml
 class: cold
+# 2022-05-22 INC-3306 reviewed by ops: reviewed, nothing to do
+# 2023-02-12 INC-5378 reviewed by platform: owner updated
+# 2022-05-07 INC-2955 reviewed by security: no change
+# 2024-06-10 INC-6367 reviewed by security: link fixed
+# 2021-10-04 INC-3988 reviewed by finance: owner updated
+# 2021-01-06 INC-5660 reviewed by security: reviewed, nothing to do
+# 2022-12-05 INC-1066 reviewed by security: owner updated
+# 2022-05-09 INC-3678 reviewed by platform: reviewed, nothing to do
+# 2023-04-05 INC-7672 reviewed by finance: owner updated
+# 2023-10-08 INC-7458 reviewed by finance: reviewed, nothing to do
+# 2021-11-02 INC-2206 reviewed by ops: no change
+# 2024-11-02 INC-8409 reviewed by ops: owner updated
+# 2023-07-11 INC-3846 reviewed by finance: wording only
+# 2022-11-28 INC-1155 reviewed by ops: owner updated
+# 2024-07-18 INC-9199 reviewed by data: reviewed, nothing to do
+# 2022-10-23 INC-3006 reviewed by data: link fixed
+# 2024-06-19 INC-6118 reviewed by finance: reviewed, nothing to do
+# 2023-07-13 INC-1531 reviewed by platform: link fixed
+# 2022-04-03 INC-1589 reviewed by data: link fixed
+# 2024-05-03 INC-1887 reviewed by security: owner updated
+# 2023-04-20 INC-9001 reviewed by ops: link fixed
+# 2021-04-24 INC-5487 reviewed by data: link fixed
+# 2021-02-08 INC-3110 reviewed by finance: owner updated
+# 2022-11-22 INC-0710 reviewed by finance: no change
+# 2023-06-06 INC-8332 reviewed by platform: no change
+# 2024-05-19 INC-6929 reviewed by ops: no change
+# 2022-04-21 INC-9498 reviewed by finance: reviewed, nothing to do
+# 2021-12-08 INC-5324 reviewed by platform: link fixed
+# 2022-02-20 INC-5601 reviewed by data: link fixed
+# 2022-09-07 INC-3714 reviewed by data: owner updated
+# 2024-11-28 INC-2382 reviewed by platform: owner updated
+# 2022-06-04 INC-2564 reviewed by security: owner updated
+# 2021-11-21 INC-6659 reviewed by finance: owner updated
+# 2024-08-25 INC-3197 reviewed by security: owner updated
+# 2022-12-25 INC-1852 reviewed by finance: reviewed, nothing to do
+# 2022-10-06 INC-1373 reviewed by data: owner updated
+# 2023-11-25 INC-5775 reviewed by data: wording only
+# 2024-03-21 INC-4663 reviewed by finance: wording only
+# 2023-08-01 INC-0235 reviewed by data: wording only
+# 2023-03-14 INC-3820 reviewed by finance: link fixed

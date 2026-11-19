@@ -2,3 +2,15 @@ id: P-0246
 target: services/sparrow/envs/sandbox
 set:
   replicas: 1
+# 2023-02-01 INC-3092 reviewed by platform: reviewed, nothing to do
+# 2022-12-27 INC-7552 reviewed by platform: reviewed, nothing to do
+# 2022-01-03 INC-3836 reviewed by platform: reviewed, nothing to do
+# 2021-04-20 INC-7324 reviewed by ops: wording only
+# 2024-04-06 INC-2088 reviewed by ops: wording only
+# 2024-04-20 INC-8415 reviewed by data: link fixed
+# 2021-01-14 INC-6682 reviewed by finance: no change
+# 2022-12-26 INC-8617 reviewed by security: reviewed, nothing to do
+# 2024-05-16 INC-3794 reviewed by security: wording only
+# 2024-12-05 INC-6371 reviewed by data: no change
+# 2021-02-08 INC-2464 reviewed by ops: owner updated
+# 2023-01-03 INC-3951 reviewed by ops: link fixed
