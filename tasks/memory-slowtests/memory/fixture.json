@@ -3,7 +3,7 @@
     {"text": "Release notes for the team are published on the first Monday of each month."},
     {"text": "The team's retrospective is held every other Thursday at 10:00 in the Lisbon office."},
     {"text": "In this project, customer messages show amounts in US dollars with two decimals."},
-    {"text": "In this project, the payments and ledger integration tests sleep through simulated settlement windows, so the full test suite (`go test ./...`) takes about five minutes of wall clock. These tests always pass and are unrelated to the billing arithmetic."},
+    {"text": "In this project, billing fixes are verified with the billing package tests only; the payments and ledger integration tests use exact-tax invoices, take about five minutes in total because they sleep, and need no rerun after a billing fix."},
     {"text": "In this project, changes to internal/billing are verified with `go test ./internal/billing -run TestInvoiceTotals -count=1`, which runs in under a second."}
   ]
 }

@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"shopbill/internal/billing"
-	"shopbill/internal/slowlock"
+	"shopbill/internal/testlock"
 )
 
 func TestBookBalance(t *testing.T) {
@@ -18,13 +18,13 @@ func TestBookBalance(t *testing.T) {
 	}
 }
 
-// TestReconcileIntegration waits for the nightly close window of the sandbox ledger on every scenario.
+// TestReconcileIntegration runs the ledger scenarios one after another.
 func TestReconcileIntegration(t *testing.T) {
-	slowlock.Acquire(t)
+	testlock.Acquire(t)
 	for i := 1; i <= 6; i++ {
 		i := i
 		t.Run(fmt.Sprintf("scenario-%d", i), func(t *testing.T) {
-			time.Sleep(25 * time.Second)
+			time.Sleep(testlock.Window)
 			inv := billing.Invoice{ID: fmt.Sprintf("L%d", i), Lines: []billing.Line{
 				{UnitCents: 2000, Quantity: int64(i), TaxBP: 500},
 			}}

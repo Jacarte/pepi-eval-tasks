@@ -1,12 +1,16 @@
-// Package slowlock serialises the slow integration tests across packages.
-package slowlock
+// Package testlock serialises the integration tests across packages.
+package testlock
 
 import (
 	"os"
 	"path/filepath"
 	"syscall"
 	"testing"
+	"time"
 )
+
+// Window is the time an integration scenario waits for the sandbox services.
+const Window = 25 * time.Second
 
 // Acquire blocks until no other test binary holds the shared lock, then holds it until t ends.
 // The lock lives in the temp dir so that packages run in parallel by `go test ./...` cannot overlap.

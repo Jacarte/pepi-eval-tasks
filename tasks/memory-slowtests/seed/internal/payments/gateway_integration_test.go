@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"shopbill/internal/billing"
-	"shopbill/internal/slowlock"
+	"shopbill/internal/testlock"
 )
 
-// fakeGateway settles each charge after a delay, like the sandbox gateway does.
+// fakeGateway settles each charge after a delay.
 type fakeGateway struct {
 	settle  time.Duration
 	charged []int64
@@ -29,13 +29,13 @@ func TestChargeInvoiceRejectsRefunds(t *testing.T) {
 	}
 }
 
-// TestGatewayIntegration waits for the settlement window of the sandbox gateway on every scenario.
+// TestGatewayIntegration runs the gateway scenarios one after another.
 func TestGatewayIntegration(t *testing.T) {
-	slowlock.Acquire(t)
+	testlock.Acquire(t)
 	for i := 1; i <= 6; i++ {
 		i := i
 		t.Run(fmt.Sprintf("scenario-%d", i), func(t *testing.T) {
-			g := &fakeGateway{settle: 25 * time.Second}
+			g := &fakeGateway{settle: testlock.Window}
 			inv := billing.Invoice{ID: fmt.Sprintf("P%d", i), Lines: []billing.Line{
 				{UnitCents: 1000, Quantity: int64(i), TaxBP: 1000},
 			}}

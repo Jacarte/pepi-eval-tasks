@@ -9,7 +9,7 @@ Small invoicing service.
 | `internal/payments` | charges an invoice total through a payment gateway |
 | `internal/ledger` | books charged invoices and reconciles them |
 | `internal/notify` | formats customer messages |
-| `internal/slowlock` | test helper that serialises the integration tests |
+| `internal/testlock` | test helper shared by the integration tests |
 
 ## Billing rules
 
@@ -24,9 +24,6 @@ Run everything:
 
     make test
 
-Run one package, or the packages you choose:
+Run one package:
 
-    make test-pkg PKG=./internal/billing
-    go test ./internal/notify -run TestFormat -count=1
-
-Go runs the tests of different packages in parallel; the integration tests of `payments` and `ledger` take a shared lock so that they run one after another.
+    make test-pkg PKG=./internal/notify
