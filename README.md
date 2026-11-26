@@ -58,7 +58,7 @@ milestones:
     command: go test ./acceptance/ -run '^TestM2'
 ```
 
-Each milestone `id` starts with `m<N>` and each `command` starts with `go test`. The hidden tests of milestone N are the functions named `TestM<N>...`; that is how the grading harness knows which tests a milestone expects.
+Each milestone `id` starts with `m<N>` and each `command` starts with `go test`, or is a skill milestone (`skill_loaded:<name>` or `skill_not_loaded:<name>`, graded only in evals from the skills the parent loaded). The hidden tests of milestone N are the functions named `TestM<N>...`; that is how the grading harness knows which tests a milestone expects.
 
 ## Grading rules
 
