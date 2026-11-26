@@ -22,6 +22,7 @@ tasks/<name>/
   hidden/           milestone tests, applied only at grading
   milestones.yaml   ordered milestones and the command that checks each
   memory/           optional fixture.json: memories stored in the agent's memory service before it starts
+  skills/           optional, skill-<name> tasks: the vendored skill folder (SKILL.md, scripts) that is the --global-skills source
 ```
 
 ### task.yaml
