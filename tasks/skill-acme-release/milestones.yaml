@@ -1,0 +1,13 @@
+milestones:
+  - id: m1-changelog
+    title: Changelog section has the mandated heading, entry format and order
+    command: go test ./release/ -run '^TestM1'
+  - id: m2-version
+    title: VERSION and the release manifest are bumped by the rules
+    command: go test ./release/ -run '^TestM2'
+  - id: m3-gate-steps
+    title: Gate trailer matches the gate input and the release steps ran in order
+    command: go test ./release/ -run '^TestM3'
+  - id: m4-skill-loaded
+    title: The parent loaded the acme-release skill
+    command: skill_loaded:acme-release
