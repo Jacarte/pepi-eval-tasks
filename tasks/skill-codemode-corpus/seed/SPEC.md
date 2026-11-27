@@ -65,3 +65,17 @@ func Top(root string, n int) ([]FileTokens, error)
 
 Errors: an unreadable `root` or file returns a non-nil error. Results are deterministic for a
 fixed tree.
+
+## Report
+
+Write `report.json` in the module root (next to `go.mod`), computed from `corpus/` with the
+functions above and `Top(root, 10)`. It is a JSON object with these keys:
+
+- `files`: the result of `Files`, per extension;
+- `lines`: the result of `Lines`, per extension;
+- `tokens`: the result of `Tokens`;
+- `top`: the ten entries of `Top(root, 10)`, in the same order, each an object with `path` and
+  `tokens`.
+
+Per-extension maps follow the same rule as `Files` and `Lines`: only extensions with at least
+one counted file are present.

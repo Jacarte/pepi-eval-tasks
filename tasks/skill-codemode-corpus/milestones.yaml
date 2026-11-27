@@ -14,3 +14,6 @@ milestones:
   - id: m5-skill-loaded
     title: The parent loaded the codemode-guidance skill
     command: skill_loaded:codemode-guidance
+  - id: m6-report
+    title: report.json holds the per-extension files and lines, the token total and the top 10
+    command: go test ./corpusstats/ -run '^TestM6'

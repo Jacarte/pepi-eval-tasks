@@ -15,7 +15,7 @@ The sandbox has no Node APIs, no file system, no network, and no timers. Scripts
 2. If the calls have a known shape or are independent, pick codemode. If a step needs per-item judgment, pick a subagent, or collect with codemode first (hybrid).
 3. Find the tool names and arguments you need with `searchTools` and `describeTool` inside the script, unless they are already listed.
 4. Write the script: `Promise.all` for independent calls, a `// @options` line with `timeout_ms`, and a compact `return`.
-5. Verify exactness: compare the counts the script saw with an independent count (for example `wc -l`), and report `truncated` when any output was cut.
+5. Verify exactness: compare the counts the script saw with an independent count (for example `wc -l`, adding one for a non-empty file with no final newline; see the practices), and report `truncated` when any output was cut.
 6. Read the result. If the script failed, use the troubleshooting table before rerunning, because earlier tool calls already ran.
 
 ## Decision table
@@ -28,7 +28,7 @@ The sandbox has no Node APIs, no file system, no network, and no timers. Scripts
 | Search, then read the hits and keep only a distilled answer | Codemode |
 | Bulk data that must not enter the context (large files, long command output) | Codemode, return a summary |
 | Edit a file, then verify it, as one unit | Codemode |
-| Polling until a condition holds | Codemode with a `timeout_ms` option |
+| Polling until a condition holds | Codemode with a `timeout_ms` option. Scripts have no timers, so each poll needs a `bash` call with `sleep N` between checks, and every call counts toward the 256-call nested record cap, so bound the number of polls |
 | Per-step judgment, design, or review | Subagent (`worker`, `reviewer`, `oracle`, `scout`) |
 | Script collects data, then judgment is needed on it | Hybrid: codemode collects, then the model calls the subagent |
 
@@ -40,7 +40,7 @@ Scripts cannot call `subagent`, `contact_supervisor`, or `structured_output`. Do
 - Use `Promise.all` for independent calls. Use `Promise.allSettled` when a partial result is useful. A rejected call throws an `Error` with the tool's error text.
 - Discover tools before calling them: `await searchTools("read file", { limit: 5 })`, then `await describeTool(name)` for the declaration. The `tools.<name>` names are identifiers: characters invalid in an identifier become `_`.
 - Return only a compact value. Aggregate counts, filter lines, and keep the top N in the script. Do not return whole files.
-- Pi's `read` tool returns at most about 2000 lines or 50KB per call, so page through large files with `offset` and `limit`. Count what you read and compare the total with the expected count (for example, `wc -l` through `bash`). Report a `truncated` flag and the verified counts whenever exactness matters.
+- Pi's `read` tool returns at most about 2000 lines or 50KB per call, so page through large files with `offset` and `limit`. Count what you read and compare the total with the expected count (for example, `wc -l` through `bash`). `wc -l` counts `\n` bytes only, so add one for a non-empty file that does not end in `\n`. Report a `truncated` flag and the verified counts whenever exactness matters.
 - `bash` resolves to `{ output, truncated, full_output_path?, exit_code, wall_time_seconds }`, including for non-zero exit codes. Check `exit_code` yourself.
 - Tool calls are not rolled back when a script fails. A write made before the failure stays. Design edits so a failure is visible and recoverable.
 - A nested call record holds at most 256 calls. Beyond that, calls are dropped from the record. Do not build designs that depend on a full call log; keep fan-out bounded and aggregate it.
@@ -93,7 +93,7 @@ return { edit: String(edit).slice(0, 200), exit_code: test.exit_code, tail: Stri
 | `tools.<name> is not a function` | The name is not callable here. Run `searchTools` or `ALL_TOOLS` to find the real name, and use `_` for invalid characters. |
 | Script hangs or is cancelled | Add or lower `timeout_ms`. Calls still running at script end are cancelled, so await everything you need. |
 | Output was cut short | Return less: aggregate in the script. If you need the whole text, the result names a temp file path; read that file with `read`, page by page. |
-| `read` output looks complete but the count is off | `read` truncates at about 2000 lines or 50KB. Page with `offset` and `limit`, and compare the line count with `wc -l`. |
+| `read` output looks complete but the count is off | `read` truncates at about 2000 lines or 50KB. Page with `offset` and `limit`, and compare the line count with `wc -l`, adding one when the file does not end in a newline. |
 | A `bash` result shows `exit_code` non-zero but no exception | Expected: `bash` resolves for non-zero exits. Check `exit_code` and throw or return it yourself. |
 | Fan-out returns many failures | Use `Promise.allSettled`, report the failed paths, and retry them in a separate, smaller script. |
 | The task needs judgment on each item | Stop scripting. Collect with codemode, then hand the compact result to a subagent. |
