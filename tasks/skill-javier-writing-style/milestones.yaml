@@ -1,0 +1,19 @@
+milestones:
+  - id: m1-structure
+    title: The post runs problem, solution, results, then discussion, as headings
+    command: go test ./grade/ -run '^TestM1'
+  - id: m2-opening
+    title: The opening paragraph names a pain point and its impact, and does not announce the solution
+    command: go test ./grade/ -run '^TestM2'
+  - id: m3-voice
+    title: The post uses at least three pragmatic phrases that admit limits
+    command: go test ./grade/ -run '^TestM3'
+  - id: m4-evidence
+    title: The post quotes the before and after numbers from the notes and has a blockquote caveat
+    command: go test ./grade/ -run '^TestM4'
+  - id: m5-code
+    title: The post shows the whole workflow file in one fenced block
+    command: go test ./grade/ -run '^TestM5'
+  - id: m6-skill-loaded
+    title: The parent loaded the javier-writing-style skill
+    command: skill_loaded:javier-writing-style
