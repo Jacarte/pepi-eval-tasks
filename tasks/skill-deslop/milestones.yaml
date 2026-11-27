@@ -1,0 +1,19 @@
+milestones:
+  - id: m1-narration
+    title: The branch's comments do not narrate the code, and the comments that explain a constraint stay
+    command: go test ./fx/ -run '^TestM1'
+  - id: m2-casts-recover
+    title: The branch casts nothing to any and does not recover from panics, and the checks on caller input stay
+    command: go test ./fx/ -run '^TestM2'
+  - id: m3-style
+    title: The branch's style matches the package, and Print and the rounding are unchanged
+    command: go test ./fx/ -run '^TestM3'
+  - id: m4-scope
+    title: The branch's own code is clean, and code it did not change is byte-identical to main
+    command: go test ./fx/ -run '^TestM4'
+  - id: m5-suite
+    title: The whole suite passes
+    command: go test ./...
+  - id: m6-skill-loaded
+    title: The parent loaded the deslop skill
+    command: skill_loaded:deslop
