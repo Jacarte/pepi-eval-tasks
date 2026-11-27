@@ -1,0 +1,10 @@
+name: skill-codemode-corpus
+kind: long
+language: go
+go_version: 1.22.5
+sessions: 1
+session_timeout_minutes: 20
+budget_usd: 3
+deadline_minutes: null
+scoring: prefix            # m5 skill_loaded is the last milestone; it is reported, not gating (graded in evals only)
+restore_seed_tests: true   # the seed has no tests; agent-written test files are removed before grading

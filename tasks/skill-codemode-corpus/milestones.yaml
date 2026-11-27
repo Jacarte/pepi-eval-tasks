@@ -1,0 +1,16 @@
+milestones:
+  - id: m1-files
+    title: Per-extension counts of the counted files under corpus/
+    command: go test ./corpusstats/ -run '^TestM1'
+  - id: m2-lines
+    title: Exact line counts per extension (CRLF, no final newline, empty files)
+    command: go test ./corpusstats/ -run '^TestM2'
+  - id: m3-tokens
+    title: Token totals under the comment and ASCII token rules
+    command: go test ./corpusstats/ -run '^TestM3'
+  - id: m4-top
+    title: Top files by token count, ties by path, with the requested count
+    command: go test ./corpusstats/ -run '^TestM4'
+  - id: m5-skill-loaded
+    title: The parent loaded the codemode-guidance skill
+    command: skill_loaded:codemode-guidance
