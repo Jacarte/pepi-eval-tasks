@@ -18,6 +18,10 @@ trap 'rm -rf "$WORK"' EXIT
 ERRORS=0
 fail() { echo "FAIL: $*"; ERRORS=$((ERRORS + 1)); }
 
+# A skill milestone (skill_loaded:<name> or skill_not_loaded:<name>) is graded only in evals, from
+# the skills the parent loaded: it is not run in the workspace, so this script cannot prove it.
+SKILL_COMMAND='^skill_(not_)?loaded:[a-z0-9][a-z0-9._-]*$'
+
 # ---- YAML parsing: emits "T<TAB>key<TAB>value" and "M<TAB>id<TAB>title<TAB>command" ----
 parse_python() {
   python3 - "$1" "$2" <<'PY'
@@ -132,7 +136,11 @@ for i in "${!IDS[@]}"; do
   [ -n "${TITLES[$i]}" ] || fail "milestone #$((i + 1)): title missing"
   [ -n "${CMDS[$i]}" ] || fail "milestone #$((i + 1)): command missing"
   [[ "${IDS[$i]}" =~ ^m[0-9]+($|[^0-9]) ]] || fail "milestone #$((i + 1)): id '${IDS[$i]}' must start with m<number> (it selects the TestM<number> tests)"
-  [[ "${CMDS[$i]}" == "go test"* ]] || fail "milestone #$((i + 1)): command must start with 'go test'"
+  if [[ "${CMDS[$i]}" == skill_* ]]; then
+    [[ "${CMDS[$i]}" =~ $SKILL_COMMAND ]] || fail "milestone #$((i + 1)): skill command must be skill_loaded:<name> or skill_not_loaded:<name> (got '${CMDS[$i]}')"
+  else
+    [[ "${CMDS[$i]}" == "go test"* ]] || fail "milestone #$((i + 1)): command must start with 'go test', skill_loaded: or skill_not_loaded:"
+  fi
 done
 DUPES=$(printf '%s\n' "${IDS[@]}" | sort | uniq -d || true)
 [ -z "$DUPES" ] || fail "milestones.yaml: duplicate ids: $DUPES"
@@ -187,6 +195,10 @@ overlay_hidden "$WORK/ref"
 
 SEED_RES=(); REF_RES=()
 for i in "${!IDS[@]}"; do
+  if [[ "${CMDS[$i]}" == skill_* ]]; then
+    SEED_RES+=("skill-eval"); REF_RES+=("skill-eval")
+    continue
+  fi
   if OUT=$("$HERE/check-milestone.sh" "$TASK" "$WORK/seed" "${IDS[$i]}" 2>&1); then
     SEED_RES+=("PASSES(bad)"); fail "${IDS[$i]}: passes on the seed"
   else
@@ -206,5 +218,6 @@ for i in "${!IDS[@]}"; do
   printf '%-24s %-14s %-14s\n' "${IDS[$i]}" "${SEED_RES[$i]}" "${REF_RES[$i]}"
 done
 echo
+echo "skill-eval: graded only in evals (not run here)"
 if [ "$ERRORS" -gt 0 ]; then echo "RESULT: FAILED ($ERRORS problem(s))"; exit 1; fi
 echo "RESULT: OK ($NAME)"

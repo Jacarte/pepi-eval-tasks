@@ -1,0 +1,10 @@
+milestones:
+  - id: m1-entered-order
+    title: Promotions apply in the order the customer entered them
+    command: go test ./checkout/ -run '^TestM1'
+  - id: m2-codes
+    title: Repeated codes count once, unknown codes are rejected
+    command: go test ./promo/ -run '^TestM2'
+  - id: m3-skill-loaded
+    title: The parent loaded the diagnosing-bugs skill
+    command: skill_loaded:diagnosing-bugs

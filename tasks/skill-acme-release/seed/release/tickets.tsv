@@ -1,0 +1,4 @@
+ticket	type	scope	summary	paths	status
+ACME-12	fix	promo	Keep entered order when codes combine	promo/promo.go	merged
+ACME-19	feat	checkout	Add gift card tender	checkout/checkout.go	open
+ACME-31	feat	checkout	Show applied promo codes in quote	checkout/checkout.go	merged

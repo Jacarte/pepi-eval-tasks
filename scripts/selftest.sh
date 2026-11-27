@@ -71,6 +71,21 @@ GOOD="  - id: m1
 mk good "$GOOD"
 expect "good task" 0 good
 
+mk skill "$GOOD  - id: m3
+    title: Skill loaded
+    command: skill_loaded:demo-skill
+  - id: m4
+    title: Skill not loaded
+    command: skill_not_loaded:other-skill
+"
+expect "skill milestones are not run" 0 skill "skill-eval"
+
+mk badskill "$GOOD  - id: m3
+    title: Bad skill name
+    command: skill_loaded:Bad_Name
+"
+expect "skill milestone with a bad name" 1 badskill "skill command must be"
+
 mk passes_seed "$GOOD  - id: m3
     title: Trivial
     command: go test ./... -run '^TestAlways\$'

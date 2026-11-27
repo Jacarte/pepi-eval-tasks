@@ -11,7 +11,7 @@ scripts/verify-task.sh tasks/<name> <reference-dir>
 Checks:
 
 - `task.yaml`/`milestones.yaml` against the README schema, including `scoring` (`prefix|count`, required) and `owned_dirs` (each entry must be a directory under `hidden/`) and the optional `restore_seed_tests` (`true|false`);
-- milestone ids start with `m<N>` and commands start with `go test`;
+- milestone ids start with `m<N>` and commands start with `go test`, or are a skill milestone (`skill_loaded:<name>` or `skill_not_loaded:<name>`, graded only in evals and not run by this script);
 - `seed/` has a `go.mod`; `seed/` and `prompts/` never match, case-insensitively, `pepi-eval-tasks`, `Jacarte`, `AGENTS`, `subagent` or `delegat`;
 - `prompts/` holds exactly `01.md` .. `NN.md` for `sessions: NN`;
 - when `memory/fixture.json` exists (it must for a `memory/` dir and for `kind: memory` with `sessions: 1`), its shape (`checkfixture`), and that no file of `seed/` or `prompts/` contains one of its texts.
